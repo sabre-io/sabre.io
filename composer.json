@@ -1,0 +1,6 @@
+{
+    "require" : {
+        "dflydev/markdown" : "~1.0.2"
+    }
+
+}
