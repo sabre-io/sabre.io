@@ -1,0 +1,62 @@
+/* mini reset */
+body, main, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+header {
+    background-color: #eee;
+    padding: 10px;
+}
+
+header .logo a {
+    color: #333;
+    text-decoration: none;
+    font-size: 28px;
+
+}
+
+header .logo * {
+    vertical-align: middle;
+}
+
+header nav ul {
+    list-style: none;
+    position: absolute;
+    right: 20px;
+    top: 13px;
+}
+
+header nav {
+    word-spacing: 20px;
+}
+
+header nav li {
+    display: inline;
+    word-spacing: 0;
+}
+
+header nav li a {
+    color: #31a1cd;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+}
+
+article {
+    margin-left: 20px;
+}
+
+aside {
+    width: 200px;
+    border: 0px dashed #eee;
+    border-width: 0 4px 4px 0;
+}
