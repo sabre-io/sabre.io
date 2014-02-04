@@ -1,5 +1,6 @@
 # sculpin
 /output_dev/
+/output_prod/
 /.sculpin/
 /source/components/*
 

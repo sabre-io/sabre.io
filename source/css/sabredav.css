@@ -56,12 +56,20 @@ main {
 
 article {
     margin-left: 20px;
+    padding-top: 30px;
+}
+
+article h1 {
+    font-size: 42px;
+    color: #b10610;
+    padding-bottom: 5px;
 }
 
 aside {
     width: 200px;
     border: 0px dashed #eee;
     border-width: 0 4px 4px 0;
+    min-width: 170px;
 }
 
 main table {
