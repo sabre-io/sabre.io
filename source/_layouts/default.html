@@ -13,7 +13,7 @@
     <main>
         {% include "sidebar.html" %}
         <article>
-            {% block content %}{% endblock %}
+            {%block contentwrapper%}{% block content %}{% endblock %}{% endblock %}
         </article>
     </main>
 

@@ -1,0 +1,6 @@
+sculpin_content_types:
+    clients:
+        type: meta
+        meta: client
+        layout: client
+        permalink: pretty
