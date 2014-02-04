@@ -3,6 +3,7 @@
 /output_prod/
 /.sculpin/
 /source/components/*
+/deploy/
 
 # vim
 .*.swp
