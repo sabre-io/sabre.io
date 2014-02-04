@@ -51,12 +51,16 @@ header nav li a {
 }
 
 main {
+    display: -webkit-flex;
     display: flex;
 }
 
 article {
     margin-left: 20px;
     padding-top: 30px;
+    -webkit-flex: 4 1 auto;
+    flex: 4 1 auto;
+
 }
 
 article h1 {
@@ -66,7 +70,8 @@ article h1 {
 }
 
 aside {
-    width: 200px;
+    -webkit-flex: 1 0 200px;
+    flex: 1 0 200px;
     border: 0px dashed #eee;
     border-width: 0 4px 4px 0;
     min-width: 170px;
