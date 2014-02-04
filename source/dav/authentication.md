@@ -1,5 +1,8 @@
 ---
 layout: default
+type: plugin
+plugin_name: auth
+plugin_since: 0.9.0
 ---
 
 Authentication

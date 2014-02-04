@@ -1,5 +1,8 @@
 ---
 layout: default
+type: plugin
+plugin_name: acl
+plugin_since: 1.4.0
 ---
 
 ACL

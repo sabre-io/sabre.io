@@ -4,3 +4,8 @@ sculpin_content_types:
         meta: client
         layout: client
         permalink: pretty
+    plugins:
+        type: meta
+        meta: plugin
+        layout: default
+        permalink: pretty
