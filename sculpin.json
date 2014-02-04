@@ -1,0 +1,10 @@
+{
+    "require" : {
+        "components/highlightjs" : "~8.0.0"
+    },
+
+    "config": {
+        "component-dir": "source/components"
+    }
+
+}

@@ -1,5 +1,7 @@
 # sculpin
-output_dev/
+/output_dev/
+/.sculpin/
+/source/components/*
 
 # vim
 .*.swp

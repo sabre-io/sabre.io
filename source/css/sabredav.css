@@ -6,6 +6,9 @@ body, main, h1 {
 
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+body, td, th {
     font-weight: 300;
     font-size: 14px;
 }
@@ -59,4 +62,19 @@ aside {
     width: 200px;
     border: 0px dashed #eee;
     border-width: 0 4px 4px 0;
+}
+
+main table {
+    border-collapse: collapse;
+
+}
+
+main table td, main table th {
+    border: 1px solid #ccc;
+    padding: 4px;
+}
+
+main table th {
+    font-weight: bold;
+    text-align: left;
 }
