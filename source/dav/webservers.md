@@ -41,6 +41,23 @@ users:
 
     </VirtualHost *:*>
 
+### Authentication over fastcgi
+
+If you use PHP through CGI or FastCGI and Apache authentication headers are not passed through by default. You can enable this with the following mod_rewrite rule:
+
+    <IfModule mod_rewrite.c>
+      RewriteEngine on
+      RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+    </IfModule>
+
+If you already had a mod_rewrite rule to map all urls to a server file, you might need to change this to something like:
+
+    <IfModule mod_rewrite.c>
+      RewriteEngine on
+      RewriteRule .* /server.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+    </IfModule>
+
+Note the /server.php. Make sure this reflects the correct location of your server file.
 
 Nginx
 -----
@@ -63,4 +80,18 @@ Using lighttpd is generally not recommended. Development has been incredibly
 slow in recent years, and lighttpd does not have support for many required
 HTTP methods, such as `MKCALENDAR`, `MKCOL`, `ACL`, etc.
 
+IIS
+---
 
+Not a lot of testing has been done with IIS, but here's some tidbits:
+
+IIS might not set HTTP_AUTHORIZATION automatically. According to the
+[PHP manual][1], you can enable it. Quote from the manual:
+
+> Also note that until PHP 4.3.3, HTTP Authentication did not work using
+> Microsoft's IIS server with the CGI version of PHP due to a limitation of
+> IIS. In order to get it to work in PHP 4.3.3+, you must edit your IIS
+> configuration "Directory Security". Click on "Edit" and only check "Anonymous
+> Access", all other fields should be left unchecked.
+
+[1]: http://www.php.net/manual/en/features.http-auth.php

@@ -1,5 +1,5 @@
 /* mini reset */
-body, main, h1 {
+body, main, h1, blockquote {
     margin: 0;
     padding: 0;
 }
@@ -85,4 +85,10 @@ main table td, main table th {
 main table th {
     font-weight: bold;
     text-align: left;
+}
+
+blockquote {
+    background: #eee;
+    padding: 5px 25px 5px 5px;
+    border-left: 20px solid #ccc;
 }
