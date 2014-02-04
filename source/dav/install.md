@@ -48,6 +48,34 @@ This file should look like this:
         }
     }
 
+
+This rule ensures that you install the latest SabreDAV package in the 1.8
+range of packages, but does not install 1.9 or higher, which would likely
+result in breaking stuff.
+
+After you have created this file, you can install sabredav with the following
+command:
+
+
+    composer update sabre/dav
+
+The autoloader is in `vendor/autoload.php`.
+
+
+Manual installation
+-------------------
+
+You can also [download][3] the latest package manually. This package is
+distributed as a zip file.
+
+To use it, just unzip it and include the `autoload.php` file in the `vendor/`
+directory.
+
+Next Steps
+----------
+
+Head over to [Getting Started](gettingstarted) to see what's next.
+
 [1]: http://getcomposer.org/
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
-
+[3]: https://github.com/fruux/sabre-dav/releases
