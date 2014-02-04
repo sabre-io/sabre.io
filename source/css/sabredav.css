@@ -1,16 +1,21 @@
 /* mini reset */
-body, main, h1, blockquote {
+body, main, h1, blockquote, ul, li {
     margin: 0;
     padding: 0;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
+    line-height: 22px;
 }
 
 body, td, th {
     font-weight: 300;
     font-size: 14px;
+}
+
+a {
+    color: #31a1cd;
 }
 
 header {
@@ -46,7 +51,7 @@ header nav li {
 }
 
 header nav li a {
-    color: #31a1cd;
+
     text-decoration: none;
 }
 
@@ -69,12 +74,18 @@ article h1 {
     padding-bottom: 5px;
 }
 
+/* Sidebar */
 aside {
     -webkit-flex: 1 0 200px;
     flex: 1 0 200px;
     border: 0px dashed #eee;
     border-width: 0 4px 4px 0;
     min-width: 170px;
+    padding-top: 15px;
+}
+
+aside ul {
+    margin-left: 25px;
 }
 
 main table {
@@ -96,4 +107,9 @@ blockquote {
     background: #eee;
     padding: 5px 25px 5px 5px;
     border-left: 20px solid #ccc;
+}
+
+/* code blocks */
+code {
+    line-height: 18px;
 }
