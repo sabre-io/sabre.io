@@ -7,8 +7,8 @@ Virtual Filesystems
 
 SabreDAV is built to easily adapt existing business logic onto a virtual network filesystem. This document explores how this can be setup.
 
-* It is assummed in this tutorial that the reader has already went through the [GettingStarted](dav/gettingstarted) and [FAQ](dav/faq) manuals
-* In the code examples it is assumed all mentioned classes are currently loaded in through an include
+* It is assummed in this tutorial that the reader has already went through the [GettingStarted](dav/gettingstarted) and [FAQ](dav/faq) manuals.
+* In the code examples it is assumed all mentioned classes are currently loaded in through an include.
 
 High-level API
 --------------
@@ -18,28 +18,28 @@ SabreDAV is shipped with an API that should ease creating directory-tree structu
 Files and Directories
 ---------------------
 
-Files and Directories both implement the Sabre\DAV\INode interface, this interface dictates the following methods should be implemented:
+Files and Directories both implement the `Sabre\DAV\INode` interface, this interface dictates the following methods should be implemented:
 
-* delete() - deletes the file/directory.
-* getName() - returns the file/directory name.
-* setName($newName) - renames the directory.
-* getLastModified() - returns the last modification time as a unix timestamp.
+* `delete()` - deletes the file/directory.
+* `getName()` - returns the file/directory name.
+* `setName($newName)` - renames the directory.
+* `getLastModified()` - returns the last modification time as a unix timestamp.
 
 Additionally File objects need to implement the following methods:
 
-* put($data) updates the data in the file.
-* get() returns the contents of the file.
-* getETag() - returns a unique identifier of the current state of the file. If the file changes, so should the etag. Etags are surrounded by quotes.
-* getContentType() - returns the mime-type of the file.
-* getSize() - returns the size in bytes.
+* `put($data)` updates the data in the file.
+* `get()` returns the contents of the file.
+* `getETag()` - returns a unique identifier of the current state of the file. If the file changes, so should the etag. Etags are surrounded by quotes.
+* `getContentType()` - returns the mime-type of the file.
+* `getSize()` - returns the size in bytes.
 
 Directories/Collections objects add the following:
 
-* getChild($name) - Returns a File or Directory object for the child-node of the given name.
-* getChildren() - Returns an array of File and/or Directory objects.
-* createFile($name,$data) - Creates a new file with the given name.
-* createDirectory($name) - Creates a subdirectory with the given name.
-* childExists($name) - Returns true if a child node exists.
+* `getChild($name)` - Returns a File or Directory object for the child-node of the given name.
+* `getChildren()` - Returns an array of File and/or Directory objects.
+* `createFile($name,$data)` - Creates a new file with the given name.
+* `createDirectory($name)` - Creates a subdirectory with the given name.
+* `childExists($name)` - Returns true if a child node exists.
 
 Inheritance tree
 ----------------
@@ -51,7 +51,7 @@ Inheritance tree
      +-Sabre\DAV\ICollection (base interface for all directories)
         +-Sabre\DAV\Collection (base helper class)
 
-Next to the interfaces, there are two helper classes in this diagram (Sabre\DAV\File and Sabre\DAV\Collection). These classes are an easy starting point, as they will lock down most operations by default (by reporting 'permission denied'), so we can start with a read-only filesystem.
+Next to the interfaces, there are two helper classes in this diagram (`Sabre\DAV\File` and `Sabre\DAV\Collection`). These classes are an easy starting point, as they will lock down most operations by default (by reporting 'permission denied'), so we can start with a read-only filesystem.
 
 Implementation
 --------------
@@ -170,7 +170,7 @@ Same goes for the MyFile class:
 
     }
 
-It's important thing to note is, that you should usually not pass strings around. Although the get() method can just return a string, especially with larger files it's recommended to use streams (as shown with fopen). The put() and createFile() methods will always get a readable stream resource as arguments.
+It's important thing to note is, that you should usually not pass strings around. Although the `get()` method can just return a string, especially with larger files it's recommended to use streams (as shown with fopen). The `put()` and `createFile()` methods will always get a readable stream resource as arguments.
 
 ### Setting up
 
@@ -192,12 +192,12 @@ I'm explaining the usage of your newly created server through code comments
 
 ### This is not virtual
 
-Thats right! This is where you come in. You can make your MyFile and MyDirectory classes completely independent from the actual underlying filesystem. The list of items returned from getChildren could be a list of blogposts, and the 'get' method could return html data.
+Thats right! This is where you come in. You can make your MyFile and MyDirectory classes completely independent from the actual underlying filesystem. The list of items returned from `getChildren` could be a list of blogposts, and the 'get' method could return html data.
 
 Write support
 -------------
 
-In order to get writing/modification support you should implement all the remaining methods. A good example of a completely built-out system like this can be found in the Sabre\DAV\FS directory. This system should closely mimic apache's mod_dav. Implementation of these is up to you (and optional) and is not written out in this manual, because at this point this should be fairly simple.
+In order to get writing/modification support you should implement all the remaining methods. A good example of a completely built-out system like this can be found in the `Sabre\DAV\FS` directory. This system should closely mimic apache's mod_dav. Implementation of these is up to you (and optional) and is not written out in this manual, because at this point this should be fairly simple.
 
 However, this is not enough. [OS/X Finder](dav/clients/finder) and [DavFS](dav/clients/davfs) will demand you add locking support to your filesystem.
 
