@@ -18,7 +18,7 @@ SabreDAV runs on any PHP-capable webserver. For maximum compatibility,
 apache 2 with mod_php is recommended. This is especially true if you plan to
 a file server. Card- and CalDAV servers run fine through FastCGI as well.
 
-It's recommended to avoid Lighttpd altogether. See [Webservers](webservers)
+It's recommended to avoid Lighttpd altogether. See [Webservers](/dav/webservers)
 for more information.
 
 PHP Version requirements:
@@ -74,7 +74,7 @@ directory.
 Next Steps
 ----------
 
-Head over to [Getting Started](gettingstarted) to see what's next.
+Head over to [Getting Started](/dav/gettingstarted) to see what's next.
 
 [1]: http://getcomposer.org/
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
