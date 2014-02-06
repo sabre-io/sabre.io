@@ -22,7 +22,8 @@ emails on your behalf:
 In the future this system will also be used for other caldav-scheduling
 features.
 
-== Usage ==
+Usage
+-----
 
 To use the IMipHandler, simply attach it to `Sabre\CalDAV\Plugin`.
 
