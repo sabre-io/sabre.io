@@ -8,7 +8,7 @@ if [ ! -d "deploy" ]; then
 fi;
 
 sculpin install
-sculpin generate --env=prod --url=http://fruux.github.io/sabredav.org/
+sculpin generate --env=prod
 
 cd deploy
 
