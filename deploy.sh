@@ -13,7 +13,7 @@ sculpin generate --env=prod --url=http://fruux.github.io/sabredav.org/
 cd deploy
 
 echo "Fetching latest changes"
-git checkout gh-pages
+git checkout master
 git pull
 
 echo "Copying over the latest website version"
@@ -27,6 +27,6 @@ git commit -m "Automatic deployment"
 
 echo "Pushing changes"
 
-git push origin gh-pages
+git push origin master
 
 echo "Deploy complete"
