@@ -116,4 +116,5 @@ blockquote {
 /* code blocks */
 code {
     line-height: 18px;
+    overflow-y: scroll;
 }
