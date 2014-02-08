@@ -69,3 +69,8 @@ users is done directly on the database.
 
 In order to allow a user to log in, add them to the users table. You must also
 add them to the principals table to enable addressbook access.
+
+Related topics
+--------------
+
+* [Guide for integrating CalDAV & CardDAV in existing infrastructures](/dav/caldav-carddav-integration-guide).

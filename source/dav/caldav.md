@@ -93,4 +93,4 @@ the sample .sql files for examples for these records.
 Related topics
 --------------
 
-* [Guide for integrating CalDAV & CardDAV in existing infrastructures](dav/integration-guide).
+* [Guide for integrating CalDAV & CardDAV in existing infrastructures](/dav/caldav-carddav-integration-guide).
