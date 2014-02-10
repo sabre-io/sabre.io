@@ -8,7 +8,7 @@ Getting Started
 This is a basic tutorial that will help you create a simple fileserver.
 
 Before starting this tutorial, make sure you have completed the
-[Installation](/dav/installation) steps.
+[Installation](/dav/install) steps.
 
 We're assuming that your current working directory looks like this:
 

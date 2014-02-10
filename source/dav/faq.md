@@ -69,7 +69,7 @@ DAV is tricky to debug, because unlike with building web applications, there
 is no browser that simply shows you useful error messages.
 
 The first step you should make, is to use the
-[browser plugin](/dav/brower-plugin). This plugin creates directory indexes,
+[browser plugin](/dav/browser-plugin). This plugin creates directory indexes,
 and will allow you to browse around using your standard webbrowser. If you're
 already seeing errors there, it may give away quickly where your
 problem is.
