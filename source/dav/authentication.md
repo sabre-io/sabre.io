@@ -14,7 +14,7 @@ support.
 
 sabre/dav comes with a plugin that handles authentication for you. It is
 recommended to use this plugin, and it is required to use for both
-[cal-](dav/caldav) and [carddav](dav/carddav).
+[cal-](/dav/caldav) and [carddav](/dav/carddav).
 
 The plugin can work with different backends. SabreDAV ships with a number of
 backends, but it's also easy to create your own.
@@ -101,7 +101,7 @@ just like with the PDO plugin the following hash:
 So, given a username of 'foo', a password of 'bar', and a realm of 'SabreDAV',
 the resulting hash should be:
 
-    php -r "echo md5('foo:SabreDAV:bar');" 
+    php -r "echo md5('foo:SabreDAV:bar');"
     5790c3784a79a018d1186528df520e11
 
 Then our htdigest file looks like:
@@ -134,7 +134,7 @@ Webserver configuration
 -----------------------
 
 Some webservers may require special configuration for authentication to work.
-Take a look at [Webservers](dav/webservers) for more information. 
+Take a look at [Webservers](/dav/webservers) for more information.
 
 ### Problems with safe mode
 

@@ -5,10 +5,13 @@ layout: default
 Virtual Filesystems
 ===================
 
-SabreDAV is built to easily adapt existing business logic onto a virtual network filesystem. This document explores how this can be setup.
+SabreDAV is built to easily adapt existing business logic onto a virtual
+network filesystem. This document explores how this can be setup.
 
-* It is assummed in this tutorial that the reader has already went through the [GettingStarted](dav/gettingstarted) and [FAQ](dav/faq) manuals.
-* In the code examples it is assumed all mentioned classes are currently loaded in through an include.
+* It is assummed in this tutorial that the reader has already went through the
+  [GettingStarted](/dav/gettingstarted) and [FAQ](/dav/faq) manuals.
+* In the code examples it is assumed all mentioned classes are currently
+  loaded in through an include.
 
 High-level API
 --------------
@@ -199,7 +202,9 @@ Write support
 
 In order to get writing/modification support you should implement all the remaining methods. A good example of a completely built-out system like this can be found in the `Sabre\DAV\FS` directory. This system should closely mimic apache's mod_dav. Implementation of these is up to you (and optional) and is not written out in this manual, because at this point this should be fairly simple.
 
-However, this is not enough. [OS/X Finder](dav/clients/finder) and [DavFS](dav/clients/davfs) will demand you add locking support to your filesystem.
+However, this is not enough. [OS/X Finder](/dav/clients/finder) and
+[DavFS](/dav/clients/davfs) will demand you add locking support to your
+filesystem.
 
 Locking support
 ---------------

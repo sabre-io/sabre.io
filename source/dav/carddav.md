@@ -58,7 +58,7 @@ OS X was one of the first clients to support it (in 10.6). Although the client
 has gotten a LOT better, especially the client shipped in 10.6 has a _ton_ of
 problems.
 
-Read [OSXAddressbook](dav/clients/osxaddressbook) for more information.
+Read [OSXAddressbook](/dav/clients/osxaddressbook) for more information.
 
 Adding users
 ------------

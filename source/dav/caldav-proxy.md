@@ -15,12 +15,12 @@ Calendar delegation allows users to give other people access to their
 calendars. This can be done either read-only or read-write.
 
 Only entire accounts can be delegated. It's not possible to do per-calendar
-sharing. This functionality is possible as well using [CalDAV sharing](dav/caldav-sharing).
+sharing. This functionality is possible as well using [CalDAV sharing](/dav/caldav-sharing).
 
 Client support
 --------------
 
-[iCal](dav/clients/ical), [BusyCal](dav/clients/busycal) and several other
+[iCal](/dav/clients/ical), [BusyCal](/dav/clients/busycal) and several other
 clients now support this feature.
 
 So for the moment it's required to manually add delegees using the database,

@@ -66,8 +66,8 @@ Older versions of nginx have had issues with so-called "Chunked Transfer
 Encoding", in particular when the _client_ sumbits requests in this transfer
 encoding.
 
-Known clients that use this include [OS X finder](dav/clients/finder) and
-[Transmit](dav/clients/transmit). If you plan to support any of these, and you
+Known clients that use this include [OS X finder](/dav/clients/finder) and
+[Transmit](/dav/clients/transmit). If you plan to support any of these, and you
 are running into issues with empty (0 byte) files ending up on the server,
 make sure you are running a recent version of nginx.
 

@@ -50,7 +50,7 @@ Simple clients tend to just access CalDAV servers based on the follow 3 setting:
 * password
 * calendar url
 
-An example of this is [Thunderbird Lightning](dav/clients/thunderbird). So
+An example of this is [Thunderbird Lightning](/dav/clients/thunderbird). So
 this is where we start.
 
 
@@ -573,7 +573,7 @@ list the calendars that support the `VTODO` component.
 
 ### Advanced discovery topics
 
-Read the [Service Discovery documentation](dav/service-discovery)
+Read the [Service Discovery documentation](/dav/service-discovery)
 
 [rfc5545]: https://tools.ietf.org/html/rfc5545
 [rfc4791]: https://tools.ietf.org/html/rfc4791

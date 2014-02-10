@@ -11,7 +11,7 @@ CalDAV
 The CalDAV plugin provides all the logic and extensions to WebDAV to get
 calendar-access working.
 
-CalDAV depends on the [ACL](dav/acl) plugin to be available too. This document
+CalDAV depends on the [ACL](/dav/acl) plugin to be available too. This document
 provides a simple explanation to get your server setup.
 
 Database setup
@@ -59,22 +59,22 @@ Now you can use the url:
 
     http://www.example.org/~evert/sabredav/calendarserver.php/
 
-for [iCal](dav/clients/ical) and [iPhone](dav/clients/iphone) (with iOS
+for [iCal](/dav/clients/ical) and [iPhone](/dav/clients/iphone) (with iOS
 version less than 6), or 
 
     http://www.example.org/~evert/sabredav/calendarserver.php/principals/admin
 
-for [iPhone](dav/clients/iphone) (with iOS version 6 and up), or 
+for [iPhone](/dav/clients/iphone) (with iOS version 6 and up), or 
 
     http://www.example.org/~evert/sabredav/calendarserver.php/calendars/admin/default
 
-for [Lightning](dav/clients/lightning) or [Evolution](dav/clients/evolution).
+for [Lightning](/dav/clients/lightning) or [Evolution](/dav/clients/evolution).
 
 Note that the iCal and iPhone clients can auto-detect the principal url, if
 SabreDAV runs at the root of the domain.
 
 For more information about the auto-detection system, read the
-[Service discovery documentation](dav/service-discovery).
+[Service discovery documentation](/dav/service-discovery).
 
 Adding users
 ------------
