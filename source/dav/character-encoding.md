@@ -1,9 +1,7 @@
 ---
+title: Character Encoding
 layout: default
 ---
-
-Character encoding
-==================
 
 Urls and character encoding
 ---------------------------

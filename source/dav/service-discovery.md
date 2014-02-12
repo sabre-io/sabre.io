@@ -1,9 +1,7 @@
 ---
+title: Service Discovery
 layout: default
 ---
-
-Service Discovery
-=================
 
 Many clients are becoming better in discovering the location of CalDAV and
 CardDAV service. This document describes a few pointers on how to improve this.

@@ -1,9 +1,7 @@
 ---
+title: SabreDAV xml elements
 layout: default
 ---
-
-SabreDAV xml elements
-=====================
 
 SabreDAV defines a few new elements, added as an extension to the WebDAV
 protocol. They are categorized as WebDAV properties (that can be queried

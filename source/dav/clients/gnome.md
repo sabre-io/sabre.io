@@ -1,5 +1,5 @@
 ---
-name: Gnome
+title: Gnome
 type: client
 ---
 

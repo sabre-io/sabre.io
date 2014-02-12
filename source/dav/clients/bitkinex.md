@@ -1,5 +1,5 @@
 ---
-name: BitKinex 
+title: BitKinex
 type: client
 ---
 
@@ -40,7 +40,7 @@ indicates that the filename is double-percent encoded.
 SabreDAV will comply with the incorrect filename. After BitKinex uploads the
 file, it will check if the file exists. The incorrect filename now exists, but
 BitKinex thinks it doesn't. As a remedy it will simply keep on trying to
-upload and checking until a certain number of errors has been reached.  
+upload and checking until a certain number of errors has been reached.
 
 Therefore we don't recommend BitKinex unless it's for very simple usage and these concerns are not an issue.
 
@@ -49,5 +49,5 @@ User agent
 
 BitKinex sends the following user agent:
 
-    BitKinex/3.2.1 
+    BitKinex/3.2.1
 

@@ -1,9 +1,7 @@
 ---
+title: Webservers
 layout: default
 ---
-
-Webservers
-==========
 
 Apache
 ------

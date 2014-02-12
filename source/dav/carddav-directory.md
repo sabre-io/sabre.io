@@ -1,9 +1,7 @@
 ---
+title: CardDAV Directory
 layout: default
 ---
-
-CardDAV directory
-=================
 
 CardDAV Directory is a non-standard extension to the CardDAV protocol,
 implemented by iOS devices and OS/X Addressbook.

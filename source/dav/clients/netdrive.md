@@ -1,6 +1,6 @@
 ---
+title: NetDrive
 type: client
-name: NetDrive
 ---
 
 **Editors note: This page was written for NetDrive 1, NetDrive seems to have

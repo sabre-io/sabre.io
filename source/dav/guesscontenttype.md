@@ -1,11 +1,9 @@
 ---
+title: GuessContentType
 type: plugin
 plugin_name: guesscontenttype
 plugin_since: 1.1.0
 ---
-
-GuessContentType
-================
 
 By default SabreDAV is not aware of any contenttypes of any files. This is
 because there is no reliable, portable and fast way to determine the

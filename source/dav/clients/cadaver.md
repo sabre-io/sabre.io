@@ -1,5 +1,5 @@
 ---
-name: Cadaver 
+title: Cadaver
 type: client
 ---
 
@@ -18,17 +18,17 @@ Technical details
 By default it will look for the following properties when using `ls`.
 
     <propfind xmlns="DAV:">
-        <prop> 
-            <getcontentlength xmlns="DAV:" /> 
-            <getlastmodified xmlns="DAV:" /> 
-            <executable xmlns="http://apache.org/dav/props/" /> 
-            <resourcetype xmlns="DAV:" /> 
-            <checked-in xmlns="DAV:" /> 
-            <checked-out xmlns="DAV:" /> 
+        <prop>
+            <getcontentlength xmlns="DAV:" />
+            <getlastmodified xmlns="DAV:" />
+            <executable xmlns="http://apache.org/dav/props/" />
+            <resourcetype xmlns="DAV:" />
+            <checked-in xmlns="DAV:" />
+            <checked-out xmlns="DAV:" />
         </prop>
     </propfind>
 
-It will also store custom properties, by default under the `http://webdav.org/cadaver/custom-properties/` namespace. 
+It will also store custom properties, by default under the `http://webdav.org/cadaver/custom-properties/` namespace.
 
 It makes use of the propname request as well:
 

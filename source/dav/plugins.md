@@ -1,11 +1,9 @@
 ---
+title: List of plugins
 layout: default
 use:
     - plugins 
 ---
-
-List of plugins
-===============
 
 <table>
     {% for plugin in data.plugins %}

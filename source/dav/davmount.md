@@ -1,17 +1,15 @@
 ---
+title: DavMount
 layout: default
 type: plugin
 plugin_name: davmount
 plugin_since: 1.0.2
 ---
 
-DavMount
-========
-
 The DavMount plugin adds support for [rfc4709][rfc4709]. This spec defines a
 small document that can tell a client how to mount a WebDAV server.
 
-This was proposed as a better alternative to urls such as `webdav://` or 
+This was proposed as a better alternative to urls such as `webdav://` or
 `dav://`.
 
 However, the specification has not proven to be very popular. I'm not aware

@@ -1,12 +1,10 @@
 ---
+title: CalDAV Sharing
 layout: default
 type: plugin
 plugin_name: caldav-sharing
 plugin_since: 1.7.0
 ---
-
-CalDAV Sharing
-==============
 
 Since version 1.7 SabreDAV comes with experimental support for CalDAV-sharing.
 

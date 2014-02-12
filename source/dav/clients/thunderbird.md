@@ -1,6 +1,6 @@
 ---
+title: Thunderbird
 type: client
-name: Thunderbird
 ---
 
 [Thunderbird][1] itself is not a DAV client. But, this functionality can be

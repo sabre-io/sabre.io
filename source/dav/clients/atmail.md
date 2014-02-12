@@ -1,5 +1,5 @@
 ---
-name: Atmail
+title: Atmail
 type: client
 ---
 

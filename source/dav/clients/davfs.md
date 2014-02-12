@@ -1,5 +1,5 @@
 ---
-name: DavFS 
+title: DavFS 
 type: client
 ---
 

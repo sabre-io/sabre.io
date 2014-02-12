@@ -1,11 +1,9 @@
 ---
+title: iCalendar Export Plugin
 type: plugin
 plugin_name: icsexportplugin
 plugin_since: 1.4
 ---
-
-iCalendar Export Plugin
-=======================
 
 There are some Calendaring tools that don't yet support CalDAV, but they do
 have support for the 'Subscribe to' feature. 

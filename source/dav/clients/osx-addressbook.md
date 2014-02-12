@@ -1,6 +1,6 @@
 ---
+title: OS X addressbook
 type: client
-name: OS X addressbook
 ---
 
 Addressbook.app (renamed to Contacts in OS X 10.9) is among the first CardDAV

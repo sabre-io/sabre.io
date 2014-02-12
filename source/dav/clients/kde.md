@@ -1,5 +1,5 @@
 ---
-name: KDE 
+title: KDE
 type: client
 ---
 

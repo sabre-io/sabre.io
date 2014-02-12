@@ -1,9 +1,7 @@
 ---
+title: Scalability
 layout: default
 ---
-
-Scalability
-===========
 
 While the default library suffices for small-scall WebDAV installations, there are areas that can be optimized for maximum perfmance, and operations in a load-balanced environment.
 

@@ -1,6 +1,6 @@
 ---
+title: Microsoft Office
 type: client
-name: Microsoft Office
 ---
 
 Before MS Office 2000 there was no WebDAV support in the Office suite, but it

@@ -1,12 +1,10 @@
 ---
+title: CardDAV
 layout: default
 type: plugin
 plugin_name: carddav
 plugin_since: 1.5.0
 ---
-
-CardDAV
-=======
 
 Since version 1.5, SabreDAV ships with a CardDAV plugin. CardDAV allows for
 addressbook-syncing functionality in SabreDAV.

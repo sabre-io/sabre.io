@@ -1,9 +1,7 @@
 ---
+title: Getting Started
 layout: default
 ---
-
-Getting Started
-===============
 
 This is a basic tutorial that will help you create a simple fileserver.
 

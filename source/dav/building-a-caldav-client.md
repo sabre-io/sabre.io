@@ -1,9 +1,7 @@
 ---
+title: Building a CalDAV client
 layout: default
 ---
-
-Building a CalDAV client
-========================
 
 This document is a general howto on how to build a CalDAV client.
 The document is language-agnostic, and considering the massive scope of CalDAV,

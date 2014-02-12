@@ -1,5 +1,5 @@
 ---
-name: Cyberduck
+title: Cyberduck
 type: client
 ---
 

@@ -1,12 +1,10 @@
 ---
+title: CalDAV
 layout: default
 type: plugin
 plugin_name: caldav
 plugin_since: 1.1.0
 ---
-
-CalDAV
-======
 
 The CalDAV plugin provides all the logic and extensions to WebDAV to get
 calendar-access working.

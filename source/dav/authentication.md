@@ -1,12 +1,10 @@
 ---
+title: Authentication
 layout: default
 type: plugin
 plugin_name: auth
 plugin_since: 0.9.0
 ---
-
-Authentication
-==============
 
 After setting up your DAV server, you will probably want to add some security.
 The standard way to do this, is to add HTTP Basic or HTTP Digest authentication

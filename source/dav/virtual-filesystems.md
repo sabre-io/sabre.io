@@ -1,9 +1,7 @@
 ---
+title: Virtual Filesystems
 layout: default
 ---
-
-Virtual Filesystems
-===================
 
 SabreDAV is built to easily adapt existing business logic onto a virtual
 network filesystem. This document explores how this can be setup.

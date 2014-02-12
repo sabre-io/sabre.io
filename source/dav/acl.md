@@ -1,12 +1,10 @@
 ---
+title: ACL
 layout: default
 type: plugin
 plugin_name: acl
 plugin_since: 1.4.0
 ---
-
-ACL
-===
 
 Since version 1.4 SabreDAV comes with some support for ACL ([rfc3744][1]). At the
 moment it is possible for nodes (files, directories) to define their own ACL,

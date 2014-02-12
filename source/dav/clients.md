@@ -1,11 +1,9 @@
 ---
+title: Clients
 layout: default
 use:
     - clients
 ---
-
-Clients
-=======
 
 While testing SabreDAV against various clients, we attempted to write down
 known bugs and common pitfalls we've encountered.
@@ -15,6 +13,6 @@ your information is greatly welcomed.
 
 <ul>
 {% for client in data.clients %}
-    <li><a href="{{ client.url }}">{{ client.name }}</a></li>
+    <li><a href="{{ client.url }}">{{ client.title }}</a></li>
 {% endfor %}
 </ul>

@@ -1,9 +1,7 @@
 ---
+title: Versioning in DAV
 layout: default
 ---
-
-Versioning in DAV
-=================
 
 Versioning is _not_ natively supported by SabreDAV.
 

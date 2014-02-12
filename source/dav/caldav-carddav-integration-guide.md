@@ -1,10 +1,7 @@
 ---
+title: CalDAV and CardDAV integration guide
 layout: default
 ---
-
-CalDAV and CardDAV integration guide
-====================================
-
 
 If you are looking at SabreDAV to add CalDAV or CarDAV functionality to your
 existing application, you'll need to roll your own Backend classes. This guide

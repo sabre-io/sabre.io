@@ -1,9 +1,7 @@
 ---
+title: Upgrading SabreDAV
 layout: default
 ---
-
-Upgrading
-=========
 
 Upgrading a major version? Read the upgrade instructions here:
 

@@ -1,6 +1,6 @@
 ---
+title: OpenOffice
 type: client
-name: OpenOffice 
 ---
 
 You can easily use urls in the Open Office file dialog. You should make sure

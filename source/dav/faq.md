@@ -1,9 +1,7 @@
 ---
+title: Frequently Asked Questions
 layout: default
 ---
-
-Frequently Asked Questions
-==========================
 
 What is WebDAV?
 ---------------

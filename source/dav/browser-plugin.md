@@ -1,12 +1,10 @@
 ---
+title: Directory Indexes
 layout: default
 type: plugin
 plugin_name: browser 
 plugin_since: 0.7.0 
 ---
-
-The Browser a.k.a. DirectoryIndex plugin
-========================================
 
 If you try to open your sabredav webserver in a browser, you will by default
 be greated by an error.

@@ -1,12 +1,10 @@
 ---
+title: HTTP PATCH support
 layout: default
 type: plugin
 plugin_name: partialupdate
 plugin_since: 1.7.0
 ---
-
-HTTP PATCH support
-==================
 
 The `Sabre\DAV\PartialUpdate\Plugin` provides support for the HTTP PATCH method
 ([RFC5789][1]). This allows you to update just a portion of a file, or append

@@ -1,9 +1,7 @@
 ---
+title: The Litmus Test
 layout: default
 ---
-
-The Litmus Test
-===============
 
 [Litmus][1] is a WebDAV compliance testing tool. It tries to cover most
 features and problem areas. It currently only tests against the standard, so

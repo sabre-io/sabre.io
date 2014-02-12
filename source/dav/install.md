@@ -1,9 +1,7 @@
 ---
+title: Installation
 layout: default
 ---
-
-Installation
-============
 
 SabreDAV can either by installed using [composer][1], or manually, using a zip file.
 it is highly recommended to use the former.

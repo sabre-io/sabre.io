@@ -1,9 +1,7 @@
 ---
+title: IMipHandler
 layout: default
 ---
-
-IMipHandler
-===========
 
 The IMipHandler is responsible for sending emails. This is used since version
 1.6.

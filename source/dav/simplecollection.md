@@ -1,9 +1,7 @@
----
+--
+title: SimpleCollection
 layout: default
 ---
-
-SimpleCollection
-================
 
 The `Sabre\DAV\SimpleCollection` class allows you to easily build up static
 trees in your webdav filesystem.

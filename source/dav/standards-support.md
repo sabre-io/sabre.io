@@ -1,9 +1,7 @@
 ---
+title: Standards Support
 layout: default
 ---
-
-Standards and implementation status
-===================================
 
 | identifier         | description                       | status
 | ------------------ | --------------------------------- | ------

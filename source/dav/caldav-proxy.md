@@ -1,12 +1,10 @@
 ---
+title: CalDAV delegation
 layout: default
 type: plugin
 plugin_name: caldav-proxy
 plugin_since: 1.4.0
 ---
-
-CalDAV Delegation
-=================
 
 Since version 1.4 SabreDAV comes with a calendar-proxy support. This feature
 allows for calendar delegation.

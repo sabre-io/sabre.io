@@ -1,5 +1,5 @@
 ---
-name: iOS
+title: iOS
 type: client
 ---
 
