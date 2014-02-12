@@ -143,7 +143,7 @@ Next steps
 * Add [authentication](/dav/authentication) to your server.
 * Read about [virtual filesystems](/dav/virtual-filesystems) and how you can
   create your own.
-* The [temporary file filter plugin](/dav/temporary-file-filter-plugin) can
+* The [temporary file filter plugin](/dav/temporary-files) can
   intercept those pesky `.DS_Store` and `desktop.ini` files.
 * [CalDAV](/dav/caldav).
 * [CardDAV](/dav/carddav).

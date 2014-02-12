@@ -52,15 +52,24 @@ This allows the server to not have to fetch the objects at all for certain large
 Load Balanced SabreDAV
 ----------------------
 
-SabreDAV has a few standard utilities for locking and catching 'temporary files'. These classes (`Sabre\DAV\TemporaryFileFilterPlugin` and `Sabre\DAV\Locks\Backend\FS`) store information on the filesystem.
+SabreDAV has a few standard utilities for locking and catching 'temporary
+files'. These classes (`Sabre\DAV\TemporaryFileFilterPlugin` and
+`Sabre\DAV\Locks\Backend\FS`) store information on the filesystem.
 
-It would be possible to store these files on a network location instead, as long as the network filesystem has proper support for flock() (which NFS as an example doesn't).
+It would be possible to store these files on a network location instead, as
+long as the network filesystem has proper support for flock() (which NFS as an
+example doesn't).
 
-Storing locks could be implemented in a database server or caching layer such as memcached, the temporary files are a bit bigger, so that might pose some issues. We chose to not supply any plugins for these alternative backends, as there are a lot of options out there and impossible to cover them all. Instead it was made really easy to extend these subsystems.
+Storing locks could be implemented in a database server or caching layer such
+as memcached, the temporary files are a bit bigger, so that might pose some
+issues. We chose to not supply any plugins for these alternative backends, as
+there are a lot of options out there and impossible to cover them all. Instead
+it was made really easy to extend these subsystems.
 
-Currently 'temporary files' don't get cleaned up, and a cron job should be made to delete older files (>1 hour).
+Currently 'temporary files' don't get cleaned up, and a cron job should be
+made to delete older files (>1 hour).
 
 Large Files
 -----------
 
-Read: [Working with large files](dav/working-with-large-files).
+Read: [Working with large files](/dav/working-with-large-files).
