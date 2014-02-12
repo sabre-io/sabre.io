@@ -1,6 +1,11 @@
 <!DOCTYPE html!>
 <head>
-    <title>sabre/dav</title>
+
+    {% if page.title %}
+        <title>{{page.title}} - sabre/dav</title>
+    {% else %}
+        <title>sabre/dav</title>
+    {% endif %}
 
     <link rel="stylesheet" type="text/css" href="{{ site.url}}/css/sabredav.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
