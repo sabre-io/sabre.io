@@ -613,7 +613,7 @@ This will return a response such as the following:
                 <d:prop>
                     <c:addressbook-home-set>
                         <d:href>/addressbooks/johndoe/</d:href>
-                    </c:calendar-home-set>
+                    </c:addressbook-home-set>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
             </d:propstat>
