@@ -7,15 +7,15 @@ What is this document?
 ----------------------
 
 As server developers, we get a lot of questions on how to interact with a
-carddav server. This document explains how to integrate correctly with a
-carddav server.
+CardDAV server. This document explains how to integrate correctly with a
+CardDAV server.
 
-This document (should) apply for _any_ carddav server. So not just SabreDAV.
+This document (should) apply for _any_ CardDAV server, not just SabreDAV.
 
 Clients
 -------
 
-Before you build your own client. There's a chance there's already a client
+Before you build your own client, there's a chance there's already a client
 avaible for your programming language.
 
 We've developed a PHP client that does _some_ DAV-related stuff and makes it
@@ -82,7 +82,7 @@ There's:
 * Mixed character encoding, sometimes differing per line
 * Different escaping mechanisms of values, which depends on the _name_ of the
   value.
-* Parameters, which different escaping mechanisms and a new (rfc6868) standard
+* Parameters, with different escaping mechanisms and a new (rfc6868) standard
   escaping mechanism that noone supports yet.
 * Line-folding. Sometimes single multi-byte UTF-8 characters are split up with
   a new-line.
@@ -91,10 +91,10 @@ There's:
 * Parameters that have their name omitted, because it's implied from their
   values.
 * Properties can be grouped together with a special syntax that alters the
-  encoding of property group.
+  encoding of a property group.
 
 Why did I write this list? Because if you're going to parse and generate
-vcards, you should either:
+vCards, you should either:
 
 * Be fully aware of the scope of doing so, or:
 * Use a parser that somebody already wrote for your programming language.
@@ -108,18 +108,18 @@ vcards, you should either:
 | Ruby     | [vcard][3]
 
 
-Know of any other good vcard parsers? Let me know so I can list them.
+Know of any other good vCard parsers? Let me know so I can list them.
 
 XML
 ---
 
 CardDAV servers also use XML for various things:
 
-* Getting a list of all vcards
+* Getting a list of all vCards
 * Getting information about an addressbook
-* Finding out if vcards or addressbooks have changed.
+* Finding out if vCards or addressbooks have changed.
 
-Retain full vcards!
+Retain full vCards!
 -------------------
 
 Normally when integrating with new api's, you will figure out the data
@@ -134,26 +134,25 @@ What if your data model does not support a fax number? vCards can have a _lot_
 of different information, and information about information.
 
 If we look at the protocol from a very high level, we will do a `GET` to
-receive a vcard, and a `PUT` to update it again.
+receive a vCard, and a `PUT` to update it again.
 
 You _must_ make sure that none of the information you received in a `GET`
 is lost when you perform the `PUT`.
 
 Almost every client on the planet will even embed custom non-standard data
-in vcards. If you discard this data when performing `PUT`, you are destroying
+in vCards. If you discard this data when performing `PUT`, you are destroying
 your users data.
 
-So a common trick that implementors use is **AND WE DON'T RECOMMEND**
+So a common trick that implementors use **AND WE DON'T RECOMMEND** is
 
-1. Go through all the properties of a vcard
+1. Go through all the properties of a vCard
 2. Map the properties you support to a local data model
 3. Keep the properties you don't support separately.
 
-Then when the vcard is uploaded again with `PUT`, the 'unknown' properties
+Then when the vCard is uploaded again with `PUT`, the 'unknown' properties
 are stitched back in.
 
-We consider this to be a bad idea as well, because it ignores several
-vcard features:
+We consider this to be a bad idea, because it ignores several vCard features:
 
 * Parameters you may or may not support
 * Property groups
@@ -162,26 +161,26 @@ vcard features:
 
 ### What we recommend
 
-1. Download the vcard
-2. Retain the entire vcard and store it locally, or at least in some
+1. Download the vCard
+2. Retain the entire vCard and store it locally, or at least in some
    lossless way
-3. Parse the vcard and populate your models with the information that is
+3. Parse the vCard and populate your models with the information that is
    relevant to you.
-4. Keep a reference to which vcard property maps to what information in the
+4. Keep a reference to which vCard property maps to what information in the
    model.
 
 Now when something changes in a model (e.g.: a user changes an email address)
 
 1. Model receives change (email address updated)
-2. Find the property in the vcard that originally mapped to the information in
+2. Find the property in the vCard that originally mapped to the information in
    the model.
-3. Update the value in the vcard
-4. Upload the vcard.
+3. Update the value in the vCard.
+4. Upload the vCard.
 
-In an ideal world, your vcard _is_ your model though.
+In an ideal world, your vCard _is_ your model though.
 
 Regardless of how this issue is solved (there may be better suggestions, we
-would love to hear it), _not_ ensuring that original vcard is kept as close
+would love to hear it), _not_ ensuring that original vCard is kept as close
 to the original as possible is guaranteed to trigger bugs and edge-cases for
 all sorts of CardDAV clients.
 
@@ -231,10 +230,10 @@ so-called 'ctag'.
 
 
 The `PROPFIND` request is a HTTP request, defined by [WebDAV][rfc4918].
-`PROPFIND` allows the client to fetch properties from a url.
+`PROPFIND` allows the client to fetch properties from an url.
 
 CardDAV uses many properties like this, but in this case we just fetch the
-'displayname', which is the human-readable name the user gave the calendar, and
+'displayname', which is the human-readable name the user gave the addressbook, and
 the ctag. The ctag must be stored for subsequent requests.
 
 The request will return something like:
@@ -310,7 +309,7 @@ Now we download every single object in this addressbook. To do this, we use a
         </d:prop>
     </c:addressbook-query>
 
-This request will return a large xml object with _all_ the vcards, and their
+This request will return a large xml object with _all_ the vCards, and their
 etags.
 
 This report will return a multi-status object again:
@@ -355,12 +354,12 @@ This addressbook only contained 2 contacts.
 
 So after you retrieved and processed these, for each object you must retain:
 
-* The vcard data itself
+* The vCard data itself
 * The url
 * The etag
 
 In this case all urls ended with `.vcf`. This is often the case, buy you must
-not rely on this. In this case the UID in the calendar object was also identical to
+not rely on this. In this case the UID in the vCards was also identical to
 a part of the url. This too is often the case, but again not something you can
 rely on, so don't make any assumptions.
 
@@ -369,7 +368,7 @@ as separate unique identifiers.
 
 ### Finding out if anything changed
 
-To see if anything in ab addressbook changed, we simply request the ctag again
+To see if anything in an addressbook changed, we simply request the ctag again
 on the addressbook. If the ctag did not change, you still have the latest copy.
 
 This is the purpose of the ctag. Every time _anything_ in the address book
@@ -386,7 +385,6 @@ again:
     <card:addressbook-query xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
         <d:prop>
             <d:getetag />
-            <card:address-data />
         </d:prop>
     </c:addressbook-query>
 
@@ -429,7 +427,7 @@ Judging from this last request, 3 things have changed:
   been deleted.
 
 So based on those 3 points, we know that we need to remove a contact from the
-local addressbook, and fetch the vcards for both the new item, and the updated
+local addressbook, and fetch the vCards for both the new item, and the updated
 one.
 
 To fetch the data for these, you can simply issue GET requests:
@@ -453,7 +451,7 @@ It's better to batch the GET's together with `multiget`.
         <d:href>/addressbooks/johndoe/contacts/acme-12345.vcf</d:href>
     </card:addressbook-multiget>
 
-This request will simply return a multi-status again with the calendar-data and
+This request will simply return a multi-status again with the addressbook-data and
 etag.
 
 ### A small note about writing code for this.
@@ -463,12 +461,12 @@ it's a bit cumbersome to have a separate step for the initial sync, and
 subsequent updates.
 
 It would totally be possible to skip the 'initial sync', and just use
-calendar-query and calendar-multiget REPORTS for the initial sync as well.
+addressbook-query and addressbook-multiget REPORTS for the initial sync as well.
 
 Updating a contact 
 ------------------
 
-Updating a calendar object is rather simple:
+Updating a vCard is rather simple:
 
     PUT /addressbook/johndoe/contacts/some-contact.vcf HTTP/1.1
     Content-Type: text/vcard; charset=utf-8
@@ -483,10 +481,10 @@ A response to this will be something like this:
     HTTP/1.1 204 No Content
     ETag: "2134-315"
 
-The update gave us back the new ETag. SabreDAV gives this ETag on updates back
+The update gave us back the new ETag. SabreDAV returns this ETag on updates
 most of the time, but not always.
 
-There are cases where the carddav server must modify the vcard immediatly
+There are cases where the CarddAV server must modify the vCard immediatly
 after receiving it, for various reasons. In those situations an ETag will
 _not_ be returned, and you should ideally issue a GET request immediately
 after to figure out how the server changed the contact.
@@ -505,7 +503,7 @@ Creating a contact
 ------------------
 
 Creating a contact is almost identical, except that you (as a client) are
-responsible for determining the url of the object, and a UID.
+responsible for determining the url of the object, and UID.
 
     PUT /addressbooks/johndoe/contacts/somerandomstring.vcf HTTP/1.1
     Content-Type: text/vcard; charset=utf-8
@@ -535,7 +533,7 @@ Deleting is simple enough:
 Discovery
 ---------
 
-Ideally you will want to make sure that all the calendars in an account are
+Ideally you will want to make sure that all the addressbooks in an account are
 automatically discovered. The best user interface would be to just have to
 ask for three items:
 
