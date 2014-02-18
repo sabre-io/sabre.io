@@ -5,7 +5,7 @@ type: client
 
 Sunbird was once the stand-alone version of [Lightning][1]. The original
 strategy for Sunbird and Lightning was to have both an standalone product,
-as well as a plugin for [Thunderbird](/dav/client/thunderbird.md).
+as well as a plugin for [Thunderbird](/dav/clients/thunderbird).
 
 That idea has been abandoned, and Sunbird is no longer maintained. For that
 reason we recommend people to go to Thunderbird / Lightning.
