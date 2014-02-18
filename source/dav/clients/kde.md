@@ -31,7 +31,7 @@ HTTP client library is used.
 * `{DAV:}lockdiscovery`
 * `{DAV:}resourcetype`
 
-`{DAV:}executable` is non-standard. There's a [DAVFS](dav/clients/davfs)
+`{DAV:}executable` is non-standard. There's a [DAVFS](/dav/clients/davfs)
 pseudo-standard to find out if a file is an executable, but it's in a
 different namespace.
 
