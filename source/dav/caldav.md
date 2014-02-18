@@ -66,7 +66,7 @@ for [iOS](/dav/clients/ios) (with iOS version 6 and up), or
 
     http://www.example.org/~evert/sabredav/calendarserver.php/calendars/admin/default
 
-for [Lightning](/dav/clients/lightning) or [Evolution](/dav/clients/evolution).
+for [Lightning](/dav/clients/thunderbird) or [Evolution](/dav/clients/evolution).
 
 Note that the iCal and iPhone clients can auto-detect the principal url, if
 SabreDAV runs at the root of the domain.
