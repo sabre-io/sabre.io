@@ -57,12 +57,12 @@ Now you can use the url:
 
     http://www.example.org/~evert/sabredav/calendarserver.php/
 
-for [iCal](/dav/clients/ical) and [iPhone](/dav/clients/iphone) (with iOS
-version less than 6), or 
+for [iCal](/dav/clients/ical) and [iOS](/dav/clients/ios) (with iOS version
+less than 6), or
 
     http://www.example.org/~evert/sabredav/calendarserver.php/principals/admin
 
-for [iPhone](/dav/clients/iphone) (with iOS version 6 and up), or 
+for [iOS](/dav/clients/ios) (with iOS version 6 and up), or
 
     http://www.example.org/~evert/sabredav/calendarserver.php/calendars/admin/default
 
@@ -77,7 +77,7 @@ For more information about the auto-detection system, read the
 Adding users
 ------------
 
-SabreDAV does not provide an administrative interface. While this may happen 
+SabreDAV does not provide an administrative interface. While this may happen
 in the future, for now SabreDAV is mostly intended for developers. Adding new
 users is done directly on the database.
 
