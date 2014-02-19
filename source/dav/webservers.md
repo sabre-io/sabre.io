@@ -41,21 +41,33 @@ users:
 
 ### Authentication over fastcgi
 
-If you use PHP through CGI or FastCGI and Apache authentication headers are not passed through by default. You can enable this with the following mod_rewrite rule:
+If you use PHP through CGI or FastCGI and Apache authentication headers are
+not passed through by default. You can enable this with the following
+mod_rewrite rule:
 
     <IfModule mod_rewrite.c>
       RewriteEngine on
       RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
     </IfModule>
 
-If you already had a mod_rewrite rule to map all urls to a server file, you might need to change this to something like:
+If you already had a mod_rewrite rule to map all urls to a server file, you
+might need to change this to something like:
 
     <IfModule mod_rewrite.c>
       RewriteEngine on
       RewriteRule .* /server.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
     </IfModule>
 
-Note the /server.php. Make sure this reflects the correct location of your server file.
+Note the /server.php. Make sure this reflects the correct location of your
+server file.
+
+### mod_reqtimeout
+
+It was reported that Apache's [mod_reqtimeout][2] can stop large uploads from
+completing. This module is currently enabled by default on Ubuntu, and perhaps
+others as well.
+
+To fix this, turn off this module.
 
 Nginx
 -----
@@ -93,3 +105,4 @@ IIS might not set HTTP_AUTHORIZATION automatically. According to the
 > Access", all other fields should be left unchecked.
 
 [1]: http://www.php.net/manual/en/features.http-auth.php
+[2]: http://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html 
