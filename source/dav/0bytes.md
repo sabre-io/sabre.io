@@ -1,5 +1,6 @@
 ---
-title: 0 byte files.
+title: 0 byte files
+layout: default
 ---
 
 There are a number problems that can cause empty files to appear on the server.
