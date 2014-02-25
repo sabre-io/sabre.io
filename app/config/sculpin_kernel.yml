@@ -1,0 +1,11 @@
+sculpin_content_types:
+    clients:
+        type: meta
+        meta: client
+        layout: default
+        permalink: pretty
+    plugins:
+        type: meta
+        meta: plugin
+        layout: default
+        permalink: pretty

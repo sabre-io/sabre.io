@@ -1,0 +1,120 @@
+/* mini reset */
+body, main, h1, blockquote, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 22px;
+}
+
+body, td, th {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+a {
+    color: #31a1cd;
+}
+
+header {
+    background-color: #eee;
+    padding: 10px;
+}
+
+header .logo a {
+    color: #333;
+    text-decoration: none;
+    font-size: 28px;
+
+}
+
+header .logo * {
+    vertical-align: middle;
+}
+
+header nav ul {
+    list-style: none;
+    position: absolute;
+    right: 20px;
+    top: 13px;
+}
+
+header nav {
+    word-spacing: 20px;
+}
+
+header nav li {
+    display: inline;
+    word-spacing: 0;
+}
+
+header nav li a {
+
+    text-decoration: none;
+}
+
+main {
+    display: -webkit-flex;
+    display: flex;
+}
+
+article {
+    margin-left: 20px;
+    padding-top: 30px;
+    -webkit-flex: 4 1 auto;
+    flex: 4 1 auto;
+
+}
+article ul {
+    margin-left: 20px;
+}
+
+article h1 {
+    font-size: 42px;
+    color: #b10610;
+    padding-bottom: 5px;
+    line-height: 43px;
+}
+
+/* Sidebar */
+aside {
+    -webkit-flex: 1 0 200px;
+    flex: 1 0 200px;
+    border: 0px dashed #eee;
+    border-width: 0 4px 4px 0;
+    min-width: 170px;
+    padding-top: 15px;
+}
+
+aside ul {
+    margin-left: 25px;
+}
+
+main table {
+    border-collapse: collapse;
+
+}
+
+main table td, main table th {
+    border: 1px solid #ccc;
+    padding: 4px;
+}
+
+main table th {
+    font-weight: bold;
+    text-align: left;
+}
+
+blockquote {
+    background: #eee;
+    padding: 5px 25px 5px 5px;
+    border-left: 20px solid #ccc;
+}
+
+/* code blocks */
+code {
+    line-height: 18px;
+    overflow-y: scroll;
+}
