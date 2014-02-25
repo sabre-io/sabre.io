@@ -135,9 +135,9 @@ there is an potentially a lot of information to map. vCards can contain all
 sorts of information, and even allow applications to define new properties,
 and parameters on top of existing properties.
 
-> vCards can contain _lot_ of different information, and information about
-> information, application-specific information and you _must_ support all of
-> this.
+> vCards can contain _lot_ of different information, information about
+> information, and application-specific information and you _must_ support all
+> of this.
 
 If your data model is simpler than the vCard data model, this inheritly means
 that data can get lost during conversion. E.g.: mapping back and forward, and
