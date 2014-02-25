@@ -118,3 +118,34 @@ code {
     line-height: 18px;
     overflow-y: scroll;
 }
+
+.hero {
+    background: url('../img/home_background.jpg') center center;
+    background-size: cover;
+    text-align: center;
+    padding: 80px 40px;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 44px;
+    color: #B10610;
+    margin: 0.67em 0;
+}
+
+.hero p {
+    font-size: 28px;
+    line-height: 44px;
+    background-color: rgba(255,255,255,0.8);
+    display: inline;
+}
+
+.project-box h1 {
+    font-size: 42px;
+    line-height: 44px;
+    color: #4FA3AC;
+    text-align: center;
+    border-bottom: 1px solid #D9EEA8;
+    padding-bottom: 10px;
+}

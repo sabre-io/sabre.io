@@ -17,8 +17,11 @@
 <body>
     {% include "header.html" %}
 
+    {% block mainwrapper %}
     <main>
-        {% include "sidebar.html" %}
+        {% if page.sidebar != "none" %}
+            {% include "sidebar.html" %}
+        {% endif %}
         <article>
             {%block contentwrapper%}
             {% if page.title %}<h1>{{page.title}}</h1>{% endif %}
@@ -26,6 +29,7 @@
             {% endblock %}
         </article>
     </main>
+    {% endblock %}
 
     <script src="{{ site.url }}/components/highlightjs/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>

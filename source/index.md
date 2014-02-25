@@ -1,15 +1,36 @@
 ---
-layout: default
+layout: home
+sidebar: none
 ---
+<section class="hero">
+<h1>The Sabretooth project</h1>
 
-Welcome to the new SabreDAV wiki
-================================
+<p>
+A collection of high-end, thoroughly tested
+components for PHP.
+</p>
 
-This website is a work in progress! We will be porting wiki pages over
-one-by-one from the [Google code][1] page.
+</section>
 
-We're not quite done yet though, so until then please refer to our
-[Google code wiki][2].
+<section class="project-box">
+<h1>The line-up</h1>
 
-[1]: http://code.google.com/p/sabredav/
-[2]: http://code.google.com/p/sabredav/wiki/Introduction?tm=6
+<dl>
+    <dt>sabre/dav</dt>
+    <dd>The leading open-source WebDAV, CalDAV and CardDAV server.</dd>
+</dl>
+<dl>
+    <dt>sabre/http</dt>
+    <dd>An OOP abstraction layer for the PHP server api.</dd>
+</dl>
+<dl>
+    <dt>sabre/vobject</dt>
+    <dd>A library for parsing and manipulating vCard, iCalendar, jCard and jCal.</dd>
+</dl>
+<dl>
+    <dt>sabre/event</dt>
+    <dd>Utilities for lightweight event-based programming in PHP.</dd>
+</dl>
+
+
+</section>
