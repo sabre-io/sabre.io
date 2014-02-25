@@ -132,18 +132,20 @@ When integrating with CardDAV, it is not quite as simple.
 
 The problem with simply mapping the vcard to your local data model, is that
 there is an potentially a lot of information to map. vCards can contain all
-sorts of information, and even allow application to define new properties.
+sorts of information, and even allow applications to define new properties,
+and parameters on top of existing properties.
 
 > vCards can contain _lot_ of different information, and information about
-> information.
+> information, application-specific information and you _must_ support all of
+> this.
 
 If your data model is simpler than the vCard data model, this inheritly means
 that data can get lost during conversion. E.g.: mapping back and forward, and
 reversing this again tends to be a 'lossy' process.
 
-To illustrate, lets at the protocol from a very high level. Simplisticly we
-will be doing a `GET` request (or equivalent) and later on a `PUT` request to
-update a vcard.
+To illustrate, lets look at the protocol from a very high level. Simplisticly
+we will be doing a `GET` request (or equivalent) and later on a `PUT` request
+to update a vcard.
 
 You _must absolutely_ make sure that none of the information you received in a
 `GET` is lost when you perform the `PUT`.
