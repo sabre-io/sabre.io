@@ -47,17 +47,6 @@ Try opening the full url to your new server. Make sure you append a slash at the
 
 This url should prompt you with an authentication dialog. The default username and password are admin and admin.
 
-== Get clients working ==
-
-CardDAV is a lot newer than CalDAV, and from what we've noticed so far, clients
-can be a bit more error-prone.
-
-OS X was one of the first clients to support it (in 10.6). Although the client
-has gotten a LOT better, especially the client shipped in 10.6 has a _ton_ of
-problems.
-
-Read [OSXAddressbook](/dav/clients/osxaddressbook) for more information.
-
 Adding users
 ------------
 
