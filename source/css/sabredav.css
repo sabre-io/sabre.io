@@ -61,7 +61,7 @@ main {
 }
 
 article {
-    margin-left: 20px;
+    margin: 0 20px;
     padding-top: 30px;
     -webkit-flex: 4 1 auto;
     flex: 4 1 auto;
