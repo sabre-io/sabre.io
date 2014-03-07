@@ -3,7 +3,7 @@ layout: home
 sidebar: none
 ---
 <section class="hero">
-<h1>The Sabretooth project</h1>
+<h1>Sabre components</h1>
 
 <p>
 A collection of high-end, thoroughly tested
