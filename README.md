@@ -1,7 +1,7 @@
 sabredav.org source
 ===================
 
-Welcome to the sourcecode for [sabredav.org][1].
+Welcome to the sourcecode for [sabre.io][1].
 
 sabredav.org is a static website. We use [sculpin][2] to generate this website.
 
