@@ -28,9 +28,9 @@
             {% block content %}{% endblock %}
             {% endblock %}
 
+            {% if not page.nocomments %}
             <hr />
             <h2>Comments</h2>
-            {% if not page.nocomments %}
             <div id="disqus_thread"></div>
             {% endif %}
         </article>
@@ -45,5 +45,7 @@
     {% include "ga.html" %}
 
     {% include "comments.html" %}
+
+    {% include "footer.html" %}
 
 </body>
