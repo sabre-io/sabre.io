@@ -3,12 +3,13 @@ if [ ! -d "deploy" ]; then
     echo "The deploy directory does not exist yet."
     echo ""
     echo "Please run:"
-    echo "./setup_github_pages [remote url]"
+    echo "./setup_deploy [remote url]"
     exit
 fi;
 
 sculpin install
 sculpin generate --env=prod
+./generate_css.sh sabre
 
 cd deploy
 
