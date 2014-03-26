@@ -1,5 +1,7 @@
 ---
 layout: default
+sidebar: none
+nocomments: true
 ---
 
 Legal Info

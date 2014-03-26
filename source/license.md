@@ -1,5 +1,6 @@
 ---
 layout: default
+nocomments: true
 ---
 
 License
