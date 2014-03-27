@@ -6,16 +6,62 @@ sidebar: none
 <h1>sabre/dav</h1>
 
 <p>
-A collection of high-end, thoroughly tested
-components for PHP.
+sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
 </p>
 
 </section>
+<div class="circle">
+    <a href="{{ site.url }}/install">
+        <i class="fa fa-rocket"></i>
+        <h1>Install</h1>
+    </a>
+    <p>
+        <a href="{{ site.url }}/dav/gettingstarted">Getting started.</a>
+    </p>
+</div>
 
 <section class="features-box">
     <h1>Features</h1>
     <ul>
-        <li>todo</li>
+        <li>
+            <i class="fa fa-rocket"></i>
+            Fully WebDAV compliant
+        </li>
+        <li>
+            <i class="fa fa-coffee"></i>
+            Supported on all major platforms.
+        </li>
+        <hr>
+        <li>
+            <i class="fa fa-sitemap"></i>
+            Supports class 1, 2 and 3 WebDAV servers.
+        </li>
+        <hr>
+        <li>
+            <i class="fa fa-lock"></i>
+            Locking support.
+        </li>
+        <li>
+            <i class="fa fa-home"></i>
+            Custom property support.
+        </li>
+        <hr>
+        <li>
+            <i class="fa fa-calendar"></i>
+            CalDAV support.
+        </li>
+        <li>
+            <i class="fa fa-book"></i>
+            CardDAV support.
+        </li>
+        <li>
+            <i class="fa fa-share"></i>
+            Supports calendar sharing and delegating.
+        </li>
+        <li>
+            <i class="fa fa-check"></i>
+            &gt;95% unittest coverage.
+        </li>
     </ul>
 </section>
 
