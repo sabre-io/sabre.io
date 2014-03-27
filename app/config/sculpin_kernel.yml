@@ -9,3 +9,8 @@ sculpin_content_types:
         meta: plugin
         layout: default
         permalink: pretty
+    posts:
+        layout: default
+        sidebar: none
+        permalink: pretty
+        sidebar: none

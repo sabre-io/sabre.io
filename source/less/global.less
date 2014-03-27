@@ -4,6 +4,14 @@
 body, main, h1, blockquote, ul, li {
     margin: 0;
     padding: 0;
+
+}
+
+* {
+    /* This changes everything! */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -19,6 +27,24 @@ body, td, th {
 a {
     color: #31a1cd;
 }
+
+h1 {
+    font-size: 42px;
+    line-height: 43px;
+    padding-bottom: 5px;
+    color: @sabre-red;
+}
+
+h2 {
+    color: @sabre-red;
+}
+
+hr {
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: @sabre-deco;
+}
+
 
 /* Everything before the main content area */
 header {
@@ -92,18 +118,6 @@ article {
     padding-top: 30px;
     -webkit-flex: 4 1 auto;
     flex: 4 1 auto;
-
-    ul {
-        margin-left: 20px;
-    }
-
-    h1 {
-        font-size: 42px;
-        color: #b10610;
-        padding-bottom: 5px;
-        line-height: 43px;
-    }
-
 }
 
 /* Sidebar */

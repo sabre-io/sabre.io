@@ -1,6 +1,11 @@
 ---
 layout: home
 sidebar: none
+generator: pagination
+pagination:
+    max_per_page: 3
+use:
+    - posts
 ---
 <section class="hero">
 <h1>sabre/dav</h1>
@@ -10,15 +15,27 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
 </p>
 
 </section>
-<div class="circle">
+<div class="download">
     <a href="{{ site.url }}/dav/install">
-        <i class="fa fa-rocket"></i>
-        <h1>Install</h1>
+        <i class="fa fa-download"></i>
+        <h1>Download</h1>
     </a>
-    <p>
-        <a href="{{ site.url }}/dav/gettingstarted">Getting started.</a>
-    </p>
+    <small>
+        <a href="{{ site.url }}/dav/gettingstarted">Or learn more here..</a>
+    </small>
 </div>
+
+<section class="news-box">
+    <h1>News</h1>
+    {% for post in page.pagination.items %}
+        <article>
+            <h1>{{ post.title }}</h1>
+            {{ post.blocks.content|raw }}
+            <p><a href="{{ post.url }}">comment</a></p>
+        </article>
+        <hr />
+    {% endfor %}
+</section>
 
 <section class="features-box">
     <h1>Features</h1>
@@ -31,12 +48,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
             <i class="fa fa-coffee"></i>
             Supported on all major platforms.
         </li>
-        <hr>
-        <li>
-            <i class="fa fa-sitemap"></i>
-            Supports class 1, 2 and 3 WebDAV servers.
-        </li>
-        <hr>
+        <hr />
         <li>
             <i class="fa fa-lock"></i>
             Locking support.
@@ -45,7 +57,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
             <i class="fa fa-home"></i>
             Custom property support.
         </li>
-        <hr>
+        <hr />
         <li>
             <i class="fa fa-calendar"></i>
             CalDAV support.
@@ -54,6 +66,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
             <i class="fa fa-book"></i>
             CardDAV support.
         </li>
+        <hr />
         <li>
             <i class="fa fa-share"></i>
             Supports calendar sharing and delegating.
@@ -67,12 +80,17 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
 
 <section class="enterprise-box">
     <h1>Enterprise support</h1>
+    <h2>sabre/dav is developed at <a href="https://fruux.com/">fruux</a>.</h2>
     <p>
-      sabre/dav is developed at <a href="https://fruux.com/">fruux</a>.
-      We provide enterprise support, customization, integration with your
-      application. Both on-premise and SaaS options are available.
-      <a href="/contact">Contact us</a> to discuss your requirements.
+    We provide:
     </p>
+    <ul>
+        <li>Enterprise support.</li>
+        <li>Customization.</li>
+        <li>Integrating into your existing infrastructure.</lI>
+        <li>Both on-premise and SaaS deployments.</li>
+    </ul>
+    <p><a href="/contact">Contact us</a> to discuss your requirements.</p>
 </section>
 
 <section class="project-box">
