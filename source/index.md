@@ -80,7 +80,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
 
 <section class="enterprise-box">
     <h1>Enterprise support</h1>
-    <h2>sabre/dav is developed at <a href="https://fruux.com/">fruux</a>.</h2>
+    <h2>sabre/dav is developed by <a href="https://fruux.com/">fruux</a>.</h2>
     <p>
     We provide:
     </p>
