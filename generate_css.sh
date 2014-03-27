@@ -27,4 +27,4 @@ if [ ! -f $1 ]; then
     exit
 fi
 
-lessc $1 | yuicompressor --type css > $2
+lessc --ru $1 | yuicompressor --type css > $2

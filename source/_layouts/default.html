@@ -11,9 +11,15 @@
 
     <link rel="shortcut icon" href="{{ site.url }}/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
-    <link rel="stylesheet" href="{{ site.url }}/components/highlightjs/styles/github.css" type="text/css" />
 
     {% if site.debug_less %}
+        <script>
+          less = {
+            env: "development",
+            relativeUrls: true
+          };
+        </script>
+
         <link rel="stylesheet/less" type="text/css" href="{{ site.url }}/less/sabre.less" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
     {% else %}
