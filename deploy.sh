@@ -9,7 +9,7 @@ fi;
 
 sculpin install
 sculpin generate --env=prod
-./generate_css.sh sabre
+./generate_css.sh source/less/sabre.less source/css/sabre.css
 
 cd deploy
 

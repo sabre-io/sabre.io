@@ -15,21 +15,16 @@ if ! type "yuicompressor" > /dev/null; then
 fi
 
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 [name of main less file without extension]"
+    echo "Usage: $0 [input file] [output file]"
     exit
 fi
 
-if [ ! -f ./output_dev/less/$1.less ]; then
-    echo "File $1.less does not exist yet."
+if [ ! -f $1 ]; then
+    echo "File $1 does not exist yet."
     echo ""
     echo "Please run:"
     echo "sculpin generate"
     exit
 fi
 
-cd source
-
-# compile and compress less files
-rm css/*.css
-
-lessc ./less/$1.less | yuicompressor --type css > ./css/$1.css
+lessc $1 | yuicompressor --type css > $2
