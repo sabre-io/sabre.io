@@ -11,7 +11,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
 
 </section>
 <div class="circle">
-    <a href="{{ site.url }}/install">
+    <a href="{{ site.url }}/dav/install">
         <i class="fa fa-rocket"></i>
         <h1>Install</h1>
     </a>
