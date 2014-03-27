@@ -1,6 +1,7 @@
 {
     "require" : {
-        "components/highlightjs" : "~8.0.0"
+        "components/highlightjs" : "~8.0.0",
+        "components/font-awesome" : "~4.0.3"
     },
 
     "config": {
