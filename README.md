@@ -3,7 +3,7 @@ sabredav.org source
 
 Welcome to the sourcecode for [sabre.io][1].
 
-sabredav.org is a static website. We use [sculpin][2] to generate this website.
+sabre.io is a static website. We use [sculpin][2] to generate this website.
 
 To start contributing, you can simply fork this project and add your new pages
 to the `source` directory.
@@ -39,8 +39,8 @@ Style guide
 Sample page with links
 ----------------------
 
-    Welcome to sabredav.org!
-    ========================
+    Welcome to sabre.io!
+    ====================
 
     To find out more, check out [getting started](/dav/getting-started)!
 
@@ -52,6 +52,6 @@ Sample page with links
     [1]: https://sculpin.io/
 
 
-[1]: http://sabredav.org/
+[1]: http://sabre.io/
 [2]: http://sculpin.io/
 [3]: https://sculpin.io/download/
