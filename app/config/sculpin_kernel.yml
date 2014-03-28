@@ -11,6 +11,4 @@ sculpin_content_types:
         permalink: pretty
     posts:
         layout: default
-        sidebar: none
         permalink: pretty
-        sidebar: none

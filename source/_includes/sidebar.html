@@ -1,7 +1,8 @@
 <aside>
     <ul>
-        <li><a href="{{ site.url }}/documentation">Home</a></li>
-        <li>sabre/dav
+        <li><a href="{{ site.url }}/">Home</a></li>
+        <li><a href="{{ site.url }}/dav">sabre/dav</a>
+        {% if product == "dav" %}
         <ul>
 
             <li><a href="{{ site.url }}/dav/install">Installation</a></li>
@@ -65,10 +66,19 @@
                 </ul>
             </li>
         </ul>
+        {% endif %}
     </li>
     <li>sabre/event</li>
     <li>sabre/http</li>
-    <li>sabre/vobject</li>
+    <li><a href="{{site.url}}/vobject">sabre/vobject</a>
+        {% if product == "vobject" %}
+        <ul>
+            <li>Installation</li>
+            <li>Upgrading</li>
+            <li>Usage</li>
+        </ul>
+        {% endif %}
+    </li>
     <li><a href="{{ site.url }}/license">License</a></li>
   </ul>
 </aside>

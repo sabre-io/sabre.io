@@ -1,14 +1,20 @@
+{% if page.product %}
+  {% set product = page.product %}
+{% else %}
+  {% set product = "dav" %}
+{% endif %}
 <!DOCTYPE html!>
 <head>
 
     {% if page.title %}
-        <title>{{page.title}} - sabre/dav</title>
+        <title>{{page.title}} - sabre/{{ product }}</title>
     {% else %}
-        <title>sabre/dav</title>
+        <title>sabre/{{ product }}</title>
     {% endif %}
 
     <meta charset="utf-8">
 
+    <link rel="alternate" type="application/atom+xml" href="{{ site.url }}/atom.xml" title="sabre.io blog" />
     <link rel="shortcut icon" href="{{ site.url }}/favicon.ico" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
 

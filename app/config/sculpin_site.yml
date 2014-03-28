@@ -1,0 +1,6 @@
+title: sabre.io
+layout: default
+
+# This is used to generate the default title in the header, and select the
+# current sidebar.
+product: dav
