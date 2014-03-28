@@ -48,7 +48,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
             <i class="fa fa-coffee"></i>
             Supported on all major platforms.
         </li>
-        <hr />
+        <li class="hr"></li>
         <li>
             <i class="fa fa-lock"></i>
             Locking support.
@@ -57,7 +57,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
             <i class="fa fa-home"></i>
             Custom property support.
         </li>
-        <hr />
+        <li class="hr"></li>
         <li>
             <i class="fa fa-calendar"></i>
             CalDAV support.
@@ -66,7 +66,7 @@ sabre/dav is the leading open source WebDAV/CardDAV/CalDAV server
             <i class="fa fa-book"></i>
             CardDAV support.
         </li>
-        <hr />
+        <li class="hr"></li>
         <li>
             <i class="fa fa-share"></i>
             Supports calendar sharing and delegating.
