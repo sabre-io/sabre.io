@@ -1,4 +1,8 @@
 #!/bin/bash
+
+domain=sabre.io
+url=http://$domain
+
 if [ ! -d "deploy" ]; then
     echo "The deploy directory does not exist yet."
     echo ""
@@ -8,7 +12,7 @@ if [ ! -d "deploy" ]; then
 fi;
 
 sculpin install
-sculpin generate --env=prod
+sculpin generate --env=prod --url=$url
 ./generate_css.sh source/less/sabre.less source/css/sabre.css
 
 cd deploy
@@ -22,6 +26,7 @@ rm -r *
 cp -r ../output_prod/* .
 
 touch .nojekkyl
+echo $domain > CNAME
 
 git add -A
 git commit -m "Automatic deployment"
