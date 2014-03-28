@@ -1,10 +1,11 @@
+<!DOCTYPE html!>
+<head>
+
 {% if page.product %}
   {% set product = page.product %}
 {% else %}
   {% set product = "dav" %}
 {% endif %}
-<!DOCTYPE html!>
-<head>
 
     {% if page.title %}
         <title>{{page.title}} - sabre/{{ product }}</title>
