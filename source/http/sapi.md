@@ -15,11 +15,10 @@ On the PHP Sapi side, sabre/http basically wraps a number of concepts in PHP:
 * `header()`
 * `php://output`
 
-Effecticely, it provides an OOP wrapper around these things. Half of these
+Effectively, it provides an OOP wrapper around these things. Half of these
 items relate the HTTP request, and the other half to the HTTP response.
 
-The easiest way to
-instantiate a request object is as follows:
+The easiest way to instantiate a request object is as follows:
 
     use Sabre\HTTP;
 

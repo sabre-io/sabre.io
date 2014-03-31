@@ -4,7 +4,7 @@ layout: default
 title: Installation
 ---
 
-sabre/http must be intalled using [composer][1].
+sabre/http must be installed using [composer][1].
 
 Requirements
 ------------
@@ -16,13 +16,13 @@ Installing with composer
 ------------------------
 
 If composer is not yet on your system, [follow the instructions on getcomposer.org][2]
-to do so.
+to install it.
 
 From your project directory, the easiest is then to simply call:
 
     composer require sabre/http ~{{site.latest_versions.http}}
 
-This rule ensures that you install the latest http  package in the 2.0 range
+This rule ensures that you install the latest http package in the 2.0 range
 of packages, but it does not install 2.1 or higher, which could result in a
 backwards compatibility break.
 
