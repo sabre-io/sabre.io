@@ -11,7 +11,7 @@ use:
 <h1>sabre/dav</h1>
 
 <p>
-sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
+The leading open source WebDAV, CardDAV and CalDAV server.
 </p>
 
 </section>
