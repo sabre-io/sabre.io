@@ -37,11 +37,19 @@ If you don't have the in-house capability to deploy sabredav, we do provide
 History
 -------
 
-sabre/dav was started in 2007 by [Evert Pot][3] to scratch an itch. I needed
-to bring data from the database, and expose it to the user as a filesystem.
+sabre/dav was started in 2007 by [Evert Pot][3] to scratch an itch. At the
+time, he was working on a large PHP application, with CMS capabilities.
 
-Since that existing system was fully written in PHP, WebDAV seemed like the
-obvious choice.
+A lot of the content- and template-management was done through a web
+interface, and stored in a database. This was frustrating, as it prevented
+people from using their favourite desktop text-editors to maintain and author
+this content.
+
+Since the system was fully written in PHP, the most obvious choice seemed to
+add a WebDAV frontend to this system. No solid WebDAV servers for PHP existed
+at the time, so this project was born.
+
+The first stable release was in 2009.
 
 In 2010 CalDAV was added to the server, which really caused a solid usage
 spike, allowing Evert to dedicated more time on it, and no longer just in
