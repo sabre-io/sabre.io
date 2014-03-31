@@ -11,14 +11,14 @@ use:
 <h1>sabre/dav</h1>
 
 <p>
-sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
+The leading open source CardDAV, CalDAV and WebDAV server.
 </p>
 
 </section>
 <div class="download">
     <a href="{{ site.url }}/dav/install">
         <i class="fa fa-download"></i>
-        <h1>Download</h1>
+        <h1>Install</h1>
     </a>
     <small>
         <a href="{{ site.url }}/dav/gettingstarted">Or learn more here..</a>
@@ -31,9 +31,8 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
         <article>
             <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
             {{ post.blocks.content|raw }}
-            <p><a href="{{ post.url }}">comment</a></p>
         </article>
-        <hr />
+        {% if not loop.last %}<hr />{% endif %}
     {% endfor %}
 </section>
 
@@ -80,17 +79,22 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
 
 <section class="enterprise-box">
     <h1>Enterprise support</h1>
-    <h2>sabre/dav is developed by <a href="https://fruux.com/">fruux</a>.</h2>
-    <p>
-    We provide:
-    </p>
-    <ul>
-        <li>Enterprise support.</li>
-        <li>Customization.</li>
-        <li>Integrating into your existing infrastructure.</lI>
-        <li>Both on-premise and SaaS deployments.</li>
-    </ul>
-    <p><a href="/contact">Contact us</a> to discuss your requirements.</p>
+    <div>
+        <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
+        <p>
+        We provide:
+        </p>
+        <ul>
+            <li>Enterprise support.</li>
+            <li>Customization.</li>
+            <li>Integrating into your existing infrastructure.</lI>
+            <li>Both on-premise and SaaS deployments.</li>
+        </ul>
+        <p><a href="/support">Contact us</a> to discuss your requirements.</p>
+    </div>
+    <div>
+        <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
+    </div>
 </section>
 
 <section class="project-box">
@@ -99,10 +103,10 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
 
 <dl>
     <dt><a href="/dav">sabre/dav</a></dt>
-    <dd>The leading open-source WebDAV, CalDAV and CardDAV server.</dd>
+    <dd>The leading open-source CalDAV, CardDAV and WebDAV server.</dd>
 </dl>
 <dl>
-    <dt><a href="/http">sabre/http</a></dt>
+    <dt><a href="https://github.com/fruux/sabre-http">sabre/http</a></dt>
     <dd>An OOP abstraction layer for the PHP server api.</dd>
 </dl>
 <dl>
@@ -110,7 +114,7 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
     <dd>A library for parsing and manipulating vCard, iCalendar, jCard and jCal.</dd>
 </dl>
 <dl>
-    <dt><a href="/event">sabre/event</a></dt>
+    <dt><a href="https://github.com/fruux/sabre-event">sabre/event</a></dt>
     <dd>Utilities for lightweight event-based programming in PHP.</dd>
 </dl>
 
