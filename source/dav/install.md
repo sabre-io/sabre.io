@@ -72,7 +72,7 @@ directory.
 Source
 ------
 
-The sabre/dav source can be found on [Github][4].
+The sabre/dav source can be found on [GitHub][4].
 
 Next Steps
 ----------
