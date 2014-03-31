@@ -16,6 +16,7 @@ Support
   * [sabre/vobject](https://github.com/fruux/sabre-vobject/issues/)
   * [sabre/http](https://github.com/fruux/sabre-http/issues/)
   * [sabre/event](https://github.com/fruux/sabre-event/issues/)
+  * [this website](https://github.com/fruux/sabre.io/issues/)
 
 ## <i class="fa fa-rocket"></i> Professional Support
 
