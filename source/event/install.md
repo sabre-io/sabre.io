@@ -31,5 +31,12 @@ by including the autoloader:
 
     include 'vendor/autoload.php';
 
+Source
+------
+
+The sabre/event source can be found on [Github][3].
+
 [1]: http://getcomposer.org/
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
+[3]: https://github.com/fruux/sabre-event
+

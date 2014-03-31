@@ -30,6 +30,7 @@ The leading open source CardDAV, CalDAV and WebDAV server.
     {% for post in page.pagination.items %}
         <article>
             <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
+            <time>{{ post.date|date("F jS, Y") }}</time>
             {{ post.blocks.content|raw }}
         </article>
         {% if not loop.last %}<hr />{% endif %}

@@ -69,6 +69,11 @@ distributed as a zip file.
 To use it, just unzip it and include the `autoload.php` file in the `vendor/`
 directory.
 
+Source
+------
+
+The sabre/dav source can be found on [Github][4].
+
 Next Steps
 ----------
 
@@ -77,3 +82,4 @@ Head over to [Getting Started](/dav/gettingstarted) to see what's next.
 [1]: http://getcomposer.org/
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
 [3]: https://github.com/fruux/sabre-dav/releases
+[4]: https://github.com/fruux/sabre-dav
