@@ -1,15 +1,15 @@
 ---
-product: event
+product: http
 layout: default
 title: Installation
 ---
 
-sabre/event must be intalled using [composer][1].
+sabre/http must be intalled using [composer][1].
 
 Requirements
 ------------
 
-You will need a recent version of PHP. sabre/event currently requires PHP
+You will need a recent version of PHP. sabre/http currently requires PHP
 5.4.
 
 Installing with composer
@@ -20,13 +20,13 @@ to do so.
 
 From your project directory, the easiest is then to simply call:
 
-    composer require sabre/event ~{{site.latest_versions.event}}
+    composer require sabre/http ~{{site.latest_versions.http}}
 
-This rule ensures that you install the latest event package in the 1.0 range
-of packages, but it does not install 1.1 or higher, which could result in a
+This rule ensures that you install the latest http  package in the 2.0 range
+of packages, but it does not install 2.1 or higher, which could result in a
 backwards compatibility break.
 
-After running this, sabre/event should be installed, and you can load it in
+After running this, sabre/http should be installed, and you can load it in
 by including the autoloader:
 
     include 'vendor/autoload.php';

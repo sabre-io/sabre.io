@@ -70,18 +70,29 @@
     <li><a href="{{site.url}}/event">sabre/event</a>
         {% if product == "event" %}
         <ul>
-            <li><a href="/event/install">Installation</a></li>
-            <li><a href="/event/usage">Usage</a></li>
+            <li><a href="{{ site.url }}/event/install">Installation</a></li>
+            <li><a href="{{ site.url }}/event/usage">Usage</a></li>
         </ul>
         {% endif %}
     </li>
-    <li>sabre/http</li>
+    <li><a href="{{site.url}}/http">sabre/http</a>
+        {% if product == "http" %}
+        <ul>
+            <li><a href="{{ site.url }}/http/install">Installation</a></li>
+            <li><a href="{{ site.url }}/http/sapi">The PHP Sapi wrapper</a></li>
+            <li><a href="{{ site.url }}/http/decorators">Decorators</a></li>
+            <li><a href="{{ site.url }}/http/client">The HTTP client</a></li>
+            <li><a href="{{ site.url }}/http/reverseproxy">Writing a reverse proxy</a></li>
+            <li><a href="{{ site.url }}/http/api">Request and Response APIs</a></li>
+        </ul>
+        {% endif %}
+    </li>
     <li><a href="{{site.url}}/vobject">sabre/vobject</a>
         {% if product == "vobject" %}
         <ul>
-            <li><a href="/vobject/install">Installation</a></li>
+            <li><a href="{{ site.url }}/vobject/install">Installation</a></li>
             <li>Upgrading</li>
-            <li><a href="/vobject/usage">Usage</a></li>
+            <li><a href="{{ site.url }}/vobject/usage">Usage</a></li>
         </ul>
         {% endif %}
     </li>

@@ -106,7 +106,7 @@ The leading open source CardDAV, CalDAV and WebDAV server.
     <dd>The leading open-source CalDAV, CardDAV and WebDAV server.</dd>
 </dl>
 <dl>
-    <dt><a href="https://github.com/fruux/sabre-http">sabre/http</a></dt>
+    <dt><a href="{{site.url}}/http">sabre/http</a></dt>
     <dd>An OOP abstraction layer for the PHP server api.</dd>
 </dl>
 <dl>
