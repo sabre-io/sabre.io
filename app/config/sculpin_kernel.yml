@@ -11,4 +11,4 @@ sculpin_content_types:
         permalink: pretty
     posts:
         layout: default
-        permalink: pretty
+        permalink: blog/:year/:month/:day/:filename/

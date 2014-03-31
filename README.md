@@ -1,5 +1,5 @@
-sabredav.org source
-===================
+sabre.io source
+===============
 
 Welcome to the sourcecode for [sabre.io][1].
 
