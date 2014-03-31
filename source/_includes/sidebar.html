@@ -67,7 +67,14 @@
         </ul>
         {% endif %}
     </li>
-    <li>sabre/event</li>
+    <li><a href="{{site.url}}/event">sabre/event</a>
+        {% if product == "event" %}
+        <ul>
+            <li><a href="/event/install">Installation</a></li>
+            <li><a href="/event/usage">Usage</a></li>
+        </ul>
+        {% endif %}
+    </li>
     <li>sabre/http</li>
     <li><a href="{{site.url}}/vobject">sabre/vobject</a>
         {% if product == "vobject" %}
