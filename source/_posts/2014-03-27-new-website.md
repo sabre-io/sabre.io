@@ -1,5 +1,6 @@
 ---
 title: New website launched!
+sidebar: none
 ---
 
 You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
