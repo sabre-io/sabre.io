@@ -1,7 +1,7 @@
 ---
 layout: default
 sidebar: none
-title: Blog 
+title: Blog
 use:
     - posts
 nocomments: true
