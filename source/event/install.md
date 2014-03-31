@@ -16,7 +16,7 @@ Installing with composer
 ------------------------
 
 If composer is not yet on your system, [follow the instructions on getcomposer.org][2]
-to do so.
+to install it.
 
 From your project directory, the easiest is then to simply call:
 
