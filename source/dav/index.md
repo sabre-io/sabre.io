@@ -27,11 +27,11 @@ Check out our [Standard support][1] page for all the details.
 Target audience
 ---------------
 
-The primary target audience for sabre/dav is business and individuals with
+The primary target audience for sabre/dav is businesses and individuals with
 a base-line of technical capabilities. The first and foremost target for
 sabre/dav are developers.
 
-If you don't have the in-house capability to deploy sabredav, we do provide
+If you don't have the in-house capability to deploy sabre/dav, we do provide
 [commercial support][2].
 
 History
@@ -42,7 +42,7 @@ time, he was working on a large PHP application, with CMS capabilities.
 
 A lot of the content- and template-management was done through a web
 interface, and stored in a database. This was frustrating, as it prevented
-people from using their favourite desktop text-editors to maintain and author
+people from using their favorite desktop text-editors to maintain and author
 this content.
 
 Since the system was fully written in PHP, the most obvious choice seemed to
