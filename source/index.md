@@ -90,7 +90,7 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
         <li>Integrating into your existing infrastructure.</lI>
         <li>Both on-premise and SaaS deployments.</li>
     </ul>
-    <p><a href="/contact">Contact us</a> to discuss your requirements.</p>
+    <p><a href="/support">Contact us</a> to discuss your requirements.</p>
 </section>
 
 <section class="project-box">
@@ -102,7 +102,7 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
     <dd>The leading open-source WebDAV, CalDAV and CardDAV server.</dd>
 </dl>
 <dl>
-    <dt><a href="/http">sabre/http</a></dt>
+    <dt><a href="https://github.com/fruux/sabre-http">sabre/http</a></dt>
     <dd>An OOP abstraction layer for the PHP server api.</dd>
 </dl>
 <dl>
@@ -110,7 +110,7 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
     <dd>A library for parsing and manipulating vCard, iCalendar, jCard and jCal.</dd>
 </dl>
 <dl>
-    <dt><a href="/event">sabre/event</a></dt>
+    <dt><a href="https://github.com/fruux/sabre-event">sabre/event</a></dt>
     <dd>Utilities for lightweight event-based programming in PHP.</dd>
 </dl>
 
