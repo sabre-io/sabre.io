@@ -63,12 +63,12 @@ The client emits 3 events using [sabre/event][5]. `beforeRequest`,
 Asynchronous requests
 ---------------------
 
-The Client also supports doing asynchronous requests. This is especially handy
+The client also supports doing asynchronous requests. This is especially handy
 if you need to perform a number of requests, that are allowed to be executed
 in parallel.
 
 The underlying system for this is simply [curl's multi request handler][8],
-but this provides a much nicer API to handle this.
+but sabre/http provides a much nicer API to handle this.
 
 Sample usage:
 
@@ -87,7 +87,7 @@ Sample usage:
             function($error) {
                 // Error handler
             }
-        ); 
+        );
     }
 
     // Wait for all requests to get a result.
