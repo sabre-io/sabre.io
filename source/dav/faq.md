@@ -13,7 +13,7 @@ Windows, OS/X and pretty much any Linux distribution.
 WebDAV is a protocol that sits on top of the HTTP protocol, because of this it
 also works often through corporate firewalls.
 
-See [wikipedia][1] or [webdav.org][2] for more information.
+See [Wikipedia][1] or [webdav.org][2] for more information.
 
 What is SabreDAV?
 -----------------
@@ -37,7 +37,7 @@ What CalDAV does for calendars, CardDAV does for address books. CardDAV is the
 standard protocol to manage and sync addressbooks, and is also supported by a
 lot of clients and services.
 
-Check [wikipedia][4] for more info.
+Check [Wikipedia][4] for more info.
 
 Is SabreDAV stable?
 -------------------
@@ -160,7 +160,7 @@ I'd like to get commercial support
 ----------------------------------
 
 SabreDAV is developed by [fruux][12]. If you're looking for enterprise-level
-support, we'd love to hear from you!
+support, we'd love to [hear from you][13]!
 
 
 [1]: http://en.wikipedia.org/wiki/Webdav
@@ -171,7 +171,8 @@ support, we'd love to hear from you!
 [6]: http://www.charlesproxy.com/download/
 [7]: http://groups.google.com/group/sabredav-discuss
 [8]: https://github.com/fruux/sabre-dav/issues/new
-[9]: http://www.bynari.net/products-page/product-category/bynari-webdav-collaborator/ 
+[9]: http://www.bynari.net/products-page/product-category/bynari-webdav-collaborator/
 [10]: http://ical.gutentag.ch/
 [11]: http://openconnector.org/
 [12]: https://fruux.com/
+[13]: /support
