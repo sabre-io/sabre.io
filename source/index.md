@@ -11,7 +11,7 @@ use:
 <h1>sabre/dav</h1>
 
 <p>
-The leading open source WebDAV, CardDAV and CalDAV server.
+The leading open source CardDAV, CalDAV and WebDAV server.
 </p>
 
 </section>
@@ -103,7 +103,7 @@ The leading open source WebDAV, CardDAV and CalDAV server.
 
 <dl>
     <dt><a href="/dav">sabre/dav</a></dt>
-    <dd>The leading open-source WebDAV, CalDAV and CardDAV server.</dd>
+    <dd>The leading open-source CalDAV, CardDAV and WebDAV server.</dd>
 </dl>
 <dl>
     <dt><a href="https://github.com/fruux/sabre-http">sabre/http</a></dt>

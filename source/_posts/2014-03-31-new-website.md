@@ -7,7 +7,7 @@ You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
 never had a proper website, and we've always just hosted from Google Code.
 
 As Google slowly started to lose interested in code hosting, we migrated more
-and more features to Github. The biggest thing left: the wiki. So what once
+and more features to GitHub. The biggest thing left: the wiki. So what once
 started as a place to host the new wiki, turned into a brand-new design, by
 [our][1] very own Martin Kaniut, who's also responsible for the [fruux][1]
 design.
