@@ -7,9 +7,6 @@ layout: default
 sabre/dav is the most popular WebDAV framework for PHP. Use it to create
 WebDAV, CalDAV and CardDAV servers.
 
-sabre/dav is increasingly becoming the #1 choice for application service
-providers who wish to add Cal- and CardDAV to support to their application.
-
 sabre/dav supports a [wide range][1] of internet standards related to these
 protocols. The most relevant are:
 
