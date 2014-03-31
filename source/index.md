@@ -18,7 +18,7 @@ The leading open source WebDAV, CardDAV and CalDAV server.
 <div class="download">
     <a href="{{ site.url }}/dav/install">
         <i class="fa fa-download"></i>
-        <h1>Download</h1>
+        <h1>Install</h1>
     </a>
     <small>
         <a href="{{ site.url }}/dav/gettingstarted">Or learn more here..</a>
@@ -31,9 +31,8 @@ The leading open source WebDAV, CardDAV and CalDAV server.
         <article>
             <h1>{{ post.title }}</h1>
             {{ post.blocks.content|raw }}
-            <p><a href="{{ post.url }}">comment</a></p>
         </article>
-        <hr />
+        {% if not loop.last %}<hr />{% endif %}
     {% endfor %}
 </section>
 
@@ -80,17 +79,22 @@ The leading open source WebDAV, CardDAV and CalDAV server.
 
 <section class="enterprise-box">
     <h1>Enterprise support</h1>
-    <h2>sabre/dav is developed by <a href="https://fruux.com/">fruux</a>.</h2>
-    <p>
-    We provide:
-    </p>
-    <ul>
-        <li>Enterprise support.</li>
-        <li>Customization.</li>
-        <li>Integrating into your existing infrastructure.</lI>
-        <li>Both on-premise and SaaS deployments.</li>
-    </ul>
-    <p><a href="/support">Contact us</a> to discuss your requirements.</p>
+    <div>
+        <h2>sabre/dav is developed by <a href="https://fruux.com/">fruux</a>.</h2>
+        <p>
+        We provide:
+        </p>
+        <ul>
+            <li>Enterprise support.</li>
+            <li>Customization.</li>
+            <li>Integrating into your existing infrastructure.</lI>
+            <li>Both on-premise and SaaS deployments.</li>
+        </ul>
+        <p><a href="/support">Contact us</a> to discuss your requirements.</p>
+    </div>
+    <div>
+        <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
+    </div>
 </section>
 
 <section class="project-box">
