@@ -19,7 +19,7 @@ Support
 
 ## <i class="fa fa-rocket"></i> Professional Support
 
-Supercharge your application development with the team behind sabre/dav. Besides us, developers and companies around the globe use our sabre/dav technology to deliver sync functionality to millions of users. Our technology powers sync functionality in many proprietary products from major vendors, as well as popular open source projects such as e.g. ownCloud, Kolab and Horde. We offer a wide array of services to ensure that organizations get the best out of sabre/dav:
+Supercharge your application development with [fruux](https://fruux.com), the team behind sabre/dav. Besides us, developers and companies around the globe use our sabre/dav technology to deliver sync functionality to millions of users. Our technology powers sync functionality in many proprietary products from major vendors, as well as popular open source projects such as e.g. ownCloud, Kolab and Horde. We offer a wide array of services to ensure that organizations get the best out of sabre/dav:
 
 * Commercial maintenance and support.
 * Building new applications.
