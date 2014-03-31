@@ -29,7 +29,7 @@ sabre/dav is the leading open source WebDAV, CardDAV and CalDAV server.
     <h1>News</h1>
     {% for post in page.pagination.items %}
         <article>
-            <h1>{{ post.title }}</h1>
+            <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
             {{ post.blocks.content|raw }}
             <p><a href="{{ post.url }}">comment</a></p>
         </article>
