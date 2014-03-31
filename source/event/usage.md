@@ -55,7 +55,7 @@ All default PHP callbacks are supported, so closures are not required.
 
 If a callback returns `false` the event chain is stopped immediately.
 
-A usecase is to use a listener to check if a user has permission to perform
+A use case is to use a listener to check if a user has permission to perform
 a certain action, and stop execution if they don't.
 
     $eventEmitter->on('create', function() {
@@ -67,7 +67,7 @@ a certain action, and stop execution if they don't.
     }, 10);
 
 `EventEmitter::emit()` will return `false` if the event was cancelled, and
-true if it wasn't.
+`true` if it wasn't.
 
 SabreDAV uses this feature heavily as well. When a HTTP request is received
 various plugins see if they are capable of handling the request. If they
