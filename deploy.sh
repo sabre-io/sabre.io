@@ -29,7 +29,7 @@ touch .nojekkyl
 echo $domain > CNAME
 
 git add -A
-git commit -m "Automatic deployment"
+git commit -m "Automatic deployment `date -u`"
 
 echo "Pushing changes"
 
