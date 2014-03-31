@@ -1,10 +1,8 @@
 ---
 title: New website launched!
-layout: post
 sidebar: none
 tags:
     - sabre.io
-categories:
 ---
 
 You're looking at the brand-new website for sabre/dav. Up until now sabre/dav
