@@ -29,8 +29,8 @@ What this library provides, is a `Request` object, and a `Response` object,
 both which are easily extendable and mockable. On top of that, it comes with
 a number of other features that make it easy to work with HTTP related stuff.
 
-* [Installation](/http/install)
-* [Usage instructions](/http/usage)
+* [Installation instructions](/http/install)
+* [Usage](/http/sapi)
 
 A quick history
 ---------------
