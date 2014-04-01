@@ -7,7 +7,7 @@ plugin_since: 0.7.0
 ---
 
 If you try to open your sabredav webserver in a browser, you will by default
-be greated by an error.
+be greeted by an error.
 
 SabreDAV ships with a plugin that adds directory indexes, just like many
 webservers do. This makes your server a lot friendlier on the eyes when opening
