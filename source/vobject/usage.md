@@ -418,34 +418,6 @@ The output of this script will look like this:
     END:VFREEBUSY
     END:VCALENDAR
 
-### Converting to jCard
-
-To create a json-version of your iCalendar or vCard, simply call
-`jsonSerialize` on your component:
-
-    echo json_encode($vcard->jsonSerialize());
-
-The json formats are based on these RFCs:
-
-* <http://tools.ietf.org/html/rfc7095>
-* <http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-08>
-
-Because these are still in draft, so is the jsonSerialize implementation. The
-output format may therefore break between versions to comply with the latest
-version of the spec.
-
-### Parsing jCard and jCal.
-
-To parse a jCard or jCal object, use the following snippet:
-
-    $input = 'jcard.json';
-    $jCard = VObject\Reader::readJson(fopen('jcard.json', 'r'));
-
-You can pass either a json string, a readable stream, or an array if you
-already called json_decode on the input.
-
-This feature was added in sabre/vobject 3.1.
-
 ### Splitting export files
 
 Generally when software makes backups of calendars or contacts, they will
