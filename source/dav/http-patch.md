@@ -58,4 +58,4 @@ contrary to the 1-based offset as specified in the request.
 
 A sample implementation can be found in `Sabre\DAV\FSExt\File`.
 
-[1]: http://tools.iets.org/html/rfc5789
+[1]: http://tools.ietf.org/html/rfc5789
