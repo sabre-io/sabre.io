@@ -6,7 +6,7 @@ plugin_since: 1.4.0
 ---
 
 There are some Calendaring tools that don't yet support CalDAV, but they do
-have support for the 'Subscribe to' feature. 
+have support for the 'Subscribe to' feature.
 
 Starting with SabreDAV 1.4, there is now a plugin that grabs an existing
 calendar, and exports it as a file that's compatible with these applications.
@@ -50,6 +50,6 @@ Sample url:
     http://dav.example.org/calendars/user1/mycalendar?export&start=1391707119&end=1391707215&expand=1&accept=jcal
 
 
-[1]: /dav/jcal
+[1]: /vobject/json
 [2]: https://github.com/fruux/sabre-dav/issues/new
 

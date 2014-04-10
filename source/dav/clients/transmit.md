@@ -8,7 +8,7 @@ OS/X. It can either browse WebDAV sites in a simple browser, but it's also
 capable of mounting WebDAV drives using [MacFuse][2].
 
 If you are ok with shelving out a few dollars, this is a _much_ better client
-than [Finder](/dav/client/finder), and is well worth it.
+than [Finder](/dav/clients/finder), and is well worth it.
  
 Implementor notes
 -----------------
