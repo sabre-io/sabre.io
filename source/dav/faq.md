@@ -109,7 +109,7 @@ on the [Litmus](/dav/litmus) page.
 Can SabreDAV work with large files?
 -----------------------------------
 
-Yes, read [Working with large files](/dav/working-with-large-files).
+Yes, read [Working with large files](/dav/large-files).
 
 Does SabreDAV work with Microsoft Outlook?
 ------------------------------------------
