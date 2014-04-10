@@ -75,6 +75,6 @@ Sub-projects
 </dl>
 
 [1]: /dav/standards-support/
-[2]: http://localhost:8000/support
+[2]: /support
 [3]: http://evertpot.com/
 [4]: https://fruux.com/
