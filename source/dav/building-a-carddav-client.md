@@ -22,7 +22,7 @@ We've developed a PHP client that does _some_ DAV-related stuff and makes it
 a tad easier. More information can be found [on this wiki](/dav/davclient).
 
 We'd love to have a list here for CardDAV clients. So know one?
-[contact](/contact) us.
+[Let us know](/support).
 
 
 High-level protocol
@@ -273,7 +273,7 @@ The response gives us back the user, the values for the 2 properties and the
 status.
 
 It is possible that a server does not support the ctag. In that case it will
-likely return `404 Not Found` for the ctag, and `200 OK` for the displayname. 
+likely return `404 Not Found` for the ctag, and `200 OK` for the displayname.
 
 Example:
 
@@ -474,7 +474,7 @@ subsequent updates.
 It would totally be possible to skip the 'initial sync', and just use
 addressbook-query and addressbook-multiget REPORTS for the initial sync as well.
 
-Updating a contact 
+Updating a contact
 ------------------
 
 Updating a vCard is rather simple:
@@ -504,7 +504,7 @@ Many clients skip the `GET` step though.
 
 A few notes:
 
-### Don't change the UID 
+### Don't change the UID
 
 The `UID` and the url of the object are important to not change. Changing
 either will highly confuse other clients and the server _should_ reject those
