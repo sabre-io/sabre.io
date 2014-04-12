@@ -84,7 +84,7 @@ If you're still running into issues, contact us on the [mailing list][7], or
 Authentication doesn't work
 ---------------------------
 
-There are several server configurations that can affect wether authentication
+There are several server configurations that can affect whether authentication
 will work. The [Authentication](/dav/authentication) and
 [Webservers](/dav/webservers) wiki pages have more info.
 
