@@ -10,7 +10,7 @@ The `Sabre\DAV\PartialUpdate\Plugin` provides support for the HTTP PATCH method
 ([RFC5789][1]). This allows you to update just a portion of a file, or append
 to a file. 
 
-SabreDAV defines its own content-type to do this. 
+SabreDAV defines its own content-type to do this.
 
 *Note:* This feature was added in SabreDAV 1.7.0.
 
@@ -35,10 +35,11 @@ This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
   This means that 'bytes=0-3' is invalid, as there is no '0th byte'.
 * The 'application/x-sabredav-partialupdate' must also be specified.
 * The two numbers in the Update-Range header may be omitted. If the start byte
-  is omitted, 0 is assumed. If the end-byte is omitted the Content-Length is
-  used.
+  is omitted, 0 is assumed. If the end-byte is omitted it will be calculated
+  based on the start-byte and the content-length of the PATCH request.
 * Note that this makes the end-range unneeded, but we wanted to stay close to
-  the HTTP specification.
+  the HTTP specification. Specifying the end-byte is still a good idea as it
+  provides a sanity check for numbers that are easily mixed up.
 * You can start writing past the end of the file. The in-between space will be
   filled with `0x00`.
 
