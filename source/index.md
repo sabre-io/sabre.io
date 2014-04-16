@@ -29,8 +29,8 @@ An open source CardDAV, CalDAV and WebDAV server.
     <h1>News</h1>
     {% for post in page.pagination.items %}
         <article>
-            <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
             <time>{{ post.date|date("F jS, Y") }}</time>
+            <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
             {{ post.blocks.content|raw }}
         </article>
         {% if not loop.last %}<hr />{% endif %}
