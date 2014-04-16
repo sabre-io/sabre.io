@@ -1,4 +1,23 @@
-/* Automatically generates gradients.*/
+// MIXINS
+// =============================================================================
+
+// Clearfix
+// ----
+// Helps the wrapper when floated elements are included.
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+ // Automatically generates gradients.
 #gradient {
 
     // Horizontal gradient, from left to right

@@ -72,28 +72,33 @@ hr {
 
 header {
     background-color: #eee;
-    padding: 10px;
+    text-align: right;
+    .clearfix();
 
-    .logo a {
-        color: #333;
-        text-decoration: none;
-        font-size: 28px;
-        font-weight: 500;
+    // sabre/dav logo on the left side
+    .logo {
+        float: left;
+        padding: 5px 10px;
+        
+        img {
+            vertical-align: middle;
+        }
 
+        a {
+            color: #333;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 500;
+        }
     }
 
-    .logo * {
-        vertical-align: middle;
-    }
-
+    // Page navigation in the upper right corner.
     nav {
+        padding: 19px 10px;
         word-spacing: 20px;
 
         ul {
             list-style: none;
-            position: absolute;
-            right: 20px;
-            top: 13px;
         }
 
         li {
