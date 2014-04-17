@@ -25,12 +25,12 @@ An open source CardDAV, CalDAV and WebDAV server.
     </small>
 </div>
 
-<section class="news-box">
+<section class="box box-news">
     <h1>News</h1>
     {% for post in page.pagination.items %}
         <article>
-            <time>{{ post.date|date("F jS, Y") }}</time>
             <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
+            <time>{{ post.date|date("F jS, Y") }}</time>
             {{ post.blocks.content|raw }}
         </article>
         {% if not loop.last %}<hr />{% endif %}
