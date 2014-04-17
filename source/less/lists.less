@@ -3,14 +3,33 @@
 // All the ul's and ol's and their variants.
 
 
+.list {
+    .unstyle-ul();   
+    margin-bottom: 20px;
+}
+
+
+.list-checks {
+    padding-left: 20px;
+
+    li:before {
+        width: 20px;
+        display: inline-block;
+        font-family: FontAwesome;
+        content: "\f00c";
+        font-size: 0.8em;
+        margin-left: -20px;
+        vertical-align: text-top;
+        color: @sabre-sidekick;
+    }
+}
+
 
 // Feature List
 // ---
 // Showing features on the frontpage.
 
 .list-features {
-    .unstyle-ul();
-    margin-bottom: 20px;
     border-bottom: 1px solid @sabre-deco;
     border-top: 1px solid @sabre-deco;
     padding-top: @font-size-base * 2;

@@ -39,7 +39,7 @@ An open source CardDAV, CalDAV and WebDAV server.
 
 <section class="box box-features">
     <h1>Features</h1>
-    <ul class="list-features">
+    <ul class="list list-features">
         <li>
             <i class="fa fa-rocket"></i>
             Fully WebDAV compliant
@@ -78,24 +78,23 @@ An open source CardDAV, CalDAV and WebDAV server.
     </ul>
 </section>
 
-<section class="enterprise-box">
+<section class="box box-enterprise">
     <h1>Enterprise support</h1>
+    <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
     <div>
-        <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
-        <p>
-        We provide:
-        </p>
-        <ul>
+        <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
+        <h3>We provide:</h3>
+        <ul class="list list-checks">
             <li>Enterprise support.</li>
             <li>Customization.</li>
             <li>Integrating into your existing infrastructure.</lI>
             <li>Both on-premise and SaaS deployments.</li>
         </ul>
-        <p><a href="/support">Contact us</a> to discuss your requirements.</p>
     </div>
-    <div>
-        <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
-    </div>
+    <p class="bubble">
+        <i class="fa fa-2x fa-envelope-o"></i>
+        <a href="/support">Contact us</a> <br>to discuss your requirements.
+    </p>
 </section>
 
 <section class="project-box">
