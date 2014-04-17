@@ -61,7 +61,8 @@
 
 }
 
-.features-box, .project-box, .news-box{
+.project-box,
+.news-box{
     padding: 20px 40px;
     > h1 {
         color: @sabre-sidekick;
@@ -84,41 +85,6 @@
         padding: 0 10px;
         margin-top: 10px;
         margin-left: 10px;
-    }
-}
-
-.features-box ul {
-    list-style: none;
-
-    li:not(.hr) {
-        float: left;
-        width: 50%;
-        padding-right: 2%;
-        min-height: 35px; 
-        font-weight: 100;
-        position: relative;
-        margin-bottom: 21px;
-        font-size: 18px;
-        padding-left: 60px;
-    }
-    .hr {
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        border-color: @sabre-deco;
-        border-style: solid;
-        border-width: 1px 0 0 0;
-        clear: both;
-    }
-    /* These are all the icons */
-    [class*="fa-"] {
-        position: absolute;
-        top: -5px;
-        width: 50px;
-        text-align: center;
-        margin-left: -60px;
-        font-size: 35px;
-        color: @sabre-sidekick;
     }
 }
 

@@ -37,9 +37,9 @@ An open source CardDAV, CalDAV and WebDAV server.
     {% endfor %}
 </section>
 
-<section class="features-box">
+<section class="box box-features">
     <h1>Features</h1>
-    <ul>
+    <ul class="list-features">
         <li>
             <i class="fa fa-rocket"></i>
             Fully WebDAV compliant
