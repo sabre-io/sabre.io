@@ -120,3 +120,65 @@
     }
 
 }
+
+
+// Box : Lineup
+.box-lineup {
+
+    max-width: @screen-lg;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+        display: block;
+        padding: 40px 20px;
+        text-align: center;
+        text-decoration: none;
+        background: @sabre-deco;
+        color: @grey;
+        border-bottom: 1px solid #fff;
+        min-height: 200px;
+        transition: all .5s ease;
+        .clearfix();
+
+        @media (min-width: 640px) {
+            width: 50%;
+            height: 240px;
+            float: left;
+            border-right: 1px solid #fff;
+        }
+
+        @media (min-width: @screen-md) {
+            width: 25%;
+        }
+
+        // some icon style
+        > span {
+            transition: all .5s ease;
+            display: inline-block;
+            color: @sabre-sidekick;
+            padding: 21px;
+            margin-bottom: 20px;
+            font-size: @font-size-base*2;
+            font-weight: bold;
+            border: 1px solid @sabre-sidekick;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+
+        strong {
+            font-size: @headline-h3;
+        }
+
+        &:hover {
+            background: @sabre-sidekick;
+            color: #fff;
+
+            > span {
+                color: @sabre-deco;
+                border-color: @sabre-deco
+            }
+        }
+    }
+}

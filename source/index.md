@@ -97,25 +97,27 @@ An open source CardDAV, CalDAV and WebDAV server.
     </p>
 </section>
 
-<section class="project-box">
-
-<h1>The full sabre.io project lineup</h1>
-
-<dl>
-    <dt><a href="{{site.url}}/dav">sabre/dav</a></dt>
-    <dd>The leading open-source CalDAV, CardDAV and WebDAV server.</dd>
-</dl>
-<dl>
-    <dt><a href="{{site.url}}/http">sabre/http</a></dt>
-    <dd>An OOP abstraction layer for the PHP server api.</dd>
-</dl>
-<dl>
-    <dt><a href="{{site.url}}/vobject">sabre/vobject</a></dt>
-    <dd>A library for parsing and manipulating vCard, iCalendar, jCard and jCal.</dd>
-</dl>
-<dl>
-    <dt><a href="{{site.url}}/event">sabre/event</a></dt>
-    <dd>Utilities for lightweight event-based programming in PHP.</dd>
-</dl>
+<section class="box box-lineup">
+    <h1>The full sabre.io project lineup</h1>
+    <a href="{{site.url}}/dav">
+        <span>d</span><br>
+        <strong>sabre/dav</strong><br>
+        The leading open-source CalDAV, CardDAV and WebDAV server
+    </a>
+    <a href="{{site.url}}/http">
+        <span>h</span><br>
+        <strong>sabre/http</strong><br>
+        An OOP abstraction layer for the PHP server api.
+    </a>
+    <a href="{{site.url}}/vobject">
+        <span>v</span><br>
+        <strong>sabre/dav</strong><br>
+        A library for parsing and manipulating vCard, iCalendar, jCard and jCal.
+    </a>
+    <a href="{{site.url}}/event">
+        <span>e</span><br>
+        <strong>sabre/event</strong><br>
+        Utilities for lightweight event-based programming in PHP.
+    </a>
 
 </section>
