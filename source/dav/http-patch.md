@@ -35,7 +35,7 @@ This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
   This means that 'bytes=0-3' is invalid, as there is no '0th byte'.
 * The 'application/x-sabredav-partialupdate' must also be specified.
 * The two numbers in the Update-Range header may be omitted. If the start byte
-  is omitted, 0 is assumed. If the end-byte is omitted it will be calculated
+  is omitted, 1 is assumed. If the end-byte is omitted it will be calculated
   based on the start-byte and the content-length of the PATCH request.
 * Note that this makes the end-range unneeded, but we wanted to stay close to
   the HTTP specification. Specifying the end-byte is still a good idea as it
