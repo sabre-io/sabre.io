@@ -31,6 +31,40 @@
 }
 
 
+// Building with flex
+// -----------------------------------------------------------------------------
+
+// Flex Wrapper
+.flex() {
+    display: -webkit-box;  // OLD - iOS 6-, Safari 3.1-6
+    display: -moz-box;     // OLD - Firefox 19- (buggy but mostly works)
+    display: -ms-flexbox;  // TWEENER - IE 10
+    display: -webkit-flex; // NEW - Chrome
+    display: flex;         // NEW, Spec - Opera 12.1, Firefox 20+
+}
+
+// Flex item
+// ---
+// Items inside a flex wrapper.
+// Syntax:  .flex-item(<flex-grow> <flex-shrink> <flex-basis>)
+// Example: .flex-item(1 1 auto)
+.flex-item(@flexprop) {
+    -webkit-box-flex: @flexprop; // OLD - iOS 6-, Safari 3.1-6
+       -moz-box-flex: @flexprop; // OLD - Firefox 19-
+        -webkit-flex: @flexprop; // Chrome
+            -ms-flex: @flexprop; // IE 10
+                flex: @flexprop; // NEW, Spec - Opera 12.1, Firefox 20+
+}
+
+// Flex direction
+.flex-direction(@flexdir) {
+    -webkit-flex-direction: @flexdir;
+        -ms-flex-direction: @flexdir;
+            flex-direction: @flexdir;
+}
+
+
+
  // Automatically generates gradients.
 #gradient {
 

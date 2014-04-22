@@ -135,8 +135,7 @@ header {
 // Main contains both the sidebars, and the main content.
 
 main {
-    display: -webkit-flex;
-    display: flex;
+    .flex();
 
     table {
         border-collapse: collapse;
@@ -168,8 +167,7 @@ main {
 article {
     margin: 0 20px;
     padding-top: 30px;
-    -webkit-flex: 4 1 auto;
-    flex: 4 1 800px;
+    .flex-item(1); // let it grow, shrink and autosize
 
     >time {
         display: block;
@@ -188,8 +186,7 @@ article {
 // Big Docs Navigation on the left side.
 
 aside {
-    -webkit-flex: 1 0 200px;
-    flex: 1 0 200px;
+    .flex-item(0 260px); // don't grow or shrink, keep 260px
     border: 0px dashed #eee;
     border-width: 0 4px 4px 0;
     min-width: 170px;
