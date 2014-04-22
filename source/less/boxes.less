@@ -135,20 +135,22 @@
     margin-right: auto;
 
     a {
+        position: relative;
         display: block;
         padding: 40px 20px;
+        margin-top: 55px;
+        min-height: 200px;
         text-align: center;
         text-decoration: none;
         background: @sabre-deco;
         color: @grey;
         border-bottom: 1px solid #fff;
-        min-height: 200px;
         transition: all .5s ease;
         .clearfix();
 
         @media (min-width: 640px) {
             width: 50%;
-            height: 240px;
+            height: 210px;
             float: left;
             border-right: 1px solid #fff;
         }
@@ -159,17 +161,21 @@
 
         // some icon style
         > span {
-            transition: all .5s ease;
-            display: inline-block;
-            color: @sabre-sidekick;
-            padding: 21px;
-            margin-bottom: 20px;
-            font-size: @font-size-base*2;
-            font-weight: bold;
-            border: 1px solid @sabre-sidekick;
+
+            position: absolute;
             width: 70px;
             height: 70px;
+            left: 50%;
+            top: -35px;
+            padding: 21px;
+            margin-left: -35px;
+            color: @sabre-sidekick;
+            background: #fff;
+            font-size: @font-size-base*2;
+            font-weight: bold;
             border-radius: 50%;
+            border: 1px solid @sabre-deco;
+            transition: all .5s ease;
         }
 
         strong {
@@ -181,8 +187,9 @@
             color: #fff;
 
             > span {
-                color: @sabre-deco;
-                border-color: @sabre-deco
+                color: @sabre-sidekick;
+                border-color: @sabre-sidekick;
+                background: @sabre-deco;
             }
         }
     }
