@@ -39,7 +39,7 @@ An open source CardDAV, CalDAV and WebDAV server.
 
 <section class="box box-features">
     <h1>Features</h1>
-    <ul class="list list-features">
+    <ul class="list-features">
         <li>
             <i class="fa fa-rocket"></i>
             Fully WebDAV compliant
@@ -84,7 +84,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <div>
         <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
         <h3>We provide:</h3>
-        <ul class="list list-checks">
+        <ul class="">
             <li>Enterprise support.</li>
             <li>Customization.</li>
             <li>Integrating into your existing infrastructure.</lI>
