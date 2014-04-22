@@ -70,6 +70,7 @@
 
     // A fleshy contact bubble
     .bubble {
+        display: block;
         width: 150px;
         height: 150px;
         margin-left: auto;
@@ -77,9 +78,13 @@
         padding: 20px;
         border-radius: 50%;
         background: @sabre-red;
+        color: #fff;
+        text-decoration: none;
         text-align: center;
+        transition: all .5s ease;
 
-        a {
+        strong {
+            transition: all .5s ease;
             color: @sabre-deco;
             font-weight: bold;
             text-decoration: none;
@@ -88,6 +93,15 @@
         .fa {
             display: block;
             margin-bottom: 5px;
+        }
+
+        &:hover {
+            background-color: #fff;
+            color: @sabre-red;
+
+            strong {
+                color: @sabre-sidekick;
+            }
         }
     }
 
@@ -98,6 +112,7 @@
         .clearfix();
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 20px;
 
         a {
             text-align: center;
@@ -110,6 +125,7 @@
                 float: left;
                 height: 170px;
             }
+
         }
 
         h3,

@@ -91,10 +91,11 @@ An open source CardDAV, CalDAV and WebDAV server.
             <li>Both on-premise and SaaS deployments.</li>
         </ul>
     </div>
-    <p class="bubble">
+    <a href="/support" class="bubble">
         <i class="fa fa-2x fa-envelope-o"></i>
-        <a href="/support">Contact us</a> <br>to discuss your requirements.
-    </p>
+        <strong>Contact us</strong> <br>
+        to discuss your requirements.
+    </a>
 </section>
 
 <section class="box box-lineup">
