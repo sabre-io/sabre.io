@@ -1,17 +1,21 @@
 // This file contains all the stylerules that are applicable to every page
 
 /* Reset + basic styles */
-body, main, h1, blockquote, ul, li {
+body,
+main,
+h1,
+blockquote,
+ul,
+li {
     margin: 0;
     padding: 0;
 
 }
 
 * {
-    /* This changes everything! */
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 body {
@@ -21,7 +25,7 @@ body {
 
 body, td, th {
     font-weight: 300;
-    font-size: 14px;
+    font-size: @font-size-base;
 }
 
 a {
