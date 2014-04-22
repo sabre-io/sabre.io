@@ -15,7 +15,7 @@ An open source CardDAV, CalDAV and WebDAV server.
 </p>
 
 </section>
-<div class="download">
+<div class="install">
     <a href="{{ site.url }}/dav/install">
         <i class="fa fa-download"></i>
         <h1>Install</h1>
