@@ -38,7 +38,7 @@
     {% include "header.html" %}
 
     {% block mainwrapper %}
-    <main>
+    <main{% if page.sidebar != "none" %} class="incl-sidebar"{% endif %}>
         {% if page.sidebar != "none" %}
             {% include "sidebar.html" %}
         {% endif %}

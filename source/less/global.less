@@ -135,7 +135,6 @@ header {
 // Main contains both the sidebars, and the main content.
 
 main {
-    .flex();
 
     table {
         border-collapse: collapse;
@@ -174,23 +173,6 @@ article {
         font-style: italic;
         font-size: 90%;
     }
-
-    ul {
-        margin-left: 25px;
-    }
-}
-
-
-// SIDEBAR
-// -----------------------------------------------------------------------------
-// Big Docs Navigation on the left side.
-
-aside {
-    .flex-item(0 260px); // don't grow or shrink, keep 260px
-    border: 0px dashed #eee;
-    border-width: 0 4px 4px 0;
-    min-width: 170px;
-    padding-top: 15px;
 
     ul {
         margin-left: 25px;
