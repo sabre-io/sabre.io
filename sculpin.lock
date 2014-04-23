@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "337a743eca469f95e2b39f9ba88ff92c",
+    "hash": "1762434092ec841131bd63d75c09e25c",
     "packages": [
         {
             "name": "components/font-awesome",
@@ -89,6 +89,40 @@
             ],
             "description": "Highlight.js highlights syntax in code examples on blogs, forums and in fact on any web pages.",
             "time": "2014-01-22 15:38:09"
+        },
+        {
+            "name": "components/normalize.css",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/normalize.css.git",
+                "reference": "444055467d693c67923643a0f593eff8a7afc588"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/normalize.css/zipball/444055467d693c67923643a0f593eff8a7afc588",
+                "reference": "444055467d693c67923643a0f593eff8a7afc588",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "name": "normalize-css",
+                    "styles": [
+                        "normalize.css"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Normalize.css is a customisable CSS file that makes browsers render all elements more consistently and in line with modern standards.",
+            "homepage": "http://necolas.github.com/normalize.css/",
+            "time": "2013-10-24 03:39:15"
         },
         {
             "name": "kriswallsmith/assetic",
