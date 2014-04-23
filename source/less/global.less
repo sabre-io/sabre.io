@@ -105,6 +105,30 @@ ul {
 }
 
 
+// Table
+// -----------------------------------------------------------------------------
+// The very basic table.
+
+table {
+    width: 100%;
+    border-top: 5px solid @grey-soft;
+    border-bottom: 5px solid @grey-soft;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th {
+    text-align: left;
+    padding: 10px;
+    font-weight: 500;
+}
+
+td {
+    padding: 10px;
+    border: 1px dotted @grey-soft;
+}
+
+
 // HEADER
 // -----------------------------------------------------------------------------
 // Everything before the main content area.
@@ -158,20 +182,6 @@ header {
 // Main contains both the sidebars, and the main content.
 
 main {
-
-    table {
-        border-collapse: collapse;
-
-        td, th {
-            border: 1px solid #ccc;
-            padding: 4px;
-        }
-
-        th {
-            font-weight: bold;
-            text-align: left;
-        }
-    }
 
     blockquote {
         background: #eee;
