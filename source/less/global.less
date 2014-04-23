@@ -30,10 +30,15 @@ body, td, th {
 
 a {
     color: @linkcolor;
-    &:hover,
+    
     &:visited {
-        color: darken(@linkcolor, 20%);
+        color: @linkcolor-visited;
     }
+
+    &:hover {
+        color: @linkcolor-hover;
+    }
+
 }
 
 
