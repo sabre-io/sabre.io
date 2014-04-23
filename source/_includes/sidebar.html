@@ -1,101 +1,97 @@
 <aside>
     <ul class="sidebar-nav">
         <li><a href="{{ site.url }}/dav">sabre/dav</a>
-        {% if product == "dav" %}
-        <ul>
+            {% if product == "dav" %}
+            <ul>
 
-            <li><a href="{{ site.url }}/dav/install">Installation</a></li>
-            <li><a href="{{ site.url }}/dav/upgrading">Upgrading</a></li>
-            <li><a href="{{ site.url }}/dav/gettingstarted">Getting Started</a></li>
-            <li>
-                Troubleshooting
-                <ul>
-                    <li><a href="{{ site.url }}/dav/faq">FAQ</a></li>
-                    <li><a href="{{ site.url }}/dav/clients">Clients</a></li>
-                    <li><a href="{{ site.url }}/dav/webservers">Webservers</a></li>
-                </ul>
-            </li>
-            <li>
-                CalDAV
-                <ul>
-                    <li><a href="{{ site.url }}/dav/caldav">Getting started</a></li>
-                    <li><a href="{{ site.url }}/dav/building-a-caldav-client">Building a CalDAV client</a></li>
-                    <li><a href="{{ site.url }}/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                    <li><a href="{{ site.url }}/dav/caldav-proxy">Delegation</a></li>
-                    <li><a href="{{ site.url }}/dav/caldav-sharing">Calendar sharing</a></li>
-                    <li><a href="{{ site.url }}/dav/ics-export-plugin">iCalendar export</a></li>
-                    <li><a href="{{ site.url }}/dav/imiphandler">iMip Handler</a></li>
-                    <li><a href="{{ site.url }}/dav/service-discovery">Service Discovery</a></li>
-                </ul>
-            </li>
-            <li>
-                CardDAV
-                <ul>
-                    <li><a href="{{ site.url }}/dav/carddav">Getting started</a></li>
-                    <li><a href="{{ site.url }}/dav/building-a-carddav-client">Building a CardDAV client</a></li>
-                    <li><a href="{{ site.url }}/dav/caldav-carddav-integration-guide">Integration guide</a></li>
-                    <li><a href="{{ site.url }}/dav/carddav-directory">CardDAV Directory</a></li>
-                    <li><a href="{{ site.url }}/dav/vcf-export-plugin">vCard export</a></li>
-                    <li><a href="{{ site.url }}/dav/service-discovery">Service Discovery</a></li>
-                </ul>
-            </li>
-            <li>
-                Other topics
-                <ul>
-                    <li><a href="{{ site.url }}/dav/acl">Acl</a></li>
-                    <li><a href="{{ site.url }}/dav/authentication">Authentication</a></li>
-                    <li><a href="{{ site.url }}/dav/character-encoding">Character encoding</a></li>
-                    <li><a href="{{ site.url }}/dav/browser-plugin">Directory indexes</a></li>
-                    <li><a href="{{ site.url }}/dav/davmount">DavMount</a></li>
-                    <li><a href="{{ site.url }}/dav/guesscontenttype">Content Types</a></li>
-                    <li><a href="{{ site.url }}/dav/http-patch">PATCH support</a></li>
-                    <li><a href="{{ site.url }}/dav/large-files">Large files</a></li>
-                    <li><a href="{{ site.url }}/dav/litmus">Litmus</a></li>
-                    <li><a href="{{ site.url }}/dav/plugins">Plugins</a></li>
-                    <li><a href="{{ site.url }}/dav/scalability">Scalability</a></li>
-                    <li><a href="{{ site.url }}/dav/simplecollection">SimpleCollection</a></li>
-                    <li><a href="{{ site.url }}/dav/standards-support">Standards Support</a></li>
-                    <li><a href="{{ site.url }}/dav/temporary-files">Temporary Files</a></li>
-                    <li><a href="{{ site.url }}/dav/versioning">Versioning</a></li>
-                    <li><a href="{{ site.url }}/dav/virtual-filesystems">Virtual filesystems</a></li>
-                    <li><a href="{{ site.url }}/dav/davclient">WebDAV Client</a></li>
-                    <li><a href="{{ site.url }}/dav/xmlelements">XML Elements</a></li>
-                    <li><a href="{{ site.url }}/dav/writing-plugins">Writing Plugins</a></li>
-                </ul>
-            </li>
-        </ul>
-        {% endif %}
-    </li>
-    <li><a href="{{site.url}}/event">sabre/event</a>
-        {% if product == "event" %}
-        <ul>
-            <li><a href="{{ site.url }}/event/install">Installation</a></li>
-            <li><a href="{{ site.url }}/event/usage">Usage</a></li>
-        </ul>
-        {% endif %}
-    </li>
-    <li><a href="{{site.url}}/http">sabre/http</a>
-        {% if product == "http" %}
-        <ul>
-            <li><a href="{{ site.url }}/http/install">Installation</a></li>
-            <li><a href="{{ site.url }}/http/sapi">The PHP Sapi wrapper</a></li>
-            <li><a href="{{ site.url }}/http/decorators">Decorators</a></li>
-            <li><a href="{{ site.url }}/http/client">The HTTP client</a></li>
-            <li><a href="{{ site.url }}/http/reverseproxy">Writing a reverse proxy</a></li>
-            <li><a href="{{ site.url }}/http/api">Request and Response APIs</a></li>
-        </ul>
-        {% endif %}
-    </li>
-    <li><a href="{{site.url}}/vobject">sabre/vobject</a>
-        {% if product == "vobject" %}
-        <ul>
-            <li><a href="{{ site.url }}/vobject/install">Installation</a></li>
-            <li>Upgrading</li>
-            <li><a href="{{ site.url }}/vobject/usage">Usage</a></li>
-            <li><a href="{{ site.url }}/vobject/json">jCal and jCard</a></li>
-        </ul>
-        {% endif %}
-    </li>
-    <li><a href="{{ site.url }}/license">License</a></li>
-  </ul>
+                <li><a href="{{ site.url }}/dav/install">Installation</a></li>
+                <li><a href="{{ site.url }}/dav/upgrading">Upgrading</a></li>
+                <li><a href="{{ site.url }}/dav/gettingstarted">Getting Started</a></li>
+                <li>Troubleshooting
+                    <ul>
+                        <li><a href="{{ site.url }}/dav/faq">FAQ</a></li>
+                        <li><a href="{{ site.url }}/dav/clients">Clients</a></li>
+                        <li><a href="{{ site.url }}/dav/webservers">Webservers</a></li>
+                    </ul>
+                </li>
+                <li>CalDAV
+                    <ul>
+                        <li><a href="{{ site.url }}/dav/caldav">Getting started</a></li>
+                        <li><a href="{{ site.url }}/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                        <li><a href="{{ site.url }}/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                        <li><a href="{{ site.url }}/dav/caldav-proxy">Delegation</a></li>
+                        <li><a href="{{ site.url }}/dav/caldav-sharing">Calendar sharing</a></li>
+                        <li><a href="{{ site.url }}/dav/ics-export-plugin">iCalendar export</a></li>
+                        <li><a href="{{ site.url }}/dav/imiphandler">iMip Handler</a></li>
+                        <li><a href="{{ site.url }}/dav/service-discovery">Service Discovery</a></li>
+                    </ul>
+                </li>
+                <li>CardDAV
+                    <ul>
+                        <li><a href="{{ site.url }}/dav/carddav">Getting started</a></li>
+                        <li><a href="{{ site.url }}/dav/building-a-carddav-client">Building a CardDAV client</a></li>
+                        <li><a href="{{ site.url }}/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                        <li><a href="{{ site.url }}/dav/carddav-directory">CardDAV Directory</a></li>
+                        <li><a href="{{ site.url }}/dav/vcf-export-plugin">vCard export</a></li>
+                        <li><a href="{{ site.url }}/dav/service-discovery">Service Discovery</a></li>
+                    </ul>
+                </li>
+                <li>Other topics
+                    <ul>
+                        <li><a href="{{ site.url }}/dav/acl">Acl</a></li>
+                        <li><a href="{{ site.url }}/dav/authentication">Authentication</a></li>
+                        <li><a href="{{ site.url }}/dav/character-encoding">Character encoding</a></li>
+                        <li><a href="{{ site.url }}/dav/browser-plugin">Directory indexes</a></li>
+                        <li><a href="{{ site.url }}/dav/davmount">DavMount</a></li>
+                        <li><a href="{{ site.url }}/dav/guesscontenttype">Content Types</a></li>
+                        <li><a href="{{ site.url }}/dav/http-patch">PATCH support</a></li>
+                        <li><a href="{{ site.url }}/dav/large-files">Large files</a></li>
+                        <li><a href="{{ site.url }}/dav/litmus">Litmus</a></li>
+                        <li><a href="{{ site.url }}/dav/plugins">Plugins</a></li>
+                        <li><a href="{{ site.url }}/dav/scalability">Scalability</a></li>
+                        <li><a href="{{ site.url }}/dav/simplecollection">SimpleCollection</a></li>
+                        <li><a href="{{ site.url }}/dav/standards-support">Standards Support</a></li>
+                        <li><a href="{{ site.url }}/dav/temporary-files">Temporary Files</a></li>
+                        <li><a href="{{ site.url }}/dav/versioning">Versioning</a></li>
+                        <li><a href="{{ site.url }}/dav/virtual-filesystems">Virtual filesystems</a></li>
+                        <li><a href="{{ site.url }}/dav/davclient">WebDAV Client</a></li>
+                        <li><a href="{{ site.url }}/dav/xmlelements">XML Elements</a></li>
+                        <li><a href="{{ site.url }}/dav/writing-plugins">Writing Plugins</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
+        </li>
+        <li><a href="{{site.url}}/event">sabre/event</a>
+            {% if product == "event" %}
+            <ul>
+                <li><a href="{{ site.url }}/event/install">Installation</a></li>
+                <li><a href="{{ site.url }}/event/usage">Usage</a></li>
+            </ul>
+            {% endif %}
+        </li>
+        <li><a href="{{site.url}}/http">sabre/http</a>
+            {% if product == "http" %}
+            <ul>
+                <li><a href="{{ site.url }}/http/install">Installation</a></li>
+                <li><a href="{{ site.url }}/http/sapi">The PHP Sapi wrapper</a></li>
+                <li><a href="{{ site.url }}/http/decorators">Decorators</a></li>
+                <li><a href="{{ site.url }}/http/client">The HTTP client</a></li>
+                <li><a href="{{ site.url }}/http/reverseproxy">Writing a reverse proxy</a></li>
+                <li><a href="{{ site.url }}/http/api">Request and Response APIs</a></li>
+            </ul>
+            {% endif %}
+        </li>
+        <li><a href="{{site.url}}/vobject">sabre/vobject</a>
+            {% if product == "vobject" %}
+            <ul>
+                <li><a href="{{ site.url }}/vobject/install">Installation</a></li>
+                <li>Upgrading</li>
+                <li><a href="{{ site.url }}/vobject/usage">Usage</a></li>
+                <li><a href="{{ site.url }}/vobject/json">jCal and jCard</a></li>
+            </ul>
+            {% endif %}
+        </li>
+        <li><a href="{{ site.url }}/license">License</a></li>
+    </ul>
 </aside>
