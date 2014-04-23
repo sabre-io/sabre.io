@@ -1,16 +1,5 @@
 // This file contains all the stylerules that are applicable to every page
 
-/* Reset + basic styles */
-body,
-main,
-h1,
-blockquote,
-ul,
-li {
-    margin: 0;
-    padding: 0;
-
-}
 
 * {
     -webkit-box-sizing: border-box;
@@ -18,33 +7,12 @@ li {
             box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Roboto', sans-serif;
-    line-height: 22px;
-}
-
-body, td, th {
-    font-weight: 300;
     font-size: @font-size-base;
-}
-
-a {
-    color: @linkcolor;
-    
-    &:visited {
-        color: @linkcolor-visited;
-    }
-
-    &:hover {
-        color: @linkcolor-hover;
-    }
-
-}
-
-blockquote {
-    background: #eee;
-    padding: 5px 25px 5px 5px;
-    border-left: 20px solid #ccc;
+    line-height: 22px;
+    font-weight: 300;  
 }
 
 
@@ -84,7 +52,8 @@ h3 {
 }
 
 hr {
-    border: 1px dashed @sabre-deco;
+    border: none;
+    border-top: 1px dashed @sabre-deco;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -93,9 +62,24 @@ img {
     max-width: 100%;
 }
 
-// Default List
-// ---
-// A simple ul.
+a {
+    color: @linkcolor;
+    
+    &:visited {
+        color: @linkcolor-visited;
+    }
+
+    &:hover {
+        color: @linkcolor-hover;
+    }
+
+}
+
+blockquote {
+    background: #eee;
+    padding: 5px 25px 5px 5px;
+    border-left: 20px solid #ccc;
+}
 
 ul {
     margin: 0;
@@ -115,6 +99,11 @@ ul {
     }
 }
 
+code {
+    line-height: 18px;
+    overflow-y: auto;
+}
+
 
 // Table
 // -----------------------------------------------------------------------------
@@ -124,8 +113,6 @@ table {
     width: 100%;
     border-top: 5px solid @grey-soft;
     border-bottom: 5px solid @grey-soft;
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
 th {
@@ -203,13 +190,6 @@ article {
         font-size: 90%;
     }
 
-}
-
-
-/* code blocks */
-code {
-    line-height: 18px;
-    overflow-y: auto;
 }
 
 
