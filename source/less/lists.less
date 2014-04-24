@@ -1,0 +1,61 @@
+// Lists
+// =============================================================================
+// All the ul's and ol's and their variants.
+
+// Feature List
+// ---
+// Showing features on the frontpage.
+
+.list-features {
+    .unstyle-ul();   
+    margin-bottom: 20px;
+    border-bottom: 1px solid @sabre-deco;
+    border-top: 1px solid @sabre-deco;
+    padding-top: @font-size-base * 2;
+    .clearfix();
+
+    li {
+        min-height: @font-size-base * 2.5;
+        margin-bottom: @font-size-base * 1.5;
+        position: relative;
+        font-weight: 100;
+        font-size: @font-size-base * 1.3;
+        padding-left: 60px;
+
+        @media (min-width: @screen-sm-min) {
+            float: left;
+            width: 50%;
+            .clearfix();
+            padding-right: 2%;
+        }
+    }
+
+    // hide dividing line on small screens
+    .hr {
+        display: none;
+
+        // and show it on tablets and bigger
+        @media (min-width: @screen-sm-min) {
+            display: inherit;
+            margin-top: 10px;
+            margin-bottom: 0;
+            border-top: 1px solid @sabre-deco;
+            clear: both;
+
+            float: none;
+            width: 100%;
+        }
+
+    }
+
+    [class*="fa-"] {
+        position: absolute;
+        top: -5px;
+        width: 40px;
+        text-align: center;
+        margin-left: -60px;
+        font-size: @font-size-base * 2;
+        color: @sabre-sidekick;
+    }
+
+}

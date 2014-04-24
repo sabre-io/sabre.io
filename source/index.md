@@ -15,7 +15,7 @@ An open source CardDAV, CalDAV and WebDAV server.
 </p>
 
 </section>
-<div class="download">
+<div class="install">
     <a href="{{ site.url }}/dav/install">
         <i class="fa fa-download"></i>
         <h1>Install</h1>
@@ -25,21 +25,21 @@ An open source CardDAV, CalDAV and WebDAV server.
     </small>
 </div>
 
-<section class="news-box">
+<section class="box">
     <h1>News</h1>
     {% for post in page.pagination.items %}
-        <article>
-            <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
+        <article class="blog-entry">
             <time>{{ post.date|date("F jS, Y") }}</time>
+            <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
             {{ post.blocks.content|raw }}
         </article>
         {% if not loop.last %}<hr />{% endif %}
     {% endfor %}
 </section>
 
-<section class="features-box">
+<section class="box box-features">
     <h1>Features</h1>
-    <ul>
+    <ul class="list-features">
         <li>
             <i class="fa fa-rocket"></i>
             Fully WebDAV compliant
@@ -78,45 +78,47 @@ An open source CardDAV, CalDAV and WebDAV server.
     </ul>
 </section>
 
-<section class="enterprise-box">
+<section class="box box-enterprise">
     <h1>Enterprise support</h1>
+    <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
     <div>
-        <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
-        <p>
-        We provide:
-        </p>
-        <ul>
+        <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
+        <h3>We provide:</h3>
+        <ul class="">
             <li>Enterprise support.</li>
             <li>Customization.</li>
             <li>Integrating into your existing infrastructure.</lI>
             <li>Both on-premise and SaaS deployments.</li>
         </ul>
-        <p><a href="/support">Contact us</a> to discuss your requirements.</p>
     </div>
-    <div>
-        <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
-    </div>
+    <a href="/support" class="bubble">
+        <i class="fa fa-2x fa-envelope-o"></i>
+        <strong>Contact us</strong> <br>
+        to discuss your requirements.
+    </a>
 </section>
 
-<section class="project-box">
-
-<h1>The full sabre.io project lineup</h1>
-
-<dl>
-    <dt><a href="{{site.url}}/dav">sabre/dav</a></dt>
-    <dd>The leading open-source CalDAV, CardDAV and WebDAV server.</dd>
-</dl>
-<dl>
-    <dt><a href="{{site.url}}/http">sabre/http</a></dt>
-    <dd>An OOP abstraction layer for the PHP server api.</dd>
-</dl>
-<dl>
-    <dt><a href="{{site.url}}/vobject">sabre/vobject</a></dt>
-    <dd>A library for parsing and manipulating vCard, iCalendar, jCard and jCal.</dd>
-</dl>
-<dl>
-    <dt><a href="{{site.url}}/event">sabre/event</a></dt>
-    <dd>Utilities for lightweight event-based programming in PHP.</dd>
-</dl>
+<section class="box box-lineup">
+    <h1>The full sabre.io project lineup</h1>
+    <a href="{{site.url}}/dav">
+        <span>d</span><br>
+        <strong>sabre/dav</strong><br>
+        The leading open-source CalDAV, CardDAV and WebDAV server
+    </a>
+    <a href="{{site.url}}/http">
+        <span>h</span><br>
+        <strong>sabre/http</strong><br>
+        An OOP abstraction layer for the PHP server api.
+    </a>
+    <a href="{{site.url}}/vobject">
+        <span>v</span><br>
+        <strong>sabre/vobject</strong><br>
+        A library for parsing and manipulating vCard, iCalendar, jCard and jCal.
+    </a>
+    <a href="{{site.url}}/event">
+        <span>e</span><br>
+        <strong>sabre/event</strong><br>
+        Utilities for lightweight event-based programming in PHP.
+    </a>
 
 </section>

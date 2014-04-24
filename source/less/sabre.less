@@ -1,16 +1,17 @@
-/* Main brand color */
-@sabre-red: #b10610;
+// SABRE LESS
+// =============================================================================
+// Main less file where we collect all the less files.
 
-/* Secondary website color */
-@sabre-sidekick: #4fa3ac;
+@import (less) "../components/normalize-css/normalize.css";
 
-/* Decorative color, used for hr's and such */
-@sabre-deco: #d9eea8;
-
+@import "variables.less";
 @import "mixins.less";
-@import "global.less";
-@import "homepage.less";
 
+@import "global.less";
+@import "boxes.less";
+@import "lists.less";
+@import "incl-sidebar.less";
+@import "homepage.less";
 
 @import (less) "../components/font-awesome/css/font-awesome.min.css";
 @import (less) "../components/highlightjs/styles/github.css";

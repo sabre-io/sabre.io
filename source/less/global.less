@@ -1,84 +1,159 @@
 // This file contains all the stylerules that are applicable to every page
 
-/* Reset + basic styles */
-body, main, h1, blockquote, ul, li {
-    margin: 0;
-    padding: 0;
-
-}
 
 * {
-    /* This changes everything! */
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
+
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: @font-size-base;
     line-height: 22px;
+    font-weight: 300;  
 }
 
-body, td, th {
-    font-weight: 300;
-    font-size: 14px;
-}
 
-a {
-    color: #31a1cd;
-}
-a:visited {
-    color: darken(#31a1cd, 20%);
-}
+// TYPE
+// -----------------------------------------------------------------------------
 
 h1 {
-    font-size: 42px;
-    line-height: 43px;
+    font-size: @headline-h1;
+    line-height: 44px;
     padding-bottom: 5px;
     color: @sabre-red;
-
-    a {
-        color: @sabre-red;
-        text-decoration: none;
-    }
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 h2 {
-    color: @sabre-red;
+    color: @grey;
+    font-size: @headline-h2;
+    line-height: @line-height-base*2;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: @headline-h3;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 hr {
-    border-style: solid;
-    border-width: 1px 0 0 0;
-    border-color: @sabre-deco;
+    border: none;
+    border-top: 1px dashed @sabre-deco;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: @linkcolor;
+    
+    &:visited {
+        color: @linkcolor-visited;
+    }
+
+    &:hover {
+        color: @linkcolor-hover;
+    }
+
+    h1 & {
+        text-decoration: none;
+    }
+
+}
+
+blockquote {
+    background: #eee;
+    padding: 5px 25px 5px 5px;
+    border-left: 20px solid #ccc;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    list-style-type: none;
+
+    li:before {
+        width: 15px;
+        display: inline-block;
+        content: "\f101";
+        font-family: 'FontAwesome';
+        font-size: 0.8em;
+        margin-left: -15px;
+        vertical-align: text-top;
+        color: @sabre-sidekick;
+    }
+}
+
+code {
+    line-height: 18px;
+    overflow-y: auto;
 }
 
 
-/* Everything before the main content area */
+// Table
+// -----------------------------------------------------------------------------
+// The very basic table.
+
+table {
+    width: 100%;
+    border-top: 5px solid @grey-soft;
+    border-bottom: 5px solid @grey-soft;
+}
+
+th {
+    text-align: left;
+    padding: 10px;
+    font-weight: 500;
+}
+
+td {
+    padding: 10px;
+    border: 1px dotted @grey-soft;
+}
+
+
+// HEADER
+// -----------------------------------------------------------------------------
+// Everything before the main content area.
+
 header {
     background-color: #eee;
-    padding: 10px;
+    text-align: right;
+    .clearfix();
 
-    .logo a {
-        color: #333;
-        text-decoration: none;
-        font-size: 28px;
-        font-weight: 500;
+    // sabre/dav logo on the left side
+    .logo {
+        float: left;
+        padding: 5px 10px;
+        
+        img {
+            vertical-align: middle;
+        }
 
+        a {
+            color: #333;
+            text-decoration: none;
+            font-size: @headline-h2;
+            font-weight: 500;
+        }
     }
 
-    .logo * {
-        vertical-align: middle;
-    }
-
+    // Page navigation in the upper right corner.
     nav {
+        padding: 19px 10px;
         word-spacing: 20px;
 
         ul {
-            list-style: none;
-            position: absolute;
-            right: 20px;
-            top: 13px;
+            .unstyle-ul();
         }
 
         li {
@@ -93,72 +168,19 @@ header {
     }
 }
 
-/* Main contains both the sidebars, and the main content */
+
+// MAIN
+// -----------------------------------------------------------------------------
+// Playground for the content.
+
 main {
-    display: -webkit-flex;
-    display: flex;
-
-    table {
-        border-collapse: collapse;
-
-        td, th {
-            border: 1px solid #ccc;
-            padding: 4px;
-        }
-
-        th {
-            font-weight: bold;
-            text-align: left;
-        }
-    }
-
-    blockquote {
-        background: #eee;
-        padding: 5px 25px 5px 5px;
-        border-left: 20px solid #ccc;
-    }
-
-}
-
-/* The article contains the main page content + comments, but not the sidebar
-*/
-article {
-    margin: 0 20px;
-    padding-top: 30px;
-    -webkit-flex: 4 1 auto;
-    flex: 4 1 800px;
-
-    >time {
-        display: block;
-        font-style: italic;
-        font-size: 90%;
-    }
-
-    ul {
-        margin-left: 25px;
-    }
-}
-
-/* Sidebar */
-aside {
-    -webkit-flex: 1 0 200px;
-    flex: 1 0 200px;
-    border: 0px dashed #eee;
-    border-width: 0 4px 4px 0;
-    min-width: 170px;
-    padding-top: 15px;
-
-    ul {
-        margin-left: 25px;
-    }
+    padding: 40px;
 }
 
 
-/* code blocks */
-code {
-    line-height: 18px;
-    overflow-y: auto;
-}
+// FOOTER
+// -----------------------------------------------------------------------------
+// Some credits and links in the footer section on the bottom of the page.
 
 footer {
     padding: 50px 0;
@@ -166,8 +188,37 @@ footer {
     nav {
         text-align: center;
     }
+
+    ul {
+        .unstyle-ul();
+    }
+    
     nav li {
         display: inline;
         white-space: nowrap;
+    }
+}
+
+// Blog Entry
+// -----------------------------------------------------------------------------
+// A blog element.
+.blog-entry {
+
+    margin-bottom: 40px;
+    .clearfix();
+
+    h1 {
+        font-weight: 300;
+        text-align: left;
+    }
+
+    time {
+        float: right;
+        display: block;
+        background: lighten(@sabre-deco,10);
+        border-radius: 10px;
+        padding: 0 10px;
+        margin-top: 25px;
+        margin-left: 10px;
     }
 }

@@ -1,0 +1,188 @@
+// BOXES
+// =============================================================================
+
+// Box
+// ----
+// Default content box.
+.box {
+    .clearfix();
+    padding: 20px;
+    max-width: @screen-lg;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        padding: 20px 40px;
+    }
+}
+
+
+// Box : Enterprise
+// ---
+// A box with some greenish make up
+.box-enterprise {
+    max-width: none;
+    #gradient > .vertical (@sabre-sidekick-light, @sabre-sidekick);
+    .clearfix();
+
+    h1 {
+        color: @sabre-deco;
+    }
+
+    h3,
+    p,
+    ul,
+    li, {
+        color: #fff;
+    }
+
+    li::before {
+        color: @sabre-deco;
+    }
+
+    // A fleshy contact bubble
+    .bubble {
+        display: block;
+        width: 150px;
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        border-radius: 50%;
+        background: @sabre-red;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        transition: all .5s ease;
+
+        strong {
+            transition: all .5s ease;
+            color: @sabre-deco;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .fa {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        &:hover {
+            background-color: #fff;
+            color: @sabre-red;
+
+            strong {
+                color: @sabre-sidekick;
+            }
+        }
+    }
+
+    > div {
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 5px;
+        max-width: 640px;
+        .clearfix();
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+
+        a {
+            text-align: center;
+            background: rgba(255,255,255,.2);
+            display: block;
+            padding: 20px 60px;
+
+            @media (min-width: 640px) {
+                padding-top: 45px;
+                float: left;
+                height: 170px;
+            }
+
+        }
+
+        h3,
+        ul {
+            margin-left: 20px;
+            margin-right: 20px;
+            @media (min-width: 640px) {
+                margin-left: 290px;
+            }
+        }
+    }
+
+}
+
+
+
+// Box : Lineup
+// ---
+// A box containing the project linup
+.box-lineup {
+    a {
+        position: relative;
+        display: block;
+        padding: 40px 20px;
+        margin-top: 55px;
+        min-height: 200px;
+        text-align: center;
+        text-decoration: none;
+        background: @sabre-deco;
+        color: @grey;
+        border-bottom: 1px solid #fff;
+        transition: all .5s ease;
+        .clearfix();
+
+        @media (min-width: 640px) {
+            width: 50%;
+            height: 210px;
+            float: left;
+            border-right: 1px solid #fff;
+        }
+
+        @media (min-width: @screen-md) {
+            width: 25%;
+        }
+
+        // some icon style
+        > span {
+
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            left: 50%;
+            top: -35px;
+            padding: 21px;
+            margin-left: -35px;
+            color: @sabre-sidekick;
+            background: #fff;
+            font-size: @font-size-base*2;
+            font-weight: bold;
+            border-radius: 50%;
+            border: 1px solid @sabre-deco;
+            transition: all .5s ease;
+        }
+
+        strong {
+            font-size: @headline-h3;
+        }
+
+        &:hover {
+            background: @sabre-sidekick;
+            color: #fff;
+
+            > span {
+                color: @sabre-sidekick;
+                border-color: @sabre-sidekick;
+                background: @sabre-deco;
+            }
+        }
+    }
+}

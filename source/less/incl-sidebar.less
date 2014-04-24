@@ -1,0 +1,60 @@
+// INCL SIDEBAR
+// =============================================================================
+// Some styles for pages with a sidebar.
+
+.incl-sidebar {
+
+    padding: 0; // undo base article padding
+    .flex(); // here we make the whole content area a flex wrapper
+
+    // The left 'aside' with a nav inside
+    > aside {
+        .flex-item(0 260px); // don't grow or shrink, keep 260px
+        border-right: 1px dashed @grey-soft;
+        min-width: 170px;
+        padding-top: 15px;
+    }
+
+    // The main content
+    > article {
+        padding: 40px;
+        .flex-item(1); // let it grow, shrink and autosize
+    }
+}
+
+// Sidebar Navigation
+// ---
+// A lot of menu points with a big soft grey dot infront of each point.
+.sidebar-nav {
+    .unstyle-ul();
+    padding-left: 20px;
+    padding-right: 20px;
+
+    // li's get a nice bullet on the left
+    li {
+        padding: 2px 0;
+        
+        &:before {
+            display: inline-block;
+            text-align: center;
+            width: 12px;
+            line-height: 4px;
+            padding-top: 4px;
+            padding-bottom: 6px;
+            vertical-align: top;
+            content:'·';
+            background: @grey-soft;
+            margin-right: 5px;
+            margin-top: 3px;
+            margin-left: 0;
+            border-radius: 50%;
+            font-size: inherit;
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}

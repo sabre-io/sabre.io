@@ -1,0 +1,70 @@
+// VARIABLES
+// =============================================================================
+// Here's the place to save all the values
+// you don't or can't remember all the time.
+
+
+// Color definitions
+// -----------------------------------------------------------------------------
+// Write all colors and tones here. And use them to avoid writing (wrong) hex 
+// colors into your style.
+
+// Main brand color
+@sabre-red:             #b10610;
+
+// Secondary website color
+@sabre-sidekick:        #4fa3ac;
+@sabre-sidekick-light:  #76baa6;
+
+// Decorative color, used for hr's and such
+@sabre-deco:            #c9ea75;
+
+// Greys
+@grey:                  #333; // simple
+@grey-light:            #bbb; // lighter
+@grey-soft:             #eee; // softer then light
+
+
+// Type
+// -----------------------------------------------------------------------------
+// Needed for a constant typography.
+
+@font-size-base: 14px;
+@line-height-base: 18px;
+
+@headline-h1: @font-size-base*3;    // 32px
+@headline-h2: @font-size-base*2;    // 28px
+@headline-h3: @font-size-base*1.5;  // 21px
+
+@linkcolor:         #31a1cd;
+@linkcolor-hover:   @sabre-red;
+@linkcolor-visited: #6098a2;
+
+
+// Media Queries
+// -----------------------------------------------------------------------------
+
+// Extra small screen / phone
+@screen-xs:          480px;
+@screen-xs-min:      @screen-xs;
+@screen-phone:       @screen-xs-min;
+
+// Small screen / tablet
+@screen-sm:          768px;
+@screen-sm-min:      @screen-sm;
+@screen-tablet:      @screen-sm-min;
+
+// Medium screen / desktop
+@screen-md:          992px;
+@screen-md-min:      @screen-md;
+@screen-desktop:     @screen-md-min;
+
+// Large screen / wide desktop
+@screen-lg:          1200px;
+@screen-lg-min:      @screen-lg;
+@screen-lg-desktop:  @screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:      (@screen-sm-min - 1);
+@screen-sm-max:      (@screen-md-min - 1);
+@screen-md-max:      (@screen-lg-min - 1);
