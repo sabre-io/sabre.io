@@ -112,7 +112,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     </a>
     <a href="{{site.url}}/vobject">
         <span>v</span><br>
-        <strong>sabre/dav</strong><br>
+        <strong>sabre/vobject</strong><br>
         A library for parsing and manipulating vCard, iCalendar, jCard and jCal.
     </a>
     <a href="{{site.url}}/event">
