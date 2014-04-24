@@ -4,6 +4,7 @@
 
 .incl-sidebar {
 
+    padding: 0; // undo base article padding
     .flex(); // here we make the whole content area a flex wrapper
 
     // The left 'aside' with a nav inside
@@ -16,9 +17,8 @@
 
     // The main content
     > article {
-        .flex-item(1); // let it grow, shrink and autosize
         padding: 40px;
-        margin: 0;
+        .flex-item(1); // let it grow, shrink and autosize
     }
 }
 
