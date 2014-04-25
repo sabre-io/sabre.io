@@ -84,7 +84,7 @@ An open source CardDAV, CalDAV and WebDAV server.
     <div>
         <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
         <h3>We provide:</h3>
-        <ul class="">
+        <ul>
             <li>Enterprise support.</li>
             <li>Customization.</li>
             <li>Integrating into your existing infrastructure.</lI>
