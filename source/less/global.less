@@ -55,17 +55,26 @@ img {
 a {
     color: @linkcolor;
     
+    h1 & {
+        text-decoration: none;
+    }
+
+    h2 & {
+        color: @grey;
+    }
+
     &:visited {
         color: @linkcolor-visited;
+
+        h2 & {
+            color: @grey;
+        }
     }
 
     &:hover {
         color: @linkcolor-hover;
     }
 
-    h1 & {
-        text-decoration: none;
-    }
 
 }
 
