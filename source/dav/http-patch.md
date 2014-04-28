@@ -87,6 +87,18 @@ Please note that in the `bytes=12-` very last example, we used dots (`.`) to
 represent what are actually `NULL` bytes (so `0x00`). The null byte is not
 printable.
 
+Status codes
+------------
+
+The following status codes should be used:
+
+| 200 or 204 | When the operation was successful |
+| 400        | Invalid `X-Update-Range` header |
+| 411        | `Content-Length` header was not provided |
+| 415        | Unrecognized content-type, should be `application/x-sabredav-partialupdate` |
+| 416        | If there was something wrong with the bytes, such as a `Content-Length` not matching with what was sent as the start and end bytes, or an end byte being lower than the start byte. |
+
+
 OPTIONS
 -------
 
