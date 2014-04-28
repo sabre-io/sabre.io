@@ -83,9 +83,8 @@ always contains 4 dashes (`----`).
 | `bytes=12-`           | `1234567890..----` |
 | `append`              | `1234567890----`   |
 
-Please note that in the `bytes=12-` very last example, we used dots (`.`) to
-represent what are actually `NULL` bytes (so `0x00`). The null byte is not
-printable.
+Please note that in the `bytes=12-` example, we used dots (`.`) to represent
+what are actually `NULL` bytes (so `0x00`). The null byte is not printable.
 
 Status codes
 ------------
