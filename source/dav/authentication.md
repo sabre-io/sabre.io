@@ -142,6 +142,19 @@ The solution to this is to either turn off Safe Mode, or using Basic authenticat
 
 See [the PHP manual][2] for more information.
 
+### Encoding issues
+
+Avoid non-ascii characters for passwords. We've noticed that different clients
+may use different encodings for passwords (windows may use CP-1252 and others
+UTF-8), so each results in a different password string.
+
+In the case of Basic authentication we _could_ normalize this (but we don't),
+but in the case of Digest, different encodings result in completely different
+hashes, and this is only fixable by pre-generating hashes for every potential
+encoding.
+
+SabreDAV does not do any of this, so stick to ASCII passwords.
+
 Letting the webserver handle authentication
 -------------------------------------------
 

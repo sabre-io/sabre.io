@@ -3,29 +3,62 @@ title: Character Encoding
 layout: default
 ---
 
-Urls and character encoding
----------------------------
+Main recommendation
+-------------------
 
-HTTP does not define in what character-set urls are encoded. Urls are are
-treated as binary strings. However, clients (as well as WebDAV clients) do
-make assumptions about how these are encoded.
+If you are either a client or a server developer, and you have to create
+paths for things I would highly recommend using characters from this list.
 
-This poses a number of issues.
+This includes:
 
-An ideal world
---------------
+    A-Z // uppercase
+    a-z // lowerchase
+    0-9 // numbers
+    - // dash
+    _ // underscore
+    . // full stop
 
-In any ideal world, clients only use US-ASCII for paths. The displayName
-property should be used to present the client the filename, which, because
-it's part of an xml body can be any valid XML encoding such as UTF-8.
+This is the list of unreserved characters, with one exception: it doesn't
+include the tilde (`~`).
+
+These characters are pretty much guaranteed to work correctly across the
+board. Everything else may be [percent encoded][1], depending on the client.
+
+Problems with percent encoding
+------------------------------
+
+The following three urls are technically equivalent:
+
+    http://example.org/~evert
+    http://example.org/%7eevert
+    http://example.org/%7Eevert
+
+Bad clients may just look at those urls and consider them all as different
+urls. This causes really weird bugs.
+
+A second problem is characters that are not part of ascii, such as ü.
+
+The ü (u-umlaut) may be encoded in different ways, usually either UTF-8 or
+ISO-8859-1 (or CP-1252 or latin1, etc).
+
+HTTP urls don't specify any encodings, they are just lists of bytes. As a
+result a client may encode the url `http://example.org/üvert` as one of
+the following:
+
+    http://example.org/%FCvrt // latin-1
+    http://example.org/%C3%BCvrt // utf-8 normalization form C
+    http://example.org/u%CC%88vrt // utf-8 normalization form D
+
+The last three urls are 'identical' for a user, but from a HTTP perspective
+they are all distinct urls.
+
+SabreDAV will accept either form and internally encode everything to UTF-8,
+but we cannot fix bad-behaving clients.
 
 Clients
 -------
 
-In general, only real webdav clients are affected by this, due to all
-the different filenames. CalDAV and CardDAV stores are generally not affected
-by this, because they tend to be pretty good at just sticking to safe
-characters.
+An imcomplete list of clients that have issues with this:
 
 ### Windows
 
@@ -76,6 +109,7 @@ It might be useful in those cases to simply urlencode every filename before
 storing. This will give a cross-platform consistent result and the files will
 remain legible while checking it out with the console, etc.
 
-[More information on this topic][1]
+[More information on this topic][2]
 
-[1]: http://evertpot.com/filesystem-encoding-and-php/
+[1]: http://en.wikipedia.org/wiki/Percent-encoding
+[2]: http://evertpot.com/filesystem-encoding-and-php/
