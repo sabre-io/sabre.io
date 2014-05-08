@@ -91,6 +91,8 @@ Status codes
 
 The following status codes should be used:
 
+| Status code | Reason |
+| ----------- | ------ |
 | 200 or 204 | When the operation was successful |
 | 400        | Invalid `X-Update-Range` header |
 | 411        | `Content-Length` header was not provided |
