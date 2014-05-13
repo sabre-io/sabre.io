@@ -149,7 +149,7 @@ areas we could use some help with:
 * Hire maintainers of this project to integrate WebDAV in your application.
 
 SabreDAV is now developed at [fruux][12], for the last two items in this list
-it would be best to contact us through support@fruux.com to help you further.
+it would be best to [contact us](/support) to help you further.
 
 I have a different question
 ---------------------------
@@ -160,7 +160,7 @@ I'd like to get commercial support
 ----------------------------------
 
 SabreDAV is developed by [fruux][12]. If you're looking for enterprise-level
-support, we'd love to [hear from you][13]!
+support, we'd love to [hear from you](/support)!
 
 
 [1]: http://en.wikipedia.org/wiki/Webdav
@@ -175,4 +175,3 @@ support, we'd love to [hear from you][13]!
 [10]: http://ical.gutentag.ch/
 [11]: http://openconnector.org/
 [12]: https://fruux.com/
-[13]: /support

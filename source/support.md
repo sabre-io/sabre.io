@@ -28,4 +28,4 @@ Supercharge your application development with [fruux](https://fruux.com), the te
 * Scaling existing deployments.
 * Extension and plugin development for sabre/dav.
 
-We're looking forward to [hearing](http://support.fruux.com/support/tickets/new) from you!
+**We're looking forward to [hearing](mailto:sales@fruux.com) from you!**
