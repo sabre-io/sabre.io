@@ -52,7 +52,7 @@ at the time, so this project was born.
 The first stable release was in 2009.
 
 In 2010 CalDAV was added to the server, which really caused a solid usage
-spike, allowing Evert to dedicated more time on it, and no longer just in
+spike, allowing Evert to dedicate more time on it, and no longer just in
 the evening.
 
 In 2013 [fruux][4] took over the project, allowing more people to focus on it
