@@ -24,7 +24,7 @@ SabreDAV comes with the following backends:
 
 | Class                                  | Type   | Description |
 |--------------------------------- ----- | ------ | ----------- |
-| `Sabre\DAV\Auth\Backend\Apache`        | N/A    | Lets the webserver handle auhtentication |
+| `Sabre\DAV\Auth\Backend\Apache`        | N/A    | Lets the webserver handle authentication |
 | `Sabre\DAV\Auth\Backend\BasicCallback` | Basic  | Extremely easy way to create authentication from a custom source |
 | `Sabre\DAV\Auth\Backend\File`          | Digest | Use a `htdigest` file for it's backend |
 | `Sabre\DAV\Auth\Backend\PDO`           | Digest | Use a database, such as sqlite or mysql |
