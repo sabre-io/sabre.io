@@ -45,8 +45,26 @@
         <article>
             {%block contentwrapper%}
                 {% if page.title %}<h1>{{page.title}}</h1>{% endif %}
+
                 {% block content %}{% endblock %}
             {% endblock %}
+
+            {% if page.versions %}
+            <div class="version-note">
+                <p>
+                <i class="fa fa-warning"></i>
+                Please note: you are reading the <strong>{{ page.thisversion }} version</strong>
+                of this page. The following versions are also available:
+                </p>
+
+            <ul>
+                {% for version, link in page.versions %}
+                    <li><a href="{{ link }}">Version {{ version }}</a></li>
+                {% endfor %}
+            </ul>
+
+            </div>
+            {% endif %}
 
             {% if not page.nocomments %}
                 <hr />

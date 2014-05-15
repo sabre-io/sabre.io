@@ -4,7 +4,7 @@ layout: default
 versions:
     1.x: /dav/1.x/writing-plugins/
     2.x: /dav/writing-plugins/
-thisversion: 2.x
+thisversion: 1.x
 ---
 
 sabre/dav uses an event system for plugin development. There's a big list of
@@ -65,7 +65,7 @@ coffeepot plugin:
         protected $server;
 
         function getName() {
-            
+
             return 'coffee';
 
         }
@@ -159,7 +159,7 @@ Since 1.6 the 'parent' argument will also be sent along.
 Example:
 
     function beforeCreateFile($path, $data, \Sabre\DAV\ICollection $parent) {
-        
+
         if ($path=='somemagicpath') {
             file_put_contents('/tmp/createdfile',$data);
             return false;
@@ -180,7 +180,7 @@ This event is only available since SabreDAV 1.6.
 Example:
 
     function afterCreateFile($path, \Sabre\DAV\ICollection $parent) {
-        
+
         // Do some logging here
 
     }
@@ -197,7 +197,7 @@ The 'node' and 'data' arguments are only available since version 1.6.
 Example:
 
     function beforeWriteContent($path, \Sabre\DAV\IFile $node, &$data) {
-        
+
         file_put_contents('/tmp/davlog', $path . " just got updated!\n",FILE_APPEND);
 
     }
@@ -213,7 +213,7 @@ This event is only available since SabreDAV 1.6.
 Example:
 
     function afterWriteContent($path, \Sabre\DAV\IFile $node) {
-        
+
         // Do some logging here
 
     }
@@ -228,7 +228,7 @@ This is for example triggered by `PUT`, `MKCOL`, `COPY` and `MOVE`.
 Example:
 
     function beforeBind($path) {
-        
+
         if (permitted()) return true;
         else return false;
 
@@ -246,7 +246,7 @@ case the target resource was being overwritten.
 Example:
 
     function beforeUnbind($path) {
-        
+
         if (permitted()) return true;
         else return false;
 
@@ -400,7 +400,7 @@ The properties array is a multi-dimensional array. Simply put, it's built up as 
 Example:
 
     function afterGetProperties($uri, &$properties, \Sabre\DAV\INode $node) {
-        
+
         if (isset($properties[404]['{DAV:}owner'])) {
             $propeties[200]['{DAV:}owner'] = 'evert';
             unset($properties[404]['{DAV:}owner']);
@@ -412,7 +412,7 @@ Example:
     $server->subscribeEvent('afterGetProperties','afterGetProperties');
 
 
-### `updateProperties` 
+### `updateProperties`
 
 This event is fired when properties are about to be updated, using for example
 `PROPPATCH`. This allows plugins to handle updating certain properties, before
