@@ -65,7 +65,7 @@ coffeepot plugin:
         function initialize(Server $server){
 
             $this->server = $server;
-            $server->subscribeEvent('method:BREW', [$this, 'brewHandler']);
+            $server->on('method:BREW', [$this, 'brewHandler']);
 
         }
 
@@ -298,7 +298,7 @@ Example:
 
     }
 
-    $server->subscribeEvent('afterUnbind','afterUnbind');
+    $server->on('afterUnbind','afterUnbind');
 
 ### `beforeLock`
 
@@ -314,7 +314,7 @@ Example:
 
     }
 
-    $server->subscribeEvent('beforeLock','beforeLock');
+    $server->on('beforeLock','beforeLock');
 
 ### `beforeUnlock`
 
@@ -329,7 +329,7 @@ Example:
 
     }
 
-    $server->subscribeEvent('beforeUnlock','beforeUnlock');
+    $server->on('beforeUnlock','beforeUnlock');
 
 ### `propFind`
 
@@ -461,7 +461,7 @@ Example:
 
     }
 
-    $server->subscribeEvent('report','myReport');
+    $server->on('report','myReport');
 
 
 ### `unknownMethod`
@@ -493,15 +493,21 @@ _all_ core HTTP methods and most default features.
 Priorities
 ----------
 
-Sometimes it's needed to ensure your event handler is the first or last in the
-list to be fired off. This can be achieved by adding a priority number to the
-argument of `subscribeEvent`.
+It may be needed to ensure that your event gets triggered early or late in the
+process. This can be achieved by specifying the priority argument to the `on`
+method.
 
 This should be used with care. The Authentication plugin uses this for example
 to make sure authentication happens before any other process. The default
 priority number is 100. Lower numbers for priorities will be fired off earlier.
 
-This is the list of priorities that are currently used by all plugins:
+This is a comprehensive list of event handlers within sabredav that override
+the default priority of 100. This can be useful to figure out the desired
+timing of an event.
+
+You may for instance want to make sure that your `beforeMethod` handler
+happens after authentication, but before the acl system kicks in. In that case
+`15` would be an appropriate priority.
 
 | Event          | Implemented by               | Priority | Why ? |
 | -------------- | ---------------------------- | -------- | ----- |
