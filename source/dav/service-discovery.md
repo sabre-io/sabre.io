@@ -76,6 +76,8 @@ For properly secured servers. Example:
 
 Index:
 
+| key               | explanation |
+| ----------------- | ----------- |
 | `_carddavs`       | type of service |
 | `_tcp`            | protocol type, always tpc |
 | `86400`           | record timeout |

@@ -31,7 +31,7 @@ Sample url
 Options
 -------
 
-The ICSExport plugin supports several options since version 1.9.
+The ICSExport plugin supports several options since version 2.0.
 
 | option | description                                         | example            |
 | ------ | --------------------------------------------------- | ------------------ |
