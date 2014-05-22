@@ -104,6 +104,15 @@ Also, this includes all the [changes from sabre/vobject][11] from 3.0.0 onwards,
 sabre/event.
 
 
+Installation
+------------
+
+As always, the zip can be found on the [github releases page][15], but the
+recommended installation method is using composer:
+
+    composer install sabre/dav ~2.0.0
+
+
 Upgrading
 ---------
 
