@@ -160,3 +160,4 @@ Evert.
 [12]: https://github.com/fruux/sabre-http/blob/master/ChangeLog
 [13]: https://github.com/staabm
 [14]: http://groups.google.com/group/sabredav-discuss
+[15]: https://github.com/fruux/sabre-dav/releases/
