@@ -26,6 +26,17 @@ introduced in 2009, so a visual refresh was long due.
 The new browser plugin shows you a lot more information about webdav
 properties as well, making it a more useful debugging tool.
 
+### Performance
+
+A lot of focus has gone into performance, specifically in relation to Cal- and
+CardDAV. We've been running the bleeding edge sabredav, and we've seen several
+major cpu drops as we've kept sabredav up to date.
+
+We've optimized queries, and provided new shortcuts in the system that allowed
+backends to do optimizations that were not possible before.
+
+Lastly, we added WebDAV-Sync support.
+
 ### WebDAV-Sync
 
 Support for WebDAV-Sync ([rfc6578][2]) has been added. WebDAV-Sync is used by
