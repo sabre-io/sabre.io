@@ -2,7 +2,7 @@
 title: sabre/dav 2.0 released
 product: dav
 sidebar: none
-date: "2014-05-16T00:22:44+00:00"
+date: "2014-05-22T17:13:48+00:00"
 tags:
     - dav
     - release
