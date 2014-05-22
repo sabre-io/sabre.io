@@ -14,6 +14,18 @@ so it's been a long time coming.
 New features
 ------------
 
+### New browser
+
+<a href="/img/posts/new-browser.png" style="float: right; padding-left: 10px;">
+    <img src="/img/posts/new-browser.png" alt="new browser!" class="zoomAbleImage" width="300px" style="box-shadow: 5px 5px 10px #000"/>
+</a>
+
+The browser got a big overhaul. It hadn't changed much since when it was
+introduced in 2009, so a visual refresh was long due.
+
+The new browser plugin shows you a lot more information about webdav
+properties as well, making it a more useful debugging tool.
+
 ### WebDAV-Sync
 
 Support for WebDAV-Sync ([rfc6578][2]) has been added. WebDAV-Sync is used by
@@ -65,18 +77,20 @@ The property system got a complete overhaul for this release. This allowed
 for a great reduction in property-related code and allows for a new feature:
 [storage of arbitrary properties][8].
 
-### New browser
-
-The browser got a big overhaul. It hadn't changed much since when it was
-introduced in 2009, so a visual refresh was long due.
-
-The new browser plugin shows you a lot more information about webdav
-properties as well, making it a more useful debugging tool.
 
 ### PHP 5.4
 
 The minimum php version of sabre/dav has been increased to PHP 5.4. This was
 needed for a number of reasons, such as better closure support and traits.
+
+### And...
+
+The list of changes is rather massive. Read up on them in the [ChangeLog][10]
+from `1.9.0alpha1` onwards.
+
+Also, this includes all the [changes from sabre/vobject][11] from 3.0.0 onwards,
+[changes from sabre/http][12] from 2.0.0 onwards and everything from
+sabre/event.
 
 
 Upgrading
@@ -89,12 +103,28 @@ changes in your code to keep stuff running.
 
 **Make a backup.** and then head to the [migration instructions][9] for 2.0.
 
+Drop a line on the [mailing list][14] if you run into any issues at all.
+
+
 Support status
 --------------
 
 As of right now version **1.7** is no longer supported. **1.8** will be
 supported for an entire year, until May 2015.
 
+
+Thank you
+---------
+
+This was literally the largest release we've ever done, seeing the biggest
+diff, most new features, most contributors and longest development time.
+
+Thanks everyone for hanging in there and all your contributions.
+
+I want to specifically thank [Markus Staab][13] for tirelessly reviewing every
+incoming commit, and [Dominik Tobschall][14] for all the moral support.
+
+Evert.
 
 [1]: http://evertpot.com/sabredav-18-released-with-namespaces/
 [2]: http://tools.ietf.org/html/rfc6578
@@ -105,3 +135,8 @@ supported for an entire year, until May 2015.
 [7]: http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-10
 [8]: /dav/properties
 [9]: /dav/upgrade/1.8-to-2.0/
+[10]: https://github.com/fruux/sabre-dav/blob/master/ChangeLog.md
+[11]: https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md
+[12]: https://github.com/fruux/sabre-http/blob/master/ChangeLog
+[13]: https://github.com/staabm
+[14]: http://groups.google.com/group/sabredav-discuss
