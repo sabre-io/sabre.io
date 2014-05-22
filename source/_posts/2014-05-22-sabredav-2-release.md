@@ -123,7 +123,7 @@ changes in your code to keep stuff running.
 
 **Make a backup.** and then head to the [migration instructions][9] for 2.0.
 
-Drop a line on the [mailing list][14] if you run into any issues at all.
+Drop a line on the [mailing list][16] if you run into any issues at all.
 
 
 Support status
@@ -159,5 +159,6 @@ Evert.
 [11]: https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md
 [12]: https://github.com/fruux/sabre-http/blob/master/ChangeLog
 [13]: https://github.com/staabm
-[14]: http://groups.google.com/group/sabredav-discuss
+[14]: https://twitter.com/DominikTo
 [15]: https://github.com/fruux/sabre-dav/releases/
+[16]: http://groups.google.com/group/sabredav-discuss
