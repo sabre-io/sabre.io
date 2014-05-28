@@ -28,9 +28,9 @@ PHP Version requirements:
 | 1.4              | 5.2         | February 2011        | November 2012 (EOL) |
 | 1.5              | 5.2         | August 2011          | February 2013 (EOL) |
 | 1.6              | 5.3         | February 2012        | November 2013 (EOL) |
-| 1.7              | 5.3         | October 2012         | May 2014            |
-| 1.8              | 5.3         | November 2012        |                     |
-| 2.0 (in beta)    | 5.4         |                      |                     |
+| 1.7              | 5.3         | October 2012         | June 2014           |
+| 1.8              | 5.3         | November 2012        | May 2015            |
+| 2.0              | 5.4         | May 2014             |                     |
 
 Installing with composer
 ------------------------
@@ -38,23 +38,15 @@ Installing with composer
 If composer is not yet on your system, [follow the instructions on getcomposer.org][2]
 to do so.
 
-To start a new sabredav-based project, create a new empty directory. In this
-directory, create a file named `composer.json`.
+To add the sabre/dav dependency to your project, simply run the following
+command from the root of your project:
 
-This file should look like this:
-
-    {
-        "require" : {
-            "sabre/dav" : "1.8.*"
-        }
-    }
+    composer require sabre/dav ~{{site.latest_versions.dav}}
 
 
-This rule ensures that you install the latest SabreDAV package in the 1.8
-range of packages, but does not install 1.9 or higher, which would likely
-result in breaking stuff.
+This rule ensures that you install the latest stable sabre/dav.
 
-After you have created this file, you can install sabredav with the following
+After you've done this, you later on upgrade sabredav with the following
 command:
 
 
