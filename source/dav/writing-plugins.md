@@ -2,8 +2,8 @@
 title: Writing Plugins
 layout: default
 versions:
-    1.x: /dav/1.x/writing-plugins/
-    2.x: /dav/writing-plugins/
+    "1.8": /dav/1.8/writing-plugins/
+    "2.x": /dav/writing-plugins/
 thisversion: 2.x
 ---
 
