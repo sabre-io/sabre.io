@@ -57,5 +57,5 @@ This feature was added in sabre/vobject 3.1.
 
 
 [1]: http://tools.ietf.org/html/rfc7095
-[2]: http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-08
+[2]: http://tools.ietf.org/html/rfc7265
 [3]: http://www.json.org/
