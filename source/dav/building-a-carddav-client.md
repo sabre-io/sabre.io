@@ -316,7 +316,7 @@ Now we download every single object in this addressbook. To do this, we use a
             <d:getetag />
             <card:address-data />
         </d:prop>
-    </c:addressbook-query>
+    </card:addressbook-query>
 
 This request will return a large xml object with _all_ the vCards, and their
 etags.
@@ -394,7 +394,7 @@ again:
         <d:prop>
             <d:getetag />
         </d:prop>
-    </c:addressbook-query>
+    </card:addressbook-query>
 
 
 Note that this last request is extremely similar to a previous one, but we are
