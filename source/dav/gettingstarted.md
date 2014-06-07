@@ -8,18 +8,15 @@ This is a basic tutorial that will help you create a simple fileserver.
 Before starting this tutorial, make sure you have completed the
 [Installation](/dav/install) steps.
 
-We're assuming that your current working directory looks like this:
+Make sure you know what the exact path is to `vendor/autoload.php`. If you
+did the composer install, it should be in your current directory. If you used
+the zip, it will be where ever you unpacked the zip.
 
-    ./
-    ../
-    vendor/
-    composer.json
-    composer.lock
+All examples assume that this file can be included as such:
 
-If you use the (manual) zip installation, these files do not exist.
-In that case we _just_ assume that there is a sabredav directory somewhere,
-and that sabredav directory has a `vendor/` directory, containing a file
-called `autoload.php`. It doesn't really matter where this directory is.
+    require 'vendor/autoload.php';
+
+So if that's not the exact path to that file, make sure you change it.
 
 A simple server
 ---------------
