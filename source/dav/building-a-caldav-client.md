@@ -693,7 +693,7 @@ list the calendars that support the `VTODO` component.
                     <d:displayname>Home calendar</d:displayname>
                     <cs:getctag>3145</cs:getctag>
                     <c:supported-calendar-component-set>
-                        <c:comp name="VTODO" />
+                        <c:comp name="VEVENT" />
                     </c:supported-component-set>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
