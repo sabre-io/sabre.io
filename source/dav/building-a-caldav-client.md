@@ -394,6 +394,155 @@ Deleting is simple enough:
     DELETE /calendars/johndoe/home/132456762153245.ics HTTP/1.1
     If-Match: "2134-314"
 
+
+Speeding up Sync with WebDAV-Sync
+---------------------------------
+
+WebDAV-Sync is a protocol extension that is defined in [rfc6578][rfc6578].
+Because this extension was defined later, some servers may not support this
+yet.
+
+SabreDAV supports this since 2.0.
+
+WebDAV-Sync allows a client to ask *just* for calendars that have changed.
+The process on a high-level is as follows:
+
+1. Client requests sync-token from server.
+2. Server reports token `15`.
+3. Some time passes.
+4. Client does a Sync REPORT on an calendar, and supplied token `15`.
+5. Server returns vcard urls that have changed or have been deleted and returns token `17`.
+
+As you can see, after the initial sync, only items that have been created,
+modified or deleted will ever be sent.
+
+This has a lot of advantages. The transmitted xml bodies can generally be a
+lot shorter, and is also easier on both client and server in terms of memory
+and CPU usage, because only a limited set of items will have to be compared.
+
+It's important to note, that a client should only do Sync operations, if the
+server reports that it has support for it. The quickest way to do so, is to
+request `{DAV}sync-token` on the calendar you wish to sync.
+
+Technically, a server may support 'sync' on one calendar, and it may not
+support it on another, although this is probably rare.
+
+
+### Getting the first sync-token
+
+Initially, we just request a sync token when asking for calendar information:
+
+    PROPFIND /calendars/johndoe/home/ HTTP/1.1
+    Depth: 0
+    Content-Type: application/xml; charset=utf-8
+
+    <d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/">
+      <d:prop>
+         <d:displayname />
+         <cs:getctag />
+         <d:sync-token />
+      </d:prop>
+    </d:propfind>
+
+This would return something as follows:
+
+    <d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/">
+        <d:response>
+            <d:href>/calendars/johndoe/home/</d:href>
+            <d:propstat>
+                <d:prop>
+                    <d:displayname>My calendar</d:displayname>
+                    <cs:getctag>3145</cs:getctag>
+                    <d:sync-token>http://sabredav.org/ns/sync-token/3145</d:sync-token>
+                </d:prop>
+                <d:status>HTTP/1.1 200 OK</d:status>
+            </d:propstat>
+        </d:response>
+    </d:multistatus>
+
+As you can see, the sync-token is a url. It always should be a url.
+Even though a number appears in the url, you are not allowed to attach any
+meaning to that url. Some servers may have use an increasing number,
+another server may use a completely random string.
+
+### Receiving changes
+
+After a sync token has been obtained, and the client already has the initial
+copy of the calendar, the client is able to request all changes since the
+token was issued.
+
+This is done with a `REPORT` request that may look like this:
+
+    REPORT /calendars/johndoe/home/ HTTP/1.1
+    Host: dav.example.org
+    Content-Type: application/xml; charset="utf-8"
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <d:sync-collection xmlns:d="DAV:">
+      <d:sync-token>http://sabredav.org/ns/sync/3145</d:sync-token>
+      <d:sync-level>1</d:sync-level>
+      <d:prop>
+        <d:getetag/>
+      </d:prop>
+    </d:sync-collection>
+
+This requests all the changes since sync-token identified by
+`http://sabredav.org/ns/sync/3145`, and for the calendar objects that have been
+added or modified, we're requesting the etag.
+
+The response to a query like this is another multistatus xml body. Example:
+
+    HTTP/1.1 207 Multi-Status
+    Content-Type: application/xml; charset="utf-8"
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <d:multistatus xmlns:d="DAV:">
+        <d:response>
+            <d:href>/calendars/johndoe/home/newevent.ics</d:href>
+            <d:propstat>
+                <d:prop>
+                    <d:getetag>"33441-34321"</d:getetag>
+                </d:prop>
+                <d:status>HTTP/1.1 200 OK</d:status>
+            </d:propstat>
+        </d:response>
+        <d:response>
+            <d:href>/calendars/johndoe/home/updatedevent.ics</d:href>
+            <d:propstat>
+                <d:prop>
+                    <d:getetag>"33541-34696"</d:getetag>
+                </d:prop>
+                <d:status>HTTP/1.1 200 OK</d:status>
+            </d:propstat>
+        </d:response>
+        <d:response>
+            <d:href>/calendars/johndoe/home/deletedevent.ics</d:href>
+            <d:status>HTTP/1.1 404 Not Found</d:status>
+        </d:response>
+        <d:sync-token>http://sabredav.org/ns/sync/5001</d:sync-token>
+     </d:multistatus>
+
+The last response reported two changes: `newevent.ics` and `updatedevent.ics`.
+There's no way to tell from the response wether those cards got created or
+updated, you, as a client can only infer this based on the vcards you are
+already aware of.
+
+The entry with name `deltedevent.ics` got deleted as indicated by the `404`
+status. Note that the status element is here a child of `d:response` when in
+all previous examples it has been a child of `d:propstat`.
+
+The other difference with the other multi-status examples, is that this one
+has a `sync-token` element with the latest sync-token.
+
+### Caveats
+
+Note that a server is free to 'forget' any sync-tokens that have been
+previously issued. In this case it may be needed to do a full-sync again.
+
+In case the supplied sync-token is not recognized by the server, a HTTP error
+is emitted. SabreDAV emits a `403`.
+
+
 Discovery
 ---------
 
@@ -576,4 +725,5 @@ Read the [Service Discovery documentation](/dav/service-discovery)
 [rfc5545]: https://tools.ietf.org/html/rfc5545
 [rfc4791]: https://tools.ietf.org/html/rfc4791
 [rfc4918]: https://tools.ietf.org/html/rfc4918
+[rfc6578]: https://tools.ietf.org/html/rfc6578
 

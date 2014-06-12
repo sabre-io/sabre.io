@@ -545,7 +545,7 @@ WebDAV-Sync is a protocol extension that is defined in [rfc6578][rfc6578].
 Because this extension was defined later, some servers may not support this
 yet.
 
-SabreDAV supports this since 1.9alpha1, but not yet in a stable release.
+SabreDAV supports this since 2.0.
 
 WebDAV-Sync allows a client to ask *just* for address books that have changed.
 The process on a high-level is as follows:
@@ -617,7 +617,7 @@ token was issued.
 
 This is done with a `REPORT` request that may look like this:
 
-    REPORT /addressboks/johndoe/contacts/ HTTP/1.1
+    REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
     Host: dav.example.org
     Content-Type: application/xml; charset="utf-8"
 
