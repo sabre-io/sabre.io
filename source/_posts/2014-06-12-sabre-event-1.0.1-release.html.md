@@ -5,6 +5,7 @@ sidebar: none
 date: "2014-06-12T17:05:10+00:00"
 tags:
     - event
+    - release
 ---
 
 We just released sabre/event 1.0.1. A bug prevented the `EventEmitter` trait
