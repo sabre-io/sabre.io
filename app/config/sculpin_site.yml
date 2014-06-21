@@ -8,5 +8,5 @@ product: dav
 latest_versions:
   vobject: 3.2.3
   dav: 2.0.2
-  event: 1.0.1
+  event: 2.0.0
   http: 2.0.3
