@@ -4,14 +4,16 @@ product: event
 layout: default
 ---
 
-A lightweight library for event management in PHP.
+A lightweight library for event-based development in PHP.
 
-sabre/event's design is inspired by Node.js's [EventEmitter][1] and
-[Événement][2]. sabre/event requires PHP 5.4.
+This library brings two patterns that are common for event-based development
+in javascript to PHP.
 
-* [Installation](/event/install)
-* [Usage instructions](/event/usage)
+The two patterns are:
 
-[1]: http://nodejs.org/api/events.html
-[2]: https://github.com/igorw/evenement
-[3]: http://getcomposer.org/
+1. [EventEmitter][1], which is a very lightweight "Publish and Subscribe" pattern.
+2. [Promises][2], which is a design pattern to improve chained asynchronous callbacks.
+
+[1]: /event/eventemitter/
+[2]: /event/promise/
+
