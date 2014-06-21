@@ -6,18 +6,20 @@ layout: default
 
 Since version 2.0, the sabre/event library has support for Promises.
 
-The best way to describe promises, is that a promise is a 'placeholder' for
-a value that has not yet been determined. An example of this, is a HTTP request
-that has not yet completed, or a database query that's taking a long time.
+A Promise is a 'placeholder' for a value that has not yet been determined. An
+example of this, is a HTTP request that has not yet completed, or a database
+query that's taking a long time to complete.
 
 Promises have been popularized in Javascript, and are now actually becoming
-part of the language. A promise in javascript is useful in avoiding what's
-often referred to as 'callback hell'.
+part of the Javascript language in ecmascript 6. A Promise in javascript is
+useful in avoiding what's often referred to as 'callback hell'.
 
-PHP, just like javascript, is also single-threaded. PHP does not use an
-eventloop, and events everywhere though, so the 'callback hell' problem does
-not appear as often. However, there are certain situations where Promises can
-be useful as well.
+PHP, just like Javascript, is also single-threaded. Unlike Javascript, PHP does
+not have an eventloop, or is as event-heavy as Javascript is. So 'callback hell'
+is a lot less prevalent problem. However, there are certain situations where
+Promises can be useful in PHP as well.
+
+
 
 An example through a use-case
 -----------------------------
@@ -72,7 +74,7 @@ This is an example of how our example would work:
 
     $multiHttp->wait();
 
-This is on a high level how a promise works. A function returns a promise
+This is on a high level how a Promise works. A function returns a Promise
 instead of a regular value, and you can use `->then()` to execute a callback
 when the operation is completed.
 
@@ -88,9 +90,7 @@ but it's recommended to send `Exception` objects to the error handler.
 The innovation: chaining
 ------------------------
 
-The innovation does not lie in the fact that there's a simple object with a
-result and error handler, it's the fact that it's possible to create rather
-complex chaining rules.
+The innovation lies in the fact that it's possible to chain promises.
 
 Our next example does two things:
 
@@ -123,47 +123,39 @@ This is how we would do this:
 
     $multiHttp->wait();
 
-The success handler for the initial `DELETE` request now _returns_ another
-promise.
+Note that the first `then` no longer has an error handler. The error handler
+is optional. If it is not specified, it will automatically cause any
+chained Promises to also fail. For this reason, you often only need to specify
+the last error handler.
 
-The result is that the promises are chained.
-
-Also note that the first `then` no longer has an error handler. The error
-handler is optional. If it is not specified, it will automatically cause any
-chained promises to also fail.
-
-Therefore it's only needed to specify the last error handler.
-
-**Note:** If the last error handler is missing, and errors or exceptions will
-be suppressed. Always make sure you end the chain with 1 error handler.
+**Note:** If you did not specify an error handler, any errors and exceptions
+may be supressed. Always make sure you end the chain with 1 error handler.
 
 
 Promise state
 -------------
 
-A promise can only have one of three states:
+A Promise can only have one of three states:
 
 1. Pending
 2. Fulfilled
 3. Rejected
 
-After a promise is in state 2 or 3, its state and value/reason is immutable.
-
-If you call `then` after the promise has a result, the callbacks are
-immediately triggered.
+After a Promise is in state 2 or 3, its state and the value/reason are
+immutable.
 
 
 Creating a Promise
 ------------------
 
 If you are the implementor of `MultiHttp`, you will want to know how to create
-a promise. It's pretty easy, just call the constructor:
+a Promise. It's pretty easy, just call the constructor:
 
 
     $promise = new Sabre\Event\Promise();
 
 
-Then, if later in the process, you have a result, you just call:
+Then, later on when you have the result of the operation, call:
 
     $promise->fulfill( $result );
 
@@ -175,7 +167,7 @@ Or if it was an error:
 Alernatively, it's possible to handle this entire process during construction,
 by passing a callback to the constuctor:
 
-    $promise = neV Sabre\Event\Promise(function($fullFill, $reject) {
+    $promise = new Sabre\Event\Promise(function($fullFill, $reject) {
 
         if ($operationSuccessful) {
             $fullFill( $result );
@@ -199,7 +191,7 @@ See 'Creating a Promise'
 
 ### `then(callable $onFulfilled = null, callable $onRejected = null)`
 
-Sets up a callback for when the promise is fulfilled or rejected.
+Sets up a callback for when the Promise is fulfilled or rejected.
 
 Example:
 
@@ -214,8 +206,8 @@ Example:
 
 The result handler and the error handler may return a value.
 
-If the value is a promise, it will be automatically chained to the promise
-then returns:
+If the value is a Promise, it will be automatically chained to the Promise
+that `then` returns:
 
     $promise->then( function($result) {
         return new Promise(
@@ -226,7 +218,7 @@ then returns:
     })->then( function($result ) {
 
         // Will echo "Foo!\n";
-        echo $result; 
+        echo $result;
 
     });
 
@@ -244,15 +236,15 @@ This makes the previous example 100% functionally identical to this:
     })->then( function($result ) {
 
         // Will echo "Foo!\n";
-        echo $result; 
+        echo $result;
 
     });
 
-If there is no error handler, but an error occurred, the returned promise will
+If there is no error handler, but an error occurred, the returned Promise will
 also be rejected with the same `$reason`.
 
 If an exception occurs during either of the handlers, the exception will be
-caught, and the returned promise will fail with the exception as the reason:
+caught, and the returned Promise will fail with the exception as the reason:
 
     $promise->then( function($result) {
 
@@ -261,7 +253,7 @@ caught, and the returned promise will fail with the exception as the reason:
     })->then( function($result ) {
 
         // Will echo "Foo!\n";
-        echo $result; 
+        echo $result;
 
     }, function($reason) {
 
@@ -292,7 +284,7 @@ following syntax:
 
 ### `fulfill(mixed $value = null)`
 
-Fullfills a promise that didn't have a result yet.
+Fullfills a Promise that didn't have a result yet.
 
     $promise->fulfill('Some result object could go here');
 
@@ -301,7 +293,7 @@ The value may be any type at all.
 
 ### `reject(mixed $reason = null)`
 
-Reject (fails) a promise that didn't have a result yet.
+Reject (fails) a Promise that didn't have a result yet.
 
     $promise->fulfill(new Exception('Oh no!'));
 
@@ -311,13 +303,13 @@ The reason may also be any PHP type, but it's recommended to use exceptions.
 ### `all(Promise[] $promises)`
 
 
-The `all` method is a static method. You can specify 1 or more promises to it,
-and it returns a new promise.
+The `all` method is a static method. You can specify 1 or more Promises to it,
+and it returns a new Promise.
 
-The new promise will fulfill when all the passed promises are fulfilled.
+The new Promise will fulfill when all the passed Promises are fulfilled.
 
-The value for this is an array with all the result values for every promise.
-If any of the promises fails, the 'all promise' will also fail with just that
+The value for this is an array with all the result values for every Promise.
+If any of the Promises fails, the 'All Promise' will also fail with just that
 message.
 
     $promise1 = new Promise();
