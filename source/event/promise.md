@@ -14,7 +14,7 @@ Promises have been popularized in Javascript, and are now actually becoming
 part of the Javascript language in ecmascript 6. A Promise in javascript is
 useful in avoiding what's often referred to as 'callback hell'.
 
-PHP, just like Javascript, is also single-threaded. Unlike Javascript, PHP does
+PHP, just like Javascript, is single-threaded. Unlike Javascript, PHP does
 not have an eventloop, or is as event-heavy as Javascript is. So 'callback hell'
 is a lot less prevalent problem. However, there are certain situations where
 Promises can be useful in PHP as well.
@@ -27,7 +27,7 @@ An example through a use-case
 We are integrated with a RESTful webservice. We have to make 1 `PUT` and 1
 `DELETE`, but we don't have to perform these in order.
 
-Curl allows us to make multiple paralel, non-blocking requests using
+Curl allows us to make multiple parallel, non-blocking requests using
 [`curl_multi`][1]. It's syntax is rather verbose, so we are using the
 following fictional http client:
 
@@ -165,7 +165,7 @@ Or if it was an error:
 
 
 Alernatively, it's possible to handle this entire process during construction,
-by passing a callback to the constuctor:
+by passing a callback to the constructor:
 
     $promise = new Sabre\Event\Promise(function($fullFill, $reject) {
 
@@ -223,7 +223,7 @@ that `then` returns:
     });
 
 It's not required to return a Promise. If another value is returned from either
-your result or error handler, then `then` will return a Promise that
+your result or error handler, `then` will return a Promise that
 immediately resolves to that value.
 
 This makes the previous example 100% functionally identical to this:
@@ -262,7 +262,7 @@ caught, and the returned Promise will fail with the exception as the reason:
 
     });
 
-For this reason its very important to always end with a rejected handler, as
+For this reason it's very important to always end with a rejected handler, as
 otherwise any exceptions may be silently supressed.
 
 ### `error($onRejected)`
