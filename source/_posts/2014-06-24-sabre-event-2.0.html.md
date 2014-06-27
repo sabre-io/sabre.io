@@ -39,5 +39,5 @@ then run:
 
 Full changelog can be found on [Github][1]
 
-[1]: https://github.com/fruux/sabre-event/blob/master/ChangeLog
+[1]: https://github.com/fruux/sabre-event/blob/master/ChangeLog.md
 [2]: /event/promise/
