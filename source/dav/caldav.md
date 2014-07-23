@@ -75,7 +75,7 @@ Open up your new `calendarserver.php` and find the line that says:
 This tells the server to use sqlite, and where to find the database file. If
 you used MySQL, change this to something like this:
 
-    $pdo = new PDO('mysql:dbname=sabredav;hostname=127.0.0.1', 'root', 'password');
+    $pdo = new PDO('mysql:dbname=sabredav;host=127.0.0.1', 'root', 'password');
 
 
 
