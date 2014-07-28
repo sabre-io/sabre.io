@@ -30,7 +30,7 @@ Currently and previously supported versions:
 | 1.4              | 5.2         | February 2011        | November 2012 (EOL) |
 | 1.5              | 5.2         | August 2011          | February 2013 (EOL) |
 | 1.6              | 5.3         | February 2012        | November 2013 (EOL) |
-| 1.7              | 5.3         | October 2012         | June 2014           |
+| 1.7              | 5.3         | October 2012         | July 2014 (EOL)     |
 | 1.8              | 5.3         | November 2012        | May 2015            |
 | 2.0              | 5.4         | May 2014             |                     |
 
