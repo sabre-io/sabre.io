@@ -62,8 +62,10 @@ Generating iTip messages works based on the following three scenarios:
 For each of those scenarios, we need to figure out:
 
 1. Is the user an attendee or organizer for that event?
-2. If the user is an attende, did the attendee update their attendence status?
-3. If the user is an organizer, do the attendees need to know about any updates?
+2. If the user is an attendee, did the attendee update their participation
+   status?
+3. If the user is an organizer, do the attendees need to know about any
+   updates?
 4. And so on..
 
 There's quite a few possible scenarios, including organizers adding or
