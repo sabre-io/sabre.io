@@ -65,5 +65,5 @@ a line like this:
     "sabre/vobject" : "~3.3.0"
 
 [1]: https://github.com/fruux/sabre-vobject/blob/3.3.0/ChangeLog.md
-[2]: /vobject/recurrence
-[3]: /vobject/itip
+[2]: /vobject/recurrence/
+[3]: /vobject/itip/
