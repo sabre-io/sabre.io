@@ -1,5 +1,5 @@
 ---
-title: sabre/vobject 3.3.2 release
+title: sabre/vobject 3.3.1 release
 product: vobject
 sidebar: none
 date: "2014-08-18T19:39:02+00:00"
