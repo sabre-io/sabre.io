@@ -45,18 +45,14 @@ If you use PHP through CGI or FastCGI and Apache authentication headers are
 not passed through by default. You can enable this with the following
 mod_rewrite rule:
 
-    <IfModule mod_rewrite.c>
-      RewriteEngine on
-      RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
-    </IfModule>
+    RewriteEngine on
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 
 If you already had a mod_rewrite rule to map all urls to a server file, you
 might need to change this to something like:
 
-    <IfModule mod_rewrite.c>
-      RewriteEngine on
-      RewriteRule .* /server.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
-    </IfModule>
+    RewriteEngine on
+    RewriteRule .* /server.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 
 Note the /server.php. Make sure this reflects the correct location of your
 server file.

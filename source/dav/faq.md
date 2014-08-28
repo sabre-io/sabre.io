@@ -15,29 +15,17 @@ also works often through corporate firewalls.
 
 See [Wikipedia][1] or [webdav.org][2] for more information.
 
+
 What is SabreDAV?
 -----------------
 
 SabreDAV is a WebDAV server completely built in PHP. This means all you need
 to enable WebDAV access to your Web server is PHP.
 
-What is CalDAV?
----------------
+SabreDAV supports CalDAV, CardDAV and WebDAV as well as many other related
+specifications. See [Standards Support](/dav/standards-support) for the full
+list.
 
-CalDAV is a standard that is built on top of WebDAV. CalDAV is used for
-calendar-syncing, and all kinds of other calendar-related storage. It is
-supported by a lot of popular calendaring applications.
-
-[Wikipedia][3] has a lot more information about this.
-
-What is CardDAV?
-----------------
-
-What CalDAV does for calendars, CardDAV does for address books. CardDAV is the
-standard protocol to manage and sync addressbooks, and is also supported by a
-lot of clients and services.
-
-Check [Wikipedia][4] for more info.
 
 Is SabreDAV stable?
 -------------------
@@ -50,6 +38,7 @@ millions of users.
 No software is bugfree though, but SabreDAV is actively maintained, so if
 anything pops up we're usually quick to respond.
 
+
 Why would I use SabreDAV instead of Apache's mod_dav?
 -----------------------------------------------------
 
@@ -59,6 +48,13 @@ clients and also does Cal- and CardDAV, whereas mod_dav does not
 
 If you don't have a need for those features, mod_dav is likely a better choice
 as it's not written in PHP, and likely faster.
+
+
+I'm getting a 'File not Found error' after getting started
+----------------------------------------------------------
+
+You may have a [base uri](/dav/baseuri/) problem.
+
 
 It doesn't work!
 ----------------
@@ -81,12 +77,14 @@ is where we start debugging.
 If you're still running into issues, contact us on the [mailing list][7], or
 [open an issue on github][8].
 
+
 Authentication doesn't work
 ---------------------------
 
 There are several server configurations that can affect whether authentication
 will work. The [Authentication](/dav/authentication) and
 [Webservers](/dav/webservers) wiki pages have more info.
+
 
 Which clients are supported?
 ----------------------------
@@ -99,6 +97,7 @@ specific client. If you're running into issues with a specific client, we
 would [love to hear it][7] so we can see if we can devise a workaround, or
 at least document the behavior.
 
+
 Does SabreDAV pass the litmus test?
 -----------------------------------
 
@@ -106,10 +105,12 @@ Does SabreDAV pass the litmus test?
 for all standard features. The current status of the litmus test can be found
 on the [Litmus](/dav/litmus) page.
 
+
 Can SabreDAV work with large files?
 -----------------------------------
 
 Yes, read [Working with large files](/dav/large-files).
+
 
 Does SabreDAV work with Microsoft Outlook?
 ------------------------------------------
@@ -128,6 +129,7 @@ tested it so if it worked with SabreDAV, but we have had good reports.
 [Open Connector][11] is a free plugin for Outlook that is supposed to provide
 support for this, but the project appears unmaintained since 2008, and I
 personally haven't gotten it to work. If you did, let me know how.
+
 
 I'm getting 0-byte files on the server
 --------------------------------------
@@ -151,10 +153,12 @@ areas we could use some help with:
 SabreDAV is now developed at [fruux][12], for the last two items in this list
 it would be best to [contact us](/support) to help you further.
 
+
 I have a different question
 ---------------------------
 
 Hit us up on the [mailing list][7].
+
 
 I'd like to get commercial support
 ----------------------------------
@@ -175,3 +179,4 @@ support, we'd love to [hear from you](/support)!
 [10]: http://ical.gutentag.ch/
 [11]: http://openconnector.org/
 [12]: https://fruux.com/
+[13]: /dav/baseurl/
