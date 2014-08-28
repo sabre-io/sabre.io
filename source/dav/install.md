@@ -31,6 +31,8 @@ PHP Version requirements:
 | 1.7              | 5.3         | October 2012         | July 2014 (EOL)     |
 | 1.8              | 5.3         | November 2012        | May 2015            |
 | 2.0              | 5.4         | May 2014             |                     |
+| 2.1              | 5.4         | ????                 |                     |
+| 2.2              | 5.5         | ????                 |                     |
 
 Installing with composer
 ------------------------
