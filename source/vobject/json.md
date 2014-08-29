@@ -37,7 +37,7 @@ json.
 Here's an example of parsing an iCalendar object, and then outputting it as
 a jCal object:
 
-    $vcal = \Sabre\VObject\Reader::read('my_calendar.ics');
+    $vcal = \Sabre\VObject\Reader::read(fopen('my_calendar.ics', 'r'));
     echo json_encode($vcal->jsonSerialize());
 
 This feature was added in sabre/vobject 3.0.
