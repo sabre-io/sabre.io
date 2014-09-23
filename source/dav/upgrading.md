@@ -14,6 +14,7 @@ Upgrading a major version? Read the upgrade instructions here:
 * [1.6.x to 1.7.x](/dav/upgrade/1.6-to-1.7)
 * [1.7.x to 1.8.x](/dav/upgrade/1.7-to-1.8)
 * [1.8.x to 2.0.x](/dav/upgrade/1.8-to-2.0)
+* [2.0.x to 2.1.x](/dav/upgrade/2.0-to-2.1)
 
 Support length
 --------------
