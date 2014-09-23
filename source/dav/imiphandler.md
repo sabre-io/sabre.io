@@ -3,6 +3,9 @@ title: IMipHandler
 layout: default
 ---
 
+**Note: this feature is removed as of sabre/dav 2.1. Read
+[scheduling][scheduling] for more details.**
+
 The IMipHandler is responsible for sending emails. This is used since version
 1.6.
 
@@ -34,3 +37,4 @@ To use the IMipHandler, simply attach it to `Sabre\CalDAV\Plugin`.
 You must specify a proper From: address. This class uses PHP's mail() function
 under the hood. To use some other system, it's possible to subclass it.
 
+[scheduling]: /dav/scheduling/

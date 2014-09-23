@@ -23,12 +23,12 @@ layout: default
 | [rfc5323][rfc5323] | WebDAV SEARCH                     | Not planned.
 | [rfc5397][rfc5397] | Current-Principal                 | Supported. Needs [ACL][4] plugin.
 | [rfc5545][rfc5545] | iCalendar 2.0                     | Parsed by [sabre/vobject][1].
-| [rfc5546][rfc5546] | iTIP                              | Future. Part of scheduling.
+| [rfc5546][rfc5546] | iTIP                              | Implemented in [sabre/vobject][25] and used by [scheduling][24].
 | [rfc5689][rfc5689] | Extended MKCOL                    | Implemented in core server.
 | [rfc5789][rfc5789] | PATCH method for HTTP             | See [Patch support][8].
 | [rfc5842][rfc5842] | WebDAV BIND                       | Future. Maybe.
 | [rfc5995][rfc5995] | Using POST to Add Members         | Future. Maybe.
-| [rfc6047][rfc6047] | IMip                              | See [imiphandler][19].
+| [rfc6047][rfc6047] | IMip                              | See [scheduling][24].
 | [rfc6321][rfc6321] | xCal                              | Future
 | [rfc6350][rfc6350] | vCard 4.0                         | Parsed by [sabre/vobject][1].
 | [rfc6351][rfc6351] | xCard                             | Future
@@ -36,7 +36,7 @@ layout: default
 | [rfc6473][rfc6473] | VCard KIND:application            | Properties picked up by [sabre/vobject][1].
 | [rfc6474][rfc6474] | VCard Place of birth/death        | Properties picked up by [sabre/vobject][1].
 | [rfc6578][rfc6578] | WebDAV-sync                       | Supported. See [WebDAV sync][9].
-| [rfc6638][rfc6638] | Scheduling Extensions to CalDAV   | Future.
+| [rfc6638][rfc6638] | Scheduling Extensions to CalDAV   | Supported. See [Scheduling][24].
 | [rfc6715][rfc6715] | VCard extensions                  | Properties picked up by [sabre/vobject][1].
 | [rfc6764][rfc6764] | SRV and well-known                | See [service discovery][20].
 | [rfc6868][rfc6868] | Parameter encoding for vcard/ical | Integrated into [sabre/vobject][1].
@@ -98,14 +98,14 @@ Non-standards and drafts
 [rfc7265]: http://tools.ietf.org/html/rfc7265
 
 [1]: https://github.com/fruux/sabre-vobject
-[2]: /dav/authentication
-[3]: /dav/versioning
-[4]: /dav/acl
-[5]: /dav/davmount
-[6]: /dav/caldav
-[7]: /dav/carddav
-[8]: /dav/http-patch
-[9]: /dav/sync
+[2]: /dav/authentication/
+[3]: /dav/versioning/
+[4]: /dav/acl/
+[5]: /dav/davmount/
+[6]: /dav/caldav/
+[7]: /dav/carddav/
+[8]: /dav/http-patch/
+[9]: /dav/sync/
 [10]: http://tools.ietf.org/html/draft-daboo-carddav-directory-gateway
 [11]: /dav/carddav-directory
 [12]: https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-ctag.txt
@@ -114,8 +114,9 @@ Non-standards and drafts
 [15]: http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt
 [16]: /dav/caldav-sharing
 [17]: http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt
-[19]: /dav/imiphandler
-[20]: /dav/service-discovery
+[20]: /dav/service-discovery/
 [21]: http://www.imc.org/pdi/vcard-21.txt
 [22]: http://tools.ietf.org/html/draft-murchison-webdav-prefer-06
 [23]: http://tools.ietf.org/html/draft-snell-http-prefer-18
+[24]: /dav/scheduling/
+[25]: /vobject/itip/

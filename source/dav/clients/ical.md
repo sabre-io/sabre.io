@@ -141,15 +141,18 @@ More details to follow
 
 #### Assuming scheduling support
 
-iCal appears to assume that any CalDAV server also supports from
-CalDAV-scheduling features out of the box. iCal will use this to let the server
-send emails, for things like an event invitation.
+iCal versions before Mavericks (10.9) appear to assume that any CalDAV server
+also supports some CalDAV-scheduling features out of the box. iCal will use
+this to let the server send emails, for things like an event invitation.
 
 If this is not supported, no emails for these types of actions will be sent.
 This can be rather unexpected for users, as these expected emails just won't
 arrive.
 
-Since version 1.6 SabreDAV has a workaround for this. Read
+Since version 2.1 SabreDAV has support for [scheduling](/dav/scheduling/),
+which can be enabled to fix this issue.
+
+Before version 2.1 SabreDAV had a workaround for this. Read
 [IMipHandler](/dav/imiphandler) for more details.
 
 This issue has been discovered on at least 10.7 and 10.8 iCal, not yet sure about older versions.
