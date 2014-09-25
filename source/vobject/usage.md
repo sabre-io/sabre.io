@@ -104,7 +104,7 @@ The vCard also allows object-access to manipulate properties:
 
 To get access to a parameter, you can simply use array-access:
 
-    $type = $vcard->TEL['TYPE']:
+    $type = $vcard->TEL['TYPE'];
     echo (string)$type;
 
 Parameters can also appear multiple times. To get to their values, just loop
@@ -118,7 +118,7 @@ through them:
 
 To change parameters for properties, you can use array-access syntax:
 
-    $vcard->TEL['TYPE'] = ['WORK','FAX']:
+    $vcard->TEL['TYPE'] = ['WORK','FAX'];
 
 Or when you're working with singular parameters:
 
