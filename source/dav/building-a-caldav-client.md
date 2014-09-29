@@ -621,7 +621,7 @@ This will return a response such as the following:
 
     <d:multistatus xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
         <d:response>
-            <d:href>/</d:href>
+            <d:href>/principals/users/johndoe/</d:href>
             <d:propstat>
                 <d:prop>
                     <c:calendar-home-set>
