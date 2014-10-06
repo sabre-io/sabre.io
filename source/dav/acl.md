@@ -59,6 +59,9 @@ to add a top-level 'principals' collection to your tree.
 
     $server->exec();
 
+For much more information about principals, read the [principals][2]
+documentation.
+
 
 Advanced settings
 -----------------
@@ -125,3 +128,4 @@ add these in the following manner:
     $aclPlugin->principalSearchPropertySet[] = '{http://example.org/ns}my-prop';
 
 [1]: http://tools.ietf.org/html/rfc3744
+[2]: /dav/principals/
