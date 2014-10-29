@@ -464,25 +464,107 @@ Example:
     $server->on('report','myReport');
 
 
-### `unknownMethod`
+### `calendarObjectChange`
 
-*Removed as of sabre/dav 2.0*
+**Since version 2.1.0**
 
-### `beforeGetProperties`
+This event is triggered by the CalDAV plugin, whenever a calendar object got
+changed or created.
 
-*Removed as of sabre/dav 2.0*
+Example:
 
-### `beforeGetPropertiesForPath`
+    use Sabre\HTTP\RequestInterface;
+    use Sabre\HTTP\ResponseInterface;
+    use Sabre\VObject\Document;
 
-*Removed as of sabre/dav 2.0*
+    function calendarObjectChange(RequestInterface $request, ResponseInterface $response, Document $calendar, $parentPath, &$modified, $isNew) {
 
-### `afterGetProperties`
+    }
 
-*Removed as of sabre/dav 2.0*
+    $server->on('calendarObjectChange', 'calendarObjectChange');
 
-### `updateProperties`
+It has quite a bit of arguments:
 
-*Removed as of sabre/dav 2.0*
+* `$request` - The HTTP request object.
+* `$response` - The HTTP response object.
+* `$calendar` - The fully parsed VCALENDAR object.
+* `$parentPath` - The path to the object's parent calendar.
+* `&$isModified` - Passed by reference. Set this to `true` to tell the system
+   that you've modified `$calendar` so the modified version will end up
+   getting stored, instead of the original. This also ensures that an `ETag`
+   will not be sent back.
+* `$isNew` - Whether the object was a newly created calendar object, or an
+   update.
+
+
+### `schedule`
+
+**Since version 2.1.0**
+
+This event is triggered for scheduling operations. A scheduling operation is
+for example a invite to an event, a cancellation of an event or an
+accept/decline response to an event.
+
+This event is used by the [CalDAV scheduling plugin][13] to deliver these
+messages to local calendar users, and it is used by the [iMip plugin][14],
+to send invites via email.
+
+Example:
+
+    use Sabre\VObject\ITip\Message;
+
+    function schedule(Message $iTipMessage) {
+
+        // Send message via email
+        $iTipMessage->scheduleStatus = '1.0;Delivered!';
+
+    }
+
+    $server->on('schedule', 'schedule');
+
+Consult the source for `Sabre\VObject\ITip\Message` for more information.
+
+
+### `afterMove`
+
+**Since version 2.1.0**
+
+This event is triggered after a successful `MOVE` request. This is used by
+the system to copy WebDAV properties from the old to the new path, but could
+be used for other purposes as well.
+
+Example:
+
+    function afterMove($sourcePath, $destinationPath) {
+
+    }
+
+    $server->on('afterMove', 'afterMove');
+
+
+### `afterResponse`
+
+**Since version 2.1.0**
+
+This event is triggered after a HTTP response is sent back to the DAV client.
+At this point it's no longer possible to influence the HTTP response, but it
+could be used for logging or clean-up operations.
+
+This would also be a good moment to call
+[`fastcgi_finish_request`](http://php.net/manual/en/function.fastcgi-finish-request.php), if
+you are on a fastcgi PHP sapi.
+
+    use Sabre\HTTP\RequestInterface;
+    use Sabre\HTTP\ResponseInterface;
+
+    function afterResponse(RequestInterface $request, ResponseInterface $response) {
+
+        fastcgi_finish_request();
+
+    }
+
+    $server->on('afterResponse', 'afterResponse');
+
 
 Other examples
 --------------
@@ -519,10 +601,11 @@ happens after authentication, but before the acl system kicks in. In that case
 | `method:GET`   | [ICSExport Plugin][1]        |       90 | To be before the `GET` handler of the browser plugin. |
 | `method:GET`   | [VCFExport Plugin][6]        |       90 | To be before the `GET` handler of the browser plugin. |
 | `method:GET`   | [Mount Plugin][10]           |       90 | To be before the `GET` handler of the browser plugin. |
-| `method:GET`   | [CalDAV Plugin][2]           |       90 | To transform to jCal and get before the standard `GET` handler. |
+| `method:GET`   | [Notifications plugin][15]   |       90 | To correctly emit the notifications xml responses |
 | `method:GET`   | [Browser plugin][9]          |      200 | Only generated directory indexes if nothing else can handle a `GET` request. |
 | `propFind`     | [ACL plugin][12]             |       20 | Block fetching properties if user did not have permission. |
 | `propFind`     | Core server                  |      120 | Ask properties implementing `IProperties` to return properties. |
+| `propFind`     | Core server                  |      200 | Map the `getctag` property to `{DAV:}sync-token`. |
 | `propFind`     | [PropertyStorage plugin][11] |      130 | Only fetch from propertystorage after everything else has had a chance. |
 | `propFind`     | [Subscriptions Plugin][4]    |      150 | Transform properties after fetching. |
 | `propFind`     | [CardDAV plugin][5]          |      150 | Transform properties after fetching. |
@@ -532,7 +615,7 @@ happens after authentication, but before the acl system kicks in. In that case
 | `propPatch`    | Core Server                  |       90 | Block updating protected properties. |
 | `propPatch`    | Core Server                  |      200 | Allow nodes implementing `IProperties` to update properties last. |
 | `propPatch`    | [PropertyStorage plugin][11] |      300 | Only handle storing properties that no other subsystem understood. |
-
+| `schedule`     | [iMip plugin][14]            |      120 | Attempt to send an email invite _after_ the internal delivery system. |
 
 Other event-system features
 --------------------------
@@ -553,3 +636,6 @@ emit custom events and remove subscribers as well as a few other things.
 [10]: /dav/davmount/
 [11]: /dav/property-storage/
 [12]: /dav/acl/
+[13]: /dav/scheduling/
+[14]: /dav/imip/
+[15]: /dav/notifications/
