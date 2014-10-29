@@ -107,7 +107,7 @@ This is how we would do this:
 
     $multiHttp->addRequest('DELETE', '/blogpost2.txt', '...')
         ->then(
-            function($value) {
+            function($value) use ($multiHttp) {
                 // The DELETE request was successful!
                 return $multiHttp->addRequest('PUT', '/blogpost2.txt', '...');
             }
