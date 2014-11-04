@@ -4,14 +4,14 @@ product: event
 layout: default
 ---
 
-Since version 2.0, the sabre/event library has support for Promises.
+Since version 2.0, the sabre/event library has support for Promises.
 
 A Promise is a 'placeholder' for a value that has not yet been determined. An
 example of this, is a HTTP request that has not yet completed, or a database
 query that's taking a long time to complete.
 
 Promises have been popularized in Javascript, and are now actually becoming
-part of the Javascript language in ecmascript 6. A Promise in javascript is
+part of the Javascript language in ECMAScript 6. A Promise in Javascript is
 useful in avoiding what's often referred to as 'callback hell'.
 
 PHP, just like Javascript, is single-threaded. Unlike Javascript, PHP does
@@ -24,12 +24,12 @@ Promises can be useful in PHP as well.
 An example through a use-case
 -----------------------------
 
-We are integrated with a RESTful webservice. We have to make 1 `PUT` and 1
-`DELETE`, but we don't have to perform these in order.
+We are integrated with a RESTful webservice. We have to make 1 `PUT` and
+1 `DELETE`, but we don't have to perform these in order.
 
 Curl allows us to make multiple parallel, non-blocking requests using
 [`curl_multi`][1]. It's syntax is rather verbose, so we are using the
-following fictional http client:
+following fictional HTTP client:
 
     class MultiHttp {
 
@@ -40,12 +40,12 @@ following fictional http client:
 
 Conceptually this client works as follows:
 
-1. We perform new http requests with the `addRequest` method.
+1. We perform new HTTP requests with the `addRequest` method,
 2. When we are completely done, we can call the `wait` method, which causes
    the client to simply wait until all the still outstanding requests have
    completed.
 
-The developer of the MultiHttp client can use Promises to handle asynchronous
+The developer of the `MultiHttp` client can use Promises to handle asynchronous
 results.
 
 This is an example of how our example would work:
@@ -75,12 +75,12 @@ This is an example of how our example would work:
     $multiHttp->wait();
 
 This is on a high level how a Promise works. A function returns a Promise
-instead of a regular value, and you can use `->then()` to execute a callback
+instead of a regular value, and you can use `then` to execute a callback
 when the operation is completed.
 
-`->then()` takes 2 arguments:
+`then` takes 2 arguments:
 
-1. A callback for a successful result. The callback gets a `$value`.
+1. A callback for a successful result. The callback gets a `$value`,
 2. A callback for a failure. The callback gets a `$reason`.
 
 It is up to the implementor to decide what types `$value` and `$reason` are,
@@ -94,7 +94,7 @@ The innovation lies in the fact that it's possible to chain promises.
 
 Our next example does two things:
 
-1. Deletes a resource with `DELETE`.
+1. Deletes a resource with `DELETE`,
 2. Re-creates the resource with `PUT`.
 
 This operation has to be done in this exact order, because the `PUT` relies
@@ -128,8 +128,8 @@ is optional. If it is not specified, it will automatically cause any
 chained Promises to also fail. For this reason, you often only need to specify
 the last error handler.
 
-**Note:** If you did not specify an error handler, any errors and exceptions
-may be supressed. Always make sure you end the chain with 1 error handler.
+**Note**: If you did not specify an error handler, any errors and exceptions may
+be suppressed. Always make sure you end the chain with at least 1 error handler.
 
 
 Promise state
@@ -137,9 +137,9 @@ Promise state
 
 A Promise can only have one of three states:
 
-1. Pending
-2. Fulfilled
-3. Rejected
+1. Pending,
+2. Fulfilled,
+3. Rejected.
 
 After a Promise is in state 2 or 3, its state and the value/reason are
 immutable.
@@ -167,10 +167,10 @@ Or if it was an error:
 Alernatively, it's possible to handle this entire process during construction,
 by passing a callback to the constructor:
 
-    $promise = new Sabre\Event\Promise(function($fullFill, $reject) {
+    $promise = new Sabre\Event\Promise(function($fulFill, $reject) {
 
         if ($operationSuccessful) {
-            $fullFill( $result );
+            $fulFill( $result );
         } else {
             $reject( $reason );
         }
@@ -184,10 +184,9 @@ API
 ### `__construct(callable $executor = null);`
 
 Creates the Promise with an optional executor callback. The callback will
-receive a reference to the reject and fullfill functions.
+receive a reference to the fulfill and reject functions.
 
-See 'Creating a Promise'
-
+See 'Creating a Promise'.
 
 ### `then(callable $onFulfilled = null, callable $onRejected = null)`
 
@@ -211,7 +210,7 @@ that `then` returns:
 
     $promise->then( function($result) {
         return new Promise(
-            function($fullFill, $reject) {
+            function($fulFill, $reject) {
                 $fulFill('Foo!');
             }
         );
@@ -263,7 +262,7 @@ caught, and the returned Promise will fail with the exception as the reason:
     });
 
 For this reason it's very important to always end with a rejected handler, as
-otherwise any exceptions may be silently supressed.
+otherwise any exceptions may be silently suppressed.
 
 ### `error($onRejected)`
 
@@ -284,7 +283,7 @@ following syntax:
 
 ### `fulfill(mixed $value = null)`
 
-Fullfills a Promise that didn't have a result yet.
+Fulfills a Promise that didn't have a result yet.
 
     $promise->fulfill('Some result object could go here');
 
@@ -295,7 +294,7 @@ The value may be any type at all.
 
 Reject (fails) a Promise that didn't have a result yet.
 
-    $promise->fulfill(new Exception('Oh no!'));
+    $promise->reject(new Exception('Oh no!'));
 
 The reason may also be any PHP type, but it's recommended to use exceptions.
 
@@ -325,4 +324,4 @@ message.
         }
     );
 
-[1]: http://ca2.php.net/manual/en/function.curl-multi-init.php
+[1]: http://php.net/curl-multi-init
