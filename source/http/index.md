@@ -42,7 +42,7 @@ It got split off into a separate library to make it easier to manage
 releases and hopefully giving it use outside of the scope of just sabre/dav.
 
 Although completely independently developed, this library has a LOT of
-overlap with [symfony's HttpFoundation][3].
+overlap with [Symfony's HttpFoundation][3].
 
 Said library does a lot more stuff and is significantly more popular,
 so if you are looking for something to fulfill this particular requirement,

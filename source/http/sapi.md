@@ -1,19 +1,19 @@
 ---
-title: Requests, responses and the PHP SAPI.
+title: Requests, responses and the PHP SAPI
 product: http
 layout: default
 ---
 
-On the PHP Sapi side, sabre/http basically wraps a number of concepts in PHP:
+On the PHP SAPI side, `sabre/http` basically wraps a number of concepts in PHP:
 
-* `$_SERVER`
-* `$_POST`
-* `$_GET`
-* `$_FILES`
-* `php://input`
-* `echo()`
-* `header()`
-* `php://output`
+* `$_SERVER`,
+* `$_POST`,
+* `$_GET`,
+* `$_FILES`,
+* `php://input`,
+* `echo()`,
+* `header()`,
+* `php://output`.
 
 Effectively, it provides an OOP wrapper around these things. Half of these
 items relate the HTTP request, and the other half to the HTTP response.
@@ -29,7 +29,7 @@ The easiest way to instantiate a request object is as follows:
 This line should only happen once in your entire application. Everywhere else
 you should pass this request object around.
 
-You should always typehint on it's interface:
+You should always typehint on its interface:
 
     function handleRequest(HTTP\RequestInterface $request) {
 
@@ -37,21 +37,20 @@ You should always typehint on it's interface:
 
     }
 
-A response object you can just create as such:
-
+You can create a response object as such:
 
     use Sabre\HTTP;
 
     include 'vendor/autoload.php';
 
     $response = new HTTP\Response();
-    $response->setStatus(201); // created !
+    $response->setStatus(201); // created!
     $response->setHeader('X-Foo', 'bar');
     $response->setBody(
         'success!'
     );
 
-After you fully constructed your response, you must call:
+After you have fully constructed your response, you must call:
 
     HTTP\Sapi::sendResponse($response);
 
