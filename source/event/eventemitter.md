@@ -4,8 +4,8 @@ product: event
 layout: default
 ---
 
-In a eventemitter there are emitters, and listeners. Emitters trigger an
-event. When a event is emitted, a listener is notified of this fact.
+In an eventemitter there are emitters, and listeners. Emitters trigger an
+event. When an event is emitted, a listener is notified of this fact.
 
 Example:
 
@@ -30,7 +30,7 @@ The name of the event (`create`) can be any free-form string.
 Priorities
 ----------
 
-By supplying a priority, you can make sure that subscribers are handled in a
+By supplying a priority, you are ensured that subscribers are handled in a
 specific order. The default priority is 100. Anything below that will be
 triggered earlier, anything higher later.
 
@@ -39,7 +39,7 @@ undefined, but deterministic order.
 
     $eventEmitter->on('create', function() {
 
-    // This event will be handled first.
+        // This event will be handled first.
 
     }, 50);
 
@@ -52,7 +52,7 @@ All default PHP callbacks are supported, so closures are not required.
     $eventEmitter->on('create', ['myClass', 'myMethod']);
     $eventEmitter->on('create', [$myInstance, 'myMethod']);
 
-### Canceling the event handler.
+### Canceling the event handler
 
 If a callback returns `false` the event chain is stopped immediately.
 
