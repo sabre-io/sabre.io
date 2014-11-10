@@ -7,7 +7,7 @@ product: vobject
 Since version 3.1, there's now native support for parsing and generating the
 [jCal][2] and [jCard][1] formats.
 
-These new formats use [json][3] to serialize vCard and iCalendar. It is
+These new formats use [JSON][3] to serialize vCard and iCalendar. It is
 possible to exactly map iCalendar and vCard to jCal and jCard, and therefore
 you can convert back and forward, without any data-loss.
 
@@ -40,7 +40,7 @@ a jCal object:
     $vcal = \Sabre\VObject\Reader::read(fopen('my_calendar.ics', 'r'));
     echo json_encode($vcal->jsonSerialize());
 
-This feature was added in sabre/vobject 3.0.
+This feature was added in sabre/vobject 3.0.
 
 Parsing jCal and jCard
 ----------------------
@@ -50,10 +50,10 @@ To parse a jCard or jCal object, use the following snippet:
     $input = 'jcard.json';
     $jCard = VObject\Reader::readJson(fopen('jcard.json', 'r'));
 
-You can pass either a json string, a readable stream, or an array if you
-already called json_decode on the input.
+You can pass either a JSON string, a readable stream, or an array if you
+already called `json_decode` on the input.
 
-This feature was added in sabre/vobject 3.1.
+This feature was added in sabre/vobject 3.1.
 
 
 [1]: http://tools.ietf.org/html/rfc7095
