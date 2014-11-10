@@ -81,7 +81,7 @@ we can do this with the `add` method.
 If we want to also specify that this is max' home email addresses, we can do this with
 a third parameter:
 
-    $card->add('EMAIL', 'max@example'org', array('type' => 'HOME'));
+    $card->add('EMAIL', 'max@example'org', ['type' => 'HOME']);
 
 If we want to read out all the email addresses and their type, this would look something
 like this:

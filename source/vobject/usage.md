@@ -13,7 +13,7 @@ and you've included the autoloader in your code.
 A basic parsing example
 -----------------------
 
-Assuming there is a vcard in your local directory, named `cowboyhenk.vcf`,
+Assuming there is a vCard in your local directory, named `cowboyhenk.vcf`,
 the following complete example will parse it and display the `FN` property:
 
     use Sabre\VObject;
@@ -30,32 +30,31 @@ the autoloader, and also that you've called
 
     use Sabre\VObject;
 
-At the top of your script. This is just to avoid repetition.
+at the top of your script. This is just to avoid repetition.
 
-
-Also, keep in mind that while sabre/vobject does support PHP 5.3, most of the
-examples in this documentation use syntax that was introduced in PHP 5.4.
+Also, keep in mind that while sabre/vobject does support PHP 5.3, most of the
+examples in this documentation use syntax that was introduced in PHP 5.4.
 
 Specifically, we specify arrays as such:
 
     [
-        "ORG" => "Henk Inc.",
-        "FN" => "Cowboy Henk",
+        'ORG' => 'Henk Inc.',
+        'FN' => 'Cowboy Henk',
     ]
 
 In PHP 5.3, this is specified as:
 
     array(
-        "ORG" => "Henk Inc.",
-        "FN" => "Cowboy Henk",
+        'ORG' => 'Henk Inc.',
+        'FN' => 'Cowboy Henk',
     )
 
 The actual manual
 -----------------
 
-### Creating vCards.
+### Creating vCards
 
-To create a vCard, you can simply instantiate the vCard component, and pass
+To create a vCard, you can simply instantiate the `VCard` component, and pass
 the properties you need:
 
     $vcard = new VObject\Component\VCard([
@@ -83,7 +82,7 @@ To add any additional properties, use the `add()` method on the vCard.
 
     $vcard->add('TEL', '+1 555 34567 456', ['type' => 'fax']);
 
-The third argument of the add() method allows you to specify a list of
+The third argument of the `add()` method allows you to specify a list of
 parameters.
 
 ### Manipulating properties
@@ -158,7 +157,7 @@ For properties that contain more than 1 part, such as `ADR`, `N` or `ORG` you
 can call `getParts()`.
 
     print_r(
-        $vcard->ORG->getParts();
+        $vcard->ORG->getParts()
     );
 
 ### Looping through properties.
@@ -168,7 +167,7 @@ vCard. To loop through them, you can simply throw them in a `foreach()`
 statement:
 
     foreach($vcard->TEL as $tel) {
-        echo "Phone number: ", (string)$tel, "\n";
+        echo 'Phone number: ', $tel, "\n";
     }
 
     foreach($vcard->ADR as $adr) {
@@ -196,7 +195,7 @@ In most situations these group names are ignored, so when you execute the follow
 example, the `TEL` properties are still traversed.
 
     foreach($vcard->TEL as $tel) {
-        echo (string)$tel, "\n";
+        echo $tel, "\n";
     }
 
 But if you would like to target a specific group + property, this is possible too:
@@ -209,8 +208,8 @@ numbers and display their custom labels, you'd do something like this:
 
     foreach($vcard->TEL as $tel) {
 
-        echo (string)$vcard->{$tel->group . '.X-ABLABEL'}, ": ";
-        echo (string)$tel, "\n";
+        echo $vcard->{$tel->group . '.X-ABLABEL'}, ': ';
+        echo $tel, "\n";
 
     }
 
@@ -334,11 +333,11 @@ The output of this script will look like this:
 
 Generally when software makes backups of calendars or contacts, they will
 put all the objects in a single file. In the case of vCards, this is often
-a stream of VCARD objects, in the case of iCalendar, this tends to be a
-single VCALENDAR objects, with many components.
+a stream of vCard objects, in the case of iCalendar, this tends to be a
+single `VCALENDAR` object, with many components.
 
-Protocols such as Card- and CalDAV expect only 1 object per resource. The
-vobject library provides 2 classes to split these backup files up into many.
+Protocols such as Card- and CalDAV expect only 1 object per resource. The
+vObject library provides 2 classes to split these backup files up into many.
 
 To do this, use the splitter objects:
 
@@ -353,19 +352,19 @@ To do this, use the splitter objects:
 
     }
 
-Next to the VCard splitter, there's also an ICalendar splitter. The latter
+Next to the vCard splitter, there's also an ICalendar splitter. The latter
 creates a `VCALENDAR` object per `VEVENT`, `VTODO` or `VJOURNAL`, and ensures
 that the `VTIMEZONE` information is kept intact, and any `VEVENT` objects that
 belong together (because they are expections for an `RRULE` and thus have the
 same `UID`) will be kept together, exactly like CalDAV expects.
 
-### Converting between different vCard versions.
+### Converting between different vCard versions
 
-Since sabre/vobject 3.1, there's also a feature to convert between various
-vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
-4.0 and to 3.0 and 4.0. It's not yet possible to convert to vCard 2.1.
+Since sabre/vobject 3.1, there's also a feature to convert between various
+vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
+4.0 and to 3.0 and 4.0. It's not yet possible to convert to vCard 2.1.
 
-To do this, simply call the convert() method on the vCard object.
+To do this, simply call the `convert()` method on the vCard object.
 
     $input = <<<VCARD
     BEGIN:VCARD
@@ -397,14 +396,14 @@ on Github.
 CLI tool
 --------
 
-Since vObject 3.1, a new cli tool is shipped in the bin/ directory.
+Since vObject 3.1, a new CLI tool is shipped in the `bin/` directory.
 
 This tool has the following features:
 
-* A `validate` command.
-* A `repair` command to repair objects that are slightly broken.
+* A `validate` command,
+* A `repair` command to repair objects that are slightly broken,
 * A `color` command, to show an iCalendar object or vCard on the console with
-  ansi-colors, which may help debugging.
+  ansi-colors, which may help debugging,
 * A `convert` command, allowing you to convert between iCalendar 2.0, vCard 2.1,
   vCard 3.0, vCard 4.0, jCard and jCal.
 

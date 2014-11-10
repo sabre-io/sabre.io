@@ -4,7 +4,7 @@ product: vobject
 layout: default
 ---
 
-Since version 3.3, vobject has support for parsing and generating [iTip][1]
+Since version 3.3, vObject has support for parsing and generating [iTip][1]
 messages. Currently only `VEVENT` is supported.
 
 
@@ -55,8 +55,8 @@ Generating iTip messages
 
 Generating iTip messages works based on the following three scenarios:
 
-1. A user creates an event.
-2. A user updates an event.
+1. A user creates an event,
+2. A user updates an event,
 3. A user deletes an event.
 
 For each of those scenarios, we need to figure out:
@@ -66,7 +66,7 @@ For each of those scenarios, we need to figure out:
    status?
 3. If the user is an organizer, do the attendees need to know about any
    updates?
-4. And so on..
+4. And so on.
 
 There's quite a few possible scenarios, including organizers adding or
 removing attendees, resulting into various requests, cancellations and replies.
@@ -80,7 +80,7 @@ Here's an example to generate these messages:
         $oldCalendar
     );
 
-Both `$newCalendar` and `$oldCalendar` should either be a VCALENDAR object,
+Both `$newCalendar` and `$oldCalendar` should either be a `VCALENDAR` object,
 or a `null`.
 
 If `$oldCalendar` is `null`, it will be treated as a new object, if
@@ -97,9 +97,9 @@ Parsing iTip messages
 The broker can also parse incoming iTip messages. This happens for example
 when:
 
-1. You receive an invite.
-2. You get an update for an invite.
-3. You send a reply to an invite.
+1. You receive an invite,
+2. You get an update for an invite,
+3. You send a reply to an invite,
 4. You receive a cancellation for an invite.
 
 The broker can parse these incoming messages, and update an existing calendar

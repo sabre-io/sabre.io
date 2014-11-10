@@ -4,10 +4,10 @@ layout: default
 title: Upgrading from vobject 2.x to 3.x
 ---
 
-vObject 3.0 got a major overhaul, and much better built-in support for all
+VObject 3.0 got a major overhaul, and much better built-in support for all
 kinds of properties and escaping.
 
-This version fixes the most important bugs, specifically [Issue #19][1].
+This version fixes the most important bugs, specifically the [issue #19][1].
 
 To do this, a few backwards compatibility breaks had to be made. This document
 describes each of them, as well as all the new features.
@@ -36,7 +36,7 @@ Since sabre/vobject 3.1:
 
 * Added a jCard and jCal parser.
 * Using the `convert()` method you can convert between vCard 2.1, 3.0 and 4.0.
-* A new cli tool with `validate`, `repair`, `color` and `convert` commands.
+* A new CLI tool with `validate`, `repair`, `color` and `convert` commands.
 
 Backwards compatibility breaks
 ------------------------------
@@ -124,7 +124,7 @@ highly complex objects with sub-components, this _will_ make a big difference.
 
 ### Component::children() and Property::parameters() return arrays.
 
-Before vObject 3 they returned an `ElementList`.
+Before VObject 3 they returned an `ElementList`.
 
 ### The signature for DateTime::setDateTime has changed.
 

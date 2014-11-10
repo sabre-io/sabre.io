@@ -12,12 +12,12 @@ them, but not all.
 To read more about `RRULE` and all the options, check out [RFC5545](https://tools.ietf.org/html/rfc5545#section-3.8.5).
 VObject supports the following options:
 
-1. `UNTIL` for an end date.
-2. `INTERVAL` for for example "every 2 days".
-3. `COUNT` to stop recurring after x items.
-4. `FREQ=DAILY` to recur every day, and `BYDAY` to limit it to certain days.
-5. `FREQ=WEEKLY` to recur every week, `BYDAY` to expand this to multiple weekdays in every week and `WKST` to specify on which day the week starts.
-6. `FREQ=MONTHLY` to recur every month, `BYMONTHDAY` to expand this to certain days in a month, `BYDAY` to expand it to certain weekdays occuring in a month, and `BYSETPOS` to limit the last two expansions.
+1. `UNTIL` for an end date,
+2. `INTERVAL` for for example "every 2 days",
+3. `COUNT` to stop recurring after x items,
+4. `FREQ=DAILY` to recur every day, and `BYDAY` to limit it to certain days,
+5. `FREQ=WEEKLY` to recur every week, `BYDAY` to expand this to multiple weekdays in every week and `WKST` to specify on which day the week starts,
+6. `FREQ=MONTHLY` to recur every month, `BYMONTHDAY` to expand this to certain days in a month, `BYDAY` to expand it to certain weekdays occuring in a month, and `BYSETPOS` to limit the last two expansions,
 7. `FREQ=YEARLY` to recur every year, `BYMONTH` to expand that to certain months in a year, and `BYDAY` and `BYWEEKDAY` to expand the `BYMONTH` rule even further.
 
 VObject supports the `EXDATE` property for exclusions, and `RDATE` as well.
