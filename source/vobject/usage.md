@@ -20,7 +20,9 @@ the following complete example will parse it and display the `FN` property:
 
     include 'vendor/autoload.php';
 
-    $vcard = VObject\Reader::read('cowboyhenk.vcf');
+    $vcard = VObject\Reader::read(
+        fopen('cowboyhenk.vcf','r')
+    );
     echo $vcard->FN;
 
 That is all.
