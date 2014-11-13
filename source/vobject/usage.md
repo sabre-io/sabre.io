@@ -347,7 +347,7 @@ To do this, use the splitter objects:
     $h = fopen('backupfile.vcf', 'r');
     $splitter = new VObject\Splitter\VCard($h);
 
-    while($vcard = $splitter->next()) {
+    while($vcard = $splitter->getNext()) {
 
         // $vCard is a single vCard object. You can just call serialize() on it
         // if you were looking for the string version.
