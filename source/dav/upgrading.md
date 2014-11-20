@@ -33,8 +33,8 @@ Currently and previously supported versions:
 | 1.6              | 5.3         | February 2012        | November 2013 (EOL) |
 | 1.7              | 5.3         | October 2012         | July 2014 (EOL)     |
 | 1.8              | 5.3         | November 2012        | May 2015            |
-| 2.0              | 5.4         | May 2014             |                     |
-| 2.1              | 5.4         | ????                 |                     |
+| 2.0              | 5.4         | May 2014             | November 2015       |
+| 2.1              | 5.4         | November 2014        |                     |
 | 2.2              | 5.5         | ????                 |                     |
 
 Versioning scheme

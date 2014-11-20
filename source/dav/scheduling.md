@@ -12,7 +12,7 @@ defined by [rfc6638][rfc6638].
 This plugin enables several features:
 
 1. Inviting people on a CalDAV server.
-2. Automatically delivering invites to a CAlDAV inbox.
+2. Automatically delivering invites to a CalDAV inbox.
 3. Functionality to Accept or Decline invites.
 4. Reading free-busy information from users on the server.
 
