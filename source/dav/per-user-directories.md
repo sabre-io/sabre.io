@@ -316,8 +316,9 @@ Now to implement this trait in our new classes:
             foreach(scandir($this->path) as $file) {
 
                 if ($file==='.' || $file==='..') {
-                    $result[] = $this->getChild($file);
+                    continue;
                 }
+                $result[] = $this->getChild($file);
 
             }
 
