@@ -18,6 +18,8 @@ It's not very hard to create a collection that has a directory for each user.
 
 For instance, you may have a `home` collection as such:
 
+    <?php
+
     namespace MyServer;
 
     use Sabre\DAV\Collection;
@@ -66,6 +68,8 @@ This all comes down to the question, who is currently logged in?
 
 Given this `server.php` file:
 
+    <?php
+
     $tree = [
         new MyServer\HomeCollection();
     ];
@@ -81,6 +85,8 @@ Given this `server.php` file:
 
 It's not easy to figure out who is currently logged in. This code can be
 re-organized as such:
+
+    <?php
 
     $authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
     $authPlugin = new Sabre\DAV\Auth\Plugin($authBackend);
@@ -108,6 +114,8 @@ The authentication plugin only starts doing work *after* the server has been
 started with `$server->exec()`. The easiest way to work around this, is by 
 injecting the `$authPlugin` into our earlier `HomeCollection` class.
 
+    <?php
+
     namespace MyServer;
 
     use Sabre\DAV\Collection;
@@ -118,6 +126,7 @@ injecting the `$authPlugin` into our earlier `HomeCollection` class.
 
         protected $users = ['alice','bob','charly'];
         protected $path = '/opt/sabredav/userdir/';
+        protected $authPlugin;
 
         function __construct(AuthPlugin $authPlugin) {
 
@@ -169,6 +178,8 @@ to these two classes:
 Since we want to simply base our nodes on `Sabre\DAV\FS\Directory` and 
 `Sabre\DAV\FS\File`, but we need to add 5 identical methods from
 `Sabre\DAVACL\IACL` to both of them, the fastest way to do this, is a trait:
+
+    <?php
 
     namespace MyServer;
 
@@ -265,6 +276,8 @@ Since we want to simply base our nodes on `Sabre\DAV\FS\Directory` and
 
 Now to implement this trait in our new classes:
 
+    <?php
+
     namespace MyServer;
 
     class ACLDirectory extends Sabre\DAV\FS\Directory implements Sabre\DAVACL\IACL {
@@ -335,6 +348,8 @@ node per user.
 
 This is how you could refactor your `HomeCollection` to use it:
 
+    <?php
+
     namespace MyServer;
 
     use Sabre\DAVACL\AbstractPrincipalCollection;
@@ -376,6 +391,8 @@ This is how you could refactor your `HomeCollection` to use it:
     }
 
 And then lastly, to instantiate everything `server.php`:
+
+    <?php
 
     $authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
     $principalBackend = new Sabre\DAVACL\PrincipalBackend\PDO($pdo);
