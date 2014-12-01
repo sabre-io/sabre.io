@@ -14,7 +14,7 @@ the [Getting Started][1] and [Virtual Filesystems][2] documentation.
 The Problem
 -----------
 
-It's not very hard to create a colletion that has a directory for each user.
+It's not very hard to create a collection that has a directory for each user.
 
 For instance, you may have a `home` collection as such:
 
@@ -59,7 +59,7 @@ In addition, you could automatically call `mkdir()` to create new home
 directories for users that don't have a home directory yet.
 
 We assume that this is easy, and you figured all of this out. The problem
-people immediately come across, is they don't want to allow users to get
+people immediately come across is that they don't want to allow users to get
 access to other users' home directories.
 
 This all comes down to the question, who is currently logged in?
@@ -132,32 +132,39 @@ injecting the `$authPlugin` into our earlier `HomeCollection` class.
 Now you can determine right within `getChildren()` and `getChild()` wether or
 a user is allowed to have access to a specific collection.
 
-Just call `$this->authPlugin->getCurrentUser()`.
+Just call `$this->authPlugin->getCurrentUser()` and return the nodes that are
+appropriate for each user.
 
 
 The better solution
 -------------------
 
+While the previous solution may be good enough for many, it's not our
+preferred solution.
+
 sabre/dav ships with a very advanced access-control system using the [ACL][3]
 plugin and [principals][4] system.
 
-This system allows you to determine per-node what any user may do.
+This system allows you to determine per-node what any user may do. You could
+for example:
 
-If you are interested in this solution, you need a few things:
+1. Create admin users that have access to everything.
+2. Put users in groups, and also create per-group collections.
+3. Give users read-only access on a per-node basis.
+
+This all sounds great, but it's also definitely a bit harder to implement. If
+you are interested in this solution, you need a few things:
 
 1. A working `principals/` directory structure.
 2. You need to add the `Sabre\DAVACL\Plugin` plugin to the server.
 3. Any nodes that you want to add Access control to, must implement
    `Sabre\DAVACL\IACL`.
 
-If you're interested in this solution, there's not much you have to change to
-the `HomeCollection` class all the way in the top of this tutorial. Instead,
-you will need to override:
+We'll start with item number 3, and show you how to add the `IACL` interface
+to these two classes:
 
 * Sabre\DAV\FS\Directory
 * Sabre\DAV\FS\File
-
-To add this new functionality. This is an example of how that could work.
 
 Since we want to simply base our nodes on `Sabre\DAV\FS\Directory` and 
 `Sabre\DAV\FS\File`, but we need to add 5 identical methods from
