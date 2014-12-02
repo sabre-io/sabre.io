@@ -13,13 +13,11 @@ A commonly asked question on the mailing list, is:
 > How do I create private directories on a WebDAV server.
 
 Doing this is not extremely obvious, and there are a few issues that people
-quickly run into when attempting this.
+quickly run into.
 
-We've added a new [tutorial][1] to our website specifically to explain this,
-with both a 'simple way' of doing this, and a more advanced way, using
-WebDAV-ACL.
+We've added a new [tutorial][1] to our website explaining a 'simple way' of doing this,
+and also a more advanced way, using WebDAV-ACL.
 
 Hopefully it's useful!
 
 [1]: /dav/per-user-directories/
-
