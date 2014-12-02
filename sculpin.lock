@@ -1,22 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "1762434092ec841131bd63d75c09e25c",
+    "hash": "b859ebbddb92c765b203819d0b3e0328",
     "packages": [
         {
             "name": "components/font-awesome",
-            "version": "4.0.3",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/font-awesome.git",
-                "reference": "1744fe47e16f15749b07d31d40c9ae66b57df307"
+                "reference": "86dd6f76a251d5a5e4987ab4071d5da40837bdd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/font-awesome/zipball/1744fe47e16f15749b07d31d40c9ae66b57df307",
-                "reference": "1744fe47e16f15749b07d31d40c9ae66b57df307",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/86dd6f76a251d5a5e4987ab4071d5da40837bdd4",
+                "reference": "86dd6f76a251d5a5e4987ab4071d5da40837bdd4",
                 "shasum": ""
             },
             "require": {
@@ -25,7 +26,7 @@
             "type": "component",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "4.2.x-dev"
                 },
                 "component": {
                     "styles": [
@@ -43,20 +44,20 @@
                 "OFL-1.1"
             ],
             "description": "The iconic font designed for use with Twitter Bootstrap.",
-            "time": "2013-11-10 21:30:36"
+            "time": "2014-09-09 13:48:41"
         },
         {
             "name": "components/highlightjs",
-            "version": "8.0.0",
+            "version": "8.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/highlightjs.git",
-                "reference": "1117bfd53aeb5d7e15d14aeb4c049cf355cb466c"
+                "reference": "b84e9834ed7fccc936ed2bce6fb7454484ec4268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/highlightjs/zipball/1117bfd53aeb5d7e15d14aeb4c049cf355cb466c",
-                "reference": "1117bfd53aeb5d7e15d14aeb4c049cf355cb466c",
+                "url": "https://api.github.com/repos/components/highlightjs/zipball/b84e9834ed7fccc936ed2bce6fb7454484ec4268",
+                "reference": "b84e9834ed7fccc936ed2bce6fb7454484ec4268",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +89,7 @@
                 }
             ],
             "description": "Highlight.js highlights syntax in code examples on blogs, forums and in fact on any web pages.",
-            "time": "2014-01-22 15:38:09"
+            "time": "2014-10-16 00:35:39"
         },
         {
             "name": "components/normalize.css",
@@ -126,16 +127,16 @@
         },
         {
             "name": "kriswallsmith/assetic",
-            "version": "v1.1.2",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "735cffd3982c6e8cdebe292d5db39d077f65890f"
+                "reference": "df991c124a2212371443b586a1be767500036dee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/735cffd3982c6e8cdebe292d5db39d077f65890f",
-                "reference": "735cffd3982c6e8cdebe292d5db39d077f65890f",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/df991c124a2212371443b586a1be767500036dee",
+                "reference": "df991c124a2212371443b586a1be767500036dee",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +151,9 @@
                 "leafo/scssphp": "*",
                 "leafo/scssphp-compass": "*",
                 "mrclay/minify": "*",
-                "phpunit/phpunit": "~3.7",
+                "patchwork/jsqueeze": "~1.0",
+                "phpunit/phpunit": "~4",
+                "psr/log": "~1.0",
                 "ptachoire/cssembed": "*",
                 "twig/twig": "~1.6"
             },
@@ -158,13 +161,14 @@
                 "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
                 "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
                 "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+                "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "twig/twig": "Assetic provides the integration with the Twig templating engine"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -193,7 +197,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-07-19 00:03:27"
+            "time": "2014-10-14 14:45:32"
         },
         {
             "name": "robloach/component-installer",
@@ -240,20 +244,11 @@
             "time": "2013-08-31 23:46:48"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "stability-flags": [],
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
 }
