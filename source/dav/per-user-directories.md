@@ -343,6 +343,8 @@ Now to implement this trait in our new classes:
 
 And lastly, instantiate our new classes correctly from the `HomeCollection` class:
 
+    <?php
+
     namespace MyServer;
 
     use Sabre\DAV\Collection;
