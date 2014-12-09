@@ -1,6 +1,6 @@
 ---
 title: sabre/xml
-product: xml 
+product: xml
 layout: default
 ---
 
@@ -25,8 +25,8 @@ sabre/xml hopes to solve your issues, by wrapping [`XMLReader`][3] and
 3. Re-usability of parsers.
 
 
-Generating XML 
---------------
+Writing XML
+-----------
 
 Genering XML largely follows the [`XMLWriter`][4] api, but a lot of useful
 features have been tacked on.
@@ -37,11 +37,11 @@ features have been tacked on.
     $xmlWriter->setIndent(true);
     $xmlWriter->namespaceMap = ['http://example.org' => 'b'];
 
-    $xmlWriter->write(['{http://example.org}book' => [ 
+    $xmlWriter->write(['{http://example.org}book' => [
         '{http://example.org}title' => 'Cryptonomicon',
-        '{http://example.org}author' => 'Neil Stephenson', 
+        '{http://example.org}author' => 'Neil Stephenson',
     ]]);
-    
+
 This will create the following document:
 
     <?xml version="1.0"?>
@@ -51,11 +51,12 @@ This will create the following document:
     </b:book>
 
 You can serialize objects by implementing `Sabre\Xml\XmlSerializable`. This
-interface is designed to work identical to PHP 5.5's [`JsonSerializable`][5]. 
+interface is designed to work identical to PHP 5.5's [`JsonSerializable`][5].
 
+[Read all the details here][6].
 
-Parsing XML.
-------------
+Reading XML
+-----------
 
     <?php
 
@@ -71,7 +72,7 @@ Parsing XML.
         '{http://example.org/}article' => 'Sabre\Xml\Element\KeyValue',
     ];
     $reader->xml($input);
-    
+
     print_r($reader->parse());
 
 This will output something like:
@@ -107,9 +108,12 @@ callback:
         }
     ];
 
+[Read all the details here][7].
 
 [1]: http://php.net/manual/en/book.simplexml.php
 [2]: http://ca2.php.net/manual/en/book.dom.php
 [3]: http://php.net/manual/en/book.xmlreader.php
 [4]: http://php.net/manual/en/book.xmlwriter.php
 [5]: http://php.net/manual/en/class.jsonserializable.php
+[6]: /xml/reading/
+[7]: /xml/writing/
