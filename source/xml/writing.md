@@ -4,8 +4,8 @@ product: xml
 layout: default
 ---
 
-sabre/xml has a writer class called `Sabre\XML\Writer`. This class extends
-PHP's built-in ['XMLWriter'][1] class, so its entire API also works here.
+sabre/xml has a writer class called `Sabre\Xml\Writer`. This class extends
+PHP's built-in [`XMLWriter`][1] class, so its entire API also works here.
 
 The writer has several additions to the standard API that make it more easy
 to use.
