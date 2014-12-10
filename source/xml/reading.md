@@ -8,14 +8,14 @@ sabre/xml has a reader class called `Sabre\Xml\Reader`. This class extends
 PHP's built-in [`XMLReader`][1] class.
 
 The reader is extended quite a bit. So while you can find the exact same API
-methods as in PHP's class, the way you interact with the Reader will likely
-look very different.
+methods as in PHP's class, the way you interact with the reader will likely
+look different.
 
 
 Converting XML to a PHP array
 -----------------------------
 
-Lets take the following XML as our primary example.
+Let's take the following XML as our primary example.
 
     <?xml version="1.0" encoding="utf-8"?>
     <books xmlns="http://example.org/books">
@@ -29,7 +29,7 @@ Lets take the following XML as our primary example.
         </book>
     </books>
 
-To convert this xml to a PHP array, we can just run this:
+To convert this XML to a PHP array, we can just run this:
 
     $reader = new Sabre\Xml\Reader();
     $reader->xml($xml);
@@ -121,8 +121,8 @@ The output for this, is quite big:
 Key-Value XML structures
 ------------------------
 
-However, we can simplify this quite a bit. Our 'book' element pretty much
-looks like a key->value structure, so we can tell the parser this:
+However, we can simplify this quite a bit. Our `book` element pretty much
+looks like a key-value structure, so we can tell the parser this:
 
     $reader = new Sabre\Xml\Reader();
     $reader->elementMap = [
@@ -180,7 +180,7 @@ This creates the new output:
 Custom element parsers
 ----------------------
 
-Lets take this one step further... We have a simple class that represents the
+Lets take this one step further… We have a simple class that represents the
 books document:
 
     class Books {
@@ -201,7 +201,7 @@ And we have a class for every book:
 
 
 By refactoring our parser a bit, we can automatically map these classes to
-their respective xml elements:
+their respective XML elements:
 
     $reader = new Sabre\Xml\Reader();
     $reader->elementMap = [
@@ -270,11 +270,11 @@ This finally gives us the following output:
 Using element classes
 ---------------------
 
-The last example had 2 custom deserializers. We can also integrate straight
+The last example had 2 custom deserializers. We can also integrate straight
 into the classes they are supposed to deserialize.
 
-The following two classes rebuild the Book and Books classes so they can
-parse themself from an xml document, and also write them in a new document:
+The following two classes rebuild the `Book` and `Books` classes so they can
+parse themself from an XML document, and also write them in a new document:
 
     class Books implements Sabre\Xml\Element {
 

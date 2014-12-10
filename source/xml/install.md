@@ -4,17 +4,17 @@ layout: default
 title: Installation
 ---
 
-sabre/xml must be intalled using [composer][1].
+sabre/xml must be installed using [Composer][1].
 
 Requirements
 ------------
 
 You will need a recent version of PHP. sabre/xml currently requires PHP 5.4.
 
-Installing with composer
+Installing with Composer
 ------------------------
 
-If composer is not yet on your system, [follow the instructions on getcomposer.org][2]
+If Composer is not yet on your system, [follow the instructions on getcomposer.org][2]
 to install it.
 
 From your project directory, the easiest is then to simply call:
