@@ -99,7 +99,7 @@ This is optional, but by adding this hint the resulting output becomes a lot
 simpler.
 
 The parser comes with a few parsing strategies for common needs, and you can
-easily create your own by writing deserializer classes, or just by proving a
+easily create your own by writing deserializer classes, or just by providing a
 callback:
 
     $reader->elementMap = [
