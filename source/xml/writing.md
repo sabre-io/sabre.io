@@ -15,9 +15,9 @@ Automatically apply namespaces
 ------------------------------
 
 The `startElement`, `writeElement` and `writeAttribute` methods have been
-changed a bit, so they can accept [clark notation][2] for their node names.
+changed a bit, so they can accept [Clark notation][2] for their node names.
 
-What this means, is that you can call
+What this means, is that you can call:
 
     $writer->namespaceMap = [
         '{http://example.org/}foo' => 'foo',
@@ -37,13 +37,13 @@ By always specifying the fully qualified namespace and element name, you
 disconnect the 'real xml element name' with the 'human readable prefix'.
 
 Your code should ideally never be aware of the prefix. It's strictly for
-beautifaction of xml.
+beautifaction of XML.
 
 
 The `write` method
 ------------------
 
-The `write` method allows you to quickly write complex xml structures.
+The `write` method allows you to quickly write complex XML structures.
 
 We're explaining this method by example.
 
@@ -213,8 +213,7 @@ Output:
 
 One thing to note from the last example, is that the `AtomEntry` class does not actually encode it's own 'parent element'. This is a design choice. We feel that it's a best practice for every serializable object to only ever represent a _value_ but not its _identity_.
 
-
-This allows serializers to be re-used for different element names, but this starts to make even more sense when you re-use the exact same classes for serialization and deserialization. Deserialization is covered on the [reading xml][4] page in the documentation.
+This allows serializers to be re-used for different element names, but this starts to make even more sense when you re-use the exact same classes for serialization and deserialization. Deserialization is covered on the [reading XML][4] page in the documentation.
 
 
 [1]: http://php.net/manual/en/book.xmlwriter.php

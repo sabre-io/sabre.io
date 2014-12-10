@@ -7,28 +7,28 @@ layout: default
 *An XML library for PHP you may not hate.*
 
 If you are writing or consuming API's in PHP, chances are that you need to
-work with xml. In some cases you may even prefer it.
+work with XML. In some cases you may even prefer it.
 
 You may have started with [SimpleXML][1] and after a while switched to using
 [the DOM][2] after realizing SimpleXML is really not that simple if you
 strictly use xml namespaces everywhere.
 
 For writing XML, you may have found that using the DOM requires far too much
-code, or you may simply generate your xml by `echo`ing strings, knowing that
+code, or you may simply generate your XML by `echo`ing strings, knowing that
 it may not be the best idea.
 
 sabre/xml hopes to solve your issues, by wrapping [`XMLReader`][3] and
 [`XMLWriter`][4], and providing standard design patterns around:
 
-1. Quickly generating XML based on simple array structures.
-2. Providing a super simple xml-to-object mapping.
+1. Quickly generating XML based on simple array structures,
+2. Providing a super simple XML-to-object mapping,
 3. Re-usability of parsers.
 
 
 Writing XML
 -----------
 
-Genering XML largely follows the [`XMLWriter`][4] api, but a lot of useful
+Generating XML largely follows the [`XMLWriter`][4] API, but a lot of useful
 features have been tacked on.
 
     $xmlWriter = new Sabre\Xml\Writer();
@@ -93,7 +93,7 @@ This will output something like:
     )
 
 The key in the last example, is that we tell the parser to treat the contents
-of the `article` xml node as a key-value structure.
+of the `article` XML node as a key-value structure.
 
 This is optional, but by adding this hint the resulting output becomes a lot
 simpler.
