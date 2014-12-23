@@ -637,5 +637,5 @@ emit custom events and remove subscribers as well as a few other things.
 [11]: /dav/property-storage/
 [12]: /dav/acl/
 [13]: /dav/scheduling/
-[14]: /dav/imip/
+[14]: /dav/scheduling/
 [15]: /dav/notifications/

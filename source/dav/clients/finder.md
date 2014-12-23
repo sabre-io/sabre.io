@@ -6,8 +6,8 @@ type: client
 Finder is OS X's built-in WebDAV client. It's been around for ages, and
 it's pretty stable.
 
-Your server _must_ have [Locking](/dav/locking) support in order to allow
-a user to make modifications.
+Your server _must_ have [Locking](/dav/locks) support in order to allow a user
+to make modifications.
 
 If the server does not supports locks, Finder will operate in read-only mode.
 
