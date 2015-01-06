@@ -38,9 +38,9 @@ services (`GET`, `PUT` and `DELETE`), but a number of new methods have been
 added to this list (`PROPFIND`, `PROPPATCH`, `REPORT`, `MKCOL`, `MKCALENDAR`,
 `ACL`).
 
-Most HTTP clients should just supports methods they don't know about. So it's
-very wise to simply use a stock HTTP client for your platform, if your
-platform does not already have a CardDAV client.
+Most HTTP clients should just support methods they don't know about. So it's
+smart to simply use a stock HTTP client for your platform, if your platform
+does not already have a specialized CardDAV client.
 
 vCards
 ------
@@ -86,7 +86,7 @@ There's:
   escaping mechanism that noone supports yet.
 * Line-folding. Sometimes single multi-byte UTF-8 characters are split up with
   a new-line.
-* Two styles of new-lines, sometimes in the same document (`\n` and `\r\n`).
+* Two styles of new-lines, sometimes within the same document (`\n` and `\r\n`).
 * Quoted-printable encoding and base64 encoding.
 * Parameters that have their name omitted, because it's implied from their
   values.
@@ -229,7 +229,6 @@ so-called 'ctag'.
 
     PROPFIND /addressbooks/johndoe/contacts/ HTTP/1.1
     Depth: 0
-    Prefer: return-minimal
     Content-Type: application/xml; charset=utf-8
 
     <d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/">
@@ -291,7 +290,7 @@ Example:
             </d:propstat>
             <d:propstat>
                 <d:prop>
-                    <cs:getctag>3145</cs:getctag>
+                    <cs:getctag />
                 </d:prop>
                 <d:status>HTTP/1.1 404 Not Found</d:status>
             </d:propstat>
@@ -310,7 +309,6 @@ Now we download every single object in this addressbook. To do this, we use a
 
     REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
     Depth: 1
-    Prefer: return-minimal
     Content-Type: application/xml; charset=utf-8
 
     <card:addressbook-query xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
@@ -318,7 +316,7 @@ Now we download every single object in this addressbook. To do this, we use a
             <d:getetag />
             <card:address-data />
         </d:prop>
-    </c:addressbook-query>
+    </card:addressbook-query>
 
 This request will return a large xml object with _all_ the vCards, and their
 etags.
@@ -390,14 +388,13 @@ again:
 
     REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
     Depth: 1
-    Prefer: return-minimal
     Content-Type: application/xml; charset=utf-8
 
     <card:addressbook-query xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
         <d:prop>
             <d:getetag />
         </d:prop>
-    </c:addressbook-query>
+    </card:addressbook-query>
 
 
 Note that this last request is extremely similar to a previous one, but we are
@@ -450,7 +447,6 @@ It's better to batch the GET's together with `multiget`.
 
     REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
     Depth: 1
-    Prefer: return-minimal
     Content-Type: application/xml; charset=utf-8
 
     <card:addressbook-multiget xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
@@ -541,6 +537,155 @@ Deleting is simple enough:
     DELETE /addressbooks/johndoe/contacts/132456762153245.vcf HTTP/1.1
     If-Match: "2134-314"
 
+
+Speeding up Sync with WebDAV-Sync
+---------------------------------
+
+WebDAV-Sync is a protocol extension that is defined in [rfc6578][rfc6578].
+Because this extension was defined later, some servers may not support this
+yet.
+
+SabreDAV supports this since 2.0.
+
+WebDAV-Sync allows a client to ask *just* for address books that have changed.
+The process on a high-level is as follows:
+
+1. Client requests sync-token from server.
+2. Server reports token `15`.
+3. Some time passes.
+4. Client does a Sync REPORT on an addressbook, and supplied token `15`.
+5. Server returns vcard urls that have changed or have been deleted and returns token `17`.
+
+As you can see, after the initial sync, only items that have been created,
+modified or deleted will ever be sent.
+
+This has a lot of advantages. The transmitted xml bodies can generally be a
+lot shorter, and is also easier on both client and server in terms of memory
+and CPU usage, because only a limited set of items will have to be compared.
+
+It's important to note, that a client should only do Sync operations, if the
+server reports that it has support for it. The quickest way to do so, is to
+request `{DAV}sync-token` on the addressbook you wish to sync.
+
+Technically, a server may support 'sync' on one addressbook, and it may not
+support it on another, although this is probably rare.
+
+
+### Getting the first sync-token
+
+Initially, we just request a sync token when asking for address book
+information:
+
+    PROPFIND /addressbooks/johndoe/contacts/ HTTP/1.1
+    Depth: 0
+    Content-Type: application/xml; charset=utf-8
+
+    <d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/">
+      <d:prop>
+         <d:displayname />
+         <cs:getctag />
+         <d:sync-token />
+      </d:prop>
+    </d:propfind>
+
+This would return something as follows:
+
+    <d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/">
+        <d:response>
+            <d:href>/addressbooks/johndoe/contacts/</d:href>
+            <d:propstat>
+                <d:prop>
+                    <d:displayname>My Address Book</d:displayname>
+                    <cs:getctag>3145</cs:getctag>
+                    <d:sync-token>http://sabredav.org/ns/sync-token/3145</d:sync-token>
+                </d:prop>
+                <d:status>HTTP/1.1 200 OK</d:status>
+            </d:propstat>
+        </d:response>
+    </d:multistatus>
+
+As you can see, the sync-token is a url. It always should be a url.
+Even though a number appears in the url, you are not allowed to attach any
+meaning to that url. Some servers may have use an increasing number,
+another server may use a completely random string.
+
+### Receiving changes
+
+After a sync token has been obtained, and the client already has the initial
+copy of the addressbook, the client is able to request all changes since the
+token was issued.
+
+This is done with a `REPORT` request that may look like this:
+
+    REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
+    Host: dav.example.org
+    Content-Type: application/xml; charset="utf-8"
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <d:sync-collection xmlns:d="DAV:">
+      <d:sync-token>http://sabredav.org/ns/sync/3145</d:sync-token>
+      <d:sync-level>1</d:sync-level>
+      <d:prop>
+        <d:getetag/>
+      </d:prop>
+    </d:sync-collection>
+
+This requests all the changes since sync-token identified by
+`http://sabredav.org/ns/sync/3145`, and for the contacts that have been added
+or modified, we're requesting the etag.
+
+The response to a query like this is another multistatus xml body. Example:
+
+    HTTP/1.1 207 Multi-Status
+    Content-Type: application/xml; charset="utf-8"
+
+    <?xml version="1.0" encoding="utf-8" ?>
+    <d:multistatus xmlns:d="DAV:">
+        <d:response>
+            <d:href>/addressbooks/johndoe/contacts/newcard.vcf</d:href>
+            <d:propstat>
+                <d:prop>
+                    <d:getetag>"33441-34321"</d:getetag>
+                </d:prop>
+                <d:status>HTTP/1.1 200 OK</d:status>
+            </d:propstat>
+        </d:response>
+        <d:response>
+            <d:href>/addressbooks/johndoe/contacts/updatedcard.vcf</d:href>
+            <d:propstat>
+                <d:prop>
+                    <d:getetag>"33541-34696"</d:getetag>
+                </d:prop>
+                <d:status>HTTP/1.1 200 OK</d:status>
+            </d:propstat>
+        </d:response>
+        <d:response>
+            <d:href>/addressbooks/johndoe/contacts/deletedcard.vcf</d:href>
+            <d:status>HTTP/1.1 404 Not Found</d:status>
+        </d:response>
+        <d:sync-token>http://sabredav.org/ns/sync/5001</d:sync-token>
+     </d:multistatus>
+
+The last response reported two changes: `newcard.vcf` and `updatedcard.vcf`.
+There's no way to tell from the response wether those cards got created or
+updated, you, as a client can only infer this based on the vcards you are
+already aware of.
+
+The entry with name `deletedvcard.vcf` got deleted as indicated by the `404`
+status. Note that the status element is here a child of `d:response` when in
+all previous examples it has been a child of `d:propstat`.
+
+The other difference with the other multi-status examples, is that this one
+has a `sync-token` element with the latest sync-token.
+
+### Caveats
+
+Note that a server is free to 'forget' any sync-tokens that have been
+previously issued. In this case it may be needed to do a full-sync again.
+
+In case the supplied sync-token is not recognized by the server, a HTTP error
+is emitted. SabreDAV emits a `403`.
+
 Discovery
 ---------
 
@@ -564,7 +709,6 @@ This `PROPFIND` request looks as follows:
 
     PROPFIND / HTTP/1.1
     Depth: 0
-    Prefer: return-minimal
     Content-Type: application/xml; charset=utf-8
 
     <d:propfind xmlns:d="DAV:">
@@ -603,7 +747,6 @@ To request that, issue the following request:
 
     PROPFIND /principals/users/johndoe/ HTTP/1.1
     Depth: 0
-    Prefer: return-minimal
     Content-Type: application/xml; charset=utf-8
 
     <d:propfind xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
@@ -636,7 +779,6 @@ with `Depth: 1`.
 
     PROPFIND /addressbooks/johndoe/ HTTP/1.1
     Depth: 1
-    Prefer: return-minimal
     Content-Type: application/xml; charset=utf-8
 
     <d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/">
@@ -658,6 +800,7 @@ including non-addressbooks, which your application should ignore.
 
 Read the [Service Discovery documentation](/dav/service-discovery)
 
+
 [1]: https://packagist.org/packages/sabre/vobject
 [2]: https://code.google.com/p/ez-vcard/
 [3]: http://rubygems.org/gems/vcard
@@ -669,3 +812,4 @@ Read the [Service Discovery documentation](/dav/service-discovery)
 [rfc4918]: https://tools.ietf.org/html/rfc4918
 [rfc6350]: https://tools.ietf.org/html/rfc6350
 [rfc6352]: https://tools.ietf.org/html/rfc6352
+[rfc6578]: https://tools.ietf.org/html/rfc6578

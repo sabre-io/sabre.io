@@ -20,7 +20,7 @@ This is simply done with the following code:
     include 'vendor/autoload.php';
 
     $settings = array(
-        'baseUri' => http://example.org/dav/',
+        'baseUri' => 'http://example.org/dav/',
         'userName' => 'user',
         'password' => 'password',
         'proxy' => 'locahost:8888',

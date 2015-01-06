@@ -52,7 +52,10 @@ Inheritance tree
      +-Sabre\DAV\ICollection (base interface for all directories)
         +-Sabre\DAV\Collection (base helper class)
 
-Next to the interfaces, there are two helper classes in this diagram (`Sabre\DAV\File` and `Sabre\DAV\Collection`). These classes are an easy starting point, as they will lock down most operations by default (by reporting 'permission denied'), so we can start with a read-only filesystem.
+Next to the interfaces, there are two helper classes in this diagram
+(`Sabre\DAV\File` and `Sabre\DAV\Collection`). These classes are an easy
+starting point, as they will lock down most operations by default (by
+reporting 'permission denied'), so we can start with a read-only filesystem.
 
 Implementation
 --------------
@@ -129,7 +132,9 @@ For this demonstration we need to create 2 classes, one for a directory and one 
 
     }
 
-In the example is shown the absolute minimum of methods that need to be implemented in order to create a read-only directory. I'm hoping the code will speak for itself.
+In the example is shown the absolute minimum of methods that need to be
+implemented in order to create a read-only directory. I'm hoping the code will
+speak for itself.
 
 Same goes for the MyFile class:
 
@@ -171,7 +176,11 @@ Same goes for the MyFile class:
 
     }
 
-It's important thing to note is, that you should usually not pass strings around. Although the `get()` method can just return a string, especially with larger files it's recommended to use streams (as shown with fopen). The `put()` and `createFile()` methods will always get a readable stream resource as arguments.
+It's important thing to note is, that you should usually not pass strings
+around. Although the `get()` method can just return a string, especially with
+larger files it's recommended to use streams (as shown with fopen). The
+`put()` and `createFile()` methods will always get a readable stream resource
+as arguments.
 
 ### Setting up
 
@@ -193,38 +202,31 @@ I'm explaining the usage of your newly created server through code comments
 
 ### This is not virtual
 
-Thats right! This is where you come in. You can make your MyFile and MyDirectory classes completely independent from the actual underlying filesystem. The list of items returned from `getChildren` could be a list of blogposts, and the 'get' method could return html data.
+Thats right! This is where you come in. You can make your MyFile and
+MyDirectory classes completely independent from the actual underlying
+filesystem. The list of items returned from `getChildren` could be a list of
+blogposts, and the `get` method could return html data.
+
 
 Write support
 -------------
 
-In order to get writing/modification support you should implement all the remaining methods. A good example of a completely built-out system like this can be found in the `Sabre\DAV\FS` directory. This system should closely mimic apache's mod_dav. Implementation of these is up to you (and optional) and is not written out in this manual, because at this point this should be fairly simple.
+In order to get writing/modification support you should implement all the
+remaining methods. A good example of a completely built-out system like this
+can be found in the `Sabre\DAV\FS` directory. This system should closely mimic
+apache's mod_dav. Implementation of these is up to you (and optional) and is
+not written out in this manual, because at this point this should be fairly
+simple.
 
 However, this is not enough. [OS/X Finder](/dav/clients/finder) and
 [DavFS](/dav/clients/davfs) will demand you add locking support to your
 filesystem.
 
-Locking support
+
+Further reading
 ---------------
 
-Locking helps ensuring no 2 people can overwrite each others changes. WebDAV has a system to accommodate locking. The simplest way to implement locking, is to use the Locks Plugin. Simply attach the Lock Manager to your Object Tree class, and you're off. The last example is extended to add a lock manager.
-
-    use
-        Sabre\DAV;
-
-    // Make sure there is a directory in your current directory named 'public'. We will be exposing that directory to WebDAV
-    $publicDir = new MyDirectory('public');
-
-    // The root directory is passed to Sabre\DAV\Server.
-    $server = new DAV\Server($publicDir);
-
-    // We're required to set the base uri, it is recommended to put your webdav server on a root of a domain
-    $server->setBaseUri('/');
-
-    // Also make sure there is a 'data' directory, writable by the server. This directory is used to store information about locks
-    $lockBackend = new DAV\Locks\Backend\File('data/locks.dat');
-    $lockPlugin = new DAV\Locks\Plugin($lockBackend);
-    $server->addPlugin($lockPlugin);
-
-    // And off we go!
-    $server->exec();
+* [Authentication](/dav/authentication/)
+* [Support for WebDAV LOCK and UNLOCK](/dav/locks/)
+* [Per-user directories](/dav/per-user-directories/)
+* [Temporary files](/dav/temporary-files/)

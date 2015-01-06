@@ -20,7 +20,7 @@ Using Web Client
 
 1. Open 'Computer' from your start menu or desktop
 2. Open the 'Map network drive' wizard
-3. Enter the full http:// address to your webdav installation 
+3. Enter the full http:// address to your webdav installation
 
 Note that you need to have the Web Client service enabled and running for Web
 Client to work. Some OS versions have it disabled, e.g. Windows Server 2003.
@@ -39,7 +39,7 @@ Using Web Folders
   # Open up Internet Explorer
   # Press File, Open and fill in the full url
   # Check the "Open as Web Folder" setting
-  # Press Ok 
+  # Press Ok
 
 Windows 7
 ---------
@@ -120,7 +120,7 @@ is that if you for example access a php file, and translate is set to 'f', you
 would retrieve the php source file. If translate is set to 't', the php file
 should be run and the output should be returned.
 
-This is currently irrelevant to SabreDAV. We don't know how to trigger 
+This is currently irrelevant to SabreDAV. We don't know how to trigger
 `Translate: t` either, and we'd recommend against doing anything with it.
 
 ### Creating new files
@@ -176,7 +176,7 @@ Windows (XP and Vista) introduces the following properties under the
 Windows XP sends encoded characters in HTTP requests as ISO-8859-1. Possibly
 even CP-1252, but this has yet to be verified.
 
-A converter for this purpose has been included since SabreDAV-1.2.0alpha1. 
+A converter for this purpose has been included since SabreDAV-1.2.0alpha1.
 
 However, this currently only works for converting the HTTP requests coming
 from windows, and not yet responses to windows. Oddly enough, windows did seem
@@ -187,7 +187,7 @@ ISO-8859-1. A workaround for this will probably not happen in the short-term.
 These issues are verified on Windows XP SP3, but no testing has been done on
 Windows Vista or Windows 7.
 
-### Another locking bug 
+### Another locking bug
 
 Normally windows unlocks files with the following header in the UNLOCK request:
 
@@ -234,7 +234,7 @@ WebDAV is used over SSL.
 Basic auth can be enabled if the following registry change is made:
 
 * Create a new registry key called
-  `HKLM\SYSTEM\CurrentControlSet\Services\WebClient\Parameters\UseBasicAuth` and 
+  `HKLM\SYSTEM\CurrentControlSet\Services\WebClient\Parameters\UseBasicAuth` and
 * Set the value to '1' (without quotes).
 
 It was also reported that in certain cases
@@ -266,12 +266,24 @@ be problematic in relation to HTTP digest authentication.
 It appears that Windows does not support ports other than the default (80).
 Make sure your server is not running on a non-default http port.
 
+### HTTPS / SNI problems
+
+It was reported that the Windows 7 and 8 (and likely older clients as well) do
+not support 'SNI' (server name identification), which is a technology that
+allows virtual hosting of multiple HTTPS domains on one server.
+
+If you're running into issues with this, make sure you don't host more than
+one HTTPS-based domain off one ip address, or make sure that it's the default.
+
+In the case of apache, the default https server would be the top-most
+virtualhost definition.
+
 ### More information
 
 greenbytes.de has a [good list][6] with detailed information about some of
 these bugs.
 
-[1]: http://oddballupdate.com/2009/12/18/fix-slow-webdav-performance-in-windows-7/ 
+[1]: http://oddballupdate.com/2009/12/18/fix-slow-webdav-performance-in-windows-7/
 [2]: http://www.microsoft.com/downloads/details.aspx?FamilyId=17C36612-632E-4C04-9382-987622ED1D64&displaylang=en
 [3]: http://support.microsoft.com/kb/900900/en-us
 [4]: http://support.microsoft.com/?scid=kb%3Ben-us%3B928692&x=21&y=17

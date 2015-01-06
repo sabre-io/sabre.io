@@ -24,7 +24,7 @@ SabreDAV comes with the following backends:
 
 | Class                                  | Type   | Description |
 |--------------------------------- ----- | ------ | ----------- |
-| `Sabre\DAV\Auth\Backend\Apache`        | N/A    | Lets the webserver handle auhtentication |
+| `Sabre\DAV\Auth\Backend\Apache`        | N/A    | Lets the webserver handle authentication |
 | `Sabre\DAV\Auth\Backend\BasicCallback` | Basic  | Extremely easy way to create authentication from a custom source |
 | `Sabre\DAV\Auth\Backend\File`          | Digest | Use a `htdigest` file for it's backend |
 | `Sabre\DAV\Auth\Backend\PDO`           | Digest | Use a database, such as sqlite or mysql |
@@ -141,6 +141,19 @@ If 'safe mode' is enabled, PHP will automatically append a process id to authent
 The solution to this is to either turn off Safe Mode, or using Basic authentication instead of Digest.
 
 See [the PHP manual][2] for more information.
+
+### Encoding issues
+
+Avoid non-ascii characters for passwords. We've noticed that different clients
+may use different encodings for passwords (windows may use CP-1252 and others
+UTF-8), so each results in a different password string.
+
+In the case of Basic authentication we _could_ normalize this (but we don't),
+but in the case of Digest, different encodings result in completely different
+hashes, and this is only fixable by pre-generating hashes for every potential
+encoding.
+
+SabreDAV does not do any of this, so stick to ASCII passwords.
 
 Letting the webserver handle authentication
 -------------------------------------------

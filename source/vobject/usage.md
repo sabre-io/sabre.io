@@ -13,14 +13,16 @@ and you've included the autoloader in your code.
 A basic parsing example
 -----------------------
 
-Assuming there is a vcard in your local directory, named `cowboyhenk.vcf`,
+Assuming there is a vCard in your local directory, named `cowboyhenk.vcf`,
 the following complete example will parse it and display the `FN` property:
 
     use Sabre\VObject;
 
     include 'vendor/autoload.php';
 
-    $vcard = VObject\Reader::read('cowboyhenk.vcf');
+    $vcard = VObject\Reader::read(
+        fopen('cowboyhenk.vcf','r')
+    );
     echo $vcard->FN;
 
 That is all.
@@ -30,32 +32,31 @@ the autoloader, and also that you've called
 
     use Sabre\VObject;
 
-At the top of your script. This is just to avoid repetition.
+at the top of your script. This is just to avoid repetition.
 
-
-Also, keep in mind that while sabre/vobject does support PHP 5.3, most of the
-examples in this documentation use syntax that was introduced in PHP 5.4.
+Also, keep in mind that while sabre/vobject does support PHP 5.3, most of the
+examples in this documentation use syntax that was introduced in PHP 5.4.
 
 Specifically, we specify arrays as such:
 
     [
-        "ORG" => "Henk Inc.",
-        "FN" => "Cowboy Henk",
+        'ORG' => 'Henk Inc.',
+        'FN' => 'Cowboy Henk',
     ]
 
 In PHP 5.3, this is specified as:
 
     array(
-        "ORG" => "Henk Inc.",
-        "FN" => "Cowboy Henk",
+        'ORG' => 'Henk Inc.',
+        'FN' => 'Cowboy Henk',
     )
 
 The actual manual
 -----------------
 
-### Creating vCards.
+### Creating vCards
 
-To create a vCard, you can simply instantiate the vCard component, and pass
+To create a vCard, you can simply instantiate the `VCard` component, and pass
 the properties you need:
 
     $vcard = new VObject\Component\VCard([
@@ -83,7 +84,7 @@ To add any additional properties, use the `add()` method on the vCard.
 
     $vcard->add('TEL', '+1 555 34567 456', ['type' => 'fax']);
 
-The third argument of the add() method allows you to specify a list of
+The third argument of the `add()` method allows you to specify a list of
 parameters.
 
 ### Manipulating properties
@@ -104,7 +105,7 @@ The vCard also allows object-access to manipulate properties:
 
 To get access to a parameter, you can simply use array-access:
 
-    $type = $vcard->TEL['TYPE']:
+    $type = $vcard->TEL['TYPE'];
     echo (string)$type;
 
 Parameters can also appear multiple times. To get to their values, just loop
@@ -118,7 +119,7 @@ through them:
 
 To change parameters for properties, you can use array-access syntax:
 
-    $vcard->TEL['TYPE'] = ['WORK','FAX']:
+    $vcard->TEL['TYPE'] = ['WORK','FAX'];
 
 Or when you're working with singular parameters:
 
@@ -158,7 +159,7 @@ For properties that contain more than 1 part, such as `ADR`, `N` or `ORG` you
 can call `getParts()`.
 
     print_r(
-        $vcard->ORG->getParts();
+        $vcard->ORG->getParts()
     );
 
 ### Looping through properties.
@@ -168,7 +169,7 @@ vCard. To loop through them, you can simply throw them in a `foreach()`
 statement:
 
     foreach($vcard->TEL as $tel) {
-        echo "Phone number: ", (string)$tel, "\n";
+        echo 'Phone number: ', $tel, "\n";
     }
 
     foreach($vcard->ADR as $adr) {
@@ -196,7 +197,7 @@ In most situations these group names are ignored, so when you execute the follow
 example, the `TEL` properties are still traversed.
 
     foreach($vcard->TEL as $tel) {
-        echo (string)$tel, "\n";
+        echo $tel, "\n";
     }
 
 But if you would like to target a specific group + property, this is possible too:
@@ -209,8 +210,8 @@ numbers and display their custom labels, you'd do something like this:
 
     foreach($vcard->TEL as $tel) {
 
-        echo (string)$vcard->{$tel->group . '.X-ABLABEL'}, ": ";
-        echo (string)$tel, "\n";
+        echo $vcard->{$tel->group . '.X-ABLABEL'}, ': ';
+        echo $tel, "\n";
 
     }
 
@@ -279,94 +280,6 @@ To update the property with a new `DateTime` object, just use the following synt
     $dateTime = new \DateTime('2012-08-07 23:53:00', new \DateTimeZone('Europe/Amsterdam'));
     $event->DTSTART = $dateTime;
 
-### Expanding recurrence rules
-
-Recurrence rules allow events to recur, for example for a weekly meeting, or an anniversary.
-This is done with the `RRULE` property. The `RRULE` property allows for a LOT of different
-rules. VObject only implements the ones that actually appear in calendar software.
-
-To read more about `RRULE` and all the options, check out [RFC5545](https://tools.ietf.org/html/rfc5545#section-3.8.5).
-VObject supports the following options:
-
-1. `UNTIL` for an end date.
-2. `INTERVAL` for for example "every 2 days".
-3. `COUNT` to stop recurring after x items.
-4. `FREQ=DAILY` to recur every day, and `BYDAY` to limit it to certain days.
-5. `FREQ=WEEKLY` to recur every week, `BYDAY` to expand this to multiple weekdays in every week and `WKST` to specify on which day the week starts.
-6. `FREQ=MONTHLY` to recur every month, `BYMONTHDAY` to expand this to certain days in a month, `BYDAY` to expand it to certain weekdays occuring in a month, and `BYSETPOS` to limit the last two expansions.
-7. `FREQ=YEARLY` to recur every year, `BYMONTH` to expand that to certain months in a year, and `BYDAY` and `BYWEEKDAY` to expand the `BYMONTH` rule even further.
-
-VObject supports the `EXDATE` property for exclusions, but not yet the `RDATE` and `EXRULE`
-properties. If you're interested in this, please file a github issue, as this will put it
-on my radar.
-
-This is a bit of a complex subject to go in excruciating detail. The
-[RFC](https://tools.ietf.org/html/rfc5545#section-3.8.5) has a lot of examples though.
-
-The hard part is not to write the RRULE, it is to expand them. The most complex and
-hard-to-read code is hidden in this component. Dragons be here.
-
-So, if we have a meeting every 2nd monday of the month, this would be specified as such:
-
-    BEGIN:VCALENDAR
-    VERSION:2.0
-    PRODID:-//Sabre//Sabre VObject 2.0//EN
-    BEGIN:VEVENT
-    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-    DTSTART:20120109T140000Z
-    RRULE:FREQ=MONTHLY;BYDAY=MO;BYSETPOS=2
-    END:VEVENT
-    END:VCALENDAR
-
-Note that I added in `UID` property. For simplicity I've kept it out of
-previous examples, but do note that a `UID` property is required for all
-`VEVENT`, `VTODO` and `VJOURNAL` objects!
-
-To figure out all the meetings for this year, we can use the following syntax:
-
-    $vcalendar = VObject\Reader::read($data);
-    $vcalendar->expand(new DateTime('2012-01-01'), new DateTime('2012-12-31'));
-
-What the expand method does, is look at its inner events, and expand the recurring
-rule. Our calendar now contains 12 events. The first will have its RRULE stripped,
-and every subsequent VEVENT has the correct meeting date and a `RECURRENCE-ID` set.
-
-This results in something like this:
-
-    BEGIN:VCALENDAR
-      VERSION:2.0
-      PRODID:-//Sabre//Sabre VObject 2.0//EN
-      BEGIN:VEVENT
-        UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-        DTSTART:20120109T140000Z
-      END:VEVENT
-      BEGIN:VEVENT
-        UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-        RECURRENCE-ID:20120213T140000Z
-        DTSTART:20120213T140000Z
-      END:VEVENT
-      BEGIN:VEVENT
-        UID:1102c450-e0d7-11e1-9b23-0800200c9a66
-        RECURRENCE-ID:20120312T140000Z
-        DTSTART:20120312T140000Z
-      END:VEVENT
-      ..etc..
-    END:VCALENDAR
-
-Note that I added some extra spaces to improve legibility.
-
-To show the list of dates, we would do this as such:
-
-    foreach($vcalendar->VEVENT as $vevent) {
-        echo $vevent->DTSTART->getDateTime()->format(\DateTime::ATOM);
-    }
-
-In a recurring event, single instances can also be overriden. VObject also takes these
-into consideration. The reason we needed to specify a start and end-date, is because
-some recurrence rules can be 'never ending'.
-
-You should make sure you pick a sane date-range. Because if you pick a 50 year
-time-range, for a daily recurring event; this would result in over 18K objects.
 
 ### Free-busy report generation
 
@@ -422,11 +335,11 @@ The output of this script will look like this:
 
 Generally when software makes backups of calendars or contacts, they will
 put all the objects in a single file. In the case of vCards, this is often
-a stream of VCARD objects, in the case of iCalendar, this tends to be a
-single VCALENDAR objects, with many components.
+a stream of vCard objects, in the case of iCalendar, this tends to be a
+single `VCALENDAR` object, with many components.
 
-Protocols such as Card- and CalDAV expect only 1 object per resource. The
-vobject library provides 2 classes to split these backup files up into many.
+Protocols such as Card- and CalDAV expect only 1 object per resource. The
+vObject library provides 2 classes to split these backup files up into many.
 
 To do this, use the splitter objects:
 
@@ -434,26 +347,26 @@ To do this, use the splitter objects:
     $h = fopen('backupfile.vcf', 'r');
     $splitter = new VObject\Splitter\VCard($h);
 
-    while($vcard = $splitter->next()) {
+    while($vcard = $splitter->getNext()) {
 
         // $vCard is a single vCard object. You can just call serialize() on it
         // if you were looking for the string version.
 
     }
 
-Next to the VCard splitter, there's also an ICalendar splitter. The latter
+Next to the vCard splitter, there's also an ICalendar splitter. The latter
 creates a `VCALENDAR` object per `VEVENT`, `VTODO` or `VJOURNAL`, and ensures
 that the `VTIMEZONE` information is kept intact, and any `VEVENT` objects that
 belong together (because they are expections for an `RRULE` and thus have the
 same `UID`) will be kept together, exactly like CalDAV expects.
 
-### Converting between different vCard versions.
+### Converting between different vCard versions
 
-Since sabre/vobject 3.1, there's also a feature to convert between various
-vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
-4.0 and to 3.0 and 4.0. It's not yet possible to convert to vCard 2.1.
+Since sabre/vobject 3.1, there's also a feature to convert between various
+vCard versions. Currently it's possible to convert from vCard 2.1, 3.0 and
+4.0 and to 3.0 and 4.0. It's not yet possible to convert to vCard 2.1.
 
-To do this, simply call the convert() method on the vCard object.
+To do this, simply call the `convert()` method on the vCard object.
 
     $input = <<<VCARD
     BEGIN:VCARD
@@ -485,14 +398,14 @@ on Github.
 CLI tool
 --------
 
-Since vObject 3.1, a new cli tool is shipped in the bin/ directory.
+Since vObject 3.1, a new CLI tool is shipped in the `bin/` directory.
 
 This tool has the following features:
 
-* A `validate` command.
-* A `repair` command to repair objects that are slightly broken.
+* A `validate` command,
+* A `repair` command to repair objects that are slightly broken,
 * A `color` command, to show an iCalendar object or vCard on the console with
-  ansi-colors, which may help debugging.
+  ansi-colors, which may help debugging,
 * A `convert` command, allowing you to convert between iCalendar 2.0, vCard 2.1,
   vCard 3.0, vCard 4.0, jCard and jCal.
 

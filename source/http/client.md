@@ -4,12 +4,12 @@ product: http
 layout: default
 ---
 
-The sabre/http package also contains a simple wrapper around [cURL][4], which will allow
-you to write simple clients, using the `Request` and `Response` objects you're
-already familiar with.
+The `sabre/http` package also contains a simple wrapper around [cURL][4], which
+will allow you to write simple clients, using the `Request` and `Response`
+objects you're already familiar with.
 
-It's by no means a replacement for something like [guzzle][7], but it provides
-a simple and lightweight api for making the occasional API call.
+It's by no means a replacement for something like [Guzzle][7], but it provides
+a simple and lightweight API for making the occasional API call.
 
     use Sabre\HTTP;
 
@@ -21,7 +21,7 @@ a simple and lightweight api for making the occasional API call.
 
     echo $response->getBodyAsString();
 
-The client emits 3 events using [sabre/event][5]. `beforeRequest`,
+The client emits 3 events using [`sabre/event`][5]. `beforeRequest`,
 `afterRequest` and `error`.
 
     $client = new HTTP\Client();
@@ -68,7 +68,7 @@ if you need to perform a number of requests, that are allowed to be executed
 in parallel.
 
 The underlying system for this is simply [curl's multi request handler][8],
-but sabre/http provides a much nicer API to handle this.
+but `sabre/http` provides a much nicer API to handle this.
 
 Sample usage:
 
@@ -93,9 +93,9 @@ Sample usage:
     // Wait for all requests to get a result.
     $client->wait();
 
-Check out examples/asyncclient.php for more information.
+Check out `examples/asyncclient.php` for more information.
 
-[4]: http://uk3.php.net/curl
+[4]: http://php.net/curl
 [5]: https://github.com/fruux/sabre-event
 [7]: http://guzzlephp.org/
-[8]: http://www.php.net/manual/en/function.curl-multi-init.php
+[8]: http://php.net/curl_multi_init

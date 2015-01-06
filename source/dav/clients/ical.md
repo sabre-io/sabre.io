@@ -14,6 +14,7 @@ At the very least it has support for:
 * [Scheduling][rfc6638]
 * [Calendar delegation](/dav/caldav-proxy)
 * [Calendar sharing](/dav/caldav-sharing)
+* [Subscriptions](/dav/subscriptions)
 
 Technical information
 ---------------------
@@ -24,7 +25,7 @@ To enable the debug menu within ical, run the following on the command line:
 
     defaults write com.apple.iCal IncludeDebugMenu 1
 
-Since OS X 10.9 (mavericks, this has changed to)
+Since OS X 10.9 (mavericks), this has changed to
 
     defaults write com.apple.iCal CDB 1
 
@@ -34,12 +35,26 @@ To enable logging:
 
 Logging goes to 'Console.app'
 
+### Subscriptions
+
+iCal allows server-side management of calendar subscriptions. This allows a
+user to store their iCal feeds on a server, and have them stay in sync accross
+different clients.
+
+In OS X 10.7 and 10.8 new subscriptions are created using a `MKCOL` method. The
+body contains a `{DAV:}resourcetype` with values `{DAV:}collection` and
+`{http://calendarserver.org/ns/}subscribed`.
+
+In OS X 10.9.2 they changed to using `MKCALENDAR` instead. We suspect that this
+is a bug, but we're adding support for it in sabre/dav nonetheless.
+
 ### User agent
 
 Some user agents we've seen:
 
     DAVKit/3.0.6 (661); CalendarStore/3.0.8 (860); iCal/3.0.8 (1287); Mac OS X/10.5.8 (9L31a)
     DAVKit/4.0.1 (730); CalendarStore/4.0.1 (973); iCal/4.0.1 (1374); Mac OS X/10.6.2 (10C540)
+    Mac_OS_X/10.9.2 (13C64) CalendarAgent/176
 
 ### 10.5 iCal
 
@@ -126,15 +141,18 @@ More details to follow
 
 #### Assuming scheduling support
 
-iCal appears to assume that any CalDAV server also supports from
-CalDAV-scheduling features out of the box. iCal will use this to let the server
-send emails, for things like an event invitation.
+iCal versions before Mavericks (10.9) appear to assume that any CalDAV server
+also supports some CalDAV-scheduling features out of the box. iCal will use
+this to let the server send emails, for things like an event invitation.
 
 If this is not supported, no emails for these types of actions will be sent.
 This can be rather unexpected for users, as these expected emails just won't
 arrive.
 
-Since version 1.6 SabreDAV has a workaround for this. Read
+Since version 2.1 SabreDAV has support for [scheduling](/dav/scheduling/),
+which can be enabled to fix this issue.
+
+Before version 2.1 SabreDAV had a workaround for this. Read
 [IMipHandler](/dav/imiphandler) for more details.
 
 This issue has been discovered on at least 10.7 and 10.8 iCal, not yet sure about older versions.
@@ -163,6 +181,105 @@ PROPFIND response.
 
 Since SabreDAV 1.5 we always send along the DAV: header for every PROPFIND
 responses.
+
+### Random samples of HTTP requests iCal generates.
+
+#### Creating a subscription in 10.7
+
+    <A:mkcol xmlns:A="DAV:">
+        <A:set>
+            <A:prop>
+                <B:subscribed-strip-attachments xmlns:B="http://calendarserver.org/ns/" />
+                <B:subscribed-strip-todos xmlns:B="http://calendarserver.org/ns/" />
+                <A:resourcetype>
+                    <A:collection />
+                    <B:subscribed xmlns:B="http://calendarserver.org/ns/" />
+                </A:resourcetype>
+                <E:calendar-color xmlns:E="http://apple.com/ns/ical/">#1C4587FF</E:calendar-color>
+                <A:displayname>Jewish holidays</A:displayname>
+                <C:calendar-description xmlns:C="urn:ietf:params:xml:ns:caldav">Sixteen annual Jewish holidays. Update every 2 weeks.</C:calendar-description>
+                <E:calendar-order xmlns:E="http://apple.com/ns/ical/">19</E:calendar-order>
+                <B:source xmlns:B="http://calendarserver.org/ns/">
+                    <A:href>webcal://www.webcal.fi/cal.php?id=49&amp;rid=ics&amp;wrn=0&amp;wp=12&amp;wf=55</A:href>
+                </B:source>
+                <E:refreshrate xmlns:E="http://apple.com/ns/ical/">P1W</E:refreshrate>
+                <B:subscribed-strip-alarms xmlns:B="http://calendarserver.org/ns/" />
+            </A:prop>
+        </A:set>
+    </A:mkcol>
+
+
+#### Creating a new subscription in 10.9.2
+
+    <B:mkcalendar xmlns:B="urn:ietf:params:xml:ns:caldav">
+        <A:set xmlns:A="DAV:">
+            <A:prop>
+                <B:supported-calendar-component-set>
+                    <B:comp name="VEVENT" />
+                </B:supported-calendar-component-set>
+                <C:subscribed-strip-alarms xmlns:C="http://calendarserver.org/ns/" />
+                <C:subscribed-strip-attachments xmlns:C="http://calendarserver.org/ns/" />
+                <A:resourcetype>
+                    <A:collection />
+                    <C:subscribed xmlns:C="http://calendarserver.org/ns/" />
+                </A:resourcetype>
+                <D:refreshrate xmlns:D="http://apple.com/ns/ical/">P1W</D:refreshrate>
+                <C:source xmlns:C="http://calendarserver.org/ns/">
+                    <A:href>webcal://www.webcal.fi/cal.php?id=49&amp;amp;rid=ics&amp;amp;wrn=0&amp;amp;wp=12&amp;amp;wf=55</A:href>
+                </C:source>
+                <D:calendar-color xmlns:D="http://apple.com/ns/ical/">#1C4587FF</D:calendar-color>
+                <D:calendar-order xmlns:D="http://apple.com/ns/ical/">19</D:calendar-order>
+                <B:calendar-description>Sixteen annual Jewish holidays. Update every 2 weeks.</B:calendar-description>
+                <C:subscribed-strip-todos xmlns:C="http://calendarserver.org/ns/" />
+                <A:displayname>Jewish holidays</A:displayname>
+            </A:prop>
+        </A:set>
+    </B:mkcalendar>
+
+
+#### Requesting a list of calendars in 10.9.2
+
+    <?xml version='1.0' encoding='UTF-8'?>
+    <A:propfind xmlns:A="DAV:">
+      <A:prop>
+        <A:add-member/>
+        <C:allowed-sharing-modes xmlns:C="http://calendarserver.org/ns/"/>
+        <D:autoprovisioned xmlns:D="http://apple.com/ns/ical/"/>
+        <E:bulk-requests xmlns:E="http://me.com/_namespace/"/>
+        <D:calendar-color xmlns:D="http://apple.com/ns/ical/"/>
+        <B:calendar-description xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <B:calendar-free-busy-set xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <D:calendar-order xmlns:D="http://apple.com/ns/ical/"/>
+        <B:calendar-timezone xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <A:current-user-privilege-set/>
+        <B:default-alarm-vevent-date xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <B:default-alarm-vevent-datetime xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <A:displayname/>
+        <C:getctag xmlns:C="http://calendarserver.org/ns/"/>
+        <D:language-code xmlns:D="http://apple.com/ns/ical/"/>
+        <D:location-code xmlns:D="http://apple.com/ns/ical/"/>
+        <A:owner/>
+        <C:pre-publish-url xmlns:C="http://calendarserver.org/ns/"/>
+        <C:publish-url xmlns:C="http://calendarserver.org/ns/"/>
+        <C:push-transports xmlns:C="http://calendarserver.org/ns/"/>
+        <C:pushkey xmlns:C="http://calendarserver.org/ns/"/>
+        <A:quota-available-bytes/>
+        <A:quota-used-bytes/>
+        <D:refreshrate xmlns:D="http://apple.com/ns/ical/"/>
+        <A:resource-id/>
+        <A:resourcetype/>
+        <B:schedule-calendar-transp xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <B:schedule-default-calendar-URL xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <C:source xmlns:C="http://calendarserver.org/ns/"/>
+        <C:subscribed-strip-alarms xmlns:C="http://calendarserver.org/ns/"/>
+        <C:subscribed-strip-attachments xmlns:C="http://calendarserver.org/ns/"/>
+        <C:subscribed-strip-todos xmlns:C="http://calendarserver.org/ns/"/>
+        <B:supported-calendar-component-set xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <B:supported-calendar-component-sets xmlns:B="urn:ietf:params:xml:ns:caldav"/>
+        <A:supported-report-set/>
+        <A:sync-token/>
+      </A:prop>
+    </A:propfind>
 
 [rfc4791]: http://tools.ietf.org/html/rfc4791
 [rfc6638]: http://tools.ietf.org/html/rfc6638

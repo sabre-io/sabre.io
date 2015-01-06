@@ -13,7 +13,8 @@ Upgrading a major version? Read the upgrade instructions here:
 * [1.5.x to 1.6.x](/dav/upgrade/1.5-to-1.6)
 * [1.6.x to 1.7.x](/dav/upgrade/1.6-to-1.7)
 * [1.7.x to 1.8.x](/dav/upgrade/1.7-to-1.8)
-* [1.8.x to 1.9 alpha](/dav/upgrade/1.8-to-1.9)
+* [1.8.x to 2.0.x](/dav/upgrade/1.8-to-2.0)
+* [2.0.x to 2.1.x](/dav/upgrade/2.0-to-2.1)
 
 Support length
 --------------
@@ -30,9 +31,11 @@ Currently and previously supported versions:
 | 1.4              | 5.2         | February 2011        | November 2012 (EOL) |
 | 1.5              | 5.2         | August 2011          | February 2013 (EOL) |
 | 1.6              | 5.3         | February 2012        | November 2013 (EOL) |
-| 1.7              | 5.3         | October 2012         | May 2014            |
-| 1.8              | 5.3         | November 2012        |                     |
-| 1.9 (in alpha)   | 5.4         |                      |                     |
+| 1.7              | 5.3         | October 2012         | July 2014 (EOL)     |
+| 1.8              | 5.3         | November 2012        | May 2015            |
+| 2.0              | 5.4         | May 2014             | November 2015       |
+| 2.1              | 5.4         | November 2014        |                     |
+| 2.2              | 5.5         | ????                 |                     |
 
 Versioning scheme
 -----------------

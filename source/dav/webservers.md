@@ -45,18 +45,14 @@ If you use PHP through CGI or FastCGI and Apache authentication headers are
 not passed through by default. You can enable this with the following
 mod_rewrite rule:
 
-    <IfModule mod_rewrite.c>
-      RewriteEngine on
-      RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
-    </IfModule>
+    RewriteEngine on
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 
 If you already had a mod_rewrite rule to map all urls to a server file, you
 might need to change this to something like:
 
-    <IfModule mod_rewrite.c>
-      RewriteEngine on
-      RewriteRule .* /server.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
-    </IfModule>
+    RewriteEngine on
+    RewriteRule .* /server.php [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 
 Note the /server.php. Make sure this reflects the correct location of your
 server file.
@@ -104,5 +100,8 @@ IIS might not set HTTP_AUTHORIZATION automatically. According to the
 > configuration "Directory Security". Click on "Edit" and only check "Anonymous
 > Access", all other fields should be left unchecked.
 
+There's a [tutorial on myroundcube.com][3] to get sabredav running on IIS.
+
 [1]: http://www.php.net/manual/en/features.http-auth.php
-[2]: http://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html 
+[2]: http://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html
+[3]: https://myroundcube.com/how-to/installing-sabredav-on-iis

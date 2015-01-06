@@ -21,7 +21,7 @@
                         <li><a href="{{ site.url }}/dav/caldav-proxy">Delegation</a></li>
                         <li><a href="{{ site.url }}/dav/caldav-sharing">Calendar sharing</a></li>
                         <li><a href="{{ site.url }}/dav/ics-export-plugin">iCalendar export</a></li>
-                        <li><a href="{{ site.url }}/dav/imiphandler">iMip Handler</a></li>
+                        <li><a href="{{ site.url }}/dav/scheduling">Scheduling</a></li>
                         <li><a href="{{ site.url }}/dav/service-discovery">Service Discovery</a></li>
                     </ul>
                 </li>
@@ -46,7 +46,11 @@
                         <li><a href="{{ site.url }}/dav/http-patch">PATCH support</a></li>
                         <li><a href="{{ site.url }}/dav/large-files">Large files</a></li>
                         <li><a href="{{ site.url }}/dav/litmus">Litmus</a></li>
+                        <li><a href="{{ site.url }}/dav/locks">Locks</a></li>
                         <li><a href="{{ site.url }}/dav/plugins">Plugins</a></li>
+                        <li><a href="{{ site.url }}/dav/per-user-directories/">Per-user directories</a></li>
+                        <li><a href="{{ site.url }}/dav/properties">Properties</a></li>
+                        <li><a href="{{ site.url }}/dav/property-storage">Property storage</a></li>
                         <li><a href="{{ site.url }}/dav/scalability">Scalability</a></li>
                         <li><a href="{{ site.url }}/dav/simplecollection">SimpleCollection</a></li>
                         <li><a href="{{ site.url }}/dav/standards-support">Standards Support</a></li>
@@ -66,7 +70,8 @@
             {% if product == "event" %}
             <ul>
                 <li><a href="{{ site.url }}/event/install">Installation</a></li>
-                <li><a href="{{ site.url }}/event/usage">Usage</a></li>
+                <li><a href="{{ site.url }}/event/eventemitter">EventEmitter</a></li>
+                <li><a href="{{ site.url }}/event/promise">Promise</a></li>
             </ul>
             {% endif %}
         </li>
@@ -85,10 +90,23 @@
         <li><a href="{{site.url}}/vobject">sabre/vobject</a>
             {% if product == "vobject" %}
             <ul>
-                <li><a href="{{ site.url }}/vobject/install">Installation</a></li>
-                <li>Upgrading</li>
-                <li><a href="{{ site.url }}/vobject/usage">Usage</a></li>
+                <li><a href="{{ site.url }}/vobject/install/">Installation</a></li>
+                <li><a href="{{ site.url }}/vobject/upgrade/">Upgrading</a></li>
+                <li><a href="{{ site.url }}/vobject/usage/">Usage</a></li>
                 <li><a href="{{ site.url }}/vobject/json">jCal and jCard</a></li>
+                <li><a href="{{ site.url }}/vobject/recurrence">Recurring events</a></li>
+                <li><a href="{{ site.url }}/vobject/itip">iTip</a></li>
+                <li><a href="{{ site.url }}/vobject/usage_2/">Usage (vobject 2.x)</a></li>
+            </ul>
+            {% endif %}
+        </li>
+        <li><a href="{{site.url}}/xml">sabre/xml</a>
+            {% if product == "xml" %}
+            <ul>
+                <li><a href="{{ site.url }}/xml/">Introduction</a></li>
+                <li><a href="{{ site.url }}/xml/install/">Installation</a></li>
+                <li><a href="{{ site.url }}/xml/reading/">Reading XML</a></li>
+                <li><a href="{{ site.url }}/xml/writing/">Writing XML</a></li>
             </ul>
             {% endif %}
         </li>
