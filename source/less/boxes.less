@@ -11,10 +11,6 @@
     margin-left: auto;
     margin-right: auto;
 
-    > h2 {
-        text-align: center;
-    }
-
     @media (min-width: @screen-sm-min) {
         padding: 20px 40px;
     }
@@ -31,15 +27,17 @@
     max-width: @screen-lg;
     margin-left: auto;
     margin-right: auto;
+    .clearfix();
 }
 
 // A simply headline. Not too big 'cause it's inside the boxes.
 .box-headline {
+    color: @grey;
     font-size: @headline-h3;
     font-weight: normal;
     line-height: @line-height-base*1.5;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: @line-height-base;
 }
 
 // simple copy text
@@ -113,13 +111,18 @@
 // A box with some greenish make up
 .box--enterprise {
     max-width: none;
-    // #gradient > .vertical (@sabre-sidekick-light, @sabre-sidekick);
-    background: fade(@sabre-sidekick, 60%);
+    background: fade(@sabre-sidekick, 90%);
+    #gradient > .vertical (@sabre-sidekick-light, @sabre-sidekick);
+    // #gradient > .vertical (@sabre-deco, darken(@sabre-deco, 20));
+
     .clearfix();
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
 
     h1 {
-        text-align: center;
-        color: @sabre-deco;
+        // color: @sabre-deco;
+        color: #fff;
     }
 
     h3,
@@ -129,84 +132,90 @@
         color: #fff;
     }
 
+}
+
+// A fleshy contact bubble
+.bubble {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 50%;
+    background: @sabre-red;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    transition: all .5s ease;
+
+    strong {
+        transition: all .5s ease;
+        color: @sabre-deco;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .fa {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    &:hover {
+        background-color: #fff;
+        color: @sabre-red;
+
+        strong {
+            color: @sabre-sidekick;
+        }
+    }
+
+    &:visited {
+        color: #fff;
+    }
+}
+
+// Semi tranparent box with a logo and some bullet points.
+.promo {
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 5px;
+    max-width: 640px;
+    .clearfix();
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+    a {
+        text-align: center;
+        background: rgba(255,255,255,.2);
+        display: block;
+        padding: 20px 60px;
+
+        @media (min-width: 640px) {
+            padding-top: 45px;
+            float: left;
+            height: 170px;
+        }
+
+    }
+
+    h3,
+    ul {
+        margin-left: 20px;
+        margin-right: 20px;
+        @media (min-width: 640px) {
+            margin-left: 290px;
+        }
+    }
+
+    ul {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
     li::before {
         color: @sabre-deco;
     }
-
-    // A fleshy contact bubble
-    .bubble {
-        display: block;
-        width: 150px;
-        height: 150px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 20px;
-        border-radius: 50%;
-        background: @sabre-red;
-        color: #fff;
-        text-decoration: none;
-        text-align: center;
-        transition: all .5s ease;
-
-        strong {
-            transition: all .5s ease;
-            color: @sabre-deco;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .fa {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        &:hover {
-            background-color: #fff;
-            color: @sabre-red;
-
-            strong {
-                color: @sabre-sidekick;
-            }
-        }
-    }
-
-    > div {
-        border: 1px solid rgba(255,255,255,.2);
-        border-radius: 5px;
-        max-width: 640px;
-        .clearfix();
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-
-        a {
-            text-align: center;
-            background: rgba(255,255,255,.2);
-            display: block;
-            padding: 20px 60px;
-
-            @media (min-width: 640px) {
-                padding-top: 45px;
-                float: left;
-                height: 170px;
-            }
-
-        }
-
-        h3,
-        ul {
-            margin-left: 20px;
-            margin-right: 20px;
-            @media (min-width: 640px) {
-                margin-left: 290px;
-            }
-        }
-
-        ul {
-            margin-bottom: 20px;
-        }
-    }
-
 }
 
 
@@ -220,26 +229,26 @@
 
     a {
         vertical-align: top;
-        background: fade(@sabre-sidekick, 70%);
+        background: fade(@sabre-sidekick, 75%);
         border-radius: 5px;
         display: inline-block;
         text-align: center;
         text-decoration: none;
         color: #fff;
         transition: all .5s ease;
-        margin-left: 1%;
-        margin-right: 1%;
+        margin-left: 2%;
+        margin-right: 2%;
         margin-bottom: 20px;
         padding: 15px;
-        width: 98%;
+        width: 94%;
         .clearfix();
-        box-shadow: 0 0 5px rgba(0,0,0,.2);
-        box-shadow: 0 0 10px fade(@sabre-sidekick, 20%);
+        // box-shadow: 0 0 5px rgba(0,0,0,.2);
+        box-shadow: 0 0 10px fade(@sabre-sidekick, 10%);
 
         @media (min-width: 640px) {
             // margin-left: 2%;
             // margin-right: 2%;
-            width: 46%;
+            width: 44%;
         }
 
         @media (min-width: @screen-md) {
@@ -253,12 +262,12 @@
 
     h3 {
         font-weight: 300;
-        border-radius: 5px 5px 0 0;
-        padding: 15px;
+        border-radius: 4px 4px 0 0;
+        padding: 20px;
         margin: -15px -15px 20px -15px;
         background: #fff;
-        // color: @sabre-sidekick;
         color: @grey;
+        color: @sabre-red;
         position: relative;
         &:after {
             content:' ';
@@ -282,7 +291,10 @@
 // A box with some logos inside
 
 .box--trusted {
-    background: #fff;
+
+    .box-wrapper {
+        background: #fff;
+    }
     text-align: center;
 
     max-width: none;

@@ -9,8 +9,8 @@ use:
 ---
 <section class="box box--hero">
     <div class="box-wrapper">
+        <h1>sabre/dav</h1>
         <div class="box-text">
-            <h1>sabre/dav</h1>
             <p>
                 An open source CardDAV, CalDAV and WebDAV server.
             </p>
@@ -71,23 +71,25 @@ use:
 </section>
 
 <section class="box box--enterprise">
-    <h1>Enterprise support</h1>
-    <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
-    <div>
-        <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
-        <h3>We provide:</h3>
-        <ul>
-            <li>Enterprise support.</li>
-            <li>Customization.</li>
-            <li>Integrating into your existing infrastructure.</lI>
-            <li>Both on-premise and SaaS deployments.</li>
-        </ul>
+    <div class="box-wrapper">
+        <h1>Enterprise support</h1>
+        <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
+        <div class="promo">
+            <a href="https://fruux.com"><img src="{{site.url}}/img/fruux_logo.png"></a>
+            <h3>We provide:</h3>
+            <ul>
+                <li>Enterprise support.</li>
+                <li>Customization.</li>
+                <li>Integrating into your existing infrastructure.</lI>
+                <li>Both on-premise and SaaS deployments.</li>
+            </ul>
+        </div>
+        <a href="/support" class="bubble">
+            <i class="fa fa-2x fa-envelope-o"></i>
+            <strong>Contact us</strong> <br>
+            to discuss your requirements.
+        </a>
     </div>
-    <a href="/support" class="bubble">
-        <i class="fa fa-2x fa-envelope-o"></i>
-        <strong>Contact us</strong> <br>
-        to discuss your requirements.
-    </a>
 </section>
 
 <section class="box">

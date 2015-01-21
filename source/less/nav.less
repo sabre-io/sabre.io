@@ -1,0 +1,94 @@
+// NAVIGATION
+// =============================================================================
+
+// Basic navigation
+// ---
+.nav {
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .fa {
+        font-size: 1.5em;
+    }
+
+}
+
+// VARIANTS
+// -----------------------------------------------------------------------------
+
+// Main navigation.
+// ---
+// At the bottom on small devices. Shown on top on bigger screens.
+.nav--page {
+    background-color: @grey-softer;
+    border-top: 1px solid @grey-soft;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: @z-nav;
+
+    ul {
+        .flex();
+        .unstyle-ul();
+    }
+
+    li {
+        &:before {
+            display: none;
+        }
+    }
+
+    a {
+        padding: 8px 15px;
+    }
+
+}
+
+// Sidebar navigation
+// ---
+// Used in "docs" on the left side. Visible by clicking on the "bars" icon and
+// on bigger screens by default.
+.nav--sidebar {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 320px;
+    top: 0;
+    bottom: 41px;
+    z-index: @z-sidebar-trigger;
+    background: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+
+
+// -----------------------------------------------------------------------------
+
+.sidebar {
+
+    position: fixed;
+    bottom: 2px;
+    left: 0;
+    z-index: @z-sidebar;
+
+    label {
+        color: @linkcolor;
+        cursor: pointer;
+        display: inline-block;
+        padding: 8px 15px;
+    }
+
+    input {
+        display: none;
+    }
+
+    input:checked ~ .nav--sidebar {
+        display: block;
+    }
+}

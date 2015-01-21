@@ -39,7 +39,45 @@
         width: 44%;
         margin-left: 3%;
         margin-right: 3%;
-        margin-top: 100px;
+        margin-top: 50px;
+    }
+
+}
+
+
+// Navigational list
+// ---
+// A lot of menu points with a big soft grey dot infront of each point.
+.list--nav {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    // li's get a nice bullet on the left
+    li {
+        display: block;
+        padding: 2px 0;
+        position: relative;
+
+        &:before {
+            text-align: center;
+            content:'·';
+            font-size: inherit;
+            background: @grey-soft;
+            border-radius: 50%;
+            font-family: 'Roboto', sans-serif;
+
+            display: inline-block;
+            position: absolute;
+            top: 7px;
+            left: 0;
+            line-height: 11px;
+            height: 11px;
+            width: 11px;
+        }
+    }
+
+    a {
+        text-decoration: none;
     }
 
 }
