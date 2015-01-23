@@ -171,7 +171,7 @@ td {
 // Everything before the main content area.
 
 .pagehead {
-    background-color: @grey-soft;
+    background: @grey-softer;
     .clearfix();
     padding: 5px;
 }
@@ -232,6 +232,9 @@ footer {
 
     ul {
         .unstyle-ul();
+        li:before {
+            display: none;
+        }
     }
 
     nav li {

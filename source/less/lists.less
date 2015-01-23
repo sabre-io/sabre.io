@@ -12,21 +12,31 @@
     border-bottom: 1px solid @sabre-deco;
     border-top: 1px solid @sabre-deco;
     padding-top: @font-size-base;
-    margin-top: @font-size-base;
     padding-left: 10px;
+    padding-bottom: 10px;
     .clearfix();
 
     li {
-        min-height: @font-size-base * 2.5;
+        // min-height: @font-size-base * 2.5;
         position: relative;
-        font-weight: 100;
+        font-weight: 300;
         font-size: @font-size-base * 1.3;
         padding-left: 40px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        &:before {
+            content: none;
+        }
+    }
+
+    a {
+        text-decoration: none;
     }
 
     .fa {
         position: absolute;
-        top: 5px;
+        top: 10px;
         left: 0;
         text-align: center;
         margin-top: -5px;
@@ -34,12 +44,12 @@
         color: @sabre-sidekick;
     }
 
+        margin-top: 20px;
     @media (min-width: @screen-sm-min) {
         float: left;
         width: 44%;
         margin-left: 3%;
         margin-right: 3%;
-        margin-top: 50px;
     }
 
 }
