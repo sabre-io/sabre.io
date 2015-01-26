@@ -7,17 +7,13 @@
     padding: 0; // undo base article padding
     .flex(); // here we make the whole content area a flex wrapper
 
-    // The left 'aside' with a nav inside
-    > aside {
-        .flex-item(0 260px); // don't grow or shrink, keep 260px
-        border-right: 1px dashed @grey-soft;
-        min-width: 170px;
-        padding-top: 15px;
-    }
-
     // The main content
     > article {
         padding: 40px;
         .flex-item(1); // let it grow, shrink and autosize
+    }
+
+    @media (min-width: @screen-sm-min) {
+        margin-top: 40px;
     }
 }
