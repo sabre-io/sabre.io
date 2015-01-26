@@ -3,7 +3,7 @@ layout: home
 sidebar: none
 generator: pagination
 pagination:
-    max_per_page: 3
+    max_per_page: 5
 use:
     - posts
 ---
@@ -100,7 +100,7 @@ use:
         <article class="blog-entry">
             <time>{{ post.date|date("F jS, Y") }}</time>
             <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
-            {{ post.blocks.content|raw }}
+            {{ post.blocks.content|split('</p>')|first|trim|raw -}}
         </article>
         {% if not loop.last %}<hr />{% endif %}
     {% endfor %}
