@@ -100,7 +100,7 @@ use:
         <article class="blog-entry">
             <time>{{ post.date|date("F jS, Y") }}</time>
             <h1><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h1>
-            {{ post.blocks.content|split('</p>')|first|trim|raw -}}
+            {{ post.blocks.content|split('</p>')|first|raw -}}
         </article>
         {% if not loop.last %}<hr />{% endif %}
     {% endfor %}
