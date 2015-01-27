@@ -1,22 +1,25 @@
 ---
 title: sabre/uri
-product: uri 
+product: uri
 layout: default
 ---
 
-A lightweight library that makes working with URIs easier.
+sabre/uri is a lightweight library that provides several functions for working
+with URIs, staying true to the rules of [RFC3986][5].
 
-This library provides a number of functions that augment what PHP already
-provides. Partially inspired by [Node.js URL library][1], and others.
+Partially inspired by [Node.js URL library][1], and created to solve real
+problems in PHP applications. 100% unitested and many tests are based on
+examples from RFC3986.
 
 The library provides the following functions:
 
 1. `resolve` to resolve relative urls.
 2. `normalize` to aid in comparing urls.
-3. `parse`, which is just an alias of PHP's [parse_url][2]. 
+3. `parse`, which works like PHP's [parse_url][2].
 4. `build` to do the exact opposite of `parse`.
 5. `split` to easily get the 'dirname' and 'basename' of a URL without all the
    problems those two functions have.
+
 
 Further reading
 ---------------
@@ -28,3 +31,4 @@ Further reading
 [2]: http://php.net/manual/en/function.parse-url.php
 [3]: /uri/install/
 [4]: /uri/usage/
+[5]: https://tools.ietf.org/html/rfc3986/

@@ -4,10 +4,10 @@ layout: default
 title: Installation
 ---
 
-sabre/uri must be intalled using [composer][1].
-
 Requirements
 ------------
+
+sabre/uri must be installed using [composer][1].
 
 You will need a recent version of PHP. sabre/event currently requires PHP
 5.4.7. Older versions of PHP have bugs related to URI handling.

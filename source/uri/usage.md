@@ -38,8 +38,8 @@ in a similar way a browser would.
 Normalize
 ---------
 
-There are many ways to specify uris that all point to the same thing. The
-normalize function helps you make these uris consistent with each other, which
+There are many ways to specify URIs that all point to the same thing. The
+normalize function helps you make these URIs consistent with each other, which
 in turn allows you to make better comparisons.
 
 For example, these urls all point to the same resource:
