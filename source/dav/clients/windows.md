@@ -278,6 +278,14 @@ one HTTPS-based domain off one ip address, or make sure that it's the default.
 In the case of apache, the default https server would be the top-most
 virtualhost definition.
 
+### Caching
+
+It was reported that Windows 7 has a 60 second cache, which may be frustrating
+if you expect an immediate update.
+
+This can be disabled using a registry key. See [http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx](http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx) for more info.
+
+
 ### More information
 
 greenbytes.de has a [good list][6] with detailed information about some of
