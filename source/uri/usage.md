@@ -11,7 +11,7 @@ provides the following functions, all in the `Sabre\Uri` namespace:
 Resolve
 -------
 
-The `resolve` function allows you to expand a relative URL in a full one,
+The `resolve` function allows you to expand a relative URI in a full one,
 in a similar way a browser would.
 
 ### Example
@@ -47,8 +47,8 @@ For example, these urls all point to the same resource:
 * `http://example.org/~foo/`
 * `HTTP://example.ORG/~foo/` Some parts are case-insensitive.
 * `http://example.org:80/~foo/` Default ports.
-* `http://example.org/%7Efoo/` URL-encoding. Wrong in this case, but common.
-* `http://example.org/%7efoo/` URL-encoding using lowercase for hex numbers.
+* `http://example.org/%7Efoo/` Percent-encoding.
+* `http://example.org/%7efoo/` Percent-encoding using lowercase for hex numbers.
 * `http://example.org/bar/./../foo/` Badly expanded relative urls.
 
 ### Example

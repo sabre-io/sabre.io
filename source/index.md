@@ -69,7 +69,7 @@ use:
         </a>
         <a href="{{ site.url }}/uri">
             <h3>sabre/uri</h3>
-            Utility functions for working with URIs.
+            Functions for making sense out of URIs.
         </a>
     </div>
 </section>

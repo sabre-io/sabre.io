@@ -9,7 +9,7 @@ Requirements
 
 sabre/uri must be installed using [composer][1].
 
-You will need a recent version of PHP. sabre/event currently requires PHP
+You will need a recent version of PHP. sabre/uri currently requires PHP
 5.4.7. Older versions of PHP have bugs related to URI handling.
 
 
@@ -34,7 +34,7 @@ by including the autoloader:
 Source
 ------
 
-The sabre/event source can be found on [GitHub][3].
+The sabre/uri source can be found on [GitHub][3].
 
 [1]: http://getcomposer.org/
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
