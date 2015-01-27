@@ -11,3 +11,4 @@ latest_versions:
   event: 2.0.1
   http: 3.0.4
   xml: 0.2.0
+  uri: 1.0
