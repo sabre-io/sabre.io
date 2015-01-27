@@ -17,6 +17,8 @@ Usage
 
 This is simply done with the following code:
 
+    use Sabre\DAV\Client;
+
     include 'vendor/autoload.php';
 
     $settings = array(
@@ -26,7 +28,7 @@ This is simply done with the following code:
         'proxy' => 'locahost:8888',
     );
 
-    $client = new DAV\Client($settings);
+    $client = new Client($settings);
 
 Only the baseUri is required. This will be used to calculate any relative
 paths. Proxy may be handy for debugging, but most people will likely not use
