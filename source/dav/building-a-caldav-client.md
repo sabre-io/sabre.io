@@ -273,7 +273,7 @@ bandwidth to only check the etag first.
             <d:href>/calendars/johndoe/home/132456762153245.ics</d:href>
             <d:propstat>
                 <d:prop>
-                    <d:getetag>"2134-314"</d:getetag>
+                    <d:getetag>"xxxx-xxx"</d:getetag>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
             </d:propstat>
