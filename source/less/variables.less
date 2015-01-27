@@ -6,7 +6,7 @@
 
 // Color definitions
 // -----------------------------------------------------------------------------
-// Write all colors and tones here. And use them to avoid writing (wrong) hex 
+// Write all colors and tones here. And use them to avoid writing (wrong) hex
 // colors into your style.
 
 // Main brand color
@@ -21,8 +21,10 @@
 
 // Greys
 @grey:                  #333; // simple
+@grey-mid:              #888; // middle
 @grey-light:            #bbb; // lighter
 @grey-soft:             #eee; // softer then light
+@grey-softer:           #fbfbfb; // softer then soft
 
 
 // Type
@@ -35,6 +37,7 @@
 @headline-h1: @font-size-base*3;    // 32px
 @headline-h2: @font-size-base*2;    // 28px
 @headline-h3: @font-size-base*1.5;  // 21px
+@headline-h4: @font-size-base*1.2;  // 17px
 
 @linkcolor:         #31a1cd;
 @linkcolor-hover:   @sabre-red;
@@ -68,3 +71,12 @@
 @screen-xs-max:      (@screen-sm-min - 1);
 @screen-sm-max:      (@screen-md-min - 1);
 @screen-md-max:      (@screen-lg-min - 1);
+
+
+// Z-Indexes
+// -----------------------------------------------------------------------------
+
+@z-bg:                -1;
+@z-nav:              900;
+@z-sidebar:         1000;
+@z-sidebar-trigger: 1001;

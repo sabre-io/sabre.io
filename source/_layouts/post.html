@@ -1,4 +1,7 @@
 {% extends "default" %}
+
+{% set bodyClass="body--post" %}
+
 {% block contentwrapper %}
     <article class="blog-entry">
         <time>{{ page.date|date("F jS, Y") }}</time>

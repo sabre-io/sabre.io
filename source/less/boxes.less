@@ -6,18 +6,10 @@
 // Default content box.
 .box {
     .clearfix();
-    padding: 20px;
+    padding: 10px;
     max-width: @screen-lg;
     margin-left: auto;
     margin-right: auto;
-
-    h1 {
-        text-align: center;
-    }
-
-    h2 {
-        text-align: center;
-    }
 
     @media (min-width: @screen-sm-min) {
         padding: 20px 40px;
@@ -25,164 +17,402 @@
 }
 
 
-// Box : Enterprise
+// Children elements
+// -----------------------------------------------------------------------------
+
+// Box wrapper
 // ---
-// A box with some greenish make up
-.box-enterprise {
-    max-width: none;
-    #gradient > .vertical (@sabre-sidekick-light, @sabre-sidekick);
+// Wraps the box content and holds it in the middle on wiiiide screens.
+.box-wrapper {
+    max-width: @screen-lg;
+    margin-left: auto;
+    margin-right: auto;
     .clearfix();
-
-    h1 {
-        color: @sabre-deco;
-    }
-
-    h3,
-    p,
-    ul,
-    li, {
-        color: #fff;
-    }
-
-    li::before {
-        color: @sabre-deco;
-    }
-
-    // A fleshy contact bubble
-    .bubble {
-        display: block;
-        width: 150px;
-        height: 150px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 20px;
-        border-radius: 50%;
-        background: @sabre-red;
-        color: #fff;
-        text-decoration: none;
-        text-align: center;
-        transition: all .5s ease;
-
-        strong {
-            transition: all .5s ease;
-            color: @sabre-deco;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .fa {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        &:hover {
-            background-color: #fff;
-            color: @sabre-red;
-
-            strong {
-                color: @sabre-sidekick;
-            }
-        }
-    }
-
-    > div {
-        border: 1px solid rgba(255,255,255,.2);
-        border-radius: 5px;
-        max-width: 640px;
-        .clearfix();
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-
-        a {
-            text-align: center;
-            background: rgba(255,255,255,.2);
-            display: block;
-            padding: 20px 60px;
-
-            @media (min-width: 640px) {
-                padding-top: 45px;
-                float: left;
-                height: 170px;
-            }
-
-        }
-
-        h3,
-        ul {
-            margin-left: 20px;
-            margin-right: 20px;
-            @media (min-width: 640px) {
-                margin-left: 290px;
-            }
-        }
-    }
-
 }
 
+// A simply headline. Not too big 'cause it's inside the boxes.
+.box-headline {
+    color: @grey;
+    font-size: @headline-h3;
+    font-weight: normal;
+    line-height: @line-height-base*1.5;
+    text-align: center;
+    margin-bottom: @line-height-base;
+}
+
+// simple copy text
+.box-text {
+    @media (min-width: @screen-sm-min) {
+        float: left;
+        width: 44%;
+        margin-left: 3%;
+        margin-right: 3%;
+
+    }
+}
+
+
+// VARIANTS
+// -----------------------------------------------------------------------------
+
+// Hero
+// ---
+// Main itroduction element. A big picture with a catchy headline and slogan.
+.box--hero {
+    text-align: center;
+    padding:  20px 20px 40px 20px;
+    margin-bottom: 10px;
+
+    p {
+        font-size: @headline-h4;
+    }
+
+    // Install
+    // ---
+    // This is the big red circle on the homepage
+    .install {
+        display: inline-block;
+        width: 110px;
+        height: 110px;
+        padding-top: 25px;
+        margin-bottom: 10px;
+
+        background: @sabre-red;
+        font-weight: 100;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+
+        border-radius: 50%;
+        transition: all .5s ease;
+
+        &:hover {
+            background: @sabre-sidekick;
+        }
+
+        &:visited {
+            color: #fff;
+        }
+
+        i {
+            font-size: 40px;
+            display: block;
+        }
+
+    }
+
+    @media (min-width: @screen-sm-min) {
+        margin-top: 40px;
+    }
+}
 
 
 // Box : Lineup
 // ---
 // A box containing the project linup
-.box-lineup {
+.box--lineup {
+    text-align: center;
+    margin-bottom: 40px;
+
     a {
-        position: relative;
-        display: block;
-        padding: 40px 20px;
-        margin-top: 55px;
-        min-height: 200px;
+        vertical-align: top;
+        background: fade(@sabre-sidekick, 75%);
+        border-radius: 5px;
+        display: inline-block;
         text-align: center;
         text-decoration: none;
-        background: @sabre-deco;
-        color: @grey;
-        border-bottom: 1px solid #fff;
+        color: #fff;
         transition: all .5s ease;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-bottom: 20px;
+        padding: 15px;
+        width: 94%;
         .clearfix();
+        // box-shadow: 0 0 5px rgba(0,0,0,.2);
+        box-shadow: 0 0 10px fade(@sabre-sidekick, 10%);
 
         @media (min-width: 640px) {
-            width: 50%;
-            height: 210px;
-            float: left;
-            border-right: 1px solid #fff;
+            // margin-left: 2%;
+            // margin-right: 2%;
+            width: 44%;
         }
 
         @media (min-width: @screen-md) {
             width: 25%;
         }
 
-        // some icon style
-        > span {
-
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            left: 50%;
-            top: -35px;
-            padding: 21px;
-            margin-left: -35px;
-            color: @sabre-sidekick;
-            background: #fff;
-            font-size: @font-size-base*2;
-            font-weight: bold;
-            border-radius: 50%;
-            border: 1px solid @sabre-deco;
-            transition: all .5s ease;
-        }
-
-        strong {
-            font-size: @headline-h3;
-        }
-
         &:hover {
             background: @sabre-sidekick;
+        }
+    }
+
+    h3 {
+        font-weight: 300;
+        border-radius: 4px 4px 0 0;
+        padding: 20px;
+        margin: -15px -15px 20px -15px;
+        background: #fff;
+        color: @grey;
+        color: @sabre-red;
+        position: relative;
+        &:after {
+            content:' ';
+            border: 10px solid #fff;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            bottom: -17px;
+            left: 50%;
+            margin-left: -10px;
+            border-bottom-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+        }
+    }
+}
+
+
+// Box : Partners
+// ---
+// A box with some logos inside
+
+.box--trusted {
+
+    text-align: center;
+    max-width: none;
+    margin-bottom: 20px;
+
+    .box-wrapper {
+        border-radius: 5px;
+        background: #fff;
+    }
+
+    a {
+        display: inline-block;
+        width: 25%;
+        padding: 5px;
+    }
+
+    img {
+        max-height: 60px;
+    }
+
+    @media (min-width: @screen-sm-min) {
+
+        .box-headline {
+            vertical-align: bottom;
+            display: inline-block;
+        }
+
+        a {
+            width: 20%;
+        }
+    }
+
+}
+
+
+// Box : turquoise variant
+
+.box--turquoise {
+    padding: 0;
+    max-width: none;
+    background: fade(@sabre-sidekick, 90%);
+    #gradient > .vertical (@sabre-sidekick-light, @sabre-sidekick);
+
+    @media (min-width: @screen-sm-min) {
+        .box-wrapper {
+            .flex();
+        }
+    }
+}
+
+
+// Box : Enterprise
+// ---
+// A box with some greenish make up
+.box--enterprise {
+
+    .clearfix();
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    h1 {
+        // color: @sabre-deco;
+        color: #fff;
+    }
+
+    h3,
+    p,
+    ul,
+    li {
+        color: #fff;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        .flex-item(1);
+    }
+}
+
+
+// Box : News
+// ---
+// Some blog entries teaser
+.box--news {
+    // .clearfix();
+    background: fade(#fff, 10%);
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+
+    > h1 {
+        color: fade(@sabre-deco, 80%);
+    }
+
+    .blog-entry {
+        margin-bottom: 10px;
+
+        h1 {
+            font-size: @headline-h3;
+            line-height: @line-height-base*1.4;
+            margin-bottom: 0;
+            margin-top: 0;
+            padding: 0;
+        }
+
+        time {
+            margin-top: 0;
+            background: none;
+            color: @sabre-deco;
+            // float: left;
+            float: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 5px;
+        }
+
+        a {
             color: #fff;
 
-            > span {
-                color: @sabre-sidekick;
-                border-color: @sabre-sidekick;
-                background: @sabre-deco;
+            &:hover {
+                color: @linkcolor-hover;
             }
         }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        .flex-item(0 1 320px);
+
+    }
+
+}
+
+
+// Blog Entry
+// ---
+// A blog element.
+.blog-entry {
+
+    margin-bottom: 40px;
+    .clearfix();
+
+    h1 {
+        font-weight: 300;
+        text-align: left;
+    }
+
+    time {
+        float: right;
+        display: block;
+        background: fade(@sabre-deco, 50%);
+        border-radius: 10px;
+        padding: 0 10px;
+        margin-top: 25px;
+        margin-left: 10px;
+    }
+}
+
+
+
+// A flashy contact bubble
+.bubble {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 50%;
+    background: @sabre-red;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    transition: all .5s ease;
+
+    strong {
+        transition: all .5s ease;
+        color: @sabre-deco;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .fa {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    &:hover {
+        background-color: #fff;
+        color: @sabre-red;
+
+        strong {
+            color: @sabre-sidekick;
+        }
+    }
+
+    &:visited {
+        color: #fff;
+    }
+}
+
+// Semi tranparent box with a logo and some bullet points.
+.promo {
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 5px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+    h3 {
+        background: rgba(255,255,255,.2);
+        margin: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    li::before {
+        color: @sabre-deco;
     }
 }

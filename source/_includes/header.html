@@ -1,21 +1,22 @@
-<header>
+<header class="pagehead">
 
-    <div class="logo">
-        <a href="{{ site.url }}/">
+    <div class="pagehead-inner">
+        <a class="logo" href="{{ site.url }}/">
             <img src="{{site.url}}/img/logo.png" alt="sabre/{{product}}">
-            sabre/{{product}}
+            sabre<span>/{{product}}</span>
         </a>
-    </div>
 
-    <nav>
-        <ul>
-            <li><a href="{{ site.url }}/">Home</a></li>
-            <li><a href="{{ site.url }}/dav">Docs</a></li>
-            <li><a href="{{ site.url }}/blog">Blog</a></li>
-            <li><a href="{{ site.url }}/support">Support</a></li>
-            <!-- <li><i class="fa fa-github"></i> <a href="https://github.com/fruux">GitHub</a></li> -->
-            <li><a href="{{ site.url }}/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li>
-        </ul>
-    </nav>
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="{{ site.url }}/dav">Docs</a></li>
+                <li><a href="{{ site.url }}/blog">Blog</a></li>
+                <li><a href="{{ site.url }}/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="{{ site.url }}/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
 
 </header>

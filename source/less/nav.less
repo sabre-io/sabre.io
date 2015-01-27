@@ -1,0 +1,130 @@
+// NAVIGATION
+// =============================================================================
+
+
+// Basic navigation
+// ---
+.nav {
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .fa {
+        font-size: 1.5em;
+    }
+}
+
+
+// VARIANTS
+// -----------------------------------------------------------------------------
+
+// Main navigation.
+// ---
+// At the bottom on small devices. Shown on top on bigger screens.
+.nav--page {
+    background-color: @grey-softer;
+    border-top: 1px solid @grey-soft;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: @z-nav;
+
+    ul {
+        .flex();
+        .unstyle-ul();
+    }
+
+    li {
+        &:before {
+            display: none;
+        }
+    }
+
+    a {
+        padding: 8px 15px;
+    }
+
+    // When we change to tablet size
+    // - the navigation goes to top
+    // - the sidebar becomes a small column
+    @media (min-width: @screen-sm-min) {
+        position: absolute;
+        top: 0;
+        left: auto;
+        bottom:auto;
+        border-top: none;
+
+        ul {
+            display: block;
+        }
+
+        li {
+            display: inline-block;
+        }
+    }
+
+}
+
+
+// Sidebar navigation
+// ---
+// Used in "docs" on the left side. Visible by clicking on the "bars" icon and
+// on bigger screens by default.
+.nav--sidebar {
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+
+// Hamburger Menu : Trigger
+// ---
+// Changes the checkbox to :checked.
+
+.hamburger-label {
+    color: @linkcolor;
+    cursor: pointer;
+    display: inline-block;
+    padding: 9px 14px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: @z-sidebar;
+
+    // Inside the sidebar we use the trigger to close the sidebar again ;)
+    .sidebar & {
+        top: 0;
+        left: 280px;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        top: 0;
+    }
+
+    @media (min-width: @screen-md-min) {
+        display: none;
+    }
+
+}
+
+
+// Hamburger Menu : Checkbox
+// ---
+// Gets :checked and helps to manipulate its siblings.
+
+.hamburger-input {
+    display: none;
+
+    // Magic area
+    // Here happenscrazy stuff. When the "hamburger menu" is clicked the input
+    // gets a :checked pseudo class. We use this for manipulating the world :)
+    &:checked ~ main {
+        .sidebar {
+            display: block;
+        }
+    }
+}
