@@ -1,6 +1,7 @@
 // NAVIGATION
 // =============================================================================
 
+
 // Basic navigation
 // ---
 .nav {
@@ -13,8 +14,8 @@
     .fa {
         font-size: 1.5em;
     }
-
 }
+
 
 // VARIANTS
 // -----------------------------------------------------------------------------
@@ -67,6 +68,7 @@
 
 }
 
+
 // Sidebar navigation
 // ---
 // Used in "docs" on the left side. Visible by clicking on the "bars" icon and
@@ -79,30 +81,9 @@
 }
 
 
-
-// -----------------------------------------------------------------------------
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 320px;
-    z-index: @z-sidebar;
-    background: #fff;
-    border-right: 1px dotted @sabre-deco;
-
-    // invisible by default
-    display: none;
-
-    // on "medium" screens
-    @media (min-width: @screen-md-min) {
-        display: block;
-        top: 40px;
-    }
-
-}
-
+// Hamburger Menu : Trigger
+// ---
+// Changes the checkbox to :checked.
 
 .hamburger-label {
     color: @linkcolor;
@@ -114,11 +95,7 @@
     left: 0;
     z-index: @z-sidebar;
 
-    // On the home page we don#t need to show the sidebar
-    .body--home & {
-        display: none;
-    }
-
+    // Inside the sidebar we use the trigger to close the sidebar again ;)
     .sidebar & {
         top: 0;
         left: 280px;
@@ -134,26 +111,20 @@
 
 }
 
+
+// Hamburger Menu : Checkbox
+// ---
+// Gets :checked and helps to manipulate its siblings.
+
 .hamburger-input {
     display: none;
 
     // Magic area
     // Here happenscrazy stuff. When the "hamburger menu" is clicked the input
     // gets a :checked pseudo class. We use this for manipulating the world :)
-
     &:checked ~ main {
         .sidebar {
             display: block;
         }
     }
 }
-
-// On the home page we don#t need to show the sidebar
-// .body--home & {
-//     display: none;
-// }
-
-
-// @media (min-width: @screen-sm-min) {
-//     top: 0;
-// }

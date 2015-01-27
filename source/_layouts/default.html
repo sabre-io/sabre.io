@@ -8,7 +8,7 @@
 {% endif %}
 
     {% if page.title %}
-        <title>{{page.title}} - sabre/{{ product }}</title>
+        <title>{{ page.title }} - sabre/{{ product }}</title>
     {% else %}
         <title>sabre/{{ product }}</title>
     {% endif %}
@@ -34,11 +34,13 @@
     {% endif %}
 
 </head>
-<body {% if bodyClass %}class="{{bodyClass}}"{% endif %}>
+<body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
     {% include "header.html" %}
 
+    {% if page.sidebar != "none" %}
     <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
     <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+    {% endif %}
 
     {% block mainwrapper %}
     <main{% if page.sidebar != "none" %} class="incl-sidebar"{% endif %}>

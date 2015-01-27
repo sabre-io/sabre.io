@@ -24,29 +24,9 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-.bg--cloudy {
-    background: url('../img/home_background.jpg') center center;
-    background-size: cover;
-    overflow: hidden;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    z-index: @z-bg;
 
-    img {
-        display: none;
-        width: 100%;
-        height: 100%
-    }
-}
-
-// TYPE
-// -----------------------------------------------------------------------------
+// Type
+// ---
 
 h1 {
     font-size: @headline-h1;
@@ -140,7 +120,7 @@ code {
 
 
 // Table
-// -----------------------------------------------------------------------------
+// ---
 // The very basic table.
 
 table {
@@ -161,8 +141,84 @@ td {
 }
 
 
-// HEADER
-// -----------------------------------------------------------------------------
+// Main
+// ---
+// Playground for the content.
+
+main {
+    padding: 40px;
+
+    @media (min-width: @screen-md-min) {
+        &.incl-sidebar {
+            margin-left: 320px;
+        }
+    }
+
+}
+
+
+// Footer
+// ---
+// Some credits and links in the footer section on the bottom of the page.
+
+footer {
+    padding: 10px 10px 50px 10px;
+    font-size: 80%;
+    font-weight: 500;
+    color: @linkcolor;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: @linkcolor;
+
+        &:visited {
+            color: @linkcolor;
+        }
+
+        &:hover {
+            color: @linkcolor-hover;
+        }
+    }
+
+    ul {
+        .unstyle-ul();
+        li:before {
+            display: none;
+        }
+    }
+
+    nav li {
+        display: inline;
+        white-space: nowrap;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        padding-bottom: 20px;
+    }
+}
+
+
+// Auto Size
+// ---
+// Sizing elements
+
+.size-auto {
+    .flex-item(1 0 1px);
+}
+
+
+// Aligning
+// ---
+// Simply aligning text.
+
+.text--right {
+    text-align: right;
+}
+
+
+// Header
+// ---
 // Everything before the main content area.
 
 .pagehead {
@@ -179,6 +235,7 @@ td {
         z-index: @z-nav;
     }
 }
+
 
 // Logo
 // ---
@@ -214,83 +271,26 @@ td {
 }
 
 
-// MAIN
-// -----------------------------------------------------------------------------
-// Playground for the content.
+// Cloudy clouds
+// ---
+// Blue and green clouds image as background
+.bg--cloudy {
+    background: url('../img/home_background.jpg') center center;
+    background-size: cover;
+    overflow: hidden;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: @z-bg;
 
-main {
-    padding: 40px;
-
-    @media (min-width: @screen-md-min) {
-        margin-left: 320px;
+    img {
+        display: none;
+        width: 100%;
+        height: 100%
     }
-}
-
-
-
-
-// FOOTER
-// -----------------------------------------------------------------------------
-// Some credits and links in the footer section on the bottom of the page.
-
-footer {
-    padding: 50px 0;
-    font-size: 80%;
-    nav {
-        text-align: center;
-    }
-
-    ul {
-        .unstyle-ul();
-        li:before {
-            display: none;
-        }
-    }
-
-    nav li {
-        display: inline;
-        white-space: nowrap;
-    }
-}
-
-// Blog Entry
-// -----------------------------------------------------------------------------
-// A blog element.
-.blog-entry {
-
-    margin-bottom: 40px;
-    .clearfix();
-
-    h1 {
-        font-weight: 300;
-        text-align: left;
-    }
-
-    time {
-        float: right;
-        display: block;
-        background: lighten(@sabre-deco,10);
-        border-radius: 10px;
-        padding: 0 10px;
-        margin-top: 25px;
-        margin-left: 10px;
-    }
-}
-
-
-// Size
-// -----------------------------------------------------------------------------
-// Sizing elements
-
-.size-auto {
-    .flex-item(1 0 1px);
-}
-
-
-// Aligning
-// -----------------------------------------------------------------------------
-// Simply aligning text.
-
-.text--right {
-    text-align: right;
 }
