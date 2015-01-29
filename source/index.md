@@ -12,7 +12,10 @@ use:
         <h1>sabre/dav</h1>
         <div class="box-text">
             <p>
-                The open source CardDAV, CalDAV and WebDAV server.
+                The open source
+                <a href="https://en.wikipedia.org/wiki/CardDAV">CardDAV</a>,
+                <a href="https://en.wikipedia.org/wiki/CalDAV">CalDAV</a> and
+                <a href="https://en.wikipedia.org/wiki/WebDAV">WebDAV</a> server.
             </p>
             <a class="install" href="{{ site.url }}/dav/install">
                 <i class="fa fa-download"></i>
