@@ -278,6 +278,12 @@ one HTTPS-based domain off one ip address, or make sure that it's the default.
 In the case of apache, the default https server would be the top-most
 virtualhost definition.
 
+Furthermore it was reported that the WinHTTP API (used in the Windows WebDAV client)
+doesn't support TSLv1.1/TSLv1.2 connections. If you have restricted your server
+config to only provide TLSv1.1 and above the connection to your server will fail.
+
+See [this article with further information][7].
+
 ### Caching
 
 It was reported that Windows 7 has a 60 second cache, which may be frustrating
@@ -297,3 +303,4 @@ these bugs.
 [4]: http://support.microsoft.com/?scid=kb%3Ben-us%3B928692&x=21&y=17
 [5]: http://support.microsoft.com/kb/841215
 [6]: http://greenbytes.de/tech/webdav/webdav-redirector-list.html
+[7]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa382925%28v=vs.85%29.aspx
