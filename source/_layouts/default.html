@@ -34,7 +34,7 @@
     {% endif %}
 
 </head>
-<body {% if bodyClass %}class="{{ bodyClass }}"{% endif %}>
+<body {% if page.bodyClass %}class="{{ page.bodyClass }}"{% endif %}>
     {% include "header.html" %}
 
     {% if page.sidebar != "none" %}

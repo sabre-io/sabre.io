@@ -2,6 +2,7 @@
 layout: default
 sidebar: none
 nocomments: true
+bodyClass: body--nodocs
 ---
 
 Support
