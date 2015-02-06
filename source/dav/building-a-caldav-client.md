@@ -527,7 +527,7 @@ There's no way to tell from the response wether those cards got created or
 updated, you, as a client can only infer this based on the vcards you are
 already aware of.
 
-The entry with name `deltedevent.ics` got deleted as indicated by the `404`
+The entry with name `deletedevent.ics` got deleted as indicated by the `404`
 status. Note that the status element is here a child of `d:response` when in
 all previous examples it has been a child of `d:propstat`.
 
