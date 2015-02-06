@@ -144,7 +144,7 @@ and vcards under there:
 UIDS, id's and urls
 -------------------
 
-There's a bunch id's you will need to keep track off.
+There's a bunch of id's you will need to keep track off.
 
 When CalDAV clients create new calendar objects, they will store them using a url.
 This url can look like for example `/calendars/user@example.org/1b520550-d7ca-11df-937b-0800200c9a66/22bad740-d7ca-11df-937b-0800200c9a66.ics`.
