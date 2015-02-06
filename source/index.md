@@ -22,7 +22,7 @@ use:
                 Install
             </a>
             <br>
-            <a href="{{ site.url }}/dav"><small>Or learn more...</small></a>
+            <a href="{{ site.url }}/dav">Or learn more...</a>
         </div>
         <ul class="list-features">
             <li><i class="fa fa-fw fa-rocket"></i><a href="{{ site.url }}/dav/scalability">Scalable</a> design.</li>
