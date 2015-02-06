@@ -228,7 +228,7 @@ So after you retrieved and processed these, for each object you must retain:
 * The url
 * The etag
 
-In this case all urls ended with .ics. This is often the case, buy you must not
+In this case all urls ended with .ics. This is often the case, but you must not
 rely on this. In this case the UID in the calendar object was also identical to
 a part of the url. This too is often the case, but again not something you can
 rely on, so don't make any assumptions.
