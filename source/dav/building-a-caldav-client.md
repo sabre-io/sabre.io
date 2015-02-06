@@ -74,7 +74,7 @@ An example request to get the ctag:
 
 
 The `PROPFIND` request is a HTTP request, defined by [WebDAV][rfc4918].
-`PROPFIND` allos the client to fetch properties from a url.
+`PROPFIND` allows the client to fetch properties from a url.
 
 CalDAV uses many properties like this, but in this case we just fetch the
 'displayname', which is the human-readable name the user gave the calendar, and
