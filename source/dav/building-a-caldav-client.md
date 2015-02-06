@@ -10,7 +10,7 @@ not complete.
 General synchronization concerns
 --------------------------------
 
-The primary formats for tranfering information is [iCalendar][rfc5545] for
+The primary formats for transfering information is [iCalendar][rfc5545] for
 calendar objects (events and tasks) and xml for most other data.
 
 [CalDAV][rfc4791] is based on [WebDAV][rfc4918], which itself is an extension
