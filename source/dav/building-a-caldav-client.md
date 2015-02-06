@@ -694,7 +694,7 @@ list the calendars that support the `VTODO` component.
                     <cs:getctag>3145</cs:getctag>
                     <c:supported-calendar-component-set>
                         <c:comp name="VEVENT" />
-                    </c:supported-component-set>
+                    </c:supported-calendar-component-set>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
             </d:propstat>
@@ -711,7 +711,7 @@ list the calendars that support the `VTODO` component.
                     <cs:getctag>3345</cs:getctag>
                     <c:supported-calendar-component-set>
                         <c:comp name="VTODO" />
-                    </c:supported-component-set>
+                    </c:supported-calendar-component-set>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
             </d:propstat>
