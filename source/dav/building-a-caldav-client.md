@@ -658,7 +658,7 @@ element in the CalDAV namespace. Other items _may_ be returned, including non-
 calendar, which your application should ignore.
 
 The displayname is a human-readable string for the calendarname, the ctag was
-already covered in an earlier chapter.
+already covered in an earlier section.
 
 Lastly, `supported-calendar-component-set`. This gives us a list of components
 that the claendar accepts. This could be just `VTODO`, `VEVENT`, `VJOURNAL` or a
