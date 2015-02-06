@@ -44,7 +44,7 @@ Support
         Professional Support
     </h2>
     <p>
-        Supercharge your application development with [fruux](https://fruux.com),
+        Supercharge your application development with <a href="https://fruux.com">fruux</a>,
         the team behind sabre/dav. Besides us, developers and companies around
         the globe use our sabre/dav technology to deliver sync functionality to
         millions of users. Our technology powers sync functionality in many
