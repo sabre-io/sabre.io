@@ -154,7 +154,7 @@ CalDAV client stores a new object under a url, the client must be able to access
 the object using that url.
 
 This could mean you need to make a new database field for this url. Even though
-most clients use the `[uuid].ics` format, you can't rely on the url to e an
+most clients use the `[uuid].ics` format, you can't rely on the url to be an
 uuid. Any string could be sent, and upper/lowercase can vary. Therefore it's
 not a true uuid field.
 
