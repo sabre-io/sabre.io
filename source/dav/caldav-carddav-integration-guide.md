@@ -98,7 +98,7 @@ supported authentication methods) you can also extend
 Your Calendar backend needs to extend `Sabre\CalDAV\Backend\AbstractBackend`. Take a
 look at `Sabre\CalDAV\Backend\PDO` for an example.
 
-Lastly, the principal backend must implement `Sabre\DAVACL\PrincipalBackend\BackendInteface`.
+Lastly, the principal backend must implement `Sabre\DAVACL\PrincipalBackend\BackendInterface`.
 Principals are in the context of WebDAV either users or groups (or both).
 
 For CardDAV, you may also want to extend `Sabre\CardDAV\Backend\AbstractBackend`,
