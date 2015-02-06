@@ -6,37 +6,25 @@
 .sidebar {
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: 41px;
     left: 0;
     width: 320px;
     z-index: @z-sidebar;
     background: #fff;
     border-right: 1px dotted @sabre-deco;
+    overflow: hidden;
 
     // invisible by default
     display: none;
 
-    // on "medium" screens
+    // "tablet" screens and up
+    @media (min-width: @screen-sm-min) {
+        top: 40px;
+        bottom: 0;
+    }
+
+    // "medium" screens and up
     @media (min-width: @screen-md-min) {
         display: block;
-        top: 40px;
-    }
-}
-
-
-// Pages including the get a body.incl-sidebar
-.incl-sidebar {
-
-    padding: 0; // undo base article padding
-    .flex(); // here we make the whole content area a flex wrapper
-
-    // The main content
-    > article {
-        padding: 40px;
-        .flex-item(1); // let it grow, shrink and autosize
-    }
-
-    @media (min-width: @screen-sm-min) {
-        margin-top: 40px;
     }
 }
