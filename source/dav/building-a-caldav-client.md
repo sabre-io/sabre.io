@@ -661,7 +661,7 @@ The displayname is a human-readable string for the calendarname, the ctag was
 already covered in an earlier section.
 
 Lastly, `supported-calendar-component-set`. This gives us a list of components
-that the claendar accepts. This could be just `VTODO`, `VEVENT`, `VJOURNAL` or a
+that the calendar accepts. This could be just `VTODO`, `VEVENT`, `VJOURNAL` or a
 combination of these three.
 
 If you are just creating a todo-list application, this means you should only
