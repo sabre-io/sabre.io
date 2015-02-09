@@ -20,7 +20,14 @@ body {
     position: relative;
     height: 100%;
     box-sizing: content-box;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+}
+
+.body--nodocs {
+    max-width: @screen-lg;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -145,11 +152,35 @@ td {
 // Playground for the content.
 
 main {
-    padding: 40px;
+    padding: 20px;
 
-    @media (min-width: @screen-md-min) {
-        &.incl-sidebar {
+    @media (min-width: @screen-sm-min) {
+        padding: 40px;
+        margin-top: 40px;
+    }
+
+    // Left space for the sidebar
+    &.incl-sidebar {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        @media (min-width: @screen-md-min) {
             margin-left: 320px;
+        }
+    }
+
+    article {
+        .clearfix();
+    }
+
+    // Code blocks get full width on small devices
+    pre {
+        margin-left: -20px;
+        margin-right: -20px;
+
+        @media (min-width: @screen-sm-min) {
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 
@@ -224,6 +255,7 @@ footer {
     background: @grey-softer;
     .clearfix();
     padding: 5px;
+    z-index: @z-nav;
 
     @media (min-width: @screen-sm-min) {
         padding-left: 40px;
@@ -231,7 +263,6 @@ footer {
         top: 0;
         left: 0;
         right: 0;
-        z-index: @z-nav;
     }
 }
 

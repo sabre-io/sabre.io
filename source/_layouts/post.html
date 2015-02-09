@@ -1,6 +1,6 @@
 {% extends "default" %}
 
-{% set bodyClass="body--post" %}
+{% set page = page|merge({'bodyClass' : 'body--nodocs'}) %}
 
 {% block contentwrapper %}
     <article class="blog-entry">

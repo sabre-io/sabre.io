@@ -5,6 +5,7 @@ title: Blog
 use:
     - posts
 nocomments: true
+bodyClass: body--nodocs
 ---
 
 {% for post in data.posts %}

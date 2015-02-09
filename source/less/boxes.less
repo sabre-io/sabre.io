@@ -67,6 +67,10 @@
         font-size: @headline-h4;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     // Install
     // ---
     // This is the big red circle on the homepage
@@ -124,6 +128,7 @@
         text-decoration: none;
         color: #fff;
         transition: all .5s ease;
+        min-height: 145px;
         margin-left: 2%;
         margin-right: 2%;
         margin-bottom: 20px;
@@ -313,6 +318,31 @@
 
 }
 
+// Box : Support
+// ---
+// Content on our support page
+.box--support {
+    // background: fade(@sabre-deco, 10%);
+    // #gradient > .vertical (@sabre-sidekick-light, @sabre-sidekick);
+
+
+    h2 {
+        text-align: center;
+    }
+
+    .fa {
+        color: @sabre-sidekick;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        float: left;
+        width: 50%;
+    }
+}
+
+.box--support--dark {
+    #gradient > .vertical (fade(@sabre-deco, 10%), @sabre-deco);
+}
 
 // Blog Entry
 // ---
@@ -389,6 +419,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+    margin-top: 20px;
 
     h3 {
         background: rgba(255,255,255,.2);
@@ -399,13 +430,19 @@
     }
 
     ul {
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-bottom: 20px;
+        margin: 20px;
         text-align: left;
     }
 
     li::before {
         color: @sabre-deco;
+    }
+}
+
+.promo--dark {
+    border-color: fade(@sabre-sidekick, 80%);
+
+    li::before {
+        color: @sabre-sidekick;
     }
 }

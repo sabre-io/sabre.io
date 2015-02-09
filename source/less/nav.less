@@ -76,8 +76,8 @@
 .nav--sidebar {
     max-height: 100%;
     overflow-y: auto;
-    overflow-x: hidden;
-    padding: 20px;
+    padding: 40px 20px;
+    -webkit-overflow-scrolling: touch;
 }
 
 
@@ -93,13 +93,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
+    height: 40px;
     z-index: @z-sidebar;
-
-    // Inside the sidebar we use the trigger to close the sidebar again ;)
-    .sidebar & {
-        top: 0;
-        left: 280px;
-    }
 
     @media (min-width: @screen-sm-min) {
         top: 0;
@@ -126,5 +121,9 @@
         .sidebar {
             display: block;
         }
+    }
+
+    &:checked ~ .hamburger-label {
+        color: @sabre-red;
     }
 }

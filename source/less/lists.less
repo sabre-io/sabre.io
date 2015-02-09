@@ -90,3 +90,38 @@
     }
 
 }
+
+
+// A List with different links
+.list--links {
+    border: 1px dotted @grey-light;
+    border-top: none;
+
+    dd {
+        border-top: 1px dotted @grey-light;
+    }
+
+    dt {
+        border-top: 1px dotted @grey-light;
+        padding: 10px;
+        float: left;
+        width: 90px;
+        background: fade(@grey-soft, 90%);
+    }
+
+    dd {
+        margin: 0;
+    }
+
+    a {
+        padding: 10px;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        &:hover {
+            background: @grey-softer;
+        }
+    }
+}
