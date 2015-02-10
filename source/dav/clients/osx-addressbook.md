@@ -8,10 +8,19 @@ clients, and it's shipped with OS X since version 10.6 (Snow Leopard). There
 are many bugs in the 10.6 client though, most of which have been solved in
 10.7.
 
-Technical details
------------------
+Technical information
+---------------------
 
-### Directory support =
+### Debugging
+
+To enable CardDAV traffic logging on 10.8 and above, run the following commands on the command line:
+
+    defaults write com.apple.addressbook.carddavplugin EnableDebug -bool YES
+    defaults write com.apple.addressbook.carddavplugin LogConnectionDetails -bool YES
+
+Logs will be written to ~/Library/Logs/CardDAVPlugin and may be viewed with 'Console.app'.
+
+### Directory support
 
 AddressBook.app has support for a global read-only directory. Addressbook.app
 does not allow simply browsing through the directory, it's used for searching
@@ -21,7 +30,7 @@ SabreDAV does have (very minimal) support for
 [CardDAVDirectory](/dav/carddav-directory), by providing a simple interface:
 `Sabre\CardDAV\IDirectory`.
 
-### 'Me' card 
+### 'Me' card
 
 AddressBook.app has the ability to mark a specific vcard as the users' own
 vcard. Support for this is built-in since SabreDAV 1.6.

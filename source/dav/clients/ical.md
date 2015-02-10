@@ -33,7 +33,7 @@ To enable logging:
 
     defaults write com.apple.iCal LogHTTPActivity -boolean TRUE
 
-Logging goes to 'Console.app'
+Logging goes to 'Console.app'.
 
 ### Subscriptions
 
