@@ -16,7 +16,7 @@ improvements and bugfixes.
   of recurrence rules. We got about a 1900% increase in speed. Most
   real-world calendars will not be as large, but should still benefit from
   this quite a bit.
-* We're not supporting parsing and validating `VAVAILABILITY` components,
+* We're now supporting parsing and validating `VAVAILABILITY` components,
   which is a new iCalendar component that may become an internet standard,
   but is currently still a [draft][2]. In the future we'll also add support
   for this in the freebusy generator, which will make it useful for sabre/dav
