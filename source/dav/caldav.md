@@ -10,7 +10,7 @@ versions:
 thisversion: 2.x
 ---
 
-The CalDAV plugins provides all the the logica and extensions to turn
+The CalDAV plugin provides all the logic and extensions to turn
 sabre/dav into a modern CalDAV server.
 
 This document is a quick guide to help you set-up a simple caldav server.
