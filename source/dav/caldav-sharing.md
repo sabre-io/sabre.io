@@ -20,7 +20,7 @@ accounts.
 
 Adding an implementation for Sharing to standard-sabredav would contradict
 these goals, so for this reason this is currently not implemented, although
-it may very well in the future; but probably not before SabreDAV 2.0.
+it may very well in the future.
 
 The interface works however, so if you implement all this, and do it
 correctly sharing _will_ work. It's not particularly easy, and I _urge you_
