@@ -42,8 +42,7 @@ Versioning scheme
 
 SabreDAV uses three digits for versions. `x.y.z`.
 
-The first part, `x`, is reserved for major overhauls of SabreDAV. At the time of
-writing, there's only `1.y.z`, so this has not happened yet.
+The first part, `x`, is reserved for major overhauls of SabreDAV.
 
 The `y` part is also for fairly large releases. We try to have one or two of
 these per year, but this fluctuates.
@@ -61,8 +60,8 @@ This should automatically do all the work. This should be 100% risk free,
 except in cases where we are fixing a major security issue, and we are not
 able to do so, without breaking backwards compatibility.
 
-This means an upgrade from `1.7.2` to `1.7.10` is always safe. Upgrading from
-`1.6.5` to `1.7.0` is not.
+This means an upgrade from `2.1.2` to `2.1.3` is always safe. Upgrading from
+`2.0.6` to `2.1.0` is not.
 
 For versions where we are changing `x` or `y`, we almost always want to break
 backwards compatibility in some areas. Depending on what features you are
