@@ -13,6 +13,11 @@ Support
         Community Support
     </h2>
 
+    <p>
+      For questions and other feedback you can reach us via our mailing list
+      or irc.
+    </p>
+
     <dl class="list--links">
         <dt>Mailinglist:</dt>
         <dd><a href="http://groups.google.com/group/sabredav-discuss">http://groups.google.com/group/sabredav-discuss</a></dd>
@@ -20,7 +25,11 @@ Support
         <dd><a href="irc://irc.freenode.net/sabredav">#sabredav on Freenode</a></dd>
     </dl>
 
-    <strong>Issue Trackers</strong>
+    <p>
+      Found a bug? Wanna request a feature? You can open a ticket on one of our
+      issue trackers.
+    </p>
+
     <dl class="list--links">
         <dt><i class="fa fa-github"></i> GitHub</dt>
         <dd><a href="https://github.com/fruux/sabre-dav/issues/">sabre/dav</a></dd>
