@@ -115,5 +115,5 @@ callback:
 [3]: http://php.net/manual/en/book.xmlreader.php
 [4]: http://php.net/manual/en/book.xmlwriter.php
 [5]: http://php.net/manual/en/class.jsonserializable.php
-[6]: /xml/reading/
-[7]: /xml/writing/
+[6]: /xml/writing/
+[7]: /xml/reading/
