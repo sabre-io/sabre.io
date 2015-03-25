@@ -197,9 +197,9 @@ To use this new class:
 
 Now to serialize it:
 
-    $writer->write(
+    $writer->write([
     	'{http://www.w3.org/2005/Atom}entry' => $entry,
-    );
+    ]);
 
 Output:
 
