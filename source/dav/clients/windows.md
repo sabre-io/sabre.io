@@ -3,20 +3,8 @@ title: Windows
 type: client
 ---
 
-Two client implementations: Web Client and Web Folders
-------------------------------------------------------
-
-Windows comes with two WebDAV clients. The preferred client is the "Web
-Client" client, otherwise known as "mini-redirector". The older client is
-known as "Web Folders".
-
-Mapping to a drive letter via Web Client is quite beneficial, as it integrates
-directly into your operation system. Web Folders will not allow you to edit
-files directly, it will only allow you to drag and drop from and into a WebDAV
-folder.
-
-Using Web Client
-----------------
+Setting up a WebDAV connection
+------------------------------
 
 1. Open 'Computer' from your start menu or desktop
 2. Open the 'Map network drive' wizard
@@ -26,23 +14,69 @@ Note that you need to have the Web Client service enabled and running for Web
 Client to work. Some OS versions have it disabled, e.g. Windows Server 2003.
 Additional some optimisation instructions lead to it being disabled.
 
-Note that basic Auth will not work by default. Using either no authentication
-at all or using Digest authentication will work.
-
 You can also map a drive on the command line by typing:
 
     net use * http://example.org/dav/
 
-Using Web Folders
------------------
+### Using Basic Auth
 
-  # Open up Internet Explorer
-  # Press File, Open and fill in the full url
-  # Check the "Open as Web Folder" setting
-  # Press Ok
+Basic Authentication is not supported on Windows by default, but you can turn
+it on using the registry:
 
-Windows 7
----------
+* Create a new registry key called
+  `HKLM\SYSTEM\CurrentControlSet\Services\WebClient\Parameters\UseBasicAuth` and
+* Set the value to '1' (without quotes).
+
+It was also reported that in certain cases
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters\BasicAuthLevel`
+needs to be set to 2
+
+  * [KB928692][4]
+  * [KB841215][5]
+
+Save the following to a `.reg` file and open it to simplify patching the
+registry:
+
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters]
+    "UseBasicAuth"=dword:00000001
+    "BasicAuthLevel"=dword:00000002
+
+Make sure you restart the 'WebClient' service afterwards. You can do this via
+`Control Panel -> Performance And Maintanance -> Administrative Tools -> Services`.
+
+Issues
+------
+
+Windows clients have a wide range of technical issues, varying between
+versions. This page aims to categorize them all and show a list of windows
+versions where these issues have been confirmed.
+
+The grid below has the following values:
+
+* 'X' - If there's a known issue for that version.
+* '?' - If the issue has not been confirmed for that version
+* Empty, if it's definitely not an issue, or assumed it's not an issue.
+
+
+| Issue name       | Windows XP | Windows Vista | Windows 7 | Windows 8 | Windows 8.1 | Windows 10 |
+| ---------------- | ---------- | ------------- | --------- | --------- | ----------- | ---------- |
+| performance      |            |               | X         | ?         | ?           | ?          |
+| vistabug         |            | X             |           |           |             |            |
+| root-1           | X          | X             |           |           |             |            |
+| root-2           | X          |               |           |           |             |            |
+| ms-author        | X          | ?             | ?         | ?         | ?           | ?          |
+| whitespace       | X          | ?             |           |           |             |            |
+| getlastmodified  | X          |               |           |           |             |            |
+| charactersets    | X          | ?             | ?         | ?         | ?           | ?          |
+| locking          | X          | ?             |           |           |             |            |
+| filesize         |            |               | X         | X         | X           | ?          |
+| displayname      | X          | ?             | ?         | ?         | ?           | ?          |
+| auth             | X          | X             | X         | X         | X           | X          |
+| port             | X          | ?             | ?         | ?         | ?           | ?          |
+| sni              | X          | X             | X         | X         | ?           | ?          |
+| caching          |            |               | X         | X         | X           | X          |
+
+### performance
 
 Windows 7 has a serious performance issue with WebDAV volumes. By default,
 accessing WebDAV volumes on Windows 7 is very slow.
@@ -52,15 +86,14 @@ Tools / Internet Options / Connections / LAN Settings.
 
 See [this article with further information][1].
 
-Windows Vista
--------------
+
+### vistabug
 
 On Windows Vista, if you use the Web Folders client, you may need to install
 [Software Update for Web Folders (KB907306)][2] to avoid the following error:
 "The folder you entered does not appear to be valid".
 
-Windows Vista and earlier
--------------------------
+### root1
 
 These older implementations require the WebDAV service to sit at the root of a
 domainname. There's no way you can connect to a url deeper in the WebDAV
@@ -72,8 +105,7 @@ request to your WebDAV server, for example:
     RewriteEngine On
     RewriteRule ^/(.*)$ /server.php [L]
 
-Windows XP
-----------
+### root2
 
 Windows XP has even more quirks, and will treat the root of your WebDAV server
 as if it was connecting to an SMB server. You'll notice that when you're
@@ -88,51 +120,19 @@ operations happen within sub-directories of your share.
 The easiest way to do this is by simply creating a single top-level `/dav/`
 directory.
 
-Technical details
------------------
-
-User agents:
-
-    Vista:
-    Microsoft-WebDAV-MiniRedir/6.0.6000
-
-    XP:
-    Microsoft-WebDAV-MiniRedir/5.1.2600
-    Microsoft Data Access Internet Publishing Provider DAV 1.1
-    Microsoft Data Access Internet Publishing Provider Cache Manager
-
-### MS-Author
+### ms-author
 
 Windows XP _requires_ the following HTTP header when making OPTIONS requests:
 
     MS-Author-Via: DAV
 
-### Whitespace
+### whitespace
 
 Windows XP does not like whitespace in xml body responses for `PROPPATCH`
 and `PROPFIND`. Make sure you send back the xml response with no whitespace
 at all. It took the author a very long time to figure this out.
 
-### Translate
-
-Windows sends along a 'Translate: f' header along with every request. The idea
-is that if you for example access a php file, and translate is set to 'f', you
-would retrieve the php source file. If translate is set to 't', the php file
-should be run and the output should be returned.
-
-This is currently irrelevant to SabreDAV. We don't know how to trigger
-`Translate: t` either, and we'd recommend against doing anything with it.
-
-### Creating new files
-
-Windows seems to perform the following actions when doing a PUT request:
-
-1. Create an empty file using PUT
-2. Lock the newly created file
-3. PUT on the same file again with the actual file body
-4. PROPPATCH request
-
-### Properties
+### getlastmodified
 
 Windows XP requires a special format for the getlastmodified dav property in
 the propfind response. An example is:
@@ -143,35 +143,7 @@ This did no longer seem to be an issue with Windows XP SP3. Because this
 actually causes an incompatibility with MS Office, this is removed as per
 SabreDAV 1.7.4 and 1.8.2.
 
-Windows XP requests the following webdav properties when making requests:
-
-* name
-* parentname
-* href
-* ishidden
-* iscollection
-* isreadonly
-* getcontenttype
-* contentclass
-* getcontentlanguage
-* creationdate
-* lastaccessed
-* getlastmodified
-* getcontentlength
-* resourcetype
-* isstructureddocument
-* defaultdocument
-* displayname
-* isroot
-
-Windows (XP and Vista) introduces the following properties under the
-`urn:schemas-microsoft-com:` xml namespace:
-
-* Win32CreationTime (example: Sat, 26 Apr 2008 20:38:50 GMT)
-* Win32LastAccessTime (same format)
-* Win32FileAttributes (example: 00002020) indicates the classic MS-DOS properties, such as 'read only, hidden, archive, system' and a couple of newer ones. Haven't located detailed docs yet
-
-### Character sets
+### charactersets
 
 Windows XP sends encoded characters in HTTP requests as ISO-8859-1. Possibly
 even CP-1252, but this has yet to be verified.
@@ -187,7 +159,7 @@ ISO-8859-1. A workaround for this will probably not happen in the short-term.
 These issues are verified on Windows XP SP3, but no testing has been done on
 Windows Vista or Windows 7.
 
-### Another locking bug
+### locking
 
 Normally windows unlocks files with the following header in the UNLOCK request:
 
@@ -199,7 +171,7 @@ For some reason however, it will specify it incorrectly.
 
 Starting SabreDAV 1.4.3 there's a workaround for this behaviour.
 
-### File size limitations
+### filesize
 
 Windows has introduced a file size limitation of 50000000 bytes in a security
 update.
@@ -215,7 +187,7 @@ from a WebDAV volume:
 The limitation can only be disabled on client side, by changing registry keys.
 See [this article][3] for detailed instructions.
 
-### {DAV:}displayname support
+### displayname
 
 It was reported in earlier clients (XP at least, and perhaps Vista too) that
 sending back a displayname can cause the client to use the displayname instead
@@ -225,7 +197,7 @@ This will cause all kinds of bugs, so it's best to avoid `{DAV:}displayname`
 entirely. It was was reported that this bug was 'fixed' in Windows 7 by taking
 out support for `{DAV:}displayname` entirely.
 
-### Authentication
+### auth
 
 HTTP Digest is support across the board. HTTP Basic auth can be used directly
 from within IE, but will not work by default if you're using Web Client, unless
@@ -261,12 +233,12 @@ The workaround for this is making the user go through all the login prompts
 possible to automatically detect and strip out these usernames but that could
 be problematic in relation to HTTP digest authentication.
 
-### Further notes / quirks
+### port
 
 It appears that Windows does not support ports other than the default (80).
 Make sure your server is not running on a non-default http port.
 
-### HTTPS / SNI problems
+### sni
 
 It was reported that the Windows 7 and 8 (and likely older clients as well) do
 not support 'SNI' (server name identification), which is a technology that
@@ -284,7 +256,7 @@ config to only provide TLSv1.1 and above the connection to your server will fail
 
 See [this article with further information][7].
 
-### Caching
+### caching
 
 It was reported that Windows 7 has a 60 second cache, which may be frustrating
 if you expect an immediate update.
@@ -292,10 +264,66 @@ if you expect an immediate update.
 This can be disabled using a registry key. See [http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx](http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx) for more info.
 
 
-### More information
+Technical details
+-----------------
 
-greenbytes.de has a [good list][6] with detailed information about some of
-these bugs.
+User agents:
+
+    Vista:
+    Microsoft-WebDAV-MiniRedir/6.0.6000
+
+    XP:
+    Microsoft-WebDAV-MiniRedir/5.1.2600
+    Microsoft Data Access Internet Publishing Provider DAV 1.1
+    Microsoft Data Access Internet Publishing Provider Cache Manager
+
+### Properties
+
+Windows XP requests the following webdav properties when making requests:
+
+* name
+* parentname
+* href
+* ishidden
+* iscollection
+* isreadonly
+* getcontenttype
+* contentclass
+* getcontentlanguage
+* creationdate
+* lastaccessed
+* getlastmodified
+* getcontentlength
+* resourcetype
+* isstructureddocument
+* defaultdocument
+* displayname
+* isroot
+
+Windows (XP and Vista) introduces the following properties under the
+`urn:schemas-microsoft-com:` xml namespace:
+
+* Win32CreationTime (example: Sat, 26 Apr 2008 20:38:50 GMT)
+* Win32LastAccessTime (same format)
+* Win32FileAttributes (example: 00002020) indicates the classic MS-DOS properties, such as 'read only, hidden, archive, system' and a couple of newer ones. Haven't located detailed docs yet
+
+
+
+
+Using Web Folders
+-----------------
+
+Before Windows 7, Windows had a feature called 'Web folders'. This is a
+different WebDAV client with less features. This feature is removed in
+Windows 7.
+
+To use it:
+
+  # Open up Internet Explorer
+  # Press File, Open and fill in the full url
+  # Check the "Open as Web Folder" setting
+  # Press Ok
+
 
 [1]: http://oddballupdate.com/2009/12/18/fix-slow-webdav-performance-in-windows-7/
 [2]: http://www.microsoft.com/downloads/details.aspx?FamilyId=17C36612-632E-4C04-9382-987622ED1D64&displaylang=en
