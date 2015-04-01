@@ -305,6 +305,7 @@ Windows (XP and Vista) introduces the following properties under the
 
 * Win32CreationTime (example: Sat, 26 Apr 2008 20:38:50 GMT)
 * Win32LastAccessTime (same format)
+* Win32LastModifiedTime (same format)
 * Win32FileAttributes (example: 00002020) indicates the classic MS-DOS properties, such as 'read only, hidden, archive, system' and a couple of newer ones. Haven't located detailed docs yet
 
 To easily take advantage of these properties, enable the [propertystorage plugin][6].
