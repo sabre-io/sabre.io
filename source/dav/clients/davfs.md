@@ -30,12 +30,12 @@ working in teams.
 ### Sample user agent
 
     davfs2/1.1.2 neon/0.26.2
+    davfs2/1.4.7 neon/0.30.0
 
 ### Properties
 
 DavFSv2 asks for the following properties from the `DAV:` namespace
 
-* displayname
 * getetag
 * getcontentlength
 * creationdate

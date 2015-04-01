@@ -11,6 +11,8 @@ Technical details
 ### Spotted user agent(s):
 
     gvfs/1.4.1
+    gvfs/1.20.1
+
 
 ### Properties
 
