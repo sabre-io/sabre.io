@@ -177,6 +177,167 @@ This creates the new output:
 
     )
 
+
+Other standard XML parsers
+--------------------------
+
+There's a number of standard XML parsers included, we show an example of each.
+
+Assume that every example below here uses an xml document that looks like this:
+
+    <?xml version="1.0"?>
+    <root xmlns="http://example.org/">
+        <elem1>value1</elem1>
+        <elem2 att="attvalue">value2</elem2>
+    </root>
+
+
+### Base
+
+The 'Base' parser is the default, it causes every element to be deserialized
+as an array with three keys:
+
+1. name
+2. value
+3. attributes
+
+You don't ever need to specify it, as it's the default. This is how it would
+look like:
+
+    $reader = new Sabre\Xml\Reader();
+    $reader->elementMap = [
+        '{http://example.org/}root' => 'Sabre\Xml\Element\Base',
+    ];
+    $reader->xml($xml);
+
+    print_r($reader->parse());
+
+Output:
+
+    Array
+    (
+        [name] => {http://example.org/}root
+        [value] => Array
+            (
+                [0] => Array
+                    (
+                        [name] => {http://example.org/}elem1
+                        [value] => value1
+                        [attributes] = Array ( )
+                    )
+                [1] => Array
+                    (
+                        [name] => {http://example.org/}elem2
+                        [value] => value2
+                        [attributes] = Array
+                            (
+                                [att] => attvalue
+                            )
+                    )
+            )
+        [attributes] => Array ( )
+    )
+
+### KeyValue
+
+`KeyValue` flattens the array a bit. The assumption is that an element has a set
+of child elements, and every child element only appears once.
+
+    $reader = new Sabre\Xml\Reader();
+    $reader->elementMap = [
+        '{http://example.org/}root' => 'Sabre\Xml\Element\KeyValue',
+    ];
+    $reader->xml($xml);
+
+    print_r($reader->parse());
+
+Output:
+
+    Array
+    (
+        [name] => {http://example.org/}root
+        [value] => Array
+            (
+                [{http://example.org/}elem1] => value1
+                [{http://example.org/}elem2] => value2
+            )
+
+        [attributes] => Array
+            (
+            )
+
+    )
+
+### Elements
+
+Using `Elements` implies you only care about element names, not about their
+contents. This could be useful in case you use elements as a sort of 'enum'
+structure:
+
+    $reader = new Sabre\Xml\Reader();
+    $reader->elementMap = [
+        '{http://example.org/}root' => 'Sabre\Xml\Element\Elements',
+    ];
+    $reader->xml($xml);
+
+    print_r($reader->parse());
+
+Output:
+
+    Array
+    (
+        [name] => {http://example.org/}root
+        [value] => Array
+            (
+                [0] => {http://example.org/}elem1
+                [1] => {http://example.org/}elem2
+            )
+
+        [attributes] => Array
+            (
+            )
+
+    )
+
+### XmlFragment
+
+In some cases you might want to allow 'free form XML' to be specified in for
+example an API. Atom for instance allows XHTML to be embedded, and WebDAV
+allows users to store custom properties consisting of complex xml structures
+with their own namespaces.
+
+XmlFragment extracts an entire XML subtree and creates a object that can be
+stored in a database, and later on embedded in an xml document again:
+
+
+    $reader = new Sabre\Xml\Reader();
+    $reader->elementMap = [
+        '{http://example.org/}root' => 'Sabre\Xml\Element\XmlFragment',
+    ];
+    $reader->xml($xml);
+
+    print_r($reader->parse());
+
+Output:
+
+    Array
+    (
+        [name] => {http://example.org/}root
+        [value] => Sabre\Xml\Element\XmlFragment Object
+            (
+                [xml:protected] =>
+    <elem1 xmlns="http://example.org/">value1</elem1>
+    <elem2 xmlns="http://example.org/" att="attvalue">value2</elem2>
+
+            )
+
+        [attributes] => Array
+            (
+            )
+
+    )
+
+
 Custom element parsers
 ----------------------
 
