@@ -3,8 +3,11 @@ title: KDE
 type: client
 ---
 
-KDE is a bit of a chatty client, doing a significant number of redundant
-requests. But nowhere near as much as [Finder](/dav/clients/finder).
+KDE is a great, stable and modern client. The KDE client is fast, and does
+very little requests.
+
+It also is able to do efficient `MOVE` operations. It also uses `COPY` but
+unfortunately does not yet copy entire directory trees.
 
 Technical details
 -----------------
@@ -12,6 +15,7 @@ Technical details
 User agent:
 
     Mozilla/5.0 (compatible; Konqueror/4.4; Linux) KHTML/4.4.2 (like Gecko) Kubuntu
+    Mozilla/5.0 (X11; Linux i686) KHTML/4.14.1 (like Gecko) Konqueror/4.14
 
 KDE identifies itself as it's browser 'Konqueror', presumably because the same
 HTTP client library is used.
@@ -33,5 +37,6 @@ HTTP client library is used.
 
 `{DAV:}executable` is non-standard. There's a [DAVFS](/dav/clients/davfs)
 pseudo-standard to find out if a file is an executable, but it's in a
-different namespace.
+different namespace. The `{DAV:}executable` actually no longer appears in
+newer versions.
 
