@@ -67,7 +67,7 @@ The grid below has the following values:
 | ms-author        | X          | ?             | ?         | ?         | ?           | ?          |
 | whitespace       | X          | ?             |           |           |             |            |
 | getlastmodified  | X          |               |           |           |             |            |
-| charactersets    | X          | ?             | ?         | ?         | ?           | ?          |
+| charactersets    | X          | ?             |           |           |             |            |
 | locking          | X          | ?             |           |           |             |            |
 | filesize         |            |               | X         | X         | X           | ?          |
 | displayname      | X          | ?             | ?         | ?         | ?           | ?          |
@@ -307,7 +307,7 @@ Windows (XP and Vista) introduces the following properties under the
 * Win32LastAccessTime (same format)
 * Win32FileAttributes (example: 00002020) indicates the classic MS-DOS properties, such as 'read only, hidden, archive, system' and a couple of newer ones. Haven't located detailed docs yet
 
-
+To easily take advantage of these properties, enable the [propertystorage plugin][6].
 
 
 Using Web Folders
@@ -330,5 +330,5 @@ To use it:
 [3]: http://support.microsoft.com/kb/900900/en-us
 [4]: http://support.microsoft.com/?scid=kb%3Ben-us%3B928692&x=21&y=17
 [5]: http://support.microsoft.com/kb/841215
-[6]: http://greenbytes.de/tech/webdav/webdav-redirector-list.html
+[6]: /dav/property-storage/
 [7]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa382925%28v=vs.85%29.aspx
