@@ -10,7 +10,7 @@ Connecting with Cyberduck
 -------------------------
 
 1. Connect with cyberduck user either 'quick connect' and fill in a dav://hostname url
-2. Or create a new 'WebDAV' bookmark and enter the full http:// address 
+2. Or create a new 'WebDAV' bookmark and enter the full http:// address
 
 Technical details
 -----------------
@@ -19,6 +19,8 @@ Sample user agent:
 
     Cyberduck/3.0.3 (4205)
     Cyberduck/4.6.5 (Mac OS X/10.10.2) (x86_64)
+
+Cyberduck at least understands HTTP Basic. Digest is currently untested.
 
 Cyberduck uses `{DAV:}allprop` to request properties. Cyberduck supports custom
 WebDAV properties, but puts them all in the `SAR:` namespace.
@@ -44,6 +46,7 @@ Authorization: Basic YWRtaW46YWRtaW4=
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><propertyupdate xmlns="DAV:"><set><prop><s:X-FOO xmlns:s="SAR:">X-Bar</s:X-FOO></prop></set><remove><prop/></remove></propertyupdate>
 ```
 
-Cyberduck at least understands HTTP Basic. Digest is currently untested.
+To easily take advantage of cyberduck's custom properties, simply enable the [propertystorage plugin][2].
 
 [1]: http://cyberduck.io/
+[2]: /dav/propertystorage/
