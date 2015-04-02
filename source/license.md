@@ -11,7 +11,7 @@ All the sabre-projects use the three-clause BSD-license.
 See [opensource.org][1] for more info.
 
 
-    Copyright (C) 2007-2014 fruux GmbH (https://fruux.com/).
+    Copyright (C) 2007-2015 fruux GmbH (https://fruux.com/).
 
     All rights reserved.
 
