@@ -29,9 +29,9 @@ layout: default
 | [rfc5842][rfc5842] | WebDAV BIND                       | Future. Maybe.
 | [rfc5995][rfc5995] | Using POST to Add Members         | Future. Maybe.
 | [rfc6047][rfc6047] | IMip                              | See [scheduling][24].
-| [rfc6321][rfc6321] | xCal                              | Future
+| [rfc6321][rfc6321] | xCal                              | Parsed by [sabre/vobject][1].
 | [rfc6350][rfc6350] | vCard 4.0                         | Parsed by [sabre/vobject][1].
-| [rfc6351][rfc6351] | xCard                             | Future
+| [rfc6351][rfc6351] | xCard                             | Parsed by [sabre/vobject][1].
 | [rfc6352][rfc6352] | CardDAV                           | Supported. See [CardDAV][7].
 | [rfc6473][rfc6473] | VCard KIND:application            | Properties picked up by [sabre/vobject][1].
 | [rfc6474][rfc6474] | VCard Place of birth/death        | Properties picked up by [sabre/vobject][1].
