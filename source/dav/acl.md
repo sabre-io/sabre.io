@@ -45,7 +45,7 @@ to add a top-level 'principals' collection to your tree.
       Sabre\DAV;
 
     // Assuming we have a database connection
-    $principalBackend = new DAVACL\PrincipalBackend_PDO($pdo);
+    $principalBackend = new DAVACL\PrincipalBackend\PDO($pdo);
 
     $tree = array(
         new DAVACL\PrincipalCollection($principalBackend),
