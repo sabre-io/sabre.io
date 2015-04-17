@@ -58,6 +58,8 @@ The request to set a "Me" card looks as follows:
 
 I've noticed that if the Me card is not supported, Addressbook.app may crash.
 
+More information can be found on the [me-card page](/dav/carddav-me-card/).
+
 Bugs
 ----
 
