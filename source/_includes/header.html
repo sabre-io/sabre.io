@@ -16,7 +16,7 @@
         <nav class="nav nav--page">
             <ul>
                 <li class="size-auto"></li>
-                <li><a href="{{ site.url }}/dav">Docs</a></li>
+                <li><a href="{{ site.url }}/{% if product == "katana" %}katana/install{% else %}dav{% endif %}">Docs</a></li>
                 <li><a href="{{ site.url }}/blog">Blog</a></li>
                 <li><a href="{{ site.url }}/support">Support</a></li>
                 <li class="size-auto text--right"><a href="https://github.com/fruux?query=sabre"><i class="fa fa-github"></i></a></li>
