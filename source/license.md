@@ -6,7 +6,7 @@ nocomments: true
 License
 =======
 
-All the sabre-projects use the three-clause BSD-license.
+All the sabre-projects, with the exception of sabre/katana, use the three-clause BSD-license.
 
 See [opensource.org][1] for more info.
 
