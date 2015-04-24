@@ -15,9 +15,9 @@ bodyClass: page--katana
             <img src="{{ site.url }}/img/logo-katana.png" alt="Sabre Katana">
             <p class="prodname--katana">sabre/<span>katana</span></p>
             <h1>The modern and lightweight CardDAV and CalDAV server.</h1>
-            <a class="install" href="{{ site.url }}/katana/install">
+            <a class="install" href="http://sabre.io/dav/install">
                 <i class="fa fa-download"></i>
-                Install
+                Download
             </a>
         </div>
         <div class="box-list">
@@ -39,7 +39,7 @@ bodyClass: page--katana
                 Built-In user management.
             </li>
             <li>
-                <a href="{{ site.url }}/katana/install">
+                <a href="">
                     <i class="fa fa-file-text fa-fw"></i>
                     Awesome documentation
                 </a>
@@ -69,18 +69,10 @@ bodyClass: page--katana
         <a href="http://sabre.io" class="btn">sabre.io</a>
     <div class="panel panel--t panel--trustedby">
         <p>Proven technology that is trusted by:</p>
-        <a href="https://www.atmail.com" title="sabre/dav is trusted by atmail.">
-            <img src="{{ site.url }}/img/trusted/atmail.png" alt="atmail works with sabre/dav">
-        </a>
-        <a href="http://tech.blog.box.com/2014/10/in-search-of-an-open-source-webdav-solution/" title="sabre/dav is trusted by Box.">
-            <img src="{{ site.url }}/img/trusted/box.png" alt="Box works with sabre/dav">
-        </a>
-        <a href="https://fruux.com" title="sabre/dav is developed by fruux.">
-            <img src="{{ site.url }}/img/trusted/fruux.png" alt="Our consumer product fruux is powered by sabre/dav">
-        </a>
-        <a href="http://owncloud.org" title="sabre/dav is trusted by ownCloud.">
-            <img src="{{ site.url }}/img/trusted/owncloud.png" alt="ownCloud works with sabre/dav">
-        </a>
+        <img src="{{ site.url }}/img/trusted/atmail.png" alt="Logo atmail">
+        <img src="{{ site.url }}/img/trusted/box.png" alt="Logo box">
+        <img src="{{ site.url }}/img/trusted/fruux.png" alt="Logo fruux">
+        <img src="{{ site.url }}/img/trusted/owncloud.png" alt="Logo owncloud">
     </div>
 </section>
 
@@ -89,7 +81,7 @@ bodyClass: page--katana
     <img src="{{ site.url }}/img/trusted/fruux.png" alt="Logo fruux">
     <div class="box-wrapper">
         <h2>
-            sabre/dav and the other sabre.io projects are developed by
+            sabre/dav and the other sabre.iop rojects are developed by
             <a href="https://fruux.com" title="Visit the fruux website">fruux</a>.
         </h2>
         <ul>
@@ -103,3 +95,4 @@ bodyClass: page--katana
         <a href="mailto:sales@fruux.com" class="btn">contact us</a>
     </p>
 </section>
+
