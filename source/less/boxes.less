@@ -7,12 +7,12 @@
 .box {
     .clearfix();
     padding: 10px;
+    max-width: @screen-lg;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
 
     @media (min-width: @screen-sm-min) {
-        padding: 40px;
+        padding: 20px 40px;
     }
 }
 
@@ -44,32 +44,11 @@
 .box-text {
     @media (min-width: @screen-sm-min) {
         float: left;
-        width: 40%;
-        margin-left: 10%;
+        width: 44%;
+        margin-left: 3%;
+        margin-right: 3%;
+
     }
-}
-
-// Box woth a listing feature
-.box-list {
-    text-align: center;
-    .clearfix();
-
-    @media (min-width: @screen-sm-min) {
-        text-align: left;
-        float: left;
-        width: 40%;
-    }
-
-}
-
-// Box Shadow
-.box-shadow {
-    height: 10px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    #gradient .vertical (fade(#000,0), fade(#000,15));
 }
 
 
@@ -82,6 +61,7 @@
 .box--hero {
     text-align: center;
     padding:  20px 20px 40px 20px;
+    margin-bottom: 10px;
 
     p {
         font-size: @headline-h4;
@@ -249,21 +229,6 @@
             .flex();
         }
     }
-}
-
-// Box : Sand gradient
-.box--sandbottom {
-    #gradient > .vertical (fade(@sand,0), @sand);
-}
-
-// Box : Sand full
-.box--sand {
-    background: @sand;
-}
-
-// Box : Sand full
-.box--ice {
-    background: @ice;
 }
 
 

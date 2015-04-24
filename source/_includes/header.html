@@ -1,17 +1,10 @@
 <header class="pagehead">
 
     <div class="pagehead-inner">
-        {% if product == "katana" %}
-        <a class="logo logo--inline logo--katana" href="{{ site.url }}/">
-            <img src="{{site.url}}/img/logo-katana.png" alt="sabre/{{product}}">
-            sabre<span>/{{product}}</span>
-        </a>
-        {% else %}
-        <a class="logo logo--inline" href="{{ site.url }}/">
+        <a class="logo" href="{{ site.url }}/">
             <img src="{{site.url}}/img/logo.png" alt="sabre/{{product}}">
             sabre<span>/{{product}}</span>
         </a>
-        {% endif %}
 
         <nav class="nav nav--page">
             <ul>
