@@ -390,10 +390,12 @@ To do this, simply call the `convert()` method on the vCard object.
     END:VCARD
     */
 
-Note that not everything can cleanly convert between versions, and it's
-probable that there's a few properties that could be converted between
-versions, but isn't yet. If you find something, open a feature request ticket
-on Github.
+It's important to note that not every bit of information can be cleanly
+converted between versions. So there's a possibility that you loose some
+small bits of information going back and forward. For instance, vCard 2.1
+is the only vCard version that supports the `AGENT` property, so it's
+dropped when going to vCard 3 or higher.
+
 
 CLI tool
 --------
