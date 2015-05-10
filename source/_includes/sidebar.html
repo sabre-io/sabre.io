@@ -1,15 +1,6 @@
 <aside class="sidebar">
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
-            <li><a href="{{site.url}}/katana">sabre/katana</a>
-                {% if product == "katana" %}
-                <ul>
-                    <li><a href="{{ site.url }}/katana/install">Installation</a></li>
-                    <li><a href="{{ site.url }}/katana/updating">Updating</a></li>
-                    <li><a href="{{ site.url }}/katana/license">License</a></li>
-                </ul>
-                {% endif %}
-            </li>
             <li><a href="{{ site.url }}/dav">sabre/dav</a>
                 {% if product == "dav" %}
                 <ul>
@@ -95,6 +86,14 @@
                     <li><a href="{{ site.url }}/http/client">The HTTP client</a></li>
                     <li><a href="{{ site.url }}/http/reverseproxy">Writing a reverse proxy</a></li>
                     <li><a href="{{ site.url }}/http/api">Request and Response APIs</a></li>
+                </ul>
+                {% endif %}
+            </li>
+            <li><a href="{{site.url}}/katana">sabre/katana</a>
+                {% if product == "katana" %}
+                <ul>
+                    <li><a href="{{ site.url }}/katana/install/">Installation</a></li>
+                    <li><a href="{{ site.url }}/katana/updating/">Updating</a></li>
                 </ul>
                 {% endif %}
             </li>
