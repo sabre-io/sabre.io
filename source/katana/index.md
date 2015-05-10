@@ -36,8 +36,10 @@ sabre/katana will support the following features:
 Next steps
 ----------
 
-* [Installation instructions][1]
-* [License][2]
+* [Installation instructions][1].
+* [License][2].
+* [Development goals][3].
 
 [1]: /katana/install/
 [2]: /license/
+[3]: /katana/goals/
