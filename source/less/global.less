@@ -30,20 +30,99 @@ body {
     margin-right: auto;
 }
 
-.image-cutbottom {
-    overflow: hidden;
-    margin-bottom: -10px;
 
-    img {
-        margin-bottom: -20px;
+// Type
+// ---
+
+h1 {
+    font-size: @headline-h1;
+    line-height: 44px;
+    padding-bottom: 5px;
+    color: @sabre-red;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: @grey;
+    font-size: @headline-h2;
+    line-height: @line-height-base*2;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: @headline-h3;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed @sabre-deco;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: @linkcolor;
+
+    h1 & {
+        text-decoration: none;
     }
 
-    @media (min-width: @screen-sm){
-        margin-bottom: -40px;
+    h2 & {
+        color: @grey;
+    }
+
+    &:visited {
+        color: @linkcolor-visited;
+
+        h2 & {
+            color: @grey;
+        }
+    }
+
+    &:hover {
+        color: @linkcolor-hover;
+    }
+
+
+}
+
+blockquote,
+.version-note {
+    background: #eee;
+    padding: 5px 25px 5px 5px;
+    border-left: 20px solid #ccc;
+    margin-top: 15px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    list-style-type: none;
+
+    li:before {
+        width: 15px;
+        display: inline-block;
+        content: "\f101";
+        font-family: 'FontAwesome';
+        font-size: 0.8em;
+        margin-left: -15px;
+        vertical-align: text-top;
+        color: @sabre-sidekick;
     }
 }
 
-
+code {
+    line-height: 18px;
+    overflow-y: auto;
+}
 
 
 // Table
@@ -197,28 +276,13 @@ footer {
     font-size: @headline-h3;
     font-weight: 500;
 
-    // the accent
-    span {
-        color: @grey-mid;
-    }
-
     &:visited {
         color: @grey;
     }
 
-
     &:hover {
         color: @linkcolor;
-
-        span {
-            color: lighten(@linkcolor, 25);
-        }
     }
-
-
-}
-
-.logo--inline {
 
     // the round red dot
     img {
@@ -226,6 +290,14 @@ footer {
         vertical-align: middle;
     }
 
+    // the accent
+    span {
+        color: @grey-mid;
+
+        &:hover {
+            color: lighten(@linkcolor, 25);
+        }
+    }
 }
 
 
