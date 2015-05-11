@@ -4,6 +4,8 @@ sidebar: none
 product: katana
 ---
 
+<img src="{{ site.url }}/img/logo-katana-hero.png" alt="sabre/katana Logo">
+
 sabre/katana is the codename for our next-generation CardDAV, CalDAV and WebDAV
 server. It builds upon [sabre/dav](/dav), and adds a convenient management interface.
 
