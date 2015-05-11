@@ -1,6 +1,6 @@
 ---
+title: Installation
 layout: default
-sidebar: none
 product: katana
 ---
 
