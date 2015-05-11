@@ -4,8 +4,8 @@ sidebar: none
 product: katana
 ---
 
-sabre/katana is the codename for our next-generation cal, card- and webdav
-server. It builds upon sabre/dav, and adds a convenient management interface.
+sabre/katana is the codename for our next-generation CardDAV, CalDAV and WebDAV
+server. It builds upon [sabre/dav](/dav), and adds a convenient management interface.
 
 
 Developer preview
@@ -28,10 +28,10 @@ Features
 sabre/katana will support the following features:
 
 1. Web and CLI installer.
-2. CalDAV
-3. CardDAV
-4. WebDAV
-5. HTML administrative interface to manage users, calendars and address books.
+2. CardDAV.
+3. CalDAV.
+4. WebDAV.
+5. HTML administrative interface to manage users, address books and calendars.
 
 Next steps
 ----------

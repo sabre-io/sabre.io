@@ -1,10 +1,10 @@
 ---
-title: Development goals 
+title: Development goals
 product: katana
 layout: default
 ---
 
-While sabre/dav has obtained a decent marketshare for cal-, card-, and webdav
+While [sabre/dav](/dav) has obtained a decent marketshare for CardDAV, CalDAV, and WebDAV
 servers, traditionally it's always been intended to be a development library.
 
 Because of this goal, it always had a very high barrier to entry. We want to
@@ -24,9 +24,9 @@ Installer design goals
 
 The installer needs to help with getting people started getting their server
 up and running. Traditionally it was only ever possible to set up sabre/dav
-by copying files, and you were even forced to manually run sql queries.
+by copying files, and you were even forced to manually run SQL queries.
 
-The installer will now walk you throug the steps, in a way so that it's
+The installer will now walk you through the steps, in a way so that it's
 doable on people just having access to a shared host with (god forbid)
 something like an FTP account.
 
@@ -43,10 +43,10 @@ from the rest of the package.
 * The admin interface should be able to communicate with *any* sabre/dav
   server.
 * The admin interface allows the admin to:
-  * manage users.
-  * manage calendars.
-  * manage address books.
-  * manage files.
+  * Manage users.
+  * Manage address books.
+  * Manage calendars.
+  * Manage files.
 * All of these management operations will be done via publicly documented
   standard sabre/dav APIs. If you use sabre/dav, you can implement the
   relevant API and take advantage.
@@ -61,6 +61,4 @@ Post 1.0 features:
   report vulnerabilities.
 * Work in a "non-admin" mode, so users can manage their own calendars even if
   they don't have admin-related features.
-* It should be tested with some non-sabre/dav-based servers. 
-
-
+* It should be tested with some non-sabre/dav-based servers.
