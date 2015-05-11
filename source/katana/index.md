@@ -1,5 +1,4 @@
 ---
-title: Installation
 layout: default
 product: katana
 ---
