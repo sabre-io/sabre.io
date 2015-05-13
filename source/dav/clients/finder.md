@@ -15,7 +15,7 @@ Connecting
 ----------
 
 1. Open finder
-2. Open the 'Go' menu and press Connect to Server (or press Apple-G)
+2. Open the “Go” menu and press “Connect to Server” (or press Apple-K)
 3. Fill in the full url to the webdav server, and hit connect
 
 Technical information
