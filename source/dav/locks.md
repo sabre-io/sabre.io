@@ -33,7 +33,7 @@ locking plugin to your server.
     $pdo = new PDO('sqlite:data/locks.sqlite');
 
     // Create the backend
-    $locksBackend = new Sabre\DAV\Locks\Backend\PDO();
+    $locksBackend = new Sabre\DAV\Locks\Backend\PDO($pdo);
 
     // Add the plugin to the server.
     $locksPlugin = new Sabre\DAV\Locks\Plugin(
