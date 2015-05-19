@@ -449,6 +449,14 @@ And then lastly, to instantiate everything `server.php`:
 
     $server->exec();
 
+The sabre/dav 3.0 solution
+--------------------------
+
+Since sabre/dav 3.0 the last few classes are now actually built in. Simply add
+`Sabre\DAVACL\FS\HomeCollection` to your tree.
+
+You still need a working principals backend though.
+
 [1]: /dav/gettingstarted/
 [2]: /dav/virtual-filesystems/
 [3]: /dav/acl/

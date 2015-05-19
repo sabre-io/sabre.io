@@ -5,7 +5,7 @@ versions:
     "1.8": /dav/1.8/writing-plugins/
     "2.x": /dav/2.x/writing-plugins/
     "3.x": /dav/writing-plugins/
-thisversion: 3.x
+thisversion: 2.x
 ---
 
 sabre/dav uses an event system for plugin development. There's a big list of
@@ -451,7 +451,7 @@ opportunity to handle a `REPORT` request.
 
 Example:
 
-    function myReport($reportName, $report, $uri) {
+    function myReport($reportName,DOMDocument $dom, $uri) {
 
       // $reportName contains the report name in clark-notation.
       // For example:
@@ -464,18 +464,10 @@ Example:
 
     $server->on('report','myReport');
 
-The `$report` parameter contains a fully parsed XML report. Processed by
-`sabre/xml`. Generally you will want to create a custom parser for these.
-You can do so by adding it to the elementMap:
-
-    $server->xml->elementMap['{http://example.org/ns}my-report'] = 'MyReportParserClass';
-
-If you are reading this and are actually interested in this, drop us a line.
-The documentation is extremely sparse here and we'd be happy to expand on
-this.
-
 
 ### `calendarObjectChange`
+
+**Since version 2.1.0**
 
 This event is triggered by the CalDAV plugin, whenever a calendar object got
 changed or created.
@@ -508,6 +500,8 @@ It has quite a bit of arguments:
 
 ### `schedule`
 
+**Since version 2.1.0**
+
 This event is triggered for scheduling operations. A scheduling operation is
 for example a invite to an event, a cancellation of an event or an
 accept/decline response to an event.
@@ -534,6 +528,8 @@ Consult the source for `Sabre\VObject\ITip\Message` for more information.
 
 ### `afterMove`
 
+**Since version 2.1.0**
+
 This event is triggered after a successful `MOVE` request. This is used by
 the system to copy WebDAV properties from the old to the new path, but could
 be used for other purposes as well.
@@ -548,6 +544,8 @@ Example:
 
 
 ### `afterResponse`
+
+**Since version 2.1.0**
 
 This event is triggered after a HTTP response is sent back to the DAV client.
 At this point it's no longer possible to influence the HTTP response, but it

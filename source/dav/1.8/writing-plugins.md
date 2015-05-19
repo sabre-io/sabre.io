@@ -3,7 +3,8 @@ title: Writing Plugins
 layout: default
 versions:
     "1.8": /dav/1.8/writing-plugins/
-    "2.x": /dav/writing-plugins/
+    "2.x": /dav/2.x/writing-plugins/
+    "3.x": /dav/writing-plugins/
 thisversion: "1.8"
 ---
 
