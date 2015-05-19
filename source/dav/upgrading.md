@@ -15,7 +15,7 @@ Upgrading a major version? Read the upgrade instructions here:
 * [1.7.x to 1.8.x](/dav/upgrade/1.7-to-1.8)
 * [1.8.x to 2.0.x](/dav/upgrade/1.8-to-2.0)
 * [2.0.x to 2.1.x](/dav/upgrade/2.0-to-2.1)
-* [2.1.x to 2.2.x](/dav/upgrade/2.1-to-2.2)
+* [2.1.x to 3.0.x](/dav/upgrade/2.1-to-3.0)
 
 Support length
 --------------
@@ -36,7 +36,7 @@ Currently and previously supported versions:
 | 1.8              | 5.3         | November 2012        | May 2015            |
 | 2.0              | 5.4         | May 2014             | November 2015       |
 | 2.1              | 5.4         | November 2014        |                     |
-| 2.2              | 5.5         | ????                 |                     |
+| 3.0              | 5.4         | ????                 |                     |
 
 Versioning scheme
 -----------------

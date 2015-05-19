@@ -1,5 +1,5 @@
 ---
-title: CardDAV me-card 
+title: CardDAV me-card
 layout: default
 ---
 
@@ -46,19 +46,19 @@ There's three differences between these two properties:
 1. It's stored in the `http://sabredav.org/ns` namespace and not
    `http://calendarserver.org/ns/`.
 2. the vcard-url property is stored on a principal, not on the addressbook home.
-3. the vcard-url property just holds a string value, whereas me-card is a 
+3. the vcard-url property just holds a string value, whereas me-card is a
    complex property with a `href` sub-element.
 
 The standard principals PDO backend has support for this property since 1.6
 and will store it in the `principals` table.
 
-Behavior as of sabre/dav 2.2
+Behavior as of sabre/dav 3.0
 ----------------------------
 
-From sabre/dav 2.2 onwards, it's now possible to store any arbitrary complex
+From sabre/dav 3.0 onwards, it's now possible to store any arbitrary complex
 webdav property in any part of the webdav tree.
 
-So starting from this version, the workaround to map it to the 
+So starting from this version, the workaround to map it to the
 `{http://sabredav.org/ns}vcard-url` has been removed. If you want support
 for the me-card, you can simply enable the [property storage plugin][3].
 

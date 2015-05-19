@@ -32,7 +32,7 @@ PHP Version requirements:
 | 1.8              | 5.3         | November 2012        | May 2015            |
 | 2.0              | 5.4         | May 2014             | November 2015       |
 | 2.1              | 5.4         | November 2014        |                     |
-| 2.2              | 5.5         | ????                 |                     |
+| 3.0              | 5.4         | ????                 |                     |
 
 Installing with composer
 ------------------------
