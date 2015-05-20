@@ -6,7 +6,7 @@ plugin_name: calendar-auto-schedule
 plugin_since: 2.1.0
 ---
 
-Since version 2.1.0, sabredav ships with support for CalDAV scheduling, as
+Since version 2.1.0, sabre/dav ships with support for CalDAV scheduling, as
 defined by [rfc6638][rfc6638].
 
 This plugin enables several features:
@@ -48,7 +48,7 @@ The `PDO` CalDAV backend has built-in support for local delivery. If you
 created your own CalDAV backend, you must implement the methods from the
 `Sabre\CalDAV\Backend\SchedulingSupport` interface to add support.
 
-This inteface adds 4 new methods for managing objects in a user's inbox.
+This interface adds 4 new methods for managing objects in a user's inbox.
 
 
 Email delivery
