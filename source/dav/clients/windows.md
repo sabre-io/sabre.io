@@ -183,9 +183,13 @@ from a WebDAV volume:
   Vista or XP SP1 with security update 896426 installed)
 * "Error 0x800700DF: The file size exceeds the limit allowed and cannot be
   saved." (Windows 7)
+* "An unexpected error is keeping you from copying the folder. If you continue
+  to receive this error, you can use the error code to search for help with
+  this problem." (Windows 7)
 
 The limitation can only be disabled on client side, by changing registry keys.
-See [this article][3] for detailed instructions.
+See [this article][3] for detailed instructions. Additional information is
+also available in [this kb article][8].
 
 ### displayname
 
@@ -263,6 +267,14 @@ if you expect an immediate update.
 
 This can be disabled using a registry key. See [http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx](http://technet.microsoft.com/en-us/library/ee683963%28v=ws.10%29.aspx) for more info.
 
+### upload timeouts
+
+An upload of large files taking longer than 30 minutes using Web Client in
+Windows 7 can cause the following error:
+
+* "Error: 0x80070079 The semaphore timeout period has expired"
+
+See [this kb article][8] for detailed instructions how to raise the timeout.
 
 Technical details
 -----------------
@@ -333,3 +345,4 @@ To use it:
 [5]: http://support.microsoft.com/kb/841215
 [6]: /dav/property-storage/
 [7]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa382925%28v=vs.85%29.aspx
+[8]: https://support.microsoft.com/en-us/kb/2668751
