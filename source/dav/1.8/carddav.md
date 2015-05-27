@@ -7,7 +7,7 @@ plugin_since: 1.5.0
 versions:
     "1.8": /dav/1.8/carddav/
     "2.x": /dav/carddav/
-thisversion: "2.x"
+thisversion: "1.8"
 ---
 
 Since version 1.5, SabreDAV ships with a CardDAV plugin. CardDAV allows for
@@ -28,7 +28,7 @@ Create a 'data' directory where you're going to store the sqlite database.
 
 We'll add 1 addressbook for the admin user.
 
-    INSERT INTO addressbooks (principaluri, displayname, uri, description, synctoken) VALUES
+    INSERT INTO addressbooks (principaluri, displayname, uri, description, ctag) VALUES
     ('principals/admin','default calendar','default','','1');
 
 Now, make sure the data/db.sqlite as well as it's containing directory are writable by the server. If you are lazy you could just do:
