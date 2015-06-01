@@ -22,7 +22,7 @@ Today marks that date for sabre/dav 1.8, as well as sabre/vobject 2.
 What this means
 ---------------
 
-* We will no longer do new releases for this versions.
+* We will no longer do new releases for these versions.
 * We will no longer accept bug reports for these versions. We might make an
   exception for serious security issues.
 * We will no longer provide support information for people running on these
