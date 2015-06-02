@@ -9,8 +9,7 @@ it is highly recommended to use the former.
 Requirements
 ------------
 
-You will need a recent version of PHP. SabreDAV currently requires PHP 5.3, but
-the next major release will require PHP 5.4
+You will need a recent version of PHP. SabreDAV currently requires PHP 5.3
 
 SabreDAV runs on any PHP-capable webserver. For maximum compatibility,
 apache 2 with mod_php is recommended. This is especially true if you plan to
@@ -24,8 +23,9 @@ PHP Version requirements:
 | SabreDAV version | PHP Version | First stable release | End of support      |
 | ---------------- | ----------- | -------------------- | ------------------- |
 | 2.0              | 5.4         | May 2014             | November 2015       |
-| 2.1              | 5.4         | November 2014        |                     |
-| 3.0              | 5.4         | ????                 |                     |
+| 2.1              | 5.4         | November 2014        | June 2016           |
+| 3.0              | 5.4         | June 2015            |                     |
+
 
 Installing with composer
 ------------------------
