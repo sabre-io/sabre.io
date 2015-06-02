@@ -104,7 +104,7 @@ chances are that you need to make changes in your code to keep stuff running.
 **Make a backup.** and then head to the [migration instructions][3] for 3.0.
 
 Drop a line on the [mailing list][4] if you run into any issues, or
-[get in touch with us][6] for our commercial support options.
+[get in touch with us][5] for our commercial support options.
 
 
 Support status
@@ -114,13 +114,13 @@ Due to the 3.0 release, 2.1 now enters maintenance mode. This means that
 version 2.1 of sabre/dav will be actively maintained for the next 12 months.
 
 More information about previous versions and their support status can be found
-on the [upgrade][5] page.
+on the [upgrade][12] page.
 
 **Thanks as always!!!**
 
 [1]: https://github.com/fruux/sabre-dav/blob/3.0.0/CHANGELOG.md
 [2]: https://github.com/fruux/sabre-dav/releases
-[3]: http://sabre.io/dav/upgrade/2.0-to-2.1/
+[3]: http://sabre.io/dav/upgrade/2.1-to-3.0/
 [4]: http://groups.google.com/group/sabredav-discuss
 [5]: /support/
 [6]: /dav/browser-plugin/
