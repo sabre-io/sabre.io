@@ -412,7 +412,7 @@ This event works similarly to `propFind`. Usually you should always use the
         // the `{DAV:}displayname` property.
         $propPatch->handle('{DAV:}displayname', function($value) {
 
-            // Makre sure you save $value somewhere.
+            // Make sure you save $value somewhere.
             return true;
 
         });
