@@ -97,6 +97,7 @@ Non-standards and drafts
 [rfc6868]: http://tools.ietf.org/html/rfc6868
 [rfc6869]: http://tools.ietf.org/html/rfc6869
 [rfc7095]: http://tools.ietf.org/html/rfc7095
+[rfc7240]: http://tools.ietf.org/html/rfc7240 "Prefer Header for HTTP"
 [rfc7265]: http://tools.ietf.org/html/rfc7265
 
 [vobject]: /vobject/
