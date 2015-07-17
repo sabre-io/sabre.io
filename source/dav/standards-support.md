@@ -29,9 +29,9 @@ layout: default
 | [rfc5842][rfc5842] | WebDAV BIND                       | Future. Maybe.
 | [rfc5995][rfc5995] | Using POST to Add Members         | Future. Maybe.
 | [rfc6047][rfc6047] | IMip                              | See [scheduling][24].
-| [rfc6321][rfc6321] | xCal                              | Future
+| [rfc6321][rfc6321] | xCal                              | Supported by [sabre/vobject][vobject] since version 4.
 | [rfc6350][rfc6350] | vCard 4.0                         | Parsed by [sabre/vobject][vobject].
-| [rfc6351][rfc6351] | xCard                             | Future
+| [rfc6351][rfc6351] | xCard                             | Supported by [sabre/vobject][vobject] since version 4.
 | [rfc6352][rfc6352] | CardDAV                           | Supported. See [CardDAV][7].
 | [rfc6473][rfc6473] | VCard KIND:application            | Properties picked up by [sabre/vobject][vobject].
 | [rfc6474][rfc6474] | VCard Place of birth/death        | Properties picked up by [sabre/vobject][vobject].
@@ -49,15 +49,16 @@ layout: default
 Non-standards and drafts
 ------------------------
 
-| identifier                 | description                      | status
-| -------------------------- | -------------------------------- | ------
-| [vcard21][21]              | vCard 2.1                        | Parsed by [sabre-vobject][vobject].
-| [carddav-directory][10]    | CardDAV Directory                | Implemented. See [carddav-directory][11].
-| [ctag][12]                 | CTag property                    | Implemented in [CalDAV][6] and [CardDAV][7].
-| [caldav-proxy][13]         | Calendar delegation              | Implemented. See [caldav-proxy][14].
-| [caldav-sharing][15]       | Calendar sharing                 | Implemented. See [caldav-sharing][16].
-| [caldav-notifications][17] | Calendar notifications           | Part of [caldav-sharing][16].
-| [webdav-prefer][22]        | Prefer header for WebDAV         | Supported by core.
+| identifier                  | description                      | status
+| --------------------------- | -------------------------------- | ------
+| [vcard21][21]               | vCard 2.1                        | Parsed by [sabre-vobject][vobject].
+| [carddav-directory][10]     | CardDAV Directory                | Implemented. See [carddav-directory][11].
+| [ctag][12]                  | CTag property                    | Implemented in [CalDAV][6] and [CardDAV][7].
+| [caldav-proxy][13]          | Calendar delegation              | Implemented. See [caldav-proxy][14].
+| [caldav-sharing][15]        | Calendar sharing                 | Implemented. See [caldav-sharing][16].
+| [caldav-notifications][17]  | Calendar notifications           | Part of [caldav-sharing][16].
+| [calendar-availability][26] | VAVAILABILITY                    | Parsed and processed by [sabre/vobject][vobject] since version 4.
+| [webdav-prefer][22]         | Prefer header for WebDAV         | Supported by core.
 
 [rfc2425]: http://tools.ietf.org/html/rfc2425
 [rfc2426]: http://tools.ietf.org/html/rfc2426
@@ -122,3 +123,4 @@ Non-standards and drafts
 [22]: http://tools.ietf.org/html/draft-murchison-webdav-prefer-08
 [24]: /dav/scheduling/
 [25]: /vobject/itip/
+[26]: https://tools.ietf.org/html/draft-daboo-calendar-availability-05
