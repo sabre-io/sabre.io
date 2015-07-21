@@ -41,7 +41,7 @@ also how you'd want to build up your own server.
     // Directory tree
     $tree = array(
         new DAVACL\PrincipalCollection($principalBackend),
-        new CalDAV\CalendarRootNode($principalBackend, $calendarBackend)
+        new CalDAV\CalendarRoot($principalBackend, $calendarBackend)
     );	
 
 
