@@ -33,7 +33,7 @@ Using the PDO backend
 ---------------------
 
 The PDO backend can either use MySQL or SQLite databases. An example for the
-table creation can be found in the [source][1] in the examples/sql directory.
+table creation can be found in the [source][1] in the `examples/sql` directory.
 
 Assuming you already have a server up and running, add the plugin using the
 following code:
@@ -47,14 +47,16 @@ following code:
     // Throwing exceptions when PDO comes across an error:
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    // Creating the backend
+    // Creating the backend.
     $authBackend = new Auth\Backend\PDO($pdo);
 
-    // Creating the plugin. We're assuming that the realm
-    // name is called 'SabreDAV'.
-    $authPlugin = new Auth\Plugin($authBackend,'SabreDAV');
+    // We're assuming that the realm name is called 'SabreDAV'.
+    $authBackend->setRealm('SabreDAV');
 
-    // Adding the plugin to the server
+    // Creating the plugin.
+    $authPlugin = new Auth\Plugin($authBackend);
+
+    // Adding the plugin to the server.
     $server->addPlugin($authPlugin);
 
 ### The SQL table
@@ -78,31 +80,31 @@ Using the File backend
 ----------------------
 
 The `Sabre\DAV\Auth\Backend\File` backend uses a simple file to store
-usernames and passwords. The format of the file is identical to apache's
-htdigest file.
+usernames and passwords. The format of the file is identical to Apache's
+`htdigest` file.
 
-If you have apache installed, there's a good chance you have a utility
+If you have Apache installed, there's a good chance you have a utility
 to create and modify these files. You can verify this by typing `htdigest`
 on the command line.
 
-If you don't have htdigest installed, the format is rather simple.
-Every user is on a single line (split by \n). Every line looks like:
+If you don't have `htdigest` installed, the format is rather simple.
+Every user is on a single line (split by `\n`). Every line looks like:
 
     username:realm:digesta1
 
 The username speaks for itself, the realm must be the exact same as the second
-argument of the `Sabre\DAV\Auth\Plugin` constructor, and the digest a1 is,
+argument of the `Sabre\DAV\Auth\Plugin` constructor, and the `digesta1` is,
 just like with the PDO plugin the following hash:
 
     md5('username:realm:password');
 
-So, given a username of 'foo', a password of 'bar', and a realm of 'SabreDAV',
-the resulting hash should be:
+So, given a username of `'foo'`, a password of `'bar'`, and a realm of
+`'SabreDAV'`, the resulting hash should be:
 
-    php -r "echo md5('foo:SabreDAV:bar');"
+    $ php -r "echo md5('foo:SabreDAV:bar');"
     5790c3784a79a018d1186528df520e11
 
-Then our htdigest file looks like:
+Then our `htdigest` file looks like:
 
     foo:SabreDAV:5790c3784a79a018d1186528df520e11
 
@@ -111,9 +113,10 @@ To use this file:
     use Sabre\DAV\Auth;
 
     $authBackend = new Auth\Backend\File('/path/to/htdigest');
-    $authPlugin = new Auth\Plugin($authBackend, 'SabreDAV');
+    $authBackend->setRealm('SabreDAV');
+    $authPlugin = new Auth\Plugin($authBackend);
 
-    // Adding the plugin to the server
+    // Adding the plugin to the server.
     $server->addPlugin($authPlugin);
 
 Creating your own authentication backend
@@ -126,7 +129,7 @@ classes as examples.
 
 If you're going to implement HTTP Basic, you must use
 `Sabre\DAV\Auth\Backend\AbstractBasic` as your parent class and implement the
-validateUserPass method.
+`validateUserPass` method.
 
 Webserver configuration
 -----------------------
@@ -136,15 +139,18 @@ Take a look at [Webservers](/dav/webservers) for more information.
 
 ### Problems with safe mode
 
-If 'safe mode' is enabled, PHP will automatically append a process id to authentication realms. This is problematic for Digest authentication, as it used the realm to determine the hash.
+If 'safe mode' is enabled, PHP will automatically append a process ID to
+authentication realms. This is problematic for Digest authentication, as it used
+the realm to determine the hash.
 
-The solution to this is to either turn off Safe Mode, or using Basic authentication instead of Digest.
+The solution to this is to either turn off Safe Mode, or using Basic
+authentication instead of Digest.
 
 See [the PHP manual][2] for more information.
 
 ### Encoding issues
 
-Avoid non-ascii characters for passwords. We've noticed that different clients
+Avoid non-ASCII characters for passwords. We've noticed that different clients
 may use different encodings for passwords (windows may use CP-1252 and others
 UTF-8), so each results in a different password string.
 
@@ -167,13 +173,13 @@ it add the plugin as follows:
 
     use Sabre\DAV\Auth;
 
-    // Creating the backend
+    // Creating the backend.
     $authBackend = new Auth\Backend\Apache();
 
-    // Creating the plugin. The realm parameter is ignored by the backend
-    $authPlugin = new Auth\Plugin($authBackend,'SabreDAV');
+    // Creating the plugin.
+    $authPlugin = new Auth\Plugin($authBackend);
 
-    // Adding the plugin to the server
+    // Adding the plugin to the server.
     $server->addPlugin($authPlugin);
 
 [1]: https://github.com/fruux/sabre-dav/tree/master/examples/sql
