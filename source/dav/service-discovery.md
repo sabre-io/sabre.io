@@ -79,7 +79,7 @@ Index:
 | key               | explanation |
 | ----------------- | ----------- |
 | `_carddavs`       | type of service |
-| `_tcp`            | protocol type, always tpc |
+| `_tcp`            | protocol type, always tcp |
 | `86400`           | record timeout |
 | `IN`              | always has to be IN |
 | `SRV`             | always has to be SRV |
