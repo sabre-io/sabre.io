@@ -7,7 +7,7 @@ product: dav
 
 latest_versions:
   vobject: 3.4
-  dav: 3.0.1
+  dav: 3.0.3
   event: 2.0
   http: 4.0
   xml: 1.1
