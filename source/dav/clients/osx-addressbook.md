@@ -82,7 +82,7 @@ default back to 8008 (which is the standard port for Darwin Calendar Server).
 
 ### Single addressbook
 
-**Affects: OS X 10.6 until OS X 10.9**
+**Affects: OS X 10.6 until OS X 10.10**
 
 OS X addressbook can only ever work with 1 address book. Even though the
 CardDAV standard makes it easy for users to own more than one addressbook,
