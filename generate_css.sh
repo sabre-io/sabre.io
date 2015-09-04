@@ -7,11 +7,16 @@ if ! type "lessc" > /dev/null; then
     exit
 fi
 
+YUICOMPRESSOR=yuicompressor
 if ! type "yuicompressor" > /dev/null; then
-    echo "Yuicompressor is not installed."
-    echo ""
-    echo "Please install yuicompressor."
-    exit
+
+    YUICOMPRESSOR=yui-compressor
+    if ! type "yui-compressor" > /dev/null; then
+        echo "Yuicompressor is not installed."
+        echo ""
+        echo "Please install yuicompressor."
+        exit
+    fi
 fi
 
 if [ $# -eq 0 ]; then
@@ -27,4 +32,4 @@ if [ ! -f $1 ]; then
     exit
 fi
 
-lessc --ru $1 | yuicompressor --type css > $2
+lessc --ru $1 | $YUICOMPRESSOR --type css > $2
