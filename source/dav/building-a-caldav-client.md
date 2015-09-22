@@ -74,7 +74,7 @@ An example request to get the ctag:
 
 
 The `PROPFIND` request is a HTTP request, defined by [WebDAV][rfc4918].
-`PROPFIND` allos the client to fetch properties from a url.
+`PROPFIND` allows the client to fetch properties from a url.
 
 CalDAV uses many properties like this, but in this case we just fetch the
 'displayname', which is the human-readable name the user gave the calendar, and
@@ -228,7 +228,7 @@ So after you retrieved and processed these, for each object you must retain:
 * The url
 * The etag
 
-In this case all urls ended with .ics. This is often the case, buy you must not
+In this case all urls ended with .ics. This is often the case, but you must not
 rely on this. In this case the UID in the calendar object was also identical to
 a part of the url. This too is often the case, but again not something you can
 rely on, so don't make any assumptions.
