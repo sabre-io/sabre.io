@@ -51,6 +51,8 @@ be this:
     /sabredav/addressbookserver.php
     /sabredav/groupwareserver.php
 
+**Note: urls are case-sensitive! Make sure that you use the exact case everywhere**.
+
 
 Why is this important?
 ----------------------
