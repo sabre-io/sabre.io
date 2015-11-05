@@ -148,8 +148,8 @@ you can write to the buffer.
 
 Two examples of this are:
 
-* You are making a HTTP call and you're waiting for the server to respond.
-* You have an open process stream (with [popen][4]) and you want to get notified when the process added new output.
+<li>You are making a HTTP call and you're waiting for the server to respond.</li>
+<li>You have an open process stream (with [popen][4]) and you want to get notified when the process added new output.</li>
 
 
     use Sabre\Event\Loop;
