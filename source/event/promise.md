@@ -6,8 +6,8 @@ layout: default
 
 Since version 2.0, the sabre/event library has support for Promises.
 
-A Promise is a 'placeholder' for a value that has not yet been determined. An
-example of this, is a HTTP request that has not yet completed, or a database
+A Promise is a 'placeholder' for the result of an asynchronous operation.
+An example of this, is a HTTP request that has not yet completed, or a database
 query that's taking a long time to complete.
 
 Promises have been popularized in Javascript, and are now actually becoming
@@ -28,7 +28,7 @@ An example through a use-case
 -----------------------------
 
 We are integrated with a RESTful webservice. We have to make 1 `PUT` and
-1 `DELETE`, but we don't have to perform these in order.
+1 `DELETE` request, but we don't have to perform these in order.
 
 Curl allows us to make multiple parallel, non-blocking requests using
 [`curl_multi`][1]. It's syntax is rather verbose, so we are using the
@@ -36,20 +36,17 @@ following fictional HTTP client:
 
     class MultiHttp {
 
-        function addRequest($method, $url, $body);
-        function wait();
+        function addRequest($method, $url, $body): Promise;
 
     }
 
 Conceptually this client works as follows:
 
-1. We perform new HTTP requests with the `addRequest` method,
-2. When we are completely done, we can call the `wait` method, which causes
-   the client to simply wait until all the still outstanding requests have
-   completed.
+1. We perform new HTTP requests with the `addRequest` method.
+2. This method returns a Promise object.
+3. The Promise object is initially pending, but later on it will have the
+   result of the operation.
 
-The developer of the `MultiHttp` client can use Promises to handle asynchronous
-results.
 
 This is an example of how our example would work:
 
@@ -77,7 +74,7 @@ This is an example of how our example would work:
             }
         );
 
-    $multiHttp->wait();
+    Sabre\Event\Loop\run();
 
 This is on a high level how a Promise works. A function returns a Promise
 instead of a regular value, and you can use `then` to execute a callback
@@ -122,7 +119,7 @@ This is how we would do this:
             }
         );
 
-    $multiHttp->wait();
+    Sabre\Event\Loop\run();
 
 **Note**: If you did not specify an error handler, any errors and exceptions may
 be suppressed. Always make sure you end the chain with at least 1 error handler.
@@ -147,7 +144,6 @@ Creating a Promise
 If you are the implementor of `MultiHttp`, you will want to know how to create
 a Promise. It's pretty easy, just call the constructor:
 
-
     $promise = new Sabre\Event\Promise();
 
 
@@ -160,20 +156,6 @@ Or if it was an error:
     $promise->reject( new Exception('Something went wrong'); );
 
 
-Alernatively, it's possible to handle this entire process during construction,
-by passing a callback to the constructor:
-
-    $promise = new Sabre\Event\Promise(function($fulFill, $reject) {
-
-        if ($operationSuccessful) {
-            $fulFill( $result );
-        } else {
-            $reject( $reason );
-        }
-
-    });
-
-
 API
 ---
 
@@ -181,8 +163,6 @@ API
 
 Creates the Promise with an optional executor callback. The callback will
 receive a reference to the fulfill and reject functions.
-
-See 'Creating a Promise'.
 
 ### `Promise::then(callable $onFulfilled = null, callable $onRejected = null)`
 
@@ -205,14 +185,12 @@ If the value is a Promise, it will be automatically chained to the Promise
 that `then` returns:
 
     $promise->then( function($result) {
-        return new Promise(
-            function($fulFill, $reject) {
-                $fulFill('Foo!');
-            }
-        );
+
+        $newPromise = anotherAsyncOperation();
+        return $newPromise;
+
     })->then( function($result ) {
 
-        // Will echo "Foo!\n";
         echo $result;
 
     });
@@ -300,19 +278,27 @@ The reason may also be any PHP type, but it's recommended to use exceptions.
 ### `Promise::wait()`
 
 Turns your asynchronous code into blocking code again. Calling this function
-will cause PHP to block until the promise is resolved.
+will cause PHP to block until the promise is resolved. While it's 'blocking'
+other events might be handled by the [Event Loop][2].
 
 This is useful if you're mixing asynchronous code in an otherwise normal
 synchronous PHP application.
-
-Usually, when you're dealing with a chain of promises, you'll just want to
-call this all the way at the end of the chain.
 
 The wait function returns the value of the last promise if it was fulfilled.
 If the last promise rejected, the wait function will convert the `$reason`
 into an exception, making your promise truly behave as a synchronous block
 of code.
 
+    $promise = someAsyncOp();
+    $promise->wait();
+
+You might combine this will all to block PHP until a group of async operations
+have all completed:
+
+    $promise1 = someAsyncOp();
+    $promsie2 = anotherAsyncOp();
+
+    Promise\all([$promise1, $promise2])->wait();
 
 ### `Promise\all(Promise[] $promises)`
 

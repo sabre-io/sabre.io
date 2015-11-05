@@ -50,9 +50,9 @@ The following code is equivalent:
     use Sabre\Event;
 
     Event\coroutine(function() {
-   
+
         try {
- 
+
             $result = yield someAsyncOperation();
             $result = yield anotherAsyncOperation();
             $result = yield lastAsyncOperation();
@@ -80,11 +80,11 @@ process into a blocking one:
     use Sabre\Event;
 
     Event\coroutine(function() {
-   
+
         /* ... */
 
     })->wait();
-    
+
 
 It's possible to call different coroutines from within your own coroutine
 easily as well:
@@ -93,11 +93,20 @@ easily as well:
     use Sabre\Event;
 
     Event\coroutine(function() {
-   
-        /* ... */
 
-    })->wait();
+        yield Event\coroutine($anotherGenerator);
 
+    });
+
+In PHP7 this becomes even easier:
+
+    use Sabre\Event;
+
+    Event\coroutine(function() {
+
+        yield from $anotherGenerator;
+
+    });
 
 
 [1]: /event/promise/

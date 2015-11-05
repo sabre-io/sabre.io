@@ -4,14 +4,12 @@ product: event
 layout: default
 ---
 
-In an eventemitter there are emitters, and listeners. Emitters trigger an
-event. When an event is emitted, a listener is notified of this fact.
+The EventEmitter is a simple pattern that allows you to create an object
+that emits events, and allow you to listen to those events.
 
 Example:
 
     use Sabre\Event\EventEmitter;
-
-    include 'vendor/autoload.php';
 
     $eventEmitter = new EventEmitter();
 
@@ -54,7 +52,7 @@ All default PHP callbacks are supported, so closures are not required.
 
 ### Canceling the event handler
 
-If a callback returns `false` the event chain is stopped immediately.
+If any callback returns `false` the event chain is stopped immediately.
 
 A use case is to use a listener to check if a user has permission to perform
 a certain action, and stop execution if they don't.
@@ -70,12 +68,9 @@ a certain action, and stop execution if they don't.
 `EventEmitter::emit()` will return `false` if the event was cancelled, and
 `true` if it wasn't.
 
-SabreDAV uses this feature heavily as well. When a HTTP request is received
-various plugins see if they are capable of handling the request. If they
-do, they can return `false` so other plugins will not also attempt to handle
-the request.
-
 Throwing an exception will also stop the chain.
+
+This is similar to Javascript's [preventDefault()][1].
 
 Passing arguments
 -----------------
@@ -133,3 +128,5 @@ hierarchy you can use the supplied trait.
 In the preceeding example, `MyNotUneventfulApplication` has all the
 capabilities of `EventEmitter`.
 
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
