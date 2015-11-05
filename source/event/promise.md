@@ -19,6 +19,9 @@ not have an eventloop, or is as event-heavy as Javascript is. So 'callback hell'
 is a lot less prevalent problem. However, there are certain situations where
 Promises can be useful in PHP as well.
 
+This implementation of a Promise in PHP aims to be as close to the standard
+EcmaScript implementation as possible. Everything that's available there is
+available here.
 
 
 An example through a use-case
@@ -57,6 +60,7 @@ This is an example of how our example would work:
             function($value) {
                 // The PUT request was successful!
             }
+        )->otherwise(
             function($reason) {
                 // The request failed with reason: $reason
             }
@@ -67,6 +71,7 @@ This is an example of how our example would work:
             function($value) {
                 // The DELETE request was successful!
             }
+        )->otherwise(
             function($reason) {
                 // The request failed with reason: $reason
             }
@@ -78,13 +83,7 @@ This is on a high level how a Promise works. A function returns a Promise
 instead of a regular value, and you can use `then` to execute a callback
 when the operation is completed.
 
-`then` takes 2 arguments:
-
-1. A callback for a successful result. The callback gets a `$value`,
-2. A callback for a failure. The callback gets a `$reason`.
-
-It is up to the implementor to decide what types `$value` and `$reason` are,
-but it's recommended to send `Exception` objects to the error handler.
+To catch errors, use the `otherwise` fucntion.
 
 
 The innovation: chaining
@@ -116,17 +115,14 @@ This is how we would do this:
             function($value) {
                 // The PUT request was successful!
             }
+        )
+        ->otherwise(
             function($reason) {
                 // The PUT or DELETE request has failed.
             }
         );
 
     $multiHttp->wait();
-
-Note that the first `then` no longer has an error handler. The error handler
-is optional. If it is not specified, it will automatically cause any
-chained Promises to also fail. For this reason, you often only need to specify
-the last error handler.
 
 **Note**: If you did not specify an error handler, any errors and exceptions may
 be suppressed. Always make sure you end the chain with at least 1 error handler.
@@ -181,14 +177,14 @@ by passing a callback to the constructor:
 API
 ---
 
-### `__construct(callable $executor = null);`
+### `Promise::__construct(callable $executor = null);`
 
 Creates the Promise with an optional executor callback. The callback will
 receive a reference to the fulfill and reject functions.
 
 See 'Creating a Promise'.
 
-### `then(callable $onFulfilled = null, callable $onRejected = null)`
+### `Promise::then(callable $onFulfilled = null, callable $onRejected = null)`
 
 Sets up a callback for when the Promise is fulfilled or rejected.
 
@@ -254,17 +250,20 @@ caught, and the returned Promise will fail with the exception as the reason:
         // Will echo "Foo!\n";
         echo $result;
 
-    }, function($reason) {
+    })
+    ->otherwise(function($reason) {
 
         // Will echo "Uh oh!"
         echo $reason->getMessage();
 
     });
 
-For this reason it's very important to always end with a rejected handler, as
-otherwise any exceptions may be silently suppressed.
+For this reason it's very important to always end with `otherwise()`, as
+any exceptions may be silently suppressed without it. Alternatively, you
+could also end your chain of promises with `wait()`.
 
-### `error($onRejected)`
+
+### `Promise::otherwise($onRejected)`
 
 This method can be used to just specify an error handler. This allows the
 following syntax:
@@ -274,14 +273,14 @@ following syntax:
 
         throw new Exception('Uh oh!');
 
-    })->error( function($reason ) {
+    })->otherwise( function($reason ) {
 
         // Will echo "Uh oh!"
         echo $reason->getMessage();
 
     });
 
-### `fulfill(mixed $value = null)`
+### `Promise::fulfill(mixed $value = null)`
 
 Fulfills a Promise that didn't have a result yet.
 
@@ -290,7 +289,7 @@ Fulfills a Promise that didn't have a result yet.
 The value may be any type at all.
 
 
-### `reject(mixed $reason = null)`
+### `Promise::reject(mixed $reason = null)`
 
 Reject (fails) a Promise that didn't have a result yet.
 
@@ -298,30 +297,104 @@ Reject (fails) a Promise that didn't have a result yet.
 
 The reason may also be any PHP type, but it's recommended to use exceptions.
 
+### `Promise::wait()`
 
-### `all(Promise[] $promises)`
+Turns your asynchronous code into blocking code again. Calling this function
+will cause PHP to block until the promise is resolved.
+
+This is useful if you're mixing asynchronous code in an otherwise normal
+synchronous PHP application.
+
+Usually, when you're dealing with a chain of promises, you'll just want to
+call this all the way at the end of the chain.
+
+The wait function returns the value of the last promise if it was fulfilled.
+If the last promise rejected, the wait function will convert the `$reason`
+into an exception, making your promise truly behave as a synchronous block
+of code.
 
 
-The `all` method is a static method. You can specify 1 or more Promises to it,
-and it returns a new Promise.
+### `Promise\all(Promise[] $promises)`
 
-The new Promise will fulfill when all the passed Promises are fulfilled.
+The `Promise\all()` function returns a Promise, that will fulfill when all
+of the passed promises have been fulfilled themselves.
 
-The value for this is an array with all the result values for every Promise.
-If any of the Promises fails, the 'All Promise' will also fail with just that
-message.
+The resolved value for this is an array with all the result values for every
+Promise. If any of the Promises fails, the 'All Promise' will also fail with
+just that message.
 
     $promise1 = new Promise();
     $promise2 = new Promise();
 
-    $all = Promise::all([$promise1, $promise2])->then(
+    $all = Promise\all([$promise1, $promise2])->then(
         function($value) {
             // All the promises have been fulfilled, and $value contains all
             // the values of all the promises.
-        },
+        }
+    )->otherwise(
         function($reason) {
             // One of the promises failed with reason: $reason
         }
     );
 
+### `Promise\race(Promise[] $promises)`
+
+The `Promise\race()` function returns a Promise, that will immediately fulfill
+as soon as one of the passed promises have fulfilled..
+
+The returned promise will resolve or reject with the value or reason of that
+first promise.
+
+
+    $promise1 = new Promise();
+    $promise2 = new Promise();
+
+    $all = Promise\race([$promise1, $promise2])->then(
+        function($value) {
+            // One of the promises has fulfilled, and $value contains the
+            // value of the first fulfilled promise.
+        }
+    )->otherwise(
+        function($reason) {
+            // One of the promises has rejected, and $reason contains the
+            // reason of that rejection.
+        }
+    );
+
+
+### `Promise\resolve(mixed $value)`
+
+The `Promise\resolve()` function returns a Promise that immediately fulfills
+with the value you specified in its argument. It's a quick way to create a
+promise that just immediately fulfills.
+
+It's also possible to pass a different Promise as it's argument, in which case
+the returned promise will fulfill or reject when the passed promise does.
+
+    $promise = Promise\resolve("hello");
+    $promise->then(function($value) {
+
+        // Output is "hello"
+        echo $value;
+
+    });
+
+### `Promise\reject(mixed $reason)`
+
+The `Promise\reject()` function returns a Promise that automatically rejects
+with the reason specified in `$reason`.
+
+It's a quick way for people writing Promise based code that just want to
+return a rejected promise.
+
+
+See also
+--------
+
+* [Coroutines][3].
+* [Event Loop][2]
+
+
 [1]: http://php.net/curl-multi-init
+[2]: /event/loop/
+[3]: /event/coroutines/
