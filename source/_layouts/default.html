@@ -83,7 +83,10 @@
     <!-- this is where the ugly bit starts. Stupid javascript :( -->
 
     <script src="{{ site.url }}/components/highlightjs/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
 
     {% include "ga.html" %}
 
