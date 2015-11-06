@@ -79,7 +79,8 @@ The id for `principal/userA` will become the `member_id` field value, and the
 id for `principal/userB/calendar-proxy-write` should be put in the
 `principal_id` field.
 
-== Reference ==
+Reference
+---------
 
 This feature is based on the specification published here:
 
