@@ -512,4 +512,18 @@ To use this:
     $reader->xml($xml);
     print_r($reader->parse());
 
+
+Validate XML against a XSD
+--------------------------
+
+To validate XML content before parsing, use `setSchema()` inherited from `XMLReader`
+
+    $reader = new Sabre\Xml\Reader();
+    $validXml = $reader->setSchema('myschema.xsd')
+    if ($validXml) {
+        $reader->xml($xml);
+        print_r($reader->parse());
+    }
+
+
 [1]: http://php.net/manual/en/book.xmlreader.php
