@@ -161,12 +161,12 @@ Two examples of this are:
 
     });
 
-In the background the eventloop uses [`stream_select()`].
+In the background the eventloop uses [`stream_select()`][5].
 
 To stop the event loop from waiting for things to happen on the stream, you
 can call `removeReadStream`.
 
-   Loop\removeReadStream($tail);
+    Loop\removeReadStream($tail);
 
 There's also an equivalent for writes: `addWriteStream` and
 `removeWriteStream`. The use-case for this is less common.
