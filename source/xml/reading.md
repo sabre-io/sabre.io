@@ -366,6 +366,7 @@ their respective XML elements:
 
     $reader = new Sabre\Xml\Reader();
     $reader->elementMap = [
+        // handle a collection of books
         '{http://example.org/books}books' => function($reader) {
             $books = new Books();
             $children = $reader->parseInnerTree();
@@ -376,6 +377,7 @@ their respective XML elements:
             }
             return $books;
         },
+        // handle a single book
         '{http://example.org/books}book' => function($reader) {
             $book = new Book();
             // Borrowing a parser from the KeyValue class.
