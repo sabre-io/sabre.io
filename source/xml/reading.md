@@ -381,11 +381,11 @@ their respective XML elements:
             // Borrowing a parser from the KeyValue class.
             $keyValue = Sabre\Xml\Element\KeyValue::xmlDeserialize($reader);
 
-            if (isset($keyValue['title'])) {
-                $book->title = $keyValue['title'];
+            if (isset($keyValue['{http://example.org/books}title'])) {
+                $book->title = $keyValue['{http://example.org/books}title'];
             }
-            if (isset($keyValue['author'])) {
-                $book->author = $keyValue['author'];
+            if (isset($keyValue['{http://example.org/books}author'])) {
+                $book->author = $keyValue['{http://example.org/books}author'];
             }
 
             return $book;
