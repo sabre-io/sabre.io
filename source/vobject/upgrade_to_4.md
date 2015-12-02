@@ -19,7 +19,7 @@ New features
 
 ### PHP 7 support
 
-This version of vobject support PHP 7. We also dropped support for PHP versions
+This version of vobject supports PHP 7. We also dropped support for PHP versions
 before 5.5. If you are running an older PHP version, we will continue to
 maintain vObject 3.x. But really, you should upgrade!
 
@@ -75,11 +75,17 @@ This feature was contributed by [Ivan Enderlin][2].
 This new component can take a list of VCARD objects, and automatically
 generate a VCALENDAR with all the birthdays.
 
-For usage information, check out the source:
+Example usage:
 
-<https://github.com/fruux/sabre-vobject/blob/master/lib/BirthdayCalendarGenerator.php>
+    $vcards = []; // Imagine we have a list of vcard objects.
+
+    $generator = new Sabre\VObject\BirthdayCalendarGenerator();
+    $generator->setObjects($vcards);
+
+    $vcalendar = $generator->getResult();
 
 This feature was contributed by [Dominik Tobschall][3].
+
 
 ### Speed improvements
 
@@ -100,8 +106,11 @@ If you are completely done with a vCalendar object, you can now call the
 references, and enough so that PHP can can easily clean up the object.
 
 Especially if you are doing processing on large or many objects, these memory
-leaks can quickly grow out of control. Calling `destroy(0` should result in
+leaks can quickly grow out of control. Calling `destroy()` should result in
 massive drops in memory usage.
+
+    // Destroys many references and makes the object unusable
+    $vcalendar->destroy();
 
 
 ### Full support for VAVAILABILITY
