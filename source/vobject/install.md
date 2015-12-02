@@ -22,8 +22,8 @@ From your project directory, the easiest is then to simply call:
 
     composer require sabre/vobject ~{{site.latest_versions.vobject}}
 
-This rule ensures that you install the latest VObject package in the 3.1 range
-of packages, but it does not install 3.2 or higher, which could result in a
+This rule ensures that you install the latest VObject package in the 3.4 range
+of packages, but it does not install 3.5 or higher, which could result in a
 backwards compatibility break.
 
 After running this, sabre/vobject should be installed, and you can load it in
