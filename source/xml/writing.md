@@ -167,9 +167,8 @@ All of this becomes more useful when you start mapping objects to XML elements. 
         public $updated;
         public $summary;
 
-        $ns = '{http://www.w3.org/2005/Atom}';
-
         function xmlSerialize(Sabre\Xml\Writer $writer) {
+            $ns = '{http://www.w3.org/2005/Atom}';
 
             $writer->write([
                 $ns . 'title' => $this->title,
