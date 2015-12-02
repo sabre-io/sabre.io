@@ -5,7 +5,7 @@ layout: default
 ---
 
 These are the usage instructions for the 2.x version of the vobject library.
-This version is now outdated. Check out the [3.x usage instructions][1] if you
+This version is now outdated. Check the sidebar for more up-to-date docs if you
 are starting a new project, or read the [migration document][2] if you're
 upgrading from 2.x to 3.x.
 
@@ -343,8 +343,7 @@ Support
 
 Head over to the [SabreDAV mailing list](http://groups.google.com/group/sabredav-discuss) for any questions.
 
-[1]: /vobject/usage/
-[2]: /vobject/upgrade/
+[2]: /vobject/upgrade_to_3/
 [3]: https://tools.ietf.org/html/rfc5545
 [4]: https://tools.ietf.org/html/rfc6350
 [5]: /dav/
