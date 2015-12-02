@@ -10,7 +10,7 @@ Requirements
 ------------
 
 You will need a recent version of PHP. sabre/vobject currently requires
-PHP 5.3, but the next major release will require PHP 5.4
+PHP 5.3, but the next major release will require PHP 5.5
 
 Installing with composer
 ------------------------

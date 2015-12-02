@@ -27,7 +27,7 @@ maintain vObject 3.x. But really, you should upgrade!
 ### Support for different input encodings
 
 By default VObject always assumed everything is UTF-8. This is a fair
-assumption for object sent via CalDAV and CardDAV and is also the only valid
+assumption for objects sent via CalDAV and CardDAV and is also the only valid
 encoding for vCard 4, jCard and jCal.
 
 However, iCalendar 2.0, vCard 3.0 and vCard 2.1 might also be encoded using
@@ -116,7 +116,7 @@ massive drops in memory usage.
 ### Full support for VAVAILABILITY
 
 [VAVAILABILITY][4] is an upcoming standard that allows people to specify when they
-are available. It provides more features that VFREEBUSY, as it allows people
+are available. It complements VFREEBUSY, as it allows people
 to specify rules such as "I'm available for meetings every weekday between 9
 and 5".
 
@@ -149,14 +149,14 @@ Run the command for usage instructions:
   This was done to work around bugs in OS X Addressbook (discovered in OS X
   10.8) and OS X calendar (discovered in OS X 10.11).
 * Recurrence iterators now stop recurring after 3500 iterations by default.
-* `isInTimeRange()` now behaves better for floating dates/times. 
+* `isInTimeRange()` now behaves better for floating dates/times.
 * Parser is a bit more robust.
 * Everywhere a `DateTime` was previously accepted, we now also accept
   `DateTimeImmutable`.
 * Support for parsing `CALADURI`, `SOURCE`, `MEMBER` and `RELATED` properties
   in vCards.
 * Added a `Settings` object where some global VObject behavior may be changed.
-  
+
 
 Backwards compatibility breaks
 ------------------------------
@@ -189,6 +189,20 @@ Non-exhaustive list of functions that now return `DateTimeImmutable`:
     Sabre\VObject\Recur\EventIterator::current()
     Sabre\VObject\Recur\EventIterator::getDtStart()
     Sabre\VObject\Recur\EventIterator::getDtEnd()
+
+To illustrate how this can be a problem, consider the following:
+
+    $dtStart = $vcalendar->VEVENT->DTSTART->getDateTime();
+    $dtStart->modify('+1 day');
+
+In vObject 3, `$dtStart` was a `DateTime` object. Calling `modify` on it would
+mean that the `$dtStart` would be changed to be a day later (just in the
+variable, not the original `DTSTART`).
+
+From vObject 4 onwards, `$dtStart` is a `DateTimeImmutable`. Calling `modify`
+on that object does not alter it's value, but it returns a new
+`DateTimeImmutable` with this new value.
+
 
 ### `Component::$children` is gone
 
@@ -237,14 +251,14 @@ against some denial of service attacks.
 
 To change this number, change the following static property:
 
-    Sabre\VObject\Recur\EventIterator::$maxInstances = 1000; 
+    Sabre\VObject\Settings::$maxRecurrences = 1000;
 
-Set it to -1 to completely disable this check.
+Set it to `-1` to completely disable this check.
 
 
 ### Changes to expanding events
 
-If you ever expanded a recurring events in a calendar, this API has now
+If you ever expanded a recurring event in a calendar, this API has now
 changed. The `expand` method no longer updates the calendar in-place, but
 rather returns a new copy of the calendar with the events expanded.
 
@@ -282,8 +296,6 @@ This object was already deprecated, but in version 4 it's removed. Simply use
 
 The `remove()` function, which exists on every component used to return the
 removed item. In version 4 this is no longer the case.
-
-
 
 
 [1]: https://github.com/fruux/sabre-vobject/issues "sabre/vobject issues"
