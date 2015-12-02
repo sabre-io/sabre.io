@@ -37,10 +37,12 @@ This is an example of a meeting that happens every 2nd monday of every month:
 To figure out all the meetings for this year, we can use the following syntax:
 
     $vcalendar = VObject\Reader::read($data);
-    $vcalendar->expand(new DateTime('2012-01-01'), new DateTime('2012-12-31'));
+    $newVCalendar = $vcalendar->expand(new DateTime('2012-01-01'), new DateTime('2012-12-31'));
 
-What the expand method does, is look at its inner events, and expand the recurring
-rule. Our calendar now contains 12 events. The first will have its RRULE stripped,
+What the expand method does, is look at its inner events, and expand all the
+recurrence rules. Then, it returns a new calendar that has all its events expanded.
+
+This new calendar now contains 12 events. The first will have its RRULE stripped,
 and every subsequent VEVENT has the correct meeting date and a `RECURRENCE-ID` set.
 
 This results in something like this:
@@ -71,3 +73,6 @@ some recurrence rules can be 'never ending'.
 
 You should make sure you pick a sane date-range. Because if you pick a 50 year
 time-range, for a daily recurring event; this would result in over 18K objects.
+
+> **Note**: Before sabre/vobject version 4, the `expand()` method does not return
+> a new calendar, but it rather edits the entire calendar in-place.
