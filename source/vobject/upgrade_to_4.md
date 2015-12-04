@@ -4,7 +4,7 @@ layout: default
 title: Upgrading from vobject 3.x to 4.x
 ---
 
-VObject 4 got a number of new features, as well as a few backwards compability
+VObject 4 got a number of new features, as well as a few backwards compatibility
 changes.
 
 While VObject 4 has a lot of improvements, the changes are mostly incremental.
@@ -19,7 +19,7 @@ New features
 
 ### PHP 7 support
 
-This version of vobject supports PHP 7. We also dropped support for PHP versions
+This version of VObject supports PHP 7. We also dropped support for PHP versions
 before 5.5. If you are running an older PHP version, we will continue to
 maintain vObject 3.x. But really, you should upgrade!
 
@@ -48,7 +48,7 @@ Currently only the following encodings are supported:
 * `ISO-8859-1` (also known as latin-1)
 * `Windows-1252` (also known as cp1252)
 
-Those encodings are (so far) the only one the author has seen in the wild,
+Those encodings are (so far) the only one we have seen in the wild,
 but if you have a different encoding you need support for, just
 [open a ticket][1] with a sample file.
 
@@ -77,7 +77,7 @@ generate a VCALENDAR with all the birthdays.
 
 Example usage:
 
-    $vcards = []; // Imagine we have a list of vcard objects.
+    $vcards = []; // Imagine we have a list of vCard objects.
 
     $generator = new Sabre\VObject\BirthdayCalendarGenerator();
     $generator->setObjects($vcards);
@@ -126,9 +126,9 @@ VAVAILABILITY specification. VAVAILABILITY is already supported by a number
 of calendar applications.
 
 
-### Added a utility for merging duplicate vcards on the command line.
+### Added a utility for merging duplicate vCards on the command line.
 
-If you have a large file with lots of VCARD objects, you can use this tool to
+If you have a large file with lots of vCard objects, you can use this tool to
 find duplicates and merge them together.
 
 The tool finds duplicates solely using the `FN` property. This means if you
@@ -244,7 +244,7 @@ Note that any errors during the parsing phase will still throw
 
 ### RecurrenceIterator now stops automatically at 3500 iterations
 
-In case a user created a recurring event, and traversing that event resulted
+In case a user created a recurring event, and traversing that event results
 in more than 3500 instances, we'll now automatically throw
 `Sabre\VObject\Recur\MaxInstancesExceededException`. This acts as a protection
 against some denial of service attacks.
@@ -262,7 +262,7 @@ If you ever expanded a recurring event in a calendar, this API has now
 changed. The `expand` method no longer updates the calendar in-place, but
 rather returns a new copy of the calendar with the events expanded.
 
-The `expand` method no longer makes changes to the calenar on which it's
+The `expand` method no longer makes changes to the calendar on which it's
 called on.
 
 This means that if your code previously looked like this:
