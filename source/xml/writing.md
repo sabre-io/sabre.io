@@ -122,13 +122,14 @@ This could output:
 You can even mix these syntaxes:
 
     $ns = '{http://www.w3.org/2005/Atom}';
-    $writer->namespaceMap['http://www.w3.org/2005/Atom'] = '';
+    $writer->namespaceMap['http://www.w3.org/2005/Atom'] = null;
 
     $writer->write([
         $ns . 'feed' => [
             $ns . 'title' => 'Example Feed',
             [
                 'name' => $ns . 'link',
+                'value' => '',
                 'attributes' => ['href' => 'http://example.org/']
             ],
             $ns . 'updated' => '2003-12-13T18:30:02Z',
