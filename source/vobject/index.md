@@ -10,7 +10,7 @@ create a very complete library, with an easy to use API.
 
 To get started, have a look at the following docs:
 
-* [Installation](/vobject/installation/)
+* [Installation](/vobject/install/)
 * [Working with vCards](/vobject/vcard/)
 * [Working with iCalendar](/vobject/icalendar/)
 
