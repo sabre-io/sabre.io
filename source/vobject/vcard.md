@@ -247,23 +247,51 @@ is the only vCard version that supports the `AGENT` property, so it's
 dropped when going to vCard 3 or higher.
 
 
-CLI tool
---------
+### Validating vCard
 
-Since vObject 3.1, a new CLI tool is shipped in the `bin/` directory.
+When you parse a vCard, the parser grabs all the values and does
+basic syntax checking. It does not however, validate every value.
 
-This tool has the following features:
+You can ask the parser to validate the entire document by calling the `validate`
+function though:
 
-* A `validate` command,
-* A `repair` command to repair objects that are slightly broken,
-* A `color` command, to show an iCalendar object or vCard on the console with
-  ansi-colors, which may help debugging,
-* A `convert` command, allowing you to convert between iCalendar 2.0, vCard 2.1,
-  vCard 3.0, vCard 4.0, jCard and jCal.
+    $result = $vcard->validate();
 
-Just run it using `bin/vobject`. Composer will automatically also put a
-symlink in `vendor/bin` as well, or a directory of your choosing if you set
-the `bin-dir` setting in your composer.json.
+The returned value is an array of messages and might look like this:
+
+    [
+        [
+            'level' => 2,
+            'message' => '...',
+            'node' => ...A VObject component or property...
+        ]
+    ]
+
+Each item constitutes a problem with the document. Every item contains a level
+containing a number between 1 and 3. 3 Means that the document is invalid, 2
+means a warning. A warning means it's valid but it could cause interopability
+issues, and 1 means that there was a problem earlier, but the problem was
+automatically repaired.
+
+The message is a human-readable string with more information about the problem,
+and lastly the node refers to the actual VObject Component or Property object
+that had the issue.
+
+You can also pass several options. The options have to be passed as a bitfield:
+
+    $vcalendar->validate(Sabre\VObject\Node::REPAIR);
+    $vcalendar->validate(Sabre\VObject\Node::PROFILE_CARDDAV);
+
+The `REPAIR` option automatically repeairs the object, if possible. Without
+`REPAIR` the validator does not change the object.
+
+The `PROFILE_CARDDAV` validates the object specifically for within the use of
+CardDAV. vCards CardDAV servers have a few additional special
+restrictions (must have a `UID` property for instance).
+
+The validator is not perfect, and we improve it when we come across new issues,
+so any suggestions are welcome.
+
 
 Support
 -------

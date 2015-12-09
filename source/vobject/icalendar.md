@@ -51,7 +51,7 @@ Here's an example:
             'SUMMARY' => 'Birthday party!',
             'DTSTART' => new \DateTime('2016-07-04 21:00:00'),
             'DTEND'   => new \DateTime('2016-07-05 03:00:00')
-        ] 
+        ]
     ]);
 
     echo $vcalendar->serialize();
@@ -132,8 +132,9 @@ attempt to mend the broken data.
 
     $vcalendar = VObject\Reader::read($data, VObject\Reader::OPTION_FORGIVING);
 
-Many vCards these days are encoded as UTF-8. If however you are running into a
-vCard with a different encoding, you can specify this as the third option:
+Many iCalendar objects these days are encoded as UTF-8. If however you are
+running into an object  with a different encoding, you can specify this as the
+third option:
 
     $vcard = VObject\Reader::read($data, 0, 'ISO-8859-1');
 
@@ -157,7 +158,7 @@ statement:
 In iCalendar, `VTODO`, `VEVENT`, `VJOURNAL`, `VALARM` and several others
 are all considered 'components'.
 
-A calendar may have any one of these, and often multiple. 
+A calendar may have any one of these, and often multiple.
 
 This is an example of a new VEVENT being added to a calendar:
 
@@ -264,6 +265,52 @@ The output of this script will look like this:
     FREEBUSY;FBTYPE=BUSY:20121210T140000Z/20121210T140000Z
     END:VFREEBUSY
     END:VCALENDAR
+
+
+### Validating iCalendar
+
+When you parse an iCalendar document, the parser grabs all the values and does
+basic syntax checking. It does not however, validate every value.
+
+You can ask the parser to validate the entire document by calling the `validate`
+function though:
+
+    $result = $vcalendar->validate();
+
+The returned value is an array of messages and might look like this:
+
+    [
+        [
+            'level' => 2,
+            'message' => '...',
+            'node' => ...A VObject component or property...
+        ]
+    ]
+
+Each item constitutes a problem with the document. Every item contains a level
+containing a number between 1 and 3. 3 Means that the document is invalid, 2
+means a warning. A warning means it's valid but it could cause interopability
+issues, and 1 means that there was a problem earlier, but the problem was
+automatically repaired.
+
+The message is a human-readable string with more information about the problem,
+and lastly the node refers to the actual VObject Component or Property object
+that had the issue.
+
+You can also pass several options. The options have to be passed as a bitfield:
+
+    $vcalendar->validate(Sabre\VObject\Node::REPAIR);
+    $vcalendar->validate(Sabre\VObject\Node::PROFILE_CALDAV);
+
+The `REPAIR` option automatically repeairs the object, if possible. Without
+`REPAIR` the validator does not change the object.
+
+The `PROFILE_CALDAV` validates the object specifically for within the use of
+CalDAV. iCalendar objects on CalDAV servers have a few additional special
+restrictions (no `METHOD` may appear, only one component per document, etc..).
+
+The validator is not perfect, and we improve it when we come across new issues,
+so any suggestions are welcome.
 
 
 Support
