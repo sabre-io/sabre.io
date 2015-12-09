@@ -429,6 +429,38 @@ This finally gives us the following output:
 
     )
 
+As of sabre-xml version 1.3 you can pass in the namespace into the deserializer-functions which simplifies it a bit:
+
+    $reader = new Sabre\Xml\Reader();
+    $reader->elementMap = [
+        // handle a collection of books
+        '{http://example.org/books}books' => function($reader) {
+            $books = new Books();
+            $children = $reader->parseInnerTree();
+            foreach($children as $child) {
+                if ($child['value'] instanceof Book) {
+                    $books->books[] = $child['value'];
+                }
+            }
+            return $books;
+        },
+        // handle a single book
+        '{http://example.org/books}book' => function($reader) {
+            $book = new Book();
+            // Borrowing one of our builtin parser functions
+            $keyValue = Sabre\XML\Deserialize\keyValue($reader, 'http://example.org/books');
+
+            if (isset($keyValue['title'])) {
+                $book->title = $keyValue['title'];
+            }
+            if (isset($keyValue['author'])) {
+                $book->author = $keyValue['author'];
+            }
+
+            return $book;
+
+        },
+    ];
 
 Using element classes
 ---------------------
