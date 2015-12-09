@@ -28,10 +28,10 @@ keyword in the following sample:
 
 We noticed that a lot of people assume that the 'atom' part (in this example) is standard,
 and then expect other people generating xml to use the same prefixes. This is incorrect,
-because the prefix is only intended to make it more easily for humans to read.
+because the prefix is only intended to make it easier for humans to read.
 
 The real, canonical xml element name is composed out of the namespace uri and local name,
 so we needed a format that combined both in one string.
 
-Other people already used the so-called clark-notiation, so we decided to do the same.
+Other people already used the so-called clark-notation, so we decided to do the same.
 
