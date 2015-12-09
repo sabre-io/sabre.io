@@ -10,7 +10,7 @@ not complete.
 General synchronization concerns
 --------------------------------
 
-The primary formats for tranfering information is [iCalendar][rfc5545] for
+The primary formats for transfering information is [iCalendar][rfc5545] for
 calendar objects (events and tasks) and xml for most other data.
 
 [CalDAV][rfc4791] is based on [WebDAV][rfc4918], which itself is an extension
@@ -527,7 +527,7 @@ There's no way to tell from the response wether those cards got created or
 updated, you, as a client can only infer this based on the vcards you are
 already aware of.
 
-The entry with name `deltedevent.ics` got deleted as indicated by the `404`
+The entry with name `deletedevent.ics` got deleted as indicated by the `404`
 status. Note that the status element is here a child of `d:response` when in
 all previous examples it has been a child of `d:propstat`.
 
@@ -658,10 +658,10 @@ element in the CalDAV namespace. Other items _may_ be returned, including non-
 calendar, which your application should ignore.
 
 The displayname is a human-readable string for the calendarname, the ctag was
-already covered in an earlier chapter.
+already covered in an earlier section.
 
 Lastly, `supported-calendar-component-set`. This gives us a list of components
-that the claendar accepts. This could be just `VTODO`, `VEVENT`, `VJOURNAL` or a
+that the calendar accepts. This could be just `VTODO`, `VEVENT`, `VJOURNAL` or a
 combination of these three.
 
 If you are just creating a todo-list application, this means you should only
@@ -694,7 +694,7 @@ list the calendars that support the `VTODO` component.
                     <cs:getctag>3145</cs:getctag>
                     <c:supported-calendar-component-set>
                         <c:comp name="VEVENT" />
-                    </c:supported-component-set>
+                    </c:supported-calendar-component-set>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
             </d:propstat>
@@ -711,7 +711,7 @@ list the calendars that support the `VTODO` component.
                     <cs:getctag>3345</cs:getctag>
                     <c:supported-calendar-component-set>
                         <c:comp name="VTODO" />
-                    </c:supported-component-set>
+                    </c:supported-calendar-component-set>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
             </d:propstat>

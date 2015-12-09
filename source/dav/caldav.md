@@ -37,7 +37,7 @@ server. A quick and dirty way to do this, is to simply run:
 
 ### MySQL
 
-MySQL is pretty simple as well. Make sure you have a mysql database called
+MySQL is pretty simple as well. Make sure you have a MySQL database called
 `sabredav`.
 
 After that, you can just create the tables by running:
@@ -45,7 +45,7 @@ After that, you can just create the tables by running:
     cat examples/sql/mysql.* | mysql -u root -p sabredav -h 127.0.0.1
 
 Adjust the hostname and username to your setup. If you are used to using a
-GUI tool to manage mysql, you can just use all the files from the
+GUI tool to manage MySQL, you can just use all the files from the
 `examples/sql/` directory to get up and running.
 
 
@@ -64,8 +64,8 @@ the example file to your main project directory:
 
 ### Change the database settings
 
-If you used SQLite and you used the _exact path_ as desrcribed in the earlier
-example, there's nothing else you need to do. If you used mysql or changed the
+If you used SQLite and you used the _exact path_ as described in the earlier
+example, there's nothing else you need to do. If you used MySQL or changed the
 path to your database, read on.
 
 Open up your new `calendarserver.php` and find the line that says:

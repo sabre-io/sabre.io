@@ -98,7 +98,7 @@ supported authentication methods) you can also extend
 Your Calendar backend needs to extend `Sabre\CalDAV\Backend\AbstractBackend`. Take a
 look at `Sabre\CalDAV\Backend\PDO` for an example.
 
-Lastly, the principal backend must implement `Sabre\DAVACL\PrincipalBackend\BackendInteface`.
+Lastly, the principal backend must implement `Sabre\DAVACL\PrincipalBackend\BackendInterface`.
 Principals are in the context of WebDAV either users or groups (or both).
 
 For CardDAV, you may also want to extend `Sabre\CardDAV\Backend\AbstractBackend`,
@@ -144,7 +144,7 @@ and vcards under there:
 UIDS, id's and urls
 -------------------
 
-There's a bunch id's you will need to keep track off.
+There's a bunch of id's you will need to keep track off.
 
 When CalDAV clients create new calendar objects, they will store them using a url.
 This url can look like for example `/calendars/user@example.org/1b520550-d7ca-11df-937b-0800200c9a66/22bad740-d7ca-11df-937b-0800200c9a66.ics`.
@@ -154,7 +154,7 @@ CalDAV client stores a new object under a url, the client must be able to access
 the object using that url.
 
 This could mean you need to make a new database field for this url. Even though
-most clients use the `[uuid].ics` format, you can't rely on the url to e an
+most clients use the `[uuid].ics` format, you can't rely on the url to be an
 uuid. Any string could be sent, and upper/lowercase can vary. Therefore it's
 not a true uuid field.
 
