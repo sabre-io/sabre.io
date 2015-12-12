@@ -9,8 +9,11 @@ sabre/vobject must be intalled using [Composer][1].
 Requirements
 ------------
 
-You will need a recent version of PHP. sabre/vobject currently requires
-PHP 5.3, but the next major release will require PHP 5.5
+| sabre/vobject version | PHP version |
+| --------------------- | ----------- |
+| 4.x                   | 5.5         |
+| 3.x                   | 5.3.1       |
+
 
 Installing with composer
 ------------------------
