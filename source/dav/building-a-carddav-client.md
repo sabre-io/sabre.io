@@ -57,10 +57,8 @@ However, compliant servers must specifically advertise that they support
 vCard 4.0, and clients must be willing to send vCard 3.0 if the server does
 not support it.
 
-The current SabreDAV server does not yet support vCard 4. In a future release
-we will want to start accepting vCard 4, and automatically convert between
-vCard 3 and 4. As soon as SabreDAV does this, vCard 4 will also immediately
-become the preferred format.
+The current SabreDAV server supports vCard 4 and jCard, and will automatically
+convert in between vCard 3, 4 and jCard on demand.
 
 One thing we specifically want to warn people for, is that even though the
 vCard format seems easy to parse and generate, there are a lot of little rules
