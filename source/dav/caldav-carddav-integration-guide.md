@@ -31,7 +31,7 @@ also how you'd want to build up your own server.
     set_error_handler("exception_error_handler");
 
     // Files we need
-    require_once 'lib/Sabre/autoload.php';
+    require_once 'vendor/autoload.php';
 
     // Backends
     $authBackend = new DAV\Auth\Backend\PDO($pdo);
