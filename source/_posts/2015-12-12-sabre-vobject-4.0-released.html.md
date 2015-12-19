@@ -14,18 +14,18 @@ tags:
 
 We just released sabre/vobject 4. This is a new major version, and comes with a
 number of new features and also BC breaking changes. The API is largely the
-same, but there's a few subtle differences.
+same, but there are a few subtle differences.
 
 ### New feature highlights
 
-* Support for PHP 7
-* Requires PHP 5.5
+* Support for PHP 7.
+* Requires PHP 5.5.
 * Support for [xCal and xCard][2], which are XML representations of iCalendar
   and vCard.  
 * Added a 'BirthdayCalendarGenerator'. Give it a list of vCards, and it will
   create an iCalendar object with birthdays.
 * Lots of speed and memory improvements.  
-* Support for the new `VAVAVAILABILITY` iCalendar component.
+* Support for the new `VAVAILABILITY` iCalendar component.
 * Added a command-line utility to merge duplicate vcards.
 * Using `DateTimeImmutable` everywhere we used `DateTime`.
 * Denial of service-protection in the RecurrenceIterator.
