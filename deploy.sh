@@ -11,9 +11,11 @@ if [ ! -d "deploy" ]; then
     exit
 fi;
 
+./generate_css.sh source/less/sabre.less source/css/sabre.css
+
 sculpin install
 sculpin generate --env=prod --url=$url
-./generate_css.sh source/less/sabre.less source/css/sabre.css
+
 
 cd deploy
 
