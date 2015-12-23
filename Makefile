@@ -3,19 +3,17 @@
 DOMAIN = sabre.io
 URL = http://${DOMAIN}
 
-.PHONY: all, generate, do-deploy, server
+# SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md")
 
-all: generate do-deploy
+SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md")
 
-generate: source/css/sabre.css
-	sculpin install
-	sculpin generate --env=prod --url=${URL}
+.PHONY: all, generate, do-deploy, server, output_dev, output_prod
 
-deploy: 
-	echo "Deploy directory does not exist!"
-	exit 255
+all: do-deploy
 
-do-deploy: deploy
+generate: sculpin.lock output_prod
+
+do-deploy: generate
 	cd deploy && \
 	echo "Fetching latest changes" && \
 	git checkout master && \
@@ -34,6 +32,31 @@ do-deploy: deploy
 server:
 	sculpin generate --watch --server
 
-source/css/sabre.css: source/less/*.less
-	./generate_css.sh source/less/sabre.less source/css/sabre.css
+sculpin.lock: sculpin.json
+	sculpin install
 
+output_dev: output_dev/atom.xml ;
+
+output_prod: output_prod/atom.xml ;
+
+output_dev/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
+	# atom.xml always changes to the latest date and time, so we can use this
+	# as the main target to figure out if the source changed at all.
+	sculpin generate --env=dev --url=$(URL)
+
+output_prod/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
+	# atom.xml always changes to the latest date and time, so we can use this
+	# as the main target to figure out if the source changed at all.
+	sculpin generate --env=prod --url=$(URL)
+
+
+YUI = $(shell which yuicompressor || which yui-compressor)
+LESSC = $(shell which lessc)
+
+source/css/sabre.css: source/less/*.less
+	@which $(YUI) > /dev/null
+	@which $(LESSC) > /dev/null
+	lessc --ru source/less/sabre.less | $(YUI) --type css > source/css/sabre.css
+
+foo:
+	echo $(SOURCE_MD_FILES)
