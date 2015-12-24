@@ -66,7 +66,7 @@ Reading XML
         '{http://example.org/}article' => 'Sabre\Xml\Element\KeyValue',
     ];
 
-    print_r($reader->parse($input));
+    print_r($service->parse($input));
 
 This will output something like:
 
@@ -86,7 +86,7 @@ The parser comes with a few parsing strategies for common needs, and you can
 easily create your own by writing deserializer classes, or just by providing a
 callback:
 
-    $reader->elementMap = [
+    $service->elementMap = [
         '{http://example.org/}article' => function(Sabre\Xml\Reader $reader) {
             // Read the element's contents, and return the result here.
         }
