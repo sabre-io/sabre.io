@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 DOMAIN = sabre.io
 URL = http://${DOMAIN}
