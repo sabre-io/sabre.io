@@ -28,19 +28,13 @@ sabre/xml hopes to solve your issues, by wrapping [`XMLReader`][3] and
 Writing XML
 -----------
 
-Generating XML largely follows the [`XMLWriter`][4] API, but a lot of useful
-features have been tacked on.
+    $xmlService = new Sabre\Xml\Service();
+    $xmlService->namespaceMap = ['http://example.org' => 'b'];
 
-    $xmlWriter = new Sabre\Xml\Writer();
-    $xmlWriter->openMemory();
-    $xmlWriter->startDocument();
-    $xmlWriter->setIndent(true);
-    $xmlWriter->namespaceMap = ['http://example.org' => 'b'];
-
-    $xmlWriter->write(['{http://example.org}book' => [
+    $xmlService->write('{http://example.org}book', [
         '{http://example.org}title' => 'Cryptonomicon',
         '{http://example.org}author' => 'Neil Stephenson',
-    ]]);
+    ]);
 
 This will create the following document:
 
@@ -67,29 +61,19 @@ Reading XML
     </article>
     XML;
 
-    $reader = new Sabre\Xml\Reader();
-    $reader->elementMap = [
+    $service = new Sabre\Xml\Service();
+    $service->elementMap = [
         '{http://example.org/}article' => 'Sabre\Xml\Element\KeyValue',
     ];
-    $reader->xml($input);
 
-    print_r($reader->parse());
+    print_r($reader->parse($input));
 
 This will output something like:
 
     Array
     (
-        [name] => {http://example.org/}article
-        [value] => Array
-            (
-                [{http://example.org/}title] => Hello world
-                [{http://example.org/}content] => Fuzzy Pickles
-            )
-
-        [attributes] => Array
-            (
-            )
-
+        [{http://example.org/}title] => Hello world
+        [{http://example.org/}content] => Fuzzy Pickles
     )
 
 The key in the last example, is that we tell the parser to treat the contents
