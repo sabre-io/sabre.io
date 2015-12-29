@@ -10,34 +10,24 @@ PHP's built-in [`XMLWriter`][1] class, so its entire API also works here.
 The writer has several additions to the standard API that make it more easy
 to use.
 
+You can easily instantiate and start using the Writer like this:
 
-Automatically apply namespaces
-------------------------------
+    $writer = new Sabre\Xml\Writer();
+    $writer->openMemory();
+    $writer->setIndent(true);
+    $writer->startDocument();
+    $writer->write('...');
+    echo $writer->outputMemory();
 
-The `startElement`, `writeElement` and `writeAttribute` methods have been
-changed a bit, so they can accept [Clark notation][2] for their node names.
+Those functions follow the PHP API exactly, but it's a lot of typing.
+sabre/xml provides a `Service` class that eases this a bit. This is the
+same example using the `Service`:
 
-What this means, is that you can call:
+    $service = new Sabre\Xml\Service();
+    echo $service->write('...');
 
-    $writer->namespaceMap = [
-        '{http://example.org/}foo' => 'foo',
-    ];
-    $writer->writeElement('{http://example.org/}foo','bar');
-
-This would result in the following xml:
-
-    <?xml version="1.0"?>
-    <foo:bar xmlns:foo="http://example.org/">bar</foo:bar>
-
-This means you can fully ignore `startElementNS`, `writeElementNS` and
-`writeAttributeNS`, which all often behave in unexpected ways and have
-been broken in several PHP versions.
-
-By always specifying the fully qualified namespace and element name, you
-disconnect the 'real xml element name' with the 'human readable prefix'.
-
-Your code should ideally never be aware of the prefix. It's strictly for
-beautifaction of XML.
+So while you can use either API, all the following examples use the
+`Service` class.
 
 
 The `write` method
@@ -47,27 +37,21 @@ The `write` method allows you to quickly write complex XML structures.
 
 We're explaining this method by example.
 
-    $writer = new Sabre\Xml\Writer();
-    $writer->openMemory();
-    $writer->namespaceMap = [
+    $service = new Sabre\Xml\Service();
+    $service->namespaceMap = [
         'http://example.org/' => 'e',
     ];
 
-    $writer->startElement('{http://example.org/}root');
-
-    $writer->write('hello');
-
-    $writer->endElement();
-    echo $writer->outputMemory();
+    echo $service->write('{http://example.org/}root', 'hello');
 
 This results in the following xml:
 
     <?xml version="1.0">
     <e:root>hello</e:root>
 
-If instead of the string `hello`, we wrote this:
+Instead of `hello`, we could also have written this:
 
-    $writer->write([
+    $service->write('{http://example.org/}root', [
         '{http://example.org/ns}title' => 'Foundation',
         '{http://example.org/ns}author' => 'Isaac Asimov',
     ]);
@@ -84,7 +68,7 @@ This array can be nested:
 
     $ns = '{http://example.org/}';
 
-    $writer->write([
+    $service->write('{http://example.org/}root',[
         $ns . 'title' => 'Foundation',
         $ns . 'author' => [
             $ns . 'firstname' => 'Isaac',
@@ -105,7 +89,7 @@ Output:
 
 Need attributes? Use the extended syntax:
 
-    $writer->write([
+    $service->write('{http://www.w3.org/1999/xhtml}p',
         [
             'name' => '{http://www.w3.org/1999/xhtml}a',
             'attributes' => [
@@ -117,27 +101,26 @@ Need attributes? Use the extended syntax:
 
 This could output:
 
-    <a href="http://sabre.io/">Sabre website</a>
+    <p>
+        <a href="http://sabre.io/">Sabre website</a>
+    </p>
 
 You can even mix these syntaxes:
 
     $ns = '{http://www.w3.org/2005/Atom}';
-    $writer->namespaceMap['http://www.w3.org/2005/Atom'] = '';
+    $service->namespaceMap['http://www.w3.org/2005/Atom'] = '';
 
-    $writer->write([
-        $ns . 'feed' => [
-            $ns . 'title' => 'Example Feed',
-            [
-                'name' => $ns . 'link',
-                'attributes' => ['href' => 'http://example.org/']
-            ],
-            $ns . 'updated' => '2003-12-13T18:30:02Z',
-            $ns . 'author' => [
-                $ns . 'name' => 'John Doe',
-            ],
-            $ns . 'id' => 'urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6',
-
-        ]
+    $service->write($ns . 'feed', [
+        $ns . 'title' => 'Example Feed',
+        [
+            'name' => $ns . 'link',
+            'attributes' => ['href' => 'http://example.org/']
+        ],
+        $ns . 'updated' => '2003-12-13T18:30:02Z',
+        $ns . 'author' => [
+            $ns . 'name' => 'John Doe',
+        ],
+        $ns . 'id' => 'urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6',
     ]);
 
 Output:
@@ -196,7 +179,7 @@ To use this new class:
 
 Now to serialize it:
 
-    $writer->write([
+    $service->write([
     	'{http://www.w3.org/2005/Atom}entry' => $entry,
     ]);
 
@@ -210,12 +193,67 @@ Output:
       <summary>Some text.</summary>
     </entry>
 
-One thing to note from the last example, is that the `AtomEntry` class does not actually encode it's own 'parent element'. This is a design choice. We feel that it's a best practice for every serializable object to only ever represent a _value_ but not its _identity_.
+One thing to note from the last example, is that the `AtomEntry` class does
+not actually encode it's own 'parent element'. Element classes _should never_
+encode their own element, only the element's value.
 
-This allows serializers to be re-used for different element names, but this starts to make even more sense when you re-use the exact same classes for serialization and deserialization. Deserialization is covered on the [reading XML][4] page in the documentation.
+This allows serializers to be re-used for different element names, but this
+starts to make even more sense when you re-use the exact same classes for
+serialization and deserialization. Deserialization is covered on the
+[reading XML][4] page in the documentation.
+
+
+Separating serializers from objects
+-----------------------------------
+
+In the last example, the `AtomEntry` class had to get a `xmlSerialize` method
+in order to be able to serialize itself. There's cases where that's not
+desirable. The last example could be rewritten to use the `$classMap` to avoid
+having to use the `XmlSerializable` interface.
+
+The `$classMap` is a simple array that allows a user to specify a callback that
+is responsible for serializing specific PHP classes.
+
+Here's another version of the last example that takes advantage of this:
+
+    class AtomEntry {
+
+        public $title;
+        public $link;
+        public $id;
+        public $updated;
+        public $summary;
+
+    }
+
+    // Registering a custom serializer:
+    $service->classMap['AtomEntry'] = function(Sabre\Xml\Writer $writer, $entry) {
+
+        $ns = '{http://www.w3.org/2005/Atom}';
+
+        $writer->write([
+            $ns . 'title' => $entry->title,
+            [
+               'name' => $ns . 'link',
+               'attributes' => ['href' => $entry->link]
+            ],
+            $ns . 'updated' => $entry->updated,
+            $ns . 'id' => 'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a',
+            $ns . 'summary' => 'Some text.'
+        ]);
+
+    };
+
+
+Value objects
+-------------
+
+For very simple PHP classes and XML elements it might be possible to use the
+"value object" system instead. Read more on the [Value Objects][5] page.
 
 
 [1]: http://php.net/manual/en/book.xmlwriter.php
 [2]: /xml/clark-notation/
 [3]: https://tools.ietf.org/html/rfc4287
 [4]: /xml/reading/
+[5]: /xml/valueobjects/
