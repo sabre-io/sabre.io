@@ -69,13 +69,22 @@ class:
 
     $service = new Sabre\Xml\Service();
     $service->namespaceMap['http//www.w3.org/2005/Atom'] = 'atom';
-    
-    $service->mapValueObject('{http://www.w3.org/2005/Atom}feed', 'My\Atom\Feed'); 
-    $service->mapValueObject('{http://www.w3.org/2005/Atom}author', 'My\Atom\Author'); 
-    $service->mapValueObject('{http://www.w3.org/2005/Atom}entry', 'My\Atom\Entry'); 
+
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}feed', 'My\Atom\Feed');
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}author', 'My\Atom\Author');
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}entry', 'My\Atom\Entry');
 
 In case you are curious about the weird notation with the `{` and `}`, read
 [clark-notation][2].
+
+If you are running PHP 5.5 and up, you can also use `::class`. Example:
+
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}feed', Feed::class);
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}author', Author:class);
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}entry', Entry::class);
+
+The `::class` construct basically returns a full class name. Because it's no
+longer specified as a string, you can import classes into the current scope.
 
 
 Parsing
@@ -88,7 +97,7 @@ After that, all it takes to parse the atom feed is:
 
 To automatically throw an error if the root xml element is an atom feed,
 you can also use the `expect` method instead of `parse`.
-  
+
     $feed = $service->expect('{http://www.w3.org/2005/Atom}feed', $xml);
     // Feed is an instance of My\Atom\Feed;
 
@@ -120,7 +129,7 @@ Take for instance this portion of the XML document:
 
 When we call the following function:
 
-    $service->mapValueObject('{http://www.w3.org/2005/Atom}entry', 'My\Atom\Entry'); 
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}entry', 'My\Atom\Entry');
 
 We are basically saying:
 
@@ -196,7 +205,7 @@ The serializer is even simpler:
 
         $writer->writeAttributes(
             get_object_vars($link)
-        ); 
+        );
 
     }
 

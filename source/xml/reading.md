@@ -542,7 +542,7 @@ While the former classmapping example is a good way to learn how to write custom
 deserializers, using the 'value objects' feature this could have been simplified
 even further.
 
-The exact same result could have been achieved by regestering the PHP classes as
+The exact same result could have been achieved by registering the PHP classes as
 value objects:
 
     $service = new Sabre\Xml\Service();
@@ -586,7 +586,7 @@ an instance of `Sabre\Xml\Reader` such as this:
     }
 
 The reader extends PHP's [XMLReader][1] object. You _must_ absolutely make
-sure that you read the _entire_ XML element, and not half way. The simples
+sure that you read the _entire_ XML element, and not half way. The simplest
 possible deserializer function looks like this:
 
 
