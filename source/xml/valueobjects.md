@@ -147,7 +147,8 @@ One special trick is that if you define your class with a property and give it
 a default value that's an array, `sabre/xml` will immediately assume that more
 than one element may appear. In the above example, both `$authors` and `$entry`
 was defaulted to an empty array. This signals `sabre/xml` that multiple
-`<author>` and `<entry>` elements may appear as children.
+`<author>` and `<entry>` elements may appear as children and append those to
+the array.
 
 
 Under the hood
