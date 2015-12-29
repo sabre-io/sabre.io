@@ -46,7 +46,7 @@ To convert this XML to a PHP array, we can just run this:
 
     $service = new Sabre\Xml\Service();
 
-    print_r($service->parse());
+    print_r($service->parse($xml));
 
 The output for this, is quite big:
 
