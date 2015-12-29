@@ -252,6 +252,31 @@ For very simple PHP classes and XML elements it might be possible to use the
 "value object" system instead. Read more on the [Value Objects][5] page.
 
 
+Things the `write()` function can write
+---------------------------------------
+
+This is the full list of things that the `write()` function understands and
+can turn into an xml document:
+
+1. A `string`, which gets turned into a XML text.
+2. An `integer` or `float`, which also gets turned into XML text.
+3. `null`, which causes the writer to write nothing at all.
+4. An array with at least a `name` key, will cause the writer to write an
+   an element with that `name`. If it also contains `attributes` it will write
+   those as well, and if it also has a `value` key it will just throw whatever
+   value it is back into the `write()` function.
+5. An array with keys that are in [clark-notation][2]. It will write elements
+   with that name and it supports any type of value again.
+6. A PHP callback, in which case the writer will just call that callback with
+   the `Sabre\Xml\Writer` class as an argument.
+7. A PHP object, if it has a registered serializer in `classMap`.
+8. A PHP object that implements the `XmlSerializable` interface, in which case
+   it will call it's `xmlSerialize` function.
+
+And for most of these, anywhere you can nest values, the writer will traverse
+the tree and keep on writing!
+
+
 [1]: http://php.net/manual/en/book.xmlwriter.php
 [2]: /xml/clark-notation/
 [3]: https://tools.ietf.org/html/rfc4287
