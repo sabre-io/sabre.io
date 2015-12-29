@@ -278,13 +278,12 @@ There's a number of standard XML parsers included. Here's the list:
 Example further up in this document.
 
 
-### elementList
+### enum
 
-    Sabre\Xml\Deserializers\elementList(Reader $reader, $namespace = null);
+    Sabre\Xml\Deserializers\enum(Reader $reader, $namespace = null);
 
-Another good name for this would have been 'enum'. This deserializer turns
-a bunch of xml elements in a flat PHP array. Specifically it's intended for
-structures such as this:
+This deserializer turns a bunch of xml elements in a flat PHP array.
+Specifically it's intended for structures such as this:
 
     <fruit xmlns="urn:fruit">
         <apple>
@@ -295,7 +294,7 @@ structures such as this:
 Parsing this:
 
     $service = new Sabre\Xml\Service();
-    $service->elementMap['{urn:fruit}fruit'] = 'Sabre\Xml\Deserializers\elementList';
+    $service->elementMap['{urn:fruit}fruit'] = 'Sabre\Xml\Deserializers\enum';
     $result = $service->parse($xml);
 
     print_r($result);
@@ -314,7 +313,7 @@ stripped out. Example:
 
     $service = new Sabre\Xml\Service();
     $service->elementMap['{urn:fruit}fruit'] = function($reader) {
-        return Sabre\Xml\Deserializers\elementList($reader, 'urn:fruit');
+        return Sabre\Xml\Deserializers\enum($reader, 'urn:fruit');
     };
     $result = $service->parse($xml);
 
