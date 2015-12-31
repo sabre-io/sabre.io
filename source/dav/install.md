@@ -22,7 +22,6 @@ PHP Version requirements:
 
 | SabreDAV version | PHP Version | First stable release | End of support      |
 | ---------------- | ----------- | -------------------- | ------------------- |
-| 2.0              | 5.4         | May 2014             | November 2015       |
 | 2.1              | 5.4         | November 2014        | June 2016           |
 | 3.0              | 5.4         | June 2015            |                     |
 
