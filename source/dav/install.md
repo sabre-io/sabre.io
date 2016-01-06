@@ -24,6 +24,7 @@ PHP Version requirements:
 | ---------------- | ----------- | -------------------- | ------------------- |
 | 2.1              | 5.4         | November 2014        | June 2016           |
 | 3.0              | 5.4         | June 2015            |                     |
+| 3.1              | 5.5         | N/A                  |                     |
 
 
 Installing with composer
