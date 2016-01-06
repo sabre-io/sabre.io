@@ -139,7 +139,7 @@ We are basically saying:
 
 In this example all the child elements (`title`, `link`, `id`) are also all in
 the same XML namespace. If this is the case, we will see if the class
-`My\Atom\Entry` has a `public` property with the same name, and set it's value.
+`My\Atom\Entry` has a `public` property with the same name, and set its value.
 
 If entry had sub-elements in a different XML namespace, they would be discarded.
 
@@ -164,7 +164,7 @@ that the atom feed contained this element:
 
        <link href="http://example.org/2003/12/13/atom03"/>
 
-The parser in fact discarded the `href` atttribute and it's value. The only
+The parser in fact discarded the `href` atttribute and its value. The only
 way around that is to write a custom deserializer.
 
 The following example demonstrates how you would parse `<link>`. First, we
