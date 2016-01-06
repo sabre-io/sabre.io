@@ -262,7 +262,7 @@ can turn into an xml document:
 2. An `integer` or `float`, which also gets turned into XML text.
 3. `null`, which causes the writer to write nothing at all.
 4. An array with at least a `name` key, will cause the writer to write an
-   an element with that `name`. If it also contains `attributes` it will write
+   element with that `name`. If it also contains `attributes` it will write
    those as well, and if it also has a `value` key it will just throw whatever
    value it is back into the `write()` function.
 5. An array with keys that are in [clark-notation][2]. It will write elements
