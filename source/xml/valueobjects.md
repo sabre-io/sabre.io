@@ -223,5 +223,5 @@ on [GitHub][3] and [Packagist][4].
 
 [1]: https://tools.ietf.org/html/rfc4287
 [2]: /xml/clark-notation/
-[3]: https://packagist.org/packages/sabre/xml-atom "Atom XML parser for PHP"
-[4]: https://github.com/fruux/sabre-xml-atom "Atom XML parser for PHP"
+[3]: https://github.com/fruux/sabre-xml-atom "Atom XML parser for PHP"
+[4]: https://packagist.org/packages/sabre/xml-atom "Atom XML parser for PHP"
