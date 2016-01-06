@@ -282,7 +282,7 @@ Example further up in this document.
 
     Sabre\Xml\Deserializers\enum(Reader $reader, $namespace = null);
 
-This deserializer turns a bunch of xml elements in a flat PHP array.
+This deserializer turns a bunch of xml elements into a flat PHP array.
 Specifically it's intended for structures such as this:
 
     <fruit xmlns="urn:fruit">
