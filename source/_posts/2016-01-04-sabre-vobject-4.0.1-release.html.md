@@ -10,7 +10,7 @@ tags:
 
 We just released sabre/vobject 4.0.1.
 
-This version contains a small change related to ITIP messages. When we generate
+This version contains a small change related to iTIP messages. When we generate
 a `CANCEL`, message the object now contains a `DTEND`.
 
 Upgrade sabre/vobject by running:
