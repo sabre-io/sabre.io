@@ -72,6 +72,7 @@ This is the service class in birds eye view:
 
         /**
          * Turn a mapped PHP object into an XML document
+         */
         function writeValueObject($object, $contextUri = null);
 
     }
