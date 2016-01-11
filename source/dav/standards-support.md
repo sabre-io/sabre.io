@@ -57,7 +57,7 @@ Non-standards and drafts
 | [caldav-proxy][13]          | Calendar delegation              | Implemented. See [caldav-proxy][14].
 | [caldav-sharing][15]        | Calendar sharing                 | Implemented. See [caldav-sharing][16].
 | [caldav-notifications][17]  | Calendar notifications           | Part of [caldav-sharing][16].
-| [calendar-availability][26] | VAVAILABILITY                    | Parsed and processed by [sabre/vobject][vobject] since version 4.
+| [calendar-availability][26] | VAVAILABILITY                    | Supported. See [Scheduling][24].
 | [webdav-prefer][22]         | Prefer header for WebDAV         | Supported by core.
 
 [rfc2425]: http://tools.ietf.org/html/rfc2425

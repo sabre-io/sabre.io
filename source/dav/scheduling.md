@@ -74,6 +74,21 @@ example and hopefully provides enough information to customize your emails
 further.
 
 
+Availability
+------------
+
+Since sabre/dav 3.1 [availability][avail] is supported. This feature allows
+users to specify for example when their working hours are, such as 9am to
+5pm on a daily basis.
+
+After specifying this, the server will then use this information to generate
+freebusy reports, making them a lot more accurate and useful, especially
+with teams distributed in multiple timezones.
+
+This feature is enabled automatically, but it will only work if the
+[PropertyStorage][property-storage] plugin is enabled.
+
+
 Limitations
 -----------
 
@@ -90,5 +105,7 @@ we don't know if we need to prioritize it.
 
 [rfc6638]: http://tools.ietf.org/html/rfc6638
 [rfc6047]: http://tools.ietf.org/html/rfc6047
+[avail]: https://tools.ietf.org/html/draft-daboo-calendar-availability-05
 [mailinglist]: http://groups.google.com/group/sabredav-discuss
 [issues]: https://github.com/fruux/sabre-dav/issues
+[property-storage]: /dav/property-storage/
