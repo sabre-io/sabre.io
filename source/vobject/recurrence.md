@@ -74,5 +74,5 @@ some recurrence rules can be 'never ending'.
 You should make sure you pick a sane date-range. Because if you pick a 50 year
 time-range, for a daily recurring event; this would result in over 18K objects.
 
-> **Note**: Before sabre/vobject version 4, the `expand()` method does not return
-> a new calendar, but it rather edits the entire calendar in-place.
+> **Note**: **Before sabre/vobject version 4**, the `expand()` method did not return
+> a new calendar, but it edited the entire calendar in-place. So from version 4 to retrieve a calendar with *only* those events in the given period, you have to use the object *returning* from `expand()` (e.g. `$vcalendar = $vcalendar->expand(new DateTime('2012-01-01'), new DateTime('2012-12-31'));`).
