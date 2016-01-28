@@ -5,7 +5,7 @@ URL = http://${DOMAIN}
 
 # SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md")
 
-SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md")
+SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md" -or -name "*.html")
 
 .PHONY: all, generate, do-deploy, server, output_dev, output_prod
 

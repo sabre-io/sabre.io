@@ -2,7 +2,7 @@
     <nav class="nav nav--sidebar">
         <ul class="list list--nav">
             <li><a href="{{ site.url }}/dav">sabre/dav</a>
-                {% if product == "dav" %}
+                {% if product == "sabre/dav" %}
                 <ul>
                     <li><a href="{{ site.url }}/dav/install">Installation</a></li>
                     <li><a href="{{ site.url }}/dav/upgrading">Upgrading</a></li>
@@ -69,7 +69,7 @@
                 {% endif %}
             </li>
             <li><a href="{{site.url}}/event">sabre/event</a>
-                {% if product == "event" %}
+                {% if product == "sabre/event" %}
                 <ul>
                     <li><a href="{{ site.url }}/event/">Introduction</a></li>
                     <li><a href="{{ site.url }}/event/install">Installation</a></li>
@@ -81,7 +81,7 @@
                 {% endif %}
             </li>
             <li><a href="{{site.url}}/http">sabre/http</a>
-                {% if product == "http" %}
+                {% if product == "sabre/http" %}
                 <ul>
                     <li><a href="{{ site.url }}/http/install">Installation</a></li>
                     <li><a href="{{ site.url }}/http/sapi">The PHP Sapi wrapper</a></li>
@@ -94,7 +94,7 @@
                 {% endif %}
             </li>
             <li><a href="{{site.url}}/katana">sabre/katana</a>
-                {% if product == "katana" %}
+                {% if product == "sabre/katana" %}
                 <ul>
                     <li><a href="{{ site.url }}/katana/install/">Installation</a></li>
                     <li><a href="{{ site.url }}/katana/upgrade/">Upgrading</a></li>
@@ -103,7 +103,7 @@
                 {% endif %}
             </li>
             <li><a href="{{site.url}}/vobject">sabre/vobject</a>
-                {% if product == "vobject" %}
+                {% if product == "sabre/vobject" %}
                 <ul>
                     <li><a href="{{ site.url }}/vobject/install/">Installation</a></li>
                     <li><a href="{{ site.url }}/vobject/upgrade_to_3/">Upgrading from vObject 2 to 3</a></li>
@@ -120,7 +120,7 @@
                 {% endif %}
             </li>
             <li><a href="{{site.url}}/xml">sabre/xml</a>
-                {% if product == "xml" %}
+                {% if product == "sabre/xml" %}
                 <ul>
                     <li><a href="{{ site.url }}/xml/">Introduction</a></li>
                     <li><a href="{{ site.url }}/xml/install/">Installation</a></li>
@@ -133,11 +133,20 @@
                 {% endif %}
             </li>
             <li><a href="{{site.url}}/uri">sabre/uri</a>
-                {% if product == "uri" %}
+                {% if product == "sabre/uri" %}
                 <ul>
                     <li><a href="{{ site.url }}/uri/">Introduction</a></li>
                     <li><a href="{{ site.url }}/uri/install/">Installation</a></li>
                     <li><a href="{{ site.url }}/uri/usage/">Usage</a></li>
+                </ul>
+                {% endif %}
+            </li>
+            <li><a href="{{site.url}}/baikal/">Baïkal</a>
+                {% if product == "baikal" %}
+                <ul>
+                    <li><a href="{{ site.url }}/baikal/">Introduction</a></li>
+                    <li><a href="{{ site.url }}/baikal/install/">Installation</a></li>
+                    <li><a href="{{ site.url }}/baikal/upgrade/">Upgrading</a></li>
                 </ul>
                 {% endif %}
             </li>
