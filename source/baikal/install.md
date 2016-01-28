@@ -37,6 +37,8 @@ Only the `html` directory is needed to be accessible by your web browser. You
 may choose to lock out access to any other directory using your webserver
 configuration.
 
+In particular you should really make sure that the `Specific` directory is not
+accessible directly, as this could contain your sql database.
 
 Apache vhost installation
 -------------------------
