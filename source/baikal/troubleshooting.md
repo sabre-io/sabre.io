@@ -23,7 +23,7 @@ This means that if your baikal is hosted under:
 
     http://dav.example.org/baikal/html/
 
-The following two urls _must_ exists:
+The following two urls _must_ exist:
 
     http://dav.example.org/.well-known/caldav
     http://dav.example.org/.well-known/carddav
