@@ -11,7 +11,7 @@ Please refer to the following two documents for a list of common authentication-
 related issues:
 
 * [Webservers][1]
-* [Authentiation][2]
+* [Authentication][2]
 
 Can't connect with OS X Yosemite
 --------------------------------
