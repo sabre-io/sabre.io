@@ -3,14 +3,20 @@
 
 {% if page.product %}
   {% set product = page.product %}
+  {% set subproduct = page.product %}
 {% else %}
   {% set product = "dav" %}
+  {% set subproduct = "dav" %}
+{% endif %}
+
+{% if page.product != "baikal" %}
+  {% set product = "sabre/" ~ page.product %}
 {% endif %}
 
     {% if page.title %}
-        <title>{{ page.title }} - sabre/{{ product }}</title>
+        <title>{{ page.title }} - {{ product }}</title>
     {% else %}
-        <title>sabre/{{ product }}</title>
+        <title>{{ product }}</title>
     {% endif %}
 
     <meta charset="utf-8">

@@ -2,8 +2,13 @@
 
     <div class="pagehead-inner">
         <a class="logo" href="{{ site.url }}/">
-            <img src="{{site.url}}/img/logo.png" alt="sabre/{{product}}">
-            sabre<span>/{{product}}</span>
+            {% if product == "baikal" %}
+                <img src="{{site.url}}/img/logo.png" alt="{{product}}">
+                <span>{{product}}</span>
+            {% else %}
+                <img src="{{site.url}}/img/logo.png" alt="sabre/{{product}}">
+                sabre<span>/{{subproduct}}</span>
+            {% endif %}
         </a>
 
         <nav class="nav nav--page">
