@@ -182,6 +182,13 @@ PROPFIND response.
 Since SabreDAV 1.5 we always send along the DAV: header for every PROPFIND
 responses.
 
+#### No percetage sign in usernames allowed
+
+At least in OS X 10.11, iCal does not allow a `%` in usernames. Attempting this
+will cause iCal to simply not send any username or password and fail with an
+error.
+
+
 ### Random samples of HTTP requests iCal generates.
 
 #### Creating a subscription in 10.7
