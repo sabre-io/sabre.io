@@ -7,6 +7,8 @@ tags:
     - baikal 
 ---
 
+<img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" />
+
 For a long time Baïkal has been one of the most popular implementations of
 sabre/dav. Baïkal fills one of the biggest gaps that out-of-the-box sabre/dav
 has: an easy to use installer and admin interface. It's the best choice if
