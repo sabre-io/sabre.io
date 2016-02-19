@@ -11,7 +11,7 @@ To upgrade from Baïkal 0.2.7 to 0.3.X, follow the following steps:
 
 1. Make a backup of your MySQL or SQLite database. This step is really important!
 2. Make a backup of the `baikal` directory on your server, by creating a copy.
-3. Grab the Baikal 0.3.X zip file from [github][1].
+3. Grab the latest Baikal 0.3.X zip file from [github][1].
 4. Upload the contents of the zip file to the server, but make sure you *do not*
    overwrite the `Specific` directory. Everything else may be overwritten.
 5. Create an empty file named `ENABLE_INSTALL` in the `Specific` directory. On
