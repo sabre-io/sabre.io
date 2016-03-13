@@ -46,22 +46,31 @@ Apache vhost installation
 The following configuration file may be used as a standard template to configure
 an apache vhost as a dedicated Baïkal vhost:
 
-    <VirtualHost *:80>
+```apache
+<VirtualHost *:80>
 
-        DocumentRoot /var/www/baikal/html
-        ServerName dav.example.org
-        
-        RewriteEngine On
-        RewriteRule /.well-known/carddav /dav.php [R,L]
-        RewriteRule /.well-known/caldav /dav.php [R,L]
+    DocumentRoot /var/www/baikal/html
+    ServerName dav.example.org
 
-        <Directory "/var/www/baikal/html">
-            Options None
-            Options +FollowSymlinks
-            AllowOverride All
-        </Directory>
+    RewriteEngine On
+    RewriteRule /.well-known/carddav /dav.php [R,L]
+    RewriteRule /.well-known/caldav /dav.php [R,L]
 
-    </VirtualHost>
+    <Directory "/var/www/baikal/html">
+        Options None
+        Options +FollowSymlinks
+        AllowOverride All
+
+        # Confiugration for apache-2.2:
+        Order allow,deny
+        Allow from all
+
+        # Confiugration for apache-2.4:
+        Require all granted
+    </Directory>
+
+</VirtualHost>
+```
 
 
 Nginx configuration
@@ -70,32 +79,34 @@ Nginx configuration
 The following configuration may be used for nginx:
 
 
-	server {
-		listen       80;
-		server_name  dav.example.org;
+```nginx
+server {
+  listen       80;
+  server_name  dav.example.org;
 
-		root  /var/www/baikal/html;
-		index index.php;
+  root  /var/www/baikal/html;
+  index index.php;
 
-		rewrite ^/.well-known/caldav /dav.php redirect;
-		rewrite ^/.well-known/carddav /dav.php redirect;
-		
-		charset utf-8;
+  rewrite ^/.well-known/caldav /dav.php redirect;
+  rewrite ^/.well-known/carddav /dav.php redirect;
+  
+  charset utf-8;
 
-		location ~ /(\.ht|Core|Specific) {
-			deny all;
-			return 404;
-		}
+  location ~ /(\.ht|Core|Specific) {
+    deny all;
+    return 404;
+  }
 
-		location ~ ^(.+\.php)(.*)$ {
-			try_files $fastcgi_script_name =404;
-			fastcgi_split_path_info  ^(.+\.php)(.*)$;
-			fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
-			fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-			fastcgi_param  PATH_INFO        $fastcgi_path_info;
-			include        /etc/nginx/fastcgi_params;
-		}
-	}
+  location ~ ^(.+\.php)(.*)$ {
+    try_files $fastcgi_script_name =404;
+    fastcgi_split_path_info  ^(.+\.php)(.*)$;
+    fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    fastcgi_param  PATH_INFO        $fastcgi_path_info;
+    include        /etc/nginx/fastcgi_params;
+  }
+}
+```
 
 
 [1]: https://github.com/fruux/Baikal/releases
