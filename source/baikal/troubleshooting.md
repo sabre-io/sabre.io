@@ -13,6 +13,7 @@ related issues:
 * [Webservers][1]
 * [Authentication][2]
 
+
 Can't connect with OS X Yosemite
 --------------------------------
 
@@ -33,6 +34,13 @@ Both of these must redirect to
     http://dav.example.org/baikal/html/dav.php/
 
 For an example of how to set this up, check out the sample configration on the [install][3] doc.
+
+Can't connect with Windows 10
+-----------------------------
+
+The Windows 10 client does not support Digest authentication. So if you want
+to support Windows 10, you _must_ use Basic auth. (and please, use SSL).
+
 
 [1]: /dav/webservers/
 [2]: /dav/authentication/
