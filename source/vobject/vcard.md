@@ -209,6 +209,23 @@ numbers and display their custom labels, you'd do something like this:
 
     }
 
+### Getting a property by its TYPE value
+
+Many vCard properties, such as `TEL`, `ADR` and `EMAIL` support a `TYPE` attribute.
+
+    BEGIN:VCARD
+    TEL;TYPE=HOME,FAX:+15551234566
+    EMAIL;TYPE=HOME;TYPE=WORK:foobar@example.org
+    END:VCARD
+
+If you quickly want to get all the properties that have a specific `TYPE`
+value, you can do this with:
+
+    $email = $vcard->getByType('EMAIL','WORK');
+
+This function only returns the first property it finds, and will return `null`
+if no property with that `TYPE` could be found.
+
 
 ### Converting between different vCard versions
 
