@@ -13,8 +13,10 @@ changes:
 
 1. Added `VCard::getByType()`, to quickly get a vcard property with a specific
    value for `TYPE`.
-2. `UNTIL` and `COUNT` where not correctly encoded in the jCal format.
+2. `UNTIL` and `COUNT` were not correctly encoded in the jCal format.
 3. `RRULE` now has more validation and repair rules.
+
+Upgrade sabre/vobject by running:
 
     composer update sabre/vobject
 
