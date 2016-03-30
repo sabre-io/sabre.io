@@ -21,7 +21,7 @@ These are the current drafts:
 * [WebDAV resource sharing][2].
 * [CalDAV sharing][4].
 
-Today I wrote an article on my own blog about how it's working and the current
+Today I wrote an article on my own blog about how it works and the current
 status. [Read it here][5].
 
 We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If
