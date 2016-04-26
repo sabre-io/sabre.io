@@ -76,7 +76,7 @@ coffeepot plugin:
 
         }
 
-        function brewHandler(RequestInterface $request, ResponseInteface $response) {
+        function brewHandler(RequestInterface $request, ResponseInterface $response) {
 
             $response->setStatus(200);
             $response->setBody('Coffee is under way!');
