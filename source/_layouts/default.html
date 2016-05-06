@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <head>
 
-{% if page.product %}
-  {% set product = page.product %}
-  {% set subproduct = page.product %}
-{% else %}
+{% if page.product is empty %}
   {% set product = "dav" %}
   {% set subproduct = "dav" %}
+{% else %}
+  {% set product = page.product %}
+  {% set subproduct = page.product %}
 {% endif %}
 
 {% if page.product != "baikal" %}
