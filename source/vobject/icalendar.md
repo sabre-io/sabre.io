@@ -89,6 +89,10 @@ It's very easy to modify properties on objects:
     $vcalendar->VEVENT->add('ATTENDEE', 'mailto:foo@example.com');
     $vcalendar->VEVENT->add('ATTENDEE', 'mailto:evert@example.com');
 
+If your property name has a special character, such as the property
+`LAST-MODIFIED`, you can access it as such:
+
+    echo (string)$valendar->VEVENT->{'LAST-MODIFIED'};
 
 ### Working with parameters
 

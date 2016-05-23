@@ -17,6 +17,7 @@ Upgrading a major version? Read the upgrade instructions here:
 * [2.0.x to 2.1.x](/dav/upgrade/2.0-to-2.1)
 * [2.1.x to 3.0.x](/dav/upgrade/2.1-to-3.0)
 * [3.0.x to 3.1.x](/dav/upgrade/3.0-to-3.1)
+* [3.1.x to 3.2.x](/dav/upgrade/3.1-to-3.2)
 
 Support length
 --------------
