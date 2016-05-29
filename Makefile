@@ -11,7 +11,7 @@ SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md" -or -name "*.html")
 
 all: do-deploy
 
-generate: sculpin.lock output_prod
+generate: composer.lock output_prod
 
 do-deploy: generate
 	cd deploy && \
@@ -32,8 +32,8 @@ do-deploy: generate
 server:
 	sculpin generate --watch --server
 
-sculpin.lock: sculpin.json
-	sculpin install
+composer.lock: composer.json
+	composer install
 
 output_dev: output_dev/atom.xml ;
 

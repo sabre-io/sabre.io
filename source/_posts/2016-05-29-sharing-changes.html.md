@@ -39,7 +39,7 @@ was released back in 2012. However, this release only ever shipped with the
 interfaces to allow an implementor to write a custom backend for this.
 
 There were only a few people that have actually done that. This guide is for
-you.
+those people.
 
 The specification we used back then were 2 apple proprietary specifications:
 
@@ -113,7 +113,7 @@ and #2 works better for systems supporting small teams.
 Getting support for the old specifications
 ------------------------------------------
 
-One drawback of using the new specs, is that old clients don't yet undertand
+One drawback of using the new specs, is that old clients don't yet understand
 them. So we've added a plugin to handle this.
 
 If you add the `Sabre\CalDAV\SharingPlugin` plugin, this plugin supports the
