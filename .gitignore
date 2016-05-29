@@ -5,6 +5,9 @@
 /source/components/*
 /deploy/
 
+# Composer
+/vendor/
+
 # css output
 /source/css/*.css
 

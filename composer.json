@@ -2,7 +2,9 @@
     "require" : {
         "components/highlightjs" : "~8.3.0",
         "components/font-awesome" : "~4.2.0",
-        "components/normalize.css" : "~2.1.2"
+        "components/normalize.css" : "~2.1.2",
+        "sculpin/sculpin": "^2.1@dev",
+        "dflydev/embedded-composer": "^1.0@dev"
     },
 
     "config": {
