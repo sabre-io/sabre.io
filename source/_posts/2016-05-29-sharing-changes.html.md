@@ -34,7 +34,7 @@ here. However, if you did stuff with sharing before, read on.
 The old situation
 -----------------
 
-Preliminary support for sharing to sabre/dav was added in version 1.7, which
+Preliminary support for sharing was added to sabre/dav in version 1.7, which
 was released back in 2012. However, this release only ever shipped with the
 interfaces to allow an implementor to write a custom backend for this.
 
@@ -71,11 +71,11 @@ To do this, we've split the standard into 4 separate specifications:
 
 So in this process we're not only creating a separate CardDAV and CalDAV spec,
 but also adding a generic 'WebDAV sharing' spec that can be used by
-WebDAV file sharing systems, such as Owncloud.
+WebDAV file sharing systems, such as ownCloud.
 
 On a high level the data-model is similar, but almost everywhere new XML
 documents have been defined that are more descriptive, more generic or just
-better for aestetic reasons.
+better for aesthetic reasons.
 
 
 The state of sharing in sabre/dav 3.2
@@ -104,7 +104,7 @@ The old spec only has support for the first model, and this is true as well
 for the sabre/dav implementation.
 
 However, in sabre/dav 3.2 we initially only support model #2. So if you
-require the notifation system, you can't yet do an upgrade.
+require the notification system, you can't yet do an upgrade.
 
 We think model #1 is probably more appropriate for public consumer systems,
 and #2 works better for systems supporting small teams.
