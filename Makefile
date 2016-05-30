@@ -30,7 +30,7 @@ do-deploy: generate
 	echo "Deploy complete"
 
 server:
-	sculpin generate --watch --server
+	vendor/bin/sculpin generate --watch --server
 
 composer.lock: composer.json
 	composer install
@@ -42,12 +42,12 @@ output_prod: output_prod/atom.xml ;
 output_dev/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 	# atom.xml always changes to the latest date and time, so we can use this
 	# as the main target to figure out if the source changed at all.
-	sculpin generate --env=dev --url=$(URL)
+	vendor/bin/sculpin generate --env=dev --url=$(URL)
 
 output_prod/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 	# atom.xml always changes to the latest date and time, so we can use this
 	# as the main target to figure out if the source changed at all.
-	sculpin generate --env=prod --url=$(URL)
+	vendor/bin/sculpin generate --env=prod --url=$(URL)
 
 
 YUI = $(shell which yuicompressor || which yui-compressor)
