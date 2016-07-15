@@ -4,40 +4,44 @@ layout: default
 type: plugin
 plugin_name: caldav-sharing
 plugin_since: 1.7.0
+versions:
+    "1.7-3.1": /dav/3.1/caldav-sharing/
+    "3.2": /dav/sharing/
+thisversion: 3.2
 ---
 
 Since version 1.7 SabreDAV comes with experimental support for CalDAV-sharing.
+CalDAV sharing got a major overhaul in version 3.2, supporting updated
+standards and it now also comes with a default implementation in the CalDAV
+PDO backend.
 
-**Early warning:** Currently SabreDAV provides no implementation for this. This
-is, because in it's current state there is no elegant way to do this.
-The problem lies in the fact that a real CalDAV server with sharing support
-would first need email support (with invite notifications), and really also
-a browser-frontend that allows people to accept or reject these shares.
+To enable CalDAV sharing, make sure you have the following plugin enabled:
 
-In addition, the CalDAV backends are currently kept as independent as
-possible, and should not be aware of principals, email addresses or
-accounts.
+    $server->addPlugin(new Sabre\DAV\Sharing\Plugin());
 
-Adding an implementation for Sharing to standard-sabredav would contradict
-these goals, so for this reason this is currently not implemented, although
-it may very well in the future.
+If you want to allow clients such as OS X and BusyCal to be able to manipulate
+who has access to a share, you must add another plugin, which is responsible
+for a compatibility layer until these clients are up-to-date with the specs:
 
-The interface works however, so if you implement all this, and do it
-correctly sharing _will_ work. It's not particularly easy, and I _urge you_
-to make yourself acquainted with the following documents first:
+    $server->addPlugin(new Sabre\CalDAV\SharingPlugin());
 
-* <https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt>
-* <https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt>
+Please note that you need both!
 
-An overview
------------
+If you are writing you own CalDAV Backend, you can implement CalDAV sharing
+by making sure your CalDAV Backend class implements the following interface:
 
-Implementing this interface will allow a user to share his or her calendars
-to other users. Effectively, when a calendar is shared the calendar will
-show up in both the Sharer's and Sharee's calendar-home root.
+    Sabre\CalDAV\Backend\SharingSupport
 
-Inviting people is not instant. There should be a notification system
-that clients use to either accept or reject this.
+More information about implementing this interface can be found in the
+[sabre/dav source][1].
 
-A lot of the documentation can be found in the actual interfaces:
-`Sabre\CalDAV\Backend\SharingSupport` and `Sabre\CalDAV\Backend\NotificationSupport`.
+The following specifications are supported:
+
+* [draft-pot-webdav-resource-sharing-03][2].
+* [draft-pot-caldav-sharing-00][3].
+* [calendarserver-caldav-sharing][4].
+
+[1]: https://github.com/fruux/sabre-dav/blob/master/lib/CalDAV/Backend/SharingSupport.php
+[2]: https://tools.ietf.org/html/draft-pot-webdav-resource-sharing-03
+[3]: https://tools.ietf.org/html/draft-pot-caldav-sharing-00
+[4]: http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt
