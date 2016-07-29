@@ -680,5 +680,5 @@ To validate XML content before parsing, use `setSchema()` inherited from `XMLRea
 
 
 [1]: http://php.net/manual/en/book.xmlreader.php
-[2]: /xml/valueobject/
+[2]: /xml/valueobjects/
 [3]: /xml/service/
