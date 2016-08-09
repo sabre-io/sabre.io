@@ -14,7 +14,7 @@ To upgrade from Baïkal to 0.4.X, follow the following steps:
 3. Grab the latest Baikal 0.4.X zip file from [github][1].
 4. Upload the contents of the zip file to the server, but make sure you *do not*
    overwrite the `Specific` directory. Everything else may be overwritten.
-5. Open the administration panel on the server. Usually this is something like `http://dav.example.org/baikal/admin/`.
+5. Open the administration panel on the server. Usually this is something like `http://dav.example.org/baikal/html/admin/`.
 6. Follow the steps in the administration panel.
 
 If you're having any problems with these steps at all, just [contact us][2].
