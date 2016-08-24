@@ -14,13 +14,12 @@ Running the website locally
 Although this is not needed when creating or updating content, it may be
 useful to be able to run the website on a local machine.
 
-To do so, first [follow the installation instructions for sculpin][3].
-I used the phar install, because it was the easiest.
+To do so, make sure you have composer installed.
 
 Next, from the project directory, run the following:
 
-    sculpin install
-    sculpin generate --watch --server
+    composer install
+    vendor/bin/sculpin generate --watch --server
 
 The first step will install required dependencies, the second starts a server
 locally where you can go have a look. To test, simply head to
