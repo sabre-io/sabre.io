@@ -1,4 +1,5 @@
 #!/bin/bash
+# EC 20160824 - why /bin/bash?
 
 DOMAIN = sabre.io
 URL = http://${DOMAIN}
@@ -60,3 +61,29 @@ source/css/sabre.css: source/less/*.less
 
 foo:
 	echo $(SOURCE_MD_FILES)
+
+clean:
+	rm -Rvf output_dev/ source/components/* vendor/ source/*.css
+
+
+# Dockerization:
+
+DOCKER_ENABLED=$(shell which docker; echo $$?)
+
+docker_check:
+ifeq ($(DOCKER_ENABLED), 1)
+	@printf "cannot built target '%s' - docker not available or not running\n\n" $@
+	@exit 1
+endif
+ifndef DOCKER_IMAGE
+    # Assumes the existence of fruxx/sabre.io in hub.docker.com
+    override DOCKER_IMAGE=fruxx/sabre.io
+endif
+
+
+docker_image: docker_check
+	docker build -t $(DOCKER_IMAGE) --rm=true .
+
+docker_run: docker_check
+	docker run --rm --name="sabre.io" -h "sabre.io" -p "8000:8000" -v $(shell pwd):"/var/www/html" $(DOCKER_IMAGE)
+

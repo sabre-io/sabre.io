@@ -1,3 +1,5 @@
+sculpin:
+    ignore: ["**swp"]
 sculpin_content_types:
     clients:
         type: meta
