@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export COMPOSER_HOME="/var/www/"
+
+hostname build
+domainname sabre.io
+
+source /etc/apache2/envvars
+
+mkdir -p "$APACHE_LOCK_DIR"
+mkdir -p "$APACHE_RUN_DIR"
+
+service rsyslog start
+
+cd /var/www/html
+composer install
+vendor/bin/sculpin install
+vendor/bin/sculpin generate --watch --server
+
