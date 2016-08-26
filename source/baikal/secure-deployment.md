@@ -46,7 +46,7 @@ These are the reasons why the Baikal installations don't cover SSL use and
 certificate management.
 
 The sabre/dav team is evaluating the possibility of implementing out of the box
-security in a [ready-to-run Docker image][1] in the future.
+security in a [ready-to-run Docker image][1] in the near future.
 
 [1]: /baikal/docker-ready
 

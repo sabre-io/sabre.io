@@ -9,7 +9,7 @@ issues must be addressed before making it available for public use:
 
 1. The host and domain names should be passed to the calendar container when it
    starts; they are indispensable for the correct Postfix and web server
-   configuration and right now they're coded in to the Dockerfile.
+   configuration and right now they're coded in the Dockerfile.
 
 1. A public Baïkal image would work best with a Docker volume container for data
    storage, including disaster recovery, backup procedures, and data management;
@@ -22,7 +22,7 @@ issues must be addressed before making it available for public use:
    keeping them separate, but practicality of deploying the Baïkal server in a
    single image would offer tremendous value for small shops and start ups.
 
-1. Remove Postfix from the pr3d4t0r/calendar image; this requires code changes
+1. Remove Postfix from the Docker image; this requires code changes
    in Baïkal to use [Swift Mailer][2] instead of the PHP [`mail()` function][3],
    plus a mechanism for passing the MX server or relay configuration to the 
    container over environment variables (similar to 1).
@@ -31,7 +31,7 @@ The sabre/dav team is working toward sorting out the best solutions to these
 issues.
 
 A 100% stand alone, ready-to-run Baïkal image will be available at the end of
-Q3 via Docker Hub.
+Q3 2016 via Docker Hub.
 
 ## Why is the image based on Ubuntu Server instead of Alpine?
 
