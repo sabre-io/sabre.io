@@ -1,4 +1,6 @@
-#!/bin/bash
+# sabre.io
+#
+# vim: set fileencoding=utf-8:
 
 DOMAIN = sabre.io
 URL = http://${DOMAIN}
@@ -60,3 +62,27 @@ source/css/sabre.css: source/less/*.less
 
 foo:
 	echo $(SOURCE_MD_FILES)
+
+clean:
+	rm -Rvf output_dev/ source/components/* vendor/ source/*.css
+
+
+### If no PHP configuration changes to the current dev host are desired
+### or allowed and container support is enabled:
+
+DOCKER_ENABLED=$(shell which docker; echo $$?)
+
+docker_check:
+ifeq ($(DOCKER_ENABLED), 1)
+	@printf "cannot built target - Docker not available or not running\n\n"
+	@exit 1 
+endif
+ifndef IMAGE
+    # GitHub and Docker Hub -- identical names.
+    override IMAGE=pr3d4t0r/sabre.io
+endif
+
+
+do-edit: docker_check
+	docker run --rm --name="edit.sabre.io" -h "sabre.io" -p "8000:8000" -v $(shell pwd):"/var/www/html" $(IMAGE)
+
