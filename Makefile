@@ -1,5 +1,6 @@
-#!/bin/bash
-# EC 20160824 - why /bin/bash?
+# sabre.io
+#
+# vim: set fileencoding=utf-8:
 
 DOMAIN = sabre.io
 URL = http://${DOMAIN}
@@ -66,27 +67,22 @@ clean:
 	rm -Rvf output_dev/ source/components/* vendor/ source/*.css
 
 
-# Dockerization:
+### If no PHP configuration changes to the current dev host are desired
+### or allowed and container support is enabled:
 
 DOCKER_ENABLED=$(shell which docker; echo $$?)
 
 docker_check:
 ifeq ($(DOCKER_ENABLED), 1)
-	@printf "cannot built target '%s' - docker not available or not running\n\n" $@
-	@exit 1
+	@printf "cannot built target - Docker not available or not running\n\n"
+	@exit 1 
 endif
-ifndef DOCKER_IMAGE
-    # Assumes the existence of fruxx/sabre.io in hub.docker.com
-    override DOCKER_IMAGE=fruxx/sabre.io
+ifndef IMAGE
+    # GitHub and Docker Hub -- identical names.
+    override IMAGE=pr3d4t0r/sabre.io
 endif
 
 
-docker_image: docker_check
-	docker build -t $(DOCKER_IMAGE) --rm=true .
-
-docker_push: docker_check
-	docker push $(DOCKER_IMAGE)
-
-docker_run: docker_check
-	docker run --rm --name="sabre.io" -h "sabre.io" -p "8000:8000" -v $(shell pwd):"/var/www/html" $(DOCKER_IMAGE)
+do-edit: docker_check
+	docker run --rm --name="edit.sabre.io" -h "sabre.io" -p "8000:8000" -v $(shell pwd):"/var/www/html" $(IMAGE)
 

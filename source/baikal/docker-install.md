@@ -17,7 +17,7 @@ layout: default
     * `resources/baikal.apache2`
     * `resources/Server.php`
         * Find out your relay's host name &mdash; this guide uses _smtp.example.org_
-    * Dockerfile
+    * `Dockerfile`
         * Check your relay host name &mdash; this guide assumes
           _smtp.example.org_
 * Build the image and push it to Docker Hub

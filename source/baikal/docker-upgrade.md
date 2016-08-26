@@ -12,7 +12,7 @@ layout: default
 
 ## Deployment
 
-On the production calendar server:
+### On the production calendar server
 
 * Copy the existing configuration files from running container to the service
   account on the production server
@@ -24,7 +24,7 @@ docker exec calendar.service /bin/cat /var/www/calendar_server/Specific/config.p
 docker exec calendar.service /bin/cat /var/www/calendar_server/Specific/config.system.php > ./config.system.php
 ```
 
-On the build server:
+### On the build server
 
 * Copy the configuration files from the service account `$HOME` to the build
   server's `./resources` directory
@@ -58,7 +58,7 @@ docker build -t "$imageName" --rm=true . && \
 docker push "$imageName"
 ```
 
-On the production calendar server:
+### On the production calendar server
 
 * Kill the running Baïkal instance
 ```bash
@@ -105,7 +105,7 @@ delete them after building the image.
 First:  _don't panic_.
 
 Log on to the admin console as soon as the Baïkal instance is running and follow
-the configuration wizard.  This will define the Only the `BAIKAL_ADMIN_PASSWORDHASH`
+the configuration wizard.  Only the `BAIKAL_ADMIN_PASSWORDHASH`
 configuration files are changed.  The users, calendars, and address books 
 database is intact, and will become available as soon as the configuration is
 complete.

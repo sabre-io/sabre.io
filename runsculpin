@@ -1,9 +1,0 @@
-#!/bin/bash
-
-export COMPOSER_HOME="/var/www/"
-
-cd /var/www/html
-composer install
-vendor/bin/sculpin install
-vendor/bin/sculpin generate --watch --server
-
