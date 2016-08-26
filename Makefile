@@ -84,6 +84,9 @@ endif
 docker_image: docker_check
 	docker build -t $(DOCKER_IMAGE) --rm=true .
 
+docker_push: docker_check
+	docker push $(DOCKER_IMAGE)
+
 docker_run: docker_check
 	docker run --rm --name="sabre.io" -h "sabre.io" -p "8000:8000" -v $(shell pwd):"/var/www/html" $(DOCKER_IMAGE)
 

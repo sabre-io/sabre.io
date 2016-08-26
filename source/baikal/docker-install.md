@@ -59,8 +59,8 @@ docker run --name "calendar.service" \
 docker ps -a
 ```
 ```
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                  NAMES
-83d209fefa91        pr3d4t0r/calendar   "/runapache2"       2 minutes ago       Up 2 minutes        0.0.0.0:8800->80/tcp   calendar.service
+CONTAINER ID        IMAGE                        COMMAND             CREATED             STATUS              PORTS                  NAMES
+83d209fefa91        yourdockerhubname/calendar   "/runapache2"       2 minutes ago       Up 2 minutes        0.0.0.0:8800->80/tcp   calendar.service
 ```
 * Configure the Baïkal server by connecting to the instance on port 8800
 
@@ -73,7 +73,7 @@ managed now, like in this production instance.
 
 <img src='/img/baikal-in-use.png' style="width: 100%; max-width: 640px;" />
 
-## Implementation Notes
+## Implementation notes
 
 This section explains the implementation changes specific to running Baïkal as
 a production-ready server with all the features that end users and sysadmins
@@ -121,7 +121,7 @@ revealed that Baïkal defines its own server, separate from sabre/dav's.
 # http://sabre.io/dav/scheduling/
 # https://groups.google.com/forum/#!searchin/sabredav-discuss/scheduling|sort:relevance/sabredav-discuss/CrGZXqw4sRw/vsHYq6FDcnkJ
 # This needs to be patched on the Baïkal start up Server.php, NOT in the sabre/dav server.
-COPY resources/Server.php /var/www/calendar_server/Core/Frameworks/Baïkal/Core/Server.php
+COPY resources/Server.php /var/www/calendar_server/Core/Frameworks/Baikal/Core/Server.php
 ```
 
 The updated lines:
@@ -141,7 +141,7 @@ if ($this->enableCalDAV) {
 
 ### Starting the services
 
-Docker containers have a single entry point.  The version of sabre/dav/Baïkal at
+Docker containers have a single entry point.  The version of sabre/dav/Baikal at
 the time of this writing requires that the email relay or actual email server
 run in the same box because it uses PHP's [`mail()` function][3].
 

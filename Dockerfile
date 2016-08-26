@@ -49,11 +49,12 @@ RUN                     mv composer.phar /usr/local/bin/composer
 
 ### "web-server-configuration-and-launch"
 WORKDIR                 /
-COPY                    bin/runsculpin /
+COPY                    runsculpin /
 
 # httpoxy vulnerability fix:
 # RUN                     awk '/vim: syntax/ { printf("# Poxy; CVE-2016-5387\nLoadModule headers_module /usr/lib/apache2/modules/mod_headers.so\nRequestHeader unset Proxy early\n%s\n", $0); next; } { print; }' /etc/apache2/apache2.conf > /tmp/apache2.conf
 # RUN                     cat /tmp/apache2.conf > /etc/apache2/apache2.conf && rm /tmp/apache2.conf
 
-ENTRYPOINT                [ "/runsculpin" ]
+USER                    root    
+ENTRYPOINT              [ "/runsculpin" ]
 
