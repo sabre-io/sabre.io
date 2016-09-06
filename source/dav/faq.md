@@ -16,34 +16,34 @@ also works often through corporate firewalls.
 See [Wikipedia][1] or [webdav.org][2] for more information.
 
 
-What is SabreDAV?
+What is sabre/dav?
 -----------------
 
-SabreDAV is a WebDAV server completely built in PHP. This means all you need
+sabre/dav is a WebDAV server completely built in PHP. This means all you need
 to enable WebDAV access to your Web server is PHP.
 
-SabreDAV supports CalDAV, CardDAV and WebDAV as well as many other related
+sabre/dav supports CalDAV, CardDAV and WebDAV as well as many other related
 specifications. See [Standards Support](/dav/standards-support) for the full
 list.
 
 
-Is SabreDAV stable?
+Is sabre/dav stable?
 -------------------
 
-SabreDAV has been deployed by live applications since 2007, and more than 98%
+sabre/dav has been deployed by live applications since 2007, and more than 98%
 of the code is covered by unittests. It is currently in use by multiple
 corporations. The largest installations manage addressbooks and calendars for
 millions of users.
 
-No software is bugfree though, but SabreDAV is actively maintained, so if
+No software is bugfree though, but sabre/dav is actively maintained, so if
 anything pops up we're usually quick to respond.
 
 
-Why would I use SabreDAV instead of Apache's mod_dav?
+Why would I use sabre/dav instead of Apache's mod_dav?
 -----------------------------------------------------
 
-If [mod_dav][5] does what you need, you probably don't need SabreDAV. SabreDAV
-is intended as an easily programmable webdav server. SabreDAV supports more
+If [mod_dav][5] does what you need, you probably don't need sabre/dav. sabre/dav
+is intended as an easily programmable webdav server. sabre/dav supports more
 clients and also does Cal- and CardDAV, whereas mod_dav does not
 
 If you don't have a need for those features, mod_dav is likely a better choice
@@ -98,7 +98,7 @@ would [love to hear it][7] so we can see if we can devise a workaround, or
 at least document the behavior.
 
 
-Does SabreDAV pass the litmus test?
+Does sabre/dav pass the litmus test?
 -----------------------------------
 
 [Litmus](/dav/litmus) is a handy tool that helps you test your WebDAV server
@@ -106,17 +106,17 @@ for all standard features. The current status of the litmus test can be found
 on the [Litmus](/dav/litmus) page.
 
 
-Can SabreDAV work with large files?
+Can sabre/dav work with large files?
 -----------------------------------
 
 Yes, read [Working with large files](/dav/large-files).
 
 
-Does SabreDAV work with Microsoft Outlook?
+Does sabre/dav work with Microsoft Outlook?
 ------------------------------------------
 
 Outlook does not support CalDAV, and therefore it is also not possible to sync
-with SabreDAV (or any other CalDAV implementation).
+with sabre/dav (or any other CalDAV implementation).
 
 However, there's an open source plugin called "Outlook Caldav Synchronizer"
 that adds support.
@@ -136,6 +136,12 @@ I'm getting 405 errors
 See the [webservers](/dav/webservers) documentation.
 
 
+How can I extend sabre/dav functionality with my own classes?
+-------------------------------------------------------------
+
+Read [extending-sabredav](/dav/extending-sabredav/).
+
+
 How can I help?
 ---------------
 
@@ -149,7 +155,7 @@ areas we could use some help with:
 * Sponsor a feature.
 * Hire maintainers of this project to integrate WebDAV in your application.
 
-SabreDAV is now developed at [fruux][12], for the last two items in this list
+sabre/dav is now developed at [fruux][12], for the last two items in this list
 it would be best to [contact us](/support) to help you further.
 
 
@@ -162,7 +168,7 @@ Hit us up on the [mailing list][7].
 I'd like to get commercial support
 ----------------------------------
 
-SabreDAV is developed by [fruux][12]. If you're looking for enterprise-level
+sabre/dav is developed by [fruux][12]. If you're looking for enterprise-level
 support, we'd love to [hear from you](/support)!
 
 
