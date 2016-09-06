@@ -118,23 +118,22 @@ Does SabreDAV work with Microsoft Outlook?
 Outlook does not support CalDAV, and therefore it is also not possible to sync
 with SabreDAV (or any other CalDAV implementation).
 
-There's a few plugins though that add this functionality to outlook:
+However, there's an open source plugin called "Outlook Caldav Synchronizer"
+that adds support.
 
-[Bynari WebDAV collaborator][9] is a very active, non-free plugin for outlook.
-It works well with SabreDAV and syncs contacts, calendars and tasks.
-
-[iCal4OL][10] is another (non-free, but it has a trial). I have personally not
-tested it so if it worked with SabreDAV, but we have had good reports.
-
-[Open Connector][11] is a free plugin for Outlook that is supposed to provide
-support for this, but the project appears unmaintained since 2008, and I
-personally haven't gotten it to work. If you did, let me know how.
+More information here: <https://github.com/aluxnimm/outlookcaldavsynchronizer/>
 
 
 I'm getting 0-byte files on the server
 --------------------------------------
 
 Read [0 bytes](/dav/0bytes).
+
+
+I'm getting 405 errors
+----------------------
+
+See the [webservers](/dav/webservers) documentation.
 
 
 How can I help?
@@ -175,8 +174,5 @@ support, we'd love to [hear from you](/support)!
 [6]: http://www.charlesproxy.com/download/
 [7]: http://groups.google.com/group/sabredav-discuss
 [8]: https://github.com/fruux/sabre-dav/issues/new
-[9]: http://www.bynari.net/products-page/product-category/bynari-webdav-collaborator/
-[10]: http://ical.gutentag.ch/
-[11]: http://openconnector.org/
 [12]: https://fruux.com/
 [13]: /dav/baseurl/

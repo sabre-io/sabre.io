@@ -57,6 +57,7 @@ might need to change this to something like:
 Note the /server.php. Make sure this reflects the correct location of your
 server file.
 
+
 ### mod_reqtimeout
 
 It was reported that Apache's [mod_reqtimeout][2] can stop large uploads from
@@ -64,6 +65,16 @@ completing. This module is currently enabled by default on Ubuntu, and perhaps
 others as well.
 
 To fix this, turn off this module.
+
+
+### 405 Errors
+
+If you're getting 405 errors on apache, it's typically because your distro
+ships with apache configuration that disables WebDAV HTTP methods.
+
+To resolve this, usually in your webserver configuration there should be
+`Limit` or `LimitExcept` directives that should be removed.
+
 
 Nginx
 -----
