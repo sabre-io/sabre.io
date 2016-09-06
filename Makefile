@@ -1,4 +1,6 @@
-#!/bin/bash
+# sabre.io
+#
+# vim: set fileencoding=utf-8:
 
 DOMAIN = sabre.io
 URL = http://${DOMAIN}
@@ -60,3 +62,7 @@ source/css/sabre.css: source/less/*.less
 
 foo:
 	echo $(SOURCE_MD_FILES)
+
+clean:
+	rm -Rvf output_dev/ source/components/* vendor/ source/*.css
+
