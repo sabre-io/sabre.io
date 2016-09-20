@@ -99,11 +99,11 @@ server {
 
   location ~ ^(.+\.php)(.*)$ {
     try_files $fastcgi_script_name =404;
+    include        /etc/nginx/fastcgi_params;
     fastcgi_split_path_info  ^(.+\.php)(.*)$;
     fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
     fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
     fastcgi_param  PATH_INFO        $fastcgi_path_info;
-    include        /etc/nginx/fastcgi_params;
   }
 }
 ```
