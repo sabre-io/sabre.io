@@ -28,6 +28,7 @@ SabreDAV comes with the following backends:
 | `Sabre\DAV\Auth\Backend\BasicCallback` | Basic  | Extremely easy way to create authentication from a custom source |
 | `Sabre\DAV\Auth\Backend\File`          | Digest | Use a `htdigest` file for it's backend |
 | `Sabre\DAV\Auth\Backend\PDO`           | Digest | Use a database, such as sqlite or mysql |
+| `Sabre\DAV\Auth\Backend\IMAP`          | Basic  | Use an imap server |
 
 Using the PDO backend
 ---------------------
@@ -114,6 +115,34 @@ To use this file:
 
     $authBackend = new Auth\Backend\File('/path/to/htdigest');
     $authBackend->setRealm('SabreDAV');
+    $authPlugin = new Auth\Plugin($authBackend);
+
+    // Adding the plugin to the server.
+    $server->addPlugin($authPlugin);
+
+Using the IMAP backend
+----------------------
+
+You can use the IMAP backend to authenticate against an IMAP server like
+dovecot, cyrus or any other.
+
+Assuming you already have a server up and running, add the plugin using the
+following code:
+
+    use Sabre\DAV\Auth;
+
+    // Set IMAP flags according to your needs.
+    // The connection will be opened read-only.
+    // http://php.net/manual/de/function.imap-open.php
+    $mailbox = '{localhost:993/notls}';
+
+    // Creating the backend.
+    $authBackend = new Auth\Backend\IMAP($mailbox);
+
+    // We're assuming that the realm name is called 'SabreDAV'.
+    $authBackend->setRealm('SabreDAV');
+
+    // Creating the plugin.
     $authPlugin = new Auth\Plugin($authBackend);
 
     // Adding the plugin to the server.
