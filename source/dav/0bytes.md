@@ -63,6 +63,9 @@ exist, SabreDAV itself will create an empty file at that location.
 So this is another situation where an empty file may be created before the
 _actual_ file comes in.
 
+Another reason might be, that the lock-file could not be created due to a nonexisting folder or insuficient permissions.
+Check your logfiles for errors.
+
 What if there is no follow-up PUT?
 ----------------------------------
 
