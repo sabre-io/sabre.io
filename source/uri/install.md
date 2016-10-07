@@ -9,9 +9,8 @@ Requirements
 
 sabre/uri must be installed using [composer][1].
 
-You will need a recent version of PHP. sabre/uri currently requires PHP
-5.4.7. Older versions of PHP have bugs related to URI handling.
-
+You will need a recent version of PHP. sabre/uri 2.x requires PHP 7, but 1.x
+has an identical api and supports PHP 5.5 and up.
 
 Installing with composer
 ------------------------
