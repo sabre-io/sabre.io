@@ -27,20 +27,20 @@ promise to support the previous version `1.7.*` for at least 12 months.
 
 Currently and previously supported versions:
 
-| SabreDAV version | PHP Version | First stable release | End of support      |
-| ---------------- | ----------- | -------------------- | ------------------- |
-| 1.2              | 5.2         | May 2010             | October 2011 (EOL)  |
-| 1.3              | 5.2         | October 2010         | June 2012 (EOL)     |
-| 1.4              | 5.2         | February 2011        | November 2012 (EOL) |
-| 1.5              | 5.2         | August 2011          | February 2013 (EOL) |
-| 1.6              | 5.3         | February 2012        | November 2013 (EOL) |
-| 1.7              | 5.3         | October 2012         | July 2014 (EOL)     |
-| 1.8              | 5.3         | November 2012        | May 2015 (EOL)      |
-| 2.0              | 5.4         | May 2014             | December 2015 (EOL) |
-| 2.1              | 5.4         | November 2014        | June 2016           |
-| 3.0              | 5.4         | June 2015            | January 2017        |
-| 3.1              | 5.5         | January 2016         | June 2017           |
-| 3.2              | 5.5         | June 2016            |                     |
+| SabreDAV version | PHP Version | First stable release | End of support       |
+| ---------------- | ----------- | -------------------- | -------------------- |
+| 1.2              | 5.2         | May 2010             | October 2011 (EOL)   |
+| 1.3              | 5.2         | October 2010         | June 2012 (EOL)      |
+| 1.4              | 5.2         | February 2011        | November 2012 (EOL)  |
+| 1.5              | 5.2         | August 2011          | February 2013 (EOL)  |
+| 1.6              | 5.3         | February 2012        | November 2013 (EOL)  |
+| 1.7              | 5.3         | October 2012         | July 2014 (EOL)      |
+| 1.8              | 5.3         | November 2012        | May 2015 (EOL)       |
+| 2.0              | 5.4         | May 2014             | December 2015 (EOL)  |
+| 2.1              | 5.4         | November 2014        | September 2016 (EOL) |
+| 3.0              | 5.4         | June 2015            | January 2017         |
+| 3.1              | 5.5         | January 2016         | June 2017            |
+| 3.2              | 5.5         | June 2016            |                      |
 
 Versioning scheme
 -----------------
