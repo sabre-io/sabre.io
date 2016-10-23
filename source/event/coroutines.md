@@ -71,8 +71,7 @@ Tips and tricks
 ---------------
 
 The coroutines itself also returns a promise. This promise will resolve with
-the last yielded value or promise. It will reject if there was an uncaught
-exception.
+the value you returned from the coroutine.
 
 This allows you to for example call `wait()` to turn a large asynchronous
 process into a blocking one:
@@ -89,16 +88,6 @@ process into a blocking one:
 It's possible to call different coroutines from within your own coroutine
 easily as well:
 
-
-    use Sabre\Event;
-
-    Event\coroutine(function() {
-
-        yield Event\coroutine($anotherGenerator);
-
-    });
-
-In PHP7 this becomes even easier:
 
     use Sabre\Event;
 
