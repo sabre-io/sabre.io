@@ -2,7 +2,7 @@
 title: sabre/event 5 released
 product: event 
 sidebar: none
-date: "2016-10-23T22:42:15-04:00"
+date: "2016-10-23T15:24:04-04:00"
 tags:
     - event 
     - release
@@ -25,13 +25,13 @@ anything like this:
 To work with this limitation in coroutines, we treated the last value that
 was passed with `yield` as the "returned value".
 
-Since PHP 7 it is possible to use return and the PHP Generator object has a
+Since PHP 7 it is possible to use `return` and the PHP Generator object has a
 `getReturn()` method to access it.
 
 We missed this in sabre/event 4, but it was quickly pointed out by Felix
 Becker.
 
-Using return makes so much sense now we can, it was worth making a BC break
+Using `return` makes so much sense now we can, it was worth making a BC break
 for and releasing sabre/event 5 with the more sane behavior for PHP 7.
 
 So today there's a sabre/event 5, and the only change is that if the previous
