@@ -20,7 +20,7 @@ to install it.
 
 From your project directory, the easiest is then to simply call:
 
-    composer require sabre/uri ~{{site.latest_versions.uri}}
+    composer require sabre/uri ^{{site.latest_versions.uri}}
 
 This rule ensures that you install the latest stable uri package, and you'll
 get any future updates (which never break backwards compatibility).

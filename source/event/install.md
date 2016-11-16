@@ -9,8 +9,8 @@ sabre/event must be intalled using [composer][1].
 Requirements
 ------------
 
-You will need a recent version of PHP. sabre/event currently requires PHP
-5.5.
+You will need a recent version of PHP. sabre/event 5 requires PHP 7, but
+sabr/event 3 is still actively maintained and works on PHP 5.5 and up.
 
 Installing with composer
 ------------------------
@@ -20,11 +20,10 @@ to install it.
 
 From your project directory, the easiest is then to simply call:
 
-    composer require sabre/event ~{{site.latest_versions.event}}
+    composer require sabre/event ^{{site.latest_versions.event}}
 
-This rule ensures that you install the latest event package in the 1.0 range
-of packages, but it does not install 1.1 or higher, which could result in a
-backwards compatibility break.
+This rule ensures that you install the latest event package in the 5.x range
+of packages.
 
 After running this, sabre/event should be installed, and you can load it in
 by including the autoloader:

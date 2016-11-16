@@ -9,7 +9,8 @@ sabre/xml must be installed using [Composer][1].
 Requirements
 ------------
 
-You will need a recent version of PHP. sabre/xml currently requires PHP 5.4.
+You will need a recent version of PHP. sabre/xml 2.0 requires PHP 7, but
+sabre/xml 1.5, which is still actively maintained, requires PHP 5.5 and up.
 
 Installing with Composer
 ------------------------
