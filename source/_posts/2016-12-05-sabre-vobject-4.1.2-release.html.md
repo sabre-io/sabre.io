@@ -2,7 +2,7 @@
 title: sabre/vobject 4.1.2 released
 product: vobject 
 sidebar: none
-date: "2016-12-12T23:19:17-05:00"
+date: "2016-12-05T23:19:17-05:00"
 tags:
     - vobject
     - release
