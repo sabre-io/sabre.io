@@ -80,7 +80,7 @@ In case you are curious about the weird notation with the `{` and `}`, read
 If you are running PHP 5.5 and up, you can also use `::class`. Example:
 
     $service->mapValueObject('{http://www.w3.org/2005/Atom}feed', Feed::class);
-    $service->mapValueObject('{http://www.w3.org/2005/Atom}author', Author:class);
+    $service->mapValueObject('{http://www.w3.org/2005/Atom}author', Author::class);
     $service->mapValueObject('{http://www.w3.org/2005/Atom}entry', Entry::class);
 
 The `::class` construct basically returns a full class name. Because it's no
