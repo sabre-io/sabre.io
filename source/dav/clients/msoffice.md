@@ -62,7 +62,7 @@ It was discovered that certain versions of Office break if the
 
 To fix this, you can hide this element using the following code snippet:
 
-    \Sabre\DAV\Property\LockDiscovery::$hideLockRoot = true;
+    \Sabre\DAV\Xml\Property\LockDiscovery::$hideLockRoot = true;
 
 Hiding it hasn't caused any issues for other clients, so it should be safe to call this.
 This issue has so far been reported for both Office 2000, and office 2003 clients.
