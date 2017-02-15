@@ -61,6 +61,10 @@ also how you'd want to build up your own server.
     $caldavPlugin = new CalDAV\Plugin();
     $server->addPlugin($caldavPlugin);
 
+    // CardDAV plugin
+    $carddavPlugin = new CardDAV\Plugin();
+    $server->addPlugin($carddavPlugin);
+
     // ACL plugin
     $aclPlugin = new DAVACL\Plugin();
     $server->addPlugin($aclPlugin);
