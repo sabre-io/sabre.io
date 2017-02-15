@@ -4,7 +4,7 @@ type: client
 ---
 
 iCal (now known as just 'Calendar'), is one of the most feature-rich CalDAV
-clients on there. A lot of testing with SabreDAV first happens with iCal,
+clients out there. A lot of testing with SabreDAV first happens with iCal,
 as it tends to be the forerunner in supporting new standards, and also tends
 to be the most correct implementation.
 
@@ -182,7 +182,7 @@ PROPFIND response.
 Since SabreDAV 1.5 we always send along the DAV: header for every PROPFIND
 responses.
 
-#### No percetage sign in usernames allowed
+#### No percentage sign in usernames allowed
 
 At least in OS X 10.11, iCal does not allow a `%` in usernames. Attempting this
 will cause iCal to simply not send any username or password and fail with an
