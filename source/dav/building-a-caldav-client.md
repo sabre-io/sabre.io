@@ -10,7 +10,7 @@ not complete.
 General synchronization concerns
 --------------------------------
 
-The primary formats for transfering information is [iCalendar][rfc5545] for
+The primary formats for transferring information is [iCalendar][rfc5545] for
 calendar objects (events and tasks) and xml for most other data.
 
 [CalDAV][rfc4791] is based on [WebDAV][rfc4918], which itself is an extension
@@ -260,7 +260,7 @@ If it did change, you must request all the etags in the entire calendar again:
     </c:calendar-query>
 
 Note that this last request is extremely similar to a previous one, but we are
-only asking fo the etag, not the calendar-data.
+only asking for the etag, not the calendar-data.
 
 The reason for this, is that calendars can be rather huge. It will save a TON of
 bandwidth to only check the etag first.
@@ -411,7 +411,8 @@ The process on a high-level is as follows:
 2. Server reports token `15`.
 3. Some time passes.
 4. Client does a Sync REPORT on an calendar, and supplied token `15`.
-5. Server returns vcard urls that have changed or have been deleted and returns token `17`.
+5. Server returns calendar object urls that have changed or have been deleted
+   and returns token `17`.
 
 As you can see, after the initial sync, only items that have been created,
 modified or deleted will ever be sent.
@@ -523,9 +524,9 @@ The response to a query like this is another multistatus xml body. Example:
      </d:multistatus>
 
 The last response reported two changes: `newevent.ics` and `updatedevent.ics`.
-There's no way to tell from the response wether those cards got created or
-updated, you, as a client can only infer this based on the vcards you are
-already aware of.
+There's no way to tell from the response wether those calendar objects got 
+created or updated, you, as a client can only infer this based on the objects 
+you are already aware of.
 
 The entry with name `deletedevent.ics` got deleted as indicated by the `404`
 status. Note that the status element is here a child of `d:response` when in
