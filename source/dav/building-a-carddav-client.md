@@ -450,13 +450,13 @@ It's better to batch the GET's together with `multiget`.
     <card:addressbook-multiget xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
         <d:prop>
             <d:getetag />
-            <c:addressbook-data />
+            <c:address-data />
         </d:prop>
         <d:href>/addressbooks/johndoe/contacts/abc-def-fez-123454657.vcf</d:href>
         <d:href>/addressbooks/johndoe/contacts/acme-12345.vcf</d:href>
     </card:addressbook-multiget>
 
-This request will simply return a multi-status again with the addressbook-data and
+This request will simply return a multi-status again with the address-data and
 etag.
 
 ### A small note about writing code for this.
