@@ -68,8 +68,6 @@ Next, create a file called `server.php`, and enter the following:
     // All we need to do now, is to fire up the server
     $server->exec();
 
-    ?>
-
 The base url
 ------------
 
