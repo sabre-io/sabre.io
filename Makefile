@@ -58,11 +58,10 @@ LESSC = $(shell which lessc)
 source/css/sabre.css: source/less/*.less
 	@which $(YUI) > /dev/null
 	@which $(LESSC) > /dev/null
-	lessc --ru source/less/sabre.less | $(YUI) --type css > source/css/sabre.css
+	$(LESSC) --ru source/less/sabre.less | $(YUI) --type css > source/css/sabre.css
 
 foo:
 	echo $(SOURCE_MD_FILES)
 
 clean:
 	rm -Rvf output_dev/ source/components/* vendor/ source/*.css
-
