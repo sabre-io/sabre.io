@@ -58,6 +58,6 @@ This interface only requires two new methods. It's also here best to just read
 the [in-line documentation][4] as it's quite complete.
 
 [1]: https://tools.ietf.org/html/rfc6578
-[2]: https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CalDAV/Backend/SyncSupport.php
-[3]: https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/CardDAV/Backend/SyncSupport.php
-[4]: https://github.com/fruux/sabre-dav/blob/master/lib/Sabre/DAV/Sync/ISyncCollection.php
+[2]: https://github.com/sabre-io/dav/blob/master/lib/CalDAV/Backend/SyncSupport.php
+[3]: https://github.com/sabre-io/dav/blob/master/lib/CardDAV/Backend/SyncSupport.php
+[4]: https://github.com/sabre-io/dav/blob/master/lib/DAV/Sync/ISyncCollection.php
