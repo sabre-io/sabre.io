@@ -14,7 +14,11 @@ Running the website locally
 Although this is not needed when creating or updating content, it may be
 useful to be able to run the website on a local machine.
 
-To do so, make sure you have composer installed.
+To do so, make sure you have the following tools installed:
+
+* composer
+* yui-compressor (`apt-get install yui-compressor`)
+* lessc (`sudo npm install -g less`).
 
 Next, from the project directory, run the following:
 
