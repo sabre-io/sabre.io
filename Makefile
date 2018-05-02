@@ -37,9 +37,12 @@ server:
 composer.lock: composer.json
 	composer install
 
-output_dev: output_dev/atom.xml ;
+vendor/autoload.php:
+	composer install
 
-output_prod: output_prod/atom.xml ;
+output_dev: output_dev/atom.xml
+
+output_prod: output_prod/atom.xml
 
 output_dev/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 	# atom.xml always changes to the latest date and time, so we can use this
@@ -55,7 +58,7 @@ output_prod/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 YUI = $(shell which yuicompressor || which yui-compressor)
 LESSC = $(shell which lessc)
 
-source/css/sabre.css: source/less/*.less
+source/css/sabre.css: source/less/*.less vendor/autoload.php
 	@which $(YUI) > /dev/null
 	@which $(LESSC) > /dev/null
 	$(LESSC) --ru source/less/sabre.less | $(YUI) --type css > source/css/sabre.css
