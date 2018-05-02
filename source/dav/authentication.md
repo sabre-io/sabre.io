@@ -182,5 +182,5 @@ it add the plugin as follows:
     // Adding the plugin to the server.
     $server->addPlugin($authPlugin);
 
-[1]: https://github.com/fruux/sabre-dav/tree/master/examples/sql
+[1]: https://github.com/sabre-io/dav/tree/master/examples/sql
 [2]: http://php.net/manual/en/features.http-auth.php

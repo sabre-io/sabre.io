@@ -33,5 +33,5 @@ appear there though, as it's a fairly simple package.
 To upgrade sabre/event, make sure your `composer.json` requires "^4.0" for
 sabre/event.
 
-[1]: https://github.com/fruux/sabre-event/blob/4.0.0/CHANGELOG.md
-[2]: https://github.com/fruux/sabre-event/releases
+[1]: https://github.com/sabre-io/event/blob/4.0.0/CHANGELOG.md
+[2]: https://github.com/sabre-io/event/releases

@@ -23,5 +23,5 @@ is if they tell us.
 
 [1]: http://tools.ietf.org/html/rfc3253
 [2]: http://subversion.apache.org/
-[3]: https://github.com/fruux/sabre-dav/issues/new
+[3]: https://github.com/sabre-io/dav/issues/new
 [4]: http://groups.google.com/group/sabredav-discuss

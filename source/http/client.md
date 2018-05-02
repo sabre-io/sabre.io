@@ -96,6 +96,6 @@ Sample usage:
 Check out `examples/asyncclient.php` for more information.
 
 [4]: http://php.net/curl
-[5]: https://github.com/fruux/sabre-event
+[5]: https://github.com/sabre-io/event
 [7]: http://guzzlephp.org/
 [8]: http://php.net/curl_multi_init

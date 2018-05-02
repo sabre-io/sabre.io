@@ -41,7 +41,7 @@ The following specifications are supported:
 * [draft-pot-caldav-sharing-00][3].
 * [calendarserver-caldav-sharing][4].
 
-[1]: https://github.com/fruux/sabre-dav/blob/master/lib/CalDAV/Backend/SharingSupport.php
+[1]: https://github.com/sabre-io/dav/blob/master/lib/CalDAV/Backend/SharingSupport.php
 [2]: https://tools.ietf.org/html/draft-pot-webdav-resource-sharing-03
 [3]: https://tools.ietf.org/html/draft-pot-caldav-sharing-00
 [4]: http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt

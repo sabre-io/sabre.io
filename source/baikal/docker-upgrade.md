@@ -35,7 +35,7 @@ scp calendar@your.calendar.server.example.org:config.system.php ./resources
 * Open the Dockerfile
 * Specify the new Baïkal version (__0.4.6__ in this example)
 ```bash
-RUN curl -LO https://github.com/fruux/Baikal/releases/download/0.4.6/baikal-0.4.6.zip && unzip baikal-0.4.6.zip && \
+RUN curl -LO https://github.com/sabre-io/Baikal/releases/download/0.4.6/baikal-0.4.6.zip && unzip baikal-0.4.6.zip && \
     rm -f baikal-0.4.6.zip
 ```
 * Uncomment the `COPY` instructions to use the existing, previous version

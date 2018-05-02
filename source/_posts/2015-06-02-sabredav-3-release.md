@@ -118,8 +118,8 @@ on the [upgrade][12] page.
 
 **Thanks as always!!!**
 
-[1]: https://github.com/fruux/sabre-dav/blob/3.0.0/CHANGELOG.md
-[2]: https://github.com/fruux/sabre-dav/releases
+[1]: https://github.com/sabre-io/dav/blob/3.0.0/CHANGELOG.md
+[2]: https://github.com/sabre-io/dav/releases
 [3]: http://sabre.io/dav/upgrade/2.1-to-3.0/
 [4]: http://groups.google.com/group/sabredav-discuss
 [5]: /support/

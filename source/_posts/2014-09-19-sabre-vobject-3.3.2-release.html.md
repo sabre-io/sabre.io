@@ -25,5 +25,5 @@ has a line that looks like this:
 
     "sabre/vobject" : "~3.3.2"
 
-[1]: https://github.com/fruux/sabre-vobject/blob/3.3.2/ChangeLog.md
+[1]: https://github.com/sabre-io/vobject/blob/3.3.2/ChangeLog.md
 [2]: /vobject/itip/

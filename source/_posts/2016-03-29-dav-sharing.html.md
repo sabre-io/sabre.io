@@ -27,7 +27,7 @@ status. [Read it here][5].
 We'll be at CalConnect 36 in Hong Kong next month to discuss this more. If
 you're in the area and want to discuss calendaring or sabre/dav, drop us a line!
 
-[1]: https://github.com/fruux/sabre-dav/pull/696
+[1]: https://github.com/sabre-io/dav/pull/696
 [2]: https://tools.ietf.org/html/draft-pot-webdav-resource-sharing
 [3]: https://tools.ietf.org/html/draft-pot-webdav-notifications
 [4]: https://tools.ietf.org/html/draft-pot-caldav-sharing

@@ -28,4 +28,4 @@ has a line that looks like this:
 
 Full changelog of this release can be found on [Github][1].
 
-[1]: https://github.com/fruux/sabre-vobject/blob/4.0.2/CHANGELOG.md
+[1]: https://github.com/sabre-io/vobject/blob/4.0.2/CHANGELOG.md

@@ -43,5 +43,5 @@ So two things changed:
 So if you have access to your webserver/vhost configuration, you actually only
 need to expose `html/` to the world. Everything else is best kept hidden.
 
-[1]: https://github.com/fruux/Baikal/releases
-[2]: https://github.com/fruux/Baikal/issues/new
+[1]: https://github.com/sabre-io/Baikal/releases
+[2]: https://github.com/sabre-io/Baikal/issues/new

@@ -155,10 +155,10 @@ Evert.
 [7]: http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-10
 [8]: /dav/properties
 [9]: /dav/upgrade/1.8-to-2.0/
-[10]: https://github.com/fruux/sabre-dav/blob/master/ChangeLog.md
-[11]: https://github.com/fruux/sabre-vobject/blob/master/ChangeLog.md
-[12]: https://github.com/fruux/sabre-http/blob/master/ChangeLog
+[10]: https://github.com/sabre-io/dav/blob/master/ChangeLog.md
+[11]: https://github.com/sabre-io/vobject/blob/master/ChangeLog.md
+[12]: https://github.com/sabre-io/http/blob/master/ChangeLog
 [13]: https://github.com/staabm
 [14]: https://twitter.com/DominikTo
-[15]: https://github.com/fruux/sabre-dav/releases/
+[15]: https://github.com/sabre-io/dav/releases/
 [16]: http://groups.google.com/group/sabredav-discuss

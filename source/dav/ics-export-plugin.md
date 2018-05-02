@@ -54,5 +54,5 @@ Sample url:
 
 
 [1]: /vobject/json
-[2]: https://github.com/fruux/sabre-dav/issues/new
+[2]: https://github.com/sabre-io/dav/issues/new
 

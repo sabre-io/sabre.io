@@ -179,6 +179,6 @@ support, we'd love to [hear from you](/support)!
 [5]: http://httpd.apache.org/docs/2.2/mod/mod_dav.html
 [6]: http://www.charlesproxy.com/download/
 [7]: http://groups.google.com/group/sabredav-discuss
-[8]: https://github.com/fruux/sabre-dav/issues/new
+[8]: https://github.com/sabre-io/dav/issues/new
 [12]: https://fruux.com/
 [13]: /dav/baseurl/

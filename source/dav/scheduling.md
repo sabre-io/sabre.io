@@ -107,5 +107,5 @@ we don't know if we need to prioritize it.
 [rfc6047]: http://tools.ietf.org/html/rfc6047
 [avail]: https://tools.ietf.org/html/draft-daboo-calendar-availability-05
 [mailinglist]: http://groups.google.com/group/sabredav-discuss
-[issues]: https://github.com/fruux/sabre-dav/issues
+[issues]: https://github.com/sabre-io/dav/issues
 [property-storage]: /dav/property-storage/

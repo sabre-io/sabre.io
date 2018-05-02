@@ -34,5 +34,5 @@ The sabre/xml source can be found on [GitHub][3].
 
 [1]: http://getcomposer.org/
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
-[3]: https://github.com/fruux/sabre-xml
+[3]: https://github.com/sabre-io/xml
 

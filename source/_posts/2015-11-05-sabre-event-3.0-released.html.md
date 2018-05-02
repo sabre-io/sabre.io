@@ -90,7 +90,7 @@ Changelog
 
 A full changelog can be found on [Github][1]
 
-[1]: https://github.com/fruux/sabre-event/blob/3.0.0/CHANGELOG.md
+[1]: https://github.com/sabre-io/event/blob/3.0.0/CHANGELOG.md
 [3]: http://reactphp.org/
 [4]: /event/loop/
 [5]: /event/promise/

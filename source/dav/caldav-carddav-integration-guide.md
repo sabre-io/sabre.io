@@ -198,4 +198,4 @@ use the VObject library to work with them.
 You still need a basic understanding how vcards are structured. The VObject
 library just helps with parsing, traversing and manipulating them.
 
-[1]: https://github.com/fruux/sabre-vobject "sabre-vobject" 
+[1]: https://github.com/sabre-io/vobject "sabre-vobject" 

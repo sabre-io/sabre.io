@@ -38,7 +38,7 @@ From source
 -----------
 
 If you are a developer, and you want to install sabre/katana via Git, make
-sure you've cloned the repository located at <http://github.com/fruux/sabre-katana/>
+sure you've cloned the repository located at <http://github.com/sabre-io/katana/>
 
 After that, you'll need:
 
@@ -58,7 +58,7 @@ command-line:
 
     ./bin/katana install
 
-[1]: https://github.com/fruux/sabre-katana/releases/
+[1]: https://github.com/sabre-io/katana/releases/
 [2]: http://getcomposer.org/
 [3]: http://www.npmjs.com
 [4]: http://bower.io

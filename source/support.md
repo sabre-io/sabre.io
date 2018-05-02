@@ -32,17 +32,17 @@ Support
 
     <dl class="list--links">
         <dt><i class="fa fa-github"></i> GitHub</dt>
-        <dd><a href="https://github.com/fruux/sabre-dav/issues/">sabre/dav</a></dd>
+        <dd><a href="https://github.com/sabre-io/dav/issues/">sabre/dav</a></dd>
         <dt><i class="fa fa-github"></i> GitHub</dt>
-        <dd><a href="https://github.com/fruux/sabre-event/issues/">sabre/event</a></dd>
+        <dd><a href="https://github.com/sabre-io/event/issues/">sabre/event</a></dd>
         <dt><i class="fa fa-github"></i> GitHub</dt>
-        <dd><a href="https://github.com/fruux/sabre-http/issues/">sabre/http</a></dd>
+        <dd><a href="https://github.com/sabre-io/http/issues/">sabre/http</a></dd>
         <dt><i class="fa fa-github"></i> GitHub</dt>
-        <dd><a href="https://github.com/fruux/sabre-vobject/issues/">sabre/vobject</a></dd>
+        <dd><a href="https://github.com/sabre-io/vobject/issues/">sabre/vobject</a></dd>
         <dt><i class="fa fa-github"></i> GitHub</dt>
-        <dd><a href="https://github.com/fruux/sabre-xml/issues/">sabre/xml</a></dd>
+        <dd><a href="https://github.com/sabre-io/xml/issues/">sabre/xml</a></dd>
         <dt><i class="fa fa-github"></i> GitHub</dt>
-        <dd><a href="https://github.com/fruux/sabre-uri/issues/">sabre/uri</a></dd>
+        <dd><a href="https://github.com/sabre-io/uri/issues/">sabre/uri</a></dd>
         <dt><i class="fa fa-github"></i> GitHub</dt>
         <dd><a href="https://github.com/fruux/sabre.io/issues/">this website</a></dd>
     </dl>

@@ -138,5 +138,5 @@ Contact us
 Are you running into a compatibility issue? [Contact us via our Github
 issue tracker][2].
 
-[1]: https://github.com/fruux/sabre-dav/releases
-[2]: https://github.com/fruux/sabre-dav/issues/new
+[1]: https://github.com/sabre-io/dav/releases
+[2]: https://github.com/sabre-io/dav/issues/new

@@ -109,4 +109,4 @@ server {
 ```
 
 
-[1]: https://github.com/fruux/Baikal/releases
+[1]: https://github.com/sabre-io/Baikal/releases

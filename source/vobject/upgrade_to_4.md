@@ -298,7 +298,7 @@ The `remove()` function, which exists on every component used to return the
 removed item. In version 4 this is no longer the case.
 
 
-[1]: https://github.com/fruux/sabre-vobject/issues "sabre/vobject issues"
+[1]: https://github.com/sabre-io/vobject/issues "sabre/vobject issues"
 [2]: http://mnt.io/ "Ivan Enderlin"
 [3]: http://tobschall.de/ "Dominik Tobschall"
 [4]: https://tools.ietf.org/html/draft-daboo-calendar-availability "Calendar Availability"

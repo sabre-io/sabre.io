@@ -22,4 +22,4 @@ has a line that looks like this:
 
     "sabre/event" : "~2.0.1"
 
-[1]: https://github.com/fruux/sabre-event/blob/2.0.1/ChangeLog.md
+[1]: https://github.com/sabre-io/event/blob/2.0.1/ChangeLog.md

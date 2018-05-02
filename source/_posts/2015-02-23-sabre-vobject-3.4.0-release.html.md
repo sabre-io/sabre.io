@@ -37,5 +37,5 @@ Version 3.4.0 is 100% compatbile with vobject 3.3.*
 
 Full changelog of this release can be found on [Github][1].
 
-[1]: https://github.com/fruux/sabre-vobject/blob/3.4.0/ChangeLog.md
+[1]: https://github.com/sabre-io/vobject/blob/3.4.0/ChangeLog.md
 [2]: https://tools.ietf.org/html/draft-daboo-calendar-availability

@@ -21,5 +21,5 @@ Upgrade sabre/vobject by running:
 
 Full changelog can be found on [Github][1]
 
-[1]: https://github.com/fruux/sabre-vobject/blob/3.5.1/ChangeLog.md
-[2]: https://github.com/fruux/sabre-vobject/releases
+[1]: https://github.com/sabre-io/vobject/blob/3.5.1/ChangeLog.md
+[2]: https://github.com/sabre-io/vobject/releases

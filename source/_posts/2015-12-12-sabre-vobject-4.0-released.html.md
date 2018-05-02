@@ -45,6 +45,6 @@ For more details about these changes and a detailed list of all backwards-
 compatbility breaking changes, read the [upgrade][3] document.
 
 
-[1]: https://github.com/fruux/sabre-vobject/blob/4.0.0/CHANGELOG.md
+[1]: https://github.com/sabre-io/vobject/blob/4.0.0/CHANGELOG.md
 [2]: /vobject/xcal_xcard/
 [3]: /vobject/upgrade_to_4/

@@ -128,4 +128,4 @@ using mod_rewrite, this was no longer an issue.
 
 Perhaps the client doesn't like the `.` in the url.
 
-[1]: https://github.com/fruux/sabre-dav/issues/100
+[1]: https://github.com/sabre-io/dav/issues/100

@@ -50,4 +50,4 @@ use PHP7, or people who have a rather complex dependency tree.
 
 Full changelog of this release can be found on [Github][1].
 
-[1]: https://github.com/fruux/sabre-vobject/blob/3.5.0/ChangeLog.md
+[1]: https://github.com/sabre-io/vobject/blob/3.5.0/ChangeLog.md

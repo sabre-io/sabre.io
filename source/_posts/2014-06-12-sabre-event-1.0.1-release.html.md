@@ -17,4 +17,4 @@ Upgrade sabre/event by running:
 
 Full changelog can be found on [Github][1]
 
-[1]: https://github.com/fruux/sabre-event/blob/master/ChangeLog
+[1]: https://github.com/sabre-io/event/blob/master/ChangeLog

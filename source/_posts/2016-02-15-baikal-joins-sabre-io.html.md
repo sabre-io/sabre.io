@@ -89,6 +89,6 @@ maintainers / developers for these. If you're interested, drop us a line! Any
 level of experience welcome.
 
 [1]: http://netgusto.com/
-[2]: https://github.com/fruux/Baikal/releases
+[2]: https://github.com/sabre-io/Baikal/releases
 [3]: /baikal/upgrade/
 [4]: /katana/

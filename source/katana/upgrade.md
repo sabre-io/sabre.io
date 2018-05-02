@@ -14,4 +14,4 @@ After that, you can simply unzip the archive and overwrite all existing files
 and directories *except* the `data/` directory. If you overwrite your `data/`
 directory, you will effectively delete all existing data.
 
-[1]: https://github.com/fruux/sabre-katana/releases/
+[1]: https://github.com/sabre-io/katana/releases/
