@@ -22,7 +22,7 @@ loop).
 3. [An event loop][3], aiding you in writing asynchronous PHP code.
 4. [Coroutines][4], to make Promise-heavy code even better.
 
-[1]: /event/eventemitter/
+[1]: /event/emitter/
 [2]: /event/promise/
 [3]: /event/loop/
 [4]: /event/coroutines/
