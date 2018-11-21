@@ -58,7 +58,7 @@ but we cannot fix bad-behaving clients.
 Clients
 -------
 
-An imcomplete list of clients that have issues with this:
+An incomplete list of clients that have issues with this:
 
 ### Windows
 
@@ -96,7 +96,7 @@ If you are using a database or other datastore to store your data (and url's),
 you likely don't have to worry about this. Just make sure everything is UTF-8.
 
 If you are using the filesystem to store files, this could be a little bit
-problematic. Linux and OS/X treat files as binary strings. When displayed
+problematic. Linux and OS/X treat file names as binary strings. When displayed
 in an application, the character encoding that will be used is based on the
 current locale. This is actually great, because there's no need to worry about
 these.
@@ -106,7 +106,7 @@ but PHP's filesystem wrappers appear to use ISO-8859-1. This is problematic,
 because there's no clean mapping possible in many cases.
 
 It might be useful in those cases to simply urlencode every filename before
-storing. This will give a cross-platform consistent result and the files will
+storing. This will give a cross-platform consistent result and the file names will
 remain legible while checking it out with the console, etc.
 
 [More information on this topic][2]
