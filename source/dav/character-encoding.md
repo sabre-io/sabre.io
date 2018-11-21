@@ -58,7 +58,7 @@ but we cannot fix bad-behaving clients.
 Clients
 -------
 
-An imcomplete list of clients that have issues with this:
+An incomplete list of clients that have issues with this:
 
 ### Windows
 
