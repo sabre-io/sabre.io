@@ -179,7 +179,7 @@ In most cases you just want to do something like:
 
     ?>
 
-In addition, the `MultiDateTime` property is no more, and it's methods are
+In addition, the `MultiDateTime` property is no more, and its methods are
 simply merged into `DateTime`.
 
 ### The $value property is now protected everywhere.

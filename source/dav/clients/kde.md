@@ -17,7 +17,7 @@ User agent:
     Mozilla/5.0 (compatible; Konqueror/4.4; Linux) KHTML/4.4.2 (like Gecko) Kubuntu
     Mozilla/5.0 (X11; Linux i686) KHTML/4.14.1 (like Gecko) Konqueror/4.14
 
-KDE identifies itself as it's browser 'Konqueror', presumably because the same
+KDE identifies itself as its browser 'Konqueror', presumably because the same
 HTTP client library is used.
 
 ### Properties

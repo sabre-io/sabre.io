@@ -200,7 +200,7 @@ mean that the `$dtStart` would be changed to be a day later (just in the
 variable, not the original `DTSTART`).
 
 From vObject 4 onwards, `$dtStart` is a `DateTimeImmutable`. Calling `modify`
-on that object does not alter it's value, but it returns a new
+on that object does not alter its value, but it returns a new
 `DateTimeImmutable` with this new value.
 
 

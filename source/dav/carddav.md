@@ -31,7 +31,7 @@ We'll add 1 addressbook for the admin user.
     INSERT INTO addressbooks (principaluri, displayname, uri, description, synctoken) VALUES
     ('principals/admin','default calendar','default','','1');
 
-Now, make sure the data/db.sqlite as well as it's containing directory are writable by the server. If you are lazy you could just do:
+Now, make sure the data/db.sqlite as well as its containing directory are writable by the server. If you are lazy you could just do:
 
     chmod -Rv a+rw data/
 

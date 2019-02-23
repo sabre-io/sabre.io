@@ -66,7 +66,7 @@ documentation.
 Advanced settings
 -----------------
 
-The ACL plugin has a couple of public properties that can alter it's behaviour.
+The ACL plugin has a couple of public properties that can alter its behaviour.
 
 ### Administrators
 

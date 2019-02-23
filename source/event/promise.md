@@ -31,7 +31,7 @@ We are integrated with a RESTful webservice. We have to make 1 `PUT` and
 1 `DELETE` request, but we don't have to perform these in order.
 
 Curl allows us to make multiple parallel, non-blocking requests using
-[`curl_multi`][1]. It's syntax is rather verbose, so we are using the
+[`curl_multi`][1]. Its syntax is rather verbose, so we are using the
 following fictional HTTP client:
 
     class MultiHttp {
@@ -354,7 +354,7 @@ The `Promise\resolve()` function returns a Promise that immediately fulfills
 with the value you specified in its argument. It's a quick way to create a
 promise that just immediately fulfills.
 
-It's also possible to pass a different Promise as it's argument, in which case
+It's also possible to pass a different Promise as its argument, in which case
 the returned promise will fulfill or reject when the passed promise does.
 
     $promise = Promise\resolve("hello");
