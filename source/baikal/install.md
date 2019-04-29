@@ -47,27 +47,36 @@ The following configuration file may be used as a standard template to configure
 an apache vhost as a dedicated Baïkal vhost:
 
 ```apache
-<VirtualHost *:80>
+<VirtualHost *:443>
 
     DocumentRoot /var/www/baikal/html
     ServerName dav.example.org
 
-    RewriteEngine On
-    RewriteRule /.well-known/carddav /dav.php [R,L]
-    RewriteRule /.well-known/caldav /dav.php [R,L]
+    RewriteEngine on
+    # Generally already set by global Apache configuration
+    # RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteRule /.well-known/carddav /dav.php [R=308,L]
+    RewriteRule /.well-known/caldav  /dav.php [R=308,L]
 
     <Directory "/var/www/baikal/html">
         Options None
-        Options +FollowSymlinks
-        AllowOverride All
-
-        # Confiugration for apache-2.2:
-        Order allow,deny
-        Allow from all
-
-        # Confiugration for apache-2.4:
+        # If you install cloning git repository, you may need the following
+        # Options +FollowSymlinks
+        AllowOverride None
+        # Configuration for apache-2.4:
         Require all granted
+        # Configuration for apache-2.2:
+        # Order allow,deny
+        # Allow from all
     </Directory>
+
+    <IfModule mod_expires.c>
+        ExpiresActive Off
+    </IfModule>
+
+    SSLEngine on
+    SSLCertificateFile    /etc/letsencrypt/live/dav.example.org/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/dav.example.org/privkey.pem
 
 </VirtualHost>
 ```
