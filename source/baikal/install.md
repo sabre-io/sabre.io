@@ -109,4 +109,34 @@ server {
 ```
 
 
+Fail2Ban configuration
+----------------------
+
+Baikal generates messages related to failed access attempts, for both DAV and
+admin console. They directly go into the webserver error log, so that they can
+conveniently be caught by Fail2Ban.
+
+The [standard pattern][2] may however not be part or your Fail2Ban configuration
+yet. You can then add it manually as shown below.
+
+As an example, for Apache, simply add a `apache-auth.local` file :
+
+Fail2Ban v.0.9.x :
+
+```
+[Definition]
+failregex = %(known/failregex)s
+            ^%(_apache_error_client)s (?:AH\d+: )?(?:Got error 'PHP message: )?user \S* ?(not found|not authorized|password mismatch|sent invalid token|misbehaved|tried to break-in)\b
+```
+
+Fail2Ban v.0.10+ (having prefregex) :
+
+```
+[Definition]
+failregex = %(known/failregex)s
+            ^(?:Got error 'PHP message: )?user \S* ?(not found|not authorized|password mismatch|sent invalid token|misbehaved|tried to break-in)\b
+```
+
+
 [1]: https://github.com/sabre-io/Baikal/releases
+[2]: https://github.com/fail2ban/fail2ban/pull/1646
