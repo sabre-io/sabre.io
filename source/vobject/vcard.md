@@ -243,8 +243,8 @@ To do this, simply call the `convert()` method on the vCard object.
     END:VCARD
     VCARD;
 
-    $vCard = VObject\Reader::read($input);
-    $vCard->convert(VObject\Document::VCARD40);
+    $vcard = VObject\Reader::read($input);
+    $vcard = $vcard->convert(VObject\Document::VCARD40);
 
     echo $vcard->serialize();
 
