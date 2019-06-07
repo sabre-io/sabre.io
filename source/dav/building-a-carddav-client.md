@@ -16,14 +16,12 @@ Clients
 -------
 
 Before you build your own client, there's a chance there's already a client
-avaible for your programming language.
+available for your programming language.
 
 We've developed a PHP client that does _some_ DAV-related stuff and makes it
 a tad easier. More information can be found [on this wiki](/dav/davclient).
 
-We'd love to have a list here for CardDAV clients. So know one?
-[Let us know](/support).
-
+CalConnect [DEVGUIDE](https://devguide.calconnect.org) maintains an updated list of [CardDAV clients](https://devguide.calconnect.org/CardDAV/Client-Implementations/).
 
 High-level protocol
 -------------------
@@ -105,6 +103,7 @@ vCards, you should either:
 | Java     | [ez-vcard][2]
 | Ruby     | [vcard][3]
 
+CalConnect [DEVGUIDE](https://devguide.calconnect.org) maintains an updated list of  [CardDAV libraries](https://devguide.calconnect.org/CardDAV/libraries/) with additional entries.
 
 Know of any other good vCard parsers? Let me know so I can list them.
 
@@ -800,7 +799,7 @@ Read the [Service Discovery documentation](/dav/service-discovery)
 
 
 [1]: https://packagist.org/packages/sabre/vobject
-[2]: https://code.google.com/p/ez-vcard/
+[2]: https://github.com/mangstadt/ez-vcard
 [3]: http://rubygems.org/gems/vcard
 
 [rfc2425]: https://tools.ietf.org/html/rfc2425
