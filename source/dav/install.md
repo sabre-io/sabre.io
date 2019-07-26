@@ -3,8 +3,7 @@ title: Installation
 layout: default
 ---
 
-SabreDAV can either by installed using [composer][1], or manually, using a zip file.
-it is highly recommended to use the former.
+SabreDAV can be installed using [composer][1]. We no longer provide releases as zip files.
 
 Requirements
 ------------
@@ -49,15 +48,6 @@ command:
 
 The autoloader is in `vendor/autoload.php`.
 
-
-Manual installation
--------------------
-
-You can also [download][3] the latest package manually. This package is
-distributed as a zip file.
-
-To use it, just unzip it and include the `autoload.php` file in the `vendor/`
-directory.
 
 Source
 ------
