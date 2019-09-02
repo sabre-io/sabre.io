@@ -9,7 +9,7 @@ Requirements
 
 Baikal requires:
 
-* PHP 5.5
+* PHP 7
 * MySQL or SQLite
 * Apache or Nginx
 
