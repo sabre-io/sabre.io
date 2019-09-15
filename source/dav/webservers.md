@@ -37,7 +37,7 @@ users:
         # SabreDAV is not compatible with mbstring function overloading
         php_flag mbstring.func_overload off
 
-    </VirtualHost *:*>
+    </VirtualHost>
 
 ### Authentication over fastcgi
 
