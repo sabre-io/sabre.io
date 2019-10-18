@@ -143,7 +143,7 @@ that needs to be triggered.
 ### Add IO streams to the loop
 
 If you are dealing with streams, you can get the event loop to give you a
-callback as soon as the stream has data in it's buffer (for reading) or when
+callback as soon as the stream has data in its buffer (for reading) or when
 you can write to the buffer.
 
 Two examples of this are:

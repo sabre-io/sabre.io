@@ -55,13 +55,13 @@ webdav share:
 
 * `OPTIONS [baseurl]` - First it checks, as it should if this is a valid WebDAV server
 * `PROPFIND [baseurl]` - Properties of root path
-* `PROPFIND [baseurl]` - Exact same query, except now its asking for quota information (could have been merged with step #2)
+* `PROPFIND [baseurl]` - Exact same query, except now it's asking for quota information (could have been merged with step #2)
 * `PROPFIND [baseurl]` - Exact same as request #2
 * `PROPFIND [baseurl]` - Another one, exact same
 * `PROPFIND [baseurl]` - Same thing
 * `PROPFIND [baseurl]` - You guessed it
 * `PROPFIND [baseurl]` - sigh..
-* `PROPFIND [baseurl]/mach_kernel` - Its looking for the kernel image, not sure why..
+* `PROPFIND [baseurl]/mach_kernel` - It's looking for the kernel image, not sure why..
 * `PROPFIND [baseurl]/.Spotlight-V100` - Looking for spotlight configuration
 * `PROPFIND [baseurl]/._.` - OS/X stores resource data in a file of the format `._filename` This file is used to store additional meta-data for filesystem that don't support this. It's really annoyhing and OS/X does it on windows shares too
 * `PROPFIND [baseurl]/Backups.backupdb` - Backup configuration

@@ -26,7 +26,7 @@ CalConnect [DEVGUIDE](https://devguide.calconnect.org) maintains an updated list
 High-level protocol
 -------------------
 
-CardDAV is defined by [rfc6352][rfc6352]. CardDAV is heavily inspired by it's
+CardDAV is defined by [rfc6352][rfc6352]. CardDAV is heavily inspired by its
 counterpart CalDAV, and is mostly regarded as simpler.
 
 CardDAV builds on [WebDAV][rfc4918]. WebDAV itself extends HTTP.

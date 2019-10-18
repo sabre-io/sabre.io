@@ -194,7 +194,7 @@ Output:
     </entry>
 
 One thing to note from the last example, is that the `AtomEntry` class does
-not actually encode it's own 'parent element'. Element classes _should never_
+not actually encode its own 'parent element'. Element classes _should never_
 encode their own element, only the element's value.
 
 This allows serializers to be re-used for different element names, but this
@@ -271,7 +271,7 @@ can turn into an xml document:
    the `Sabre\Xml\Writer` class as an argument.
 7. A PHP object, if it has a registered serializer in `classMap`.
 8. A PHP object that implements the `XmlSerializable` interface, in which case
-   it will call it's `xmlSerialize` function.
+   it will call its `xmlSerialize` function.
 
 And for most of these, anywhere you can nest values, the writer will traverse
 the tree and keep on writing!

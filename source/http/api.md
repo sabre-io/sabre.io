@@ -170,7 +170,7 @@ Request
     function getBodyAsString();
 
     /**
-     * Returns the message body, as it's internal representation.
+     * Returns the message body, as its internal representation.
      *
      * This could be either a string or a stream.
      *
@@ -204,7 +204,7 @@ Request
     function hasHeader($name);
 
     /**
-     * Returns a specific HTTP header, based on it's name.
+     * Returns a specific HTTP header, based on its name.
      *
      * The name must be treated as case-insensitive.
      * If the header does not exist, this method must return null.
@@ -360,7 +360,7 @@ Response
     function getBodyAsString();
 
     /**
-     * Returns the message body, as it's internal representation.
+     * Returns the message body, as its internal representation.
      *
      * This could be either a string or a stream.
      *
@@ -398,7 +398,7 @@ Response
     function getBodyAsString();
 
     /**
-     * Returns the message body, as it's internal representation.
+     * Returns the message body, as its internal representation.
      *
      * This could be either a string or a stream.
      *
@@ -432,7 +432,7 @@ Response
     function hasHeader($name);
 
     /**
-     * Returns a specific HTTP header, based on it's name.
+     * Returns a specific HTTP header, based on its name.
      *
      * The name must be treated as case-insensitive.
      * If the header does not exist, this method must return null.

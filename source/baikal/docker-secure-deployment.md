@@ -28,7 +28,7 @@ communication to handle the clients requests and updates.
 
 HTTPS and STARTTLS involve managing certificates.  That activity is beyond the
 scope of both sabre/dav and Baikal.  While it's possible to install and 
-manage certificates on the Baikal service (and it's companion the Postfix
+manage certificates on the Baikal service (and its companion the Postfix
 email relay), in reality that complicates both deployments for little additional
 value because:
 

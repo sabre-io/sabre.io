@@ -32,7 +32,7 @@ We'll add a calendar for the admin user.
     INSERT INTO calendars (principaluri, displayname, uri, description, components, ctag, transparent) VALUES
     ('principals/admin','default calendar','default','','VEVENT,VTODO','1', '0');
 
-Now, make sure the data/db.sqlite as well as it's containing directory are
+Now, make sure the data/db.sqlite as well as its containing directory are
 writable by the server. If you are lazy you could just do:
 
     chmod -Rv a+rw data/

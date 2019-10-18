@@ -10,7 +10,7 @@ thisversion: 1.7-3.1
 Since version 1.7 SabreDAV comes with experimental support for CalDAV-sharing.
 
 **Early warning:** Currently SabreDAV provides no implementation for this. This
-is, because in it's current state there is no elegant way to do this.
+is, because in its current state there is no elegant way to do this.
 The problem lies in the fact that a real CalDAV server with sharing support
 would first need email support (with invite notifications), and really also
 a browser-frontend that allows people to accept or reject these shares.

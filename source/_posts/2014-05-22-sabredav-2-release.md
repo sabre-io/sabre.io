@@ -55,7 +55,7 @@ box support.
 ### New packages
 
 This is the first sabredav release that ships with [sabre/vobject][3] 3.0, and
-is also the first release that has part of it's functionality split out into
+is also the first release that has part of its functionality split out into
 two new packages: [sabre/event][4] and [sabre/http][5].
 
 

@@ -75,7 +75,7 @@ installations.
 The biggest factor in development of the katana project is simply lack of
 funding, which means that we can't afford to spend time on it to bring it to a
 1.0. This is not unlike Baïkal and Baïkal 2, which has for a large part been a
-"labor of love" by it's author Jérôme Schneider.
+"labor of love" by its author Jérôme Schneider.
 
 So what we at sabre.io and fruux commit to is:
 
