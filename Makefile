@@ -3,7 +3,7 @@
 # vim: set fileencoding=utf-8:
 
 DOMAIN = sabre.io
-URL = http://${DOMAIN}
+URL = https://${DOMAIN}
 
 # SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md")
 
