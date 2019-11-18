@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "b2ba0cf0a6d7d7ca37c10fd29f2fec56",
     "content-hash": "3d5b2a2766dd6185537e6bfb4d5e8bec",
     "packages": [
         {
@@ -45,7 +44,7 @@
                 "OFL-1.1"
             ],
             "description": "The iconic font designed for use with Twitter Bootstrap.",
-            "time": "2014-09-09 13:48:41"
+            "time": "2014-09-09T13:48:41+00:00"
         },
         {
             "name": "components/highlightjs",
@@ -90,7 +89,7 @@
                 }
             ],
             "description": "Highlight.js highlights syntax in code examples on blogs, forums and in fact on any web pages.",
-            "time": "2014-10-16 00:35:39"
+            "time": "2014-10-16T00:35:39+00:00"
         },
         {
             "name": "components/normalize.css",
@@ -124,7 +123,7 @@
             ],
             "description": "Normalize.css is a customisable CSS file that makes browsers render all elements more consistently and in line with modern standards.",
             "homepage": "http://necolas.github.com/normalize.css/",
-            "time": "2013-10-24 03:39:15"
+            "time": "2013-10-24T03:39:15+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -179,7 +178,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2016-04-13 10:13:24"
+            "time": "2016-04-13T10:13:24+00:00"
         },
         {
             "name": "composer/composer",
@@ -256,7 +255,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-05-17 11:25:44"
+            "time": "2016-05-17T11:25:44+00:00"
         },
         {
             "name": "composer/semver",
@@ -318,7 +317,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-03-30 13:16:03"
+            "time": "2016-03-30T13:16:03+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -379,7 +378,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2016-05-04 12:27:30"
+            "time": "2016-05-04T12:27:30+00:00"
         },
         {
             "name": "dflydev/ant-path-matcher",
@@ -428,7 +427,7 @@
                 "path",
                 "pattern"
             ],
-            "time": "2012-12-03 05:03:00"
+            "time": "2012-12-03T05:03:00+00:00"
         },
         {
             "name": "dflydev/apache-mime-types",
@@ -483,7 +482,7 @@
                 "mime",
                 "mimetypes"
             ],
-            "time": "2013-05-14 02:02:01"
+            "time": "2013-05-14T02:02:01+00:00"
         },
         {
             "name": "dflydev/canal",
@@ -538,7 +537,7 @@
                 "mime",
                 "type"
             ],
-            "time": "2013-05-14 05:22:25"
+            "time": "2013-05-14T05:22:25+00:00"
         },
         {
             "name": "dflydev/dot-access-configuration",
@@ -598,7 +597,7 @@
                 "config",
                 "configuration"
             ],
-            "time": "2014-11-14 03:26:12"
+            "time": "2014-11-14T03:26:12+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -652,7 +651,7 @@
                 "dot",
                 "notation"
             ],
-            "time": "2015-08-13 03:51:18"
+            "time": "2015-08-13T03:51:18+00:00"
         },
         {
             "name": "dflydev/embedded-composer",
@@ -660,12 +659,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dflydev/dflydev-embedded-composer.git",
-                "reference": "c9ca20fd3ccfbfb7bfcc3c65c33191f458c8a3a7"
+                "reference": "65b9d65826a2d27eaf87275c012e24d51b08d661"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-embedded-composer/zipball/c9ca20fd3ccfbfb7bfcc3c65c33191f458c8a3a7",
-                "reference": "c9ca20fd3ccfbfb7bfcc3c65c33191f458c8a3a7",
+                "url": "https://api.github.com/repos/dflydev/dflydev-embedded-composer/zipball/65b9d65826a2d27eaf87275c012e24d51b08d661",
+                "reference": "65b9d65826a2d27eaf87275c012e24d51b08d661",
                 "shasum": ""
             },
             "require": {
@@ -719,7 +718,7 @@
                 "embedded",
                 "extensibility"
             ],
-            "time": "2016-05-21 00:49:42"
+            "time": "2018-04-18T14:50:04+00:00"
         },
         {
             "name": "dflydev/placeholder-resolver",
@@ -771,7 +770,7 @@
                 "placeholder",
                 "resolver"
             ],
-            "time": "2012-10-28 21:08:28"
+            "time": "2012-10-28T21:08:28+00:00"
         },
         {
             "name": "dflydev/symfony-finder-factory",
@@ -824,7 +823,7 @@
                 "finder",
                 "syfony"
             ],
-            "time": "2012-11-09 16:45:28"
+            "time": "2012-11-09T16:45:28+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -891,7 +890,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2014-12-20 21:24:13"
+            "time": "2014-12-20T21:24:13+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -931,7 +930,7 @@
             "keywords": [
                 "event-dispatcher"
             ],
-            "time": "2012-05-30 15:01:08"
+            "time": "2012-05-30T15:01:08+00:00"
         },
         {
             "name": "guzzle/guzzle",
@@ -1023,7 +1022,8 @@
                 "rest",
                 "web service"
             ],
-            "time": "2012-12-19 23:06:35"
+            "abandoned": "guzzlehttp/guzzle",
+            "time": "2012-12-19T23:06:35+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -1089,7 +1089,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-01-25 15:43:01"
+            "time": "2016-01-25T15:43:01+00:00"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1166,7 +1166,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2015-11-12 13:51:40"
+            "time": "2015-11-12T13:51:40+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -1217,7 +1217,7 @@
             "keywords": [
                 "markdown"
             ],
-            "time": "2015-03-01 12:03:08"
+            "time": "2015-03-01T12:03:08+00:00"
         },
         {
             "name": "netcarver/textile",
@@ -1270,7 +1270,7 @@
                 "plaintext",
                 "textile"
             ],
-            "time": "2014-01-02 09:39:06"
+            "time": "2014-01-02T09:39:06+00:00"
         },
         {
             "name": "psr/log",
@@ -1308,7 +1308,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2012-12-21T11:40:51+00:00"
         },
         {
             "name": "react/event-loop",
@@ -1351,7 +1351,7 @@
             "keywords": [
                 "event-loop"
             ],
-            "time": "2013-01-05 11:41:26"
+            "time": "2013-01-05T11:41:26+00:00"
         },
         {
             "name": "react/http",
@@ -1393,7 +1393,7 @@
             "keywords": [
                 "http"
             ],
-            "time": "2012-12-26 16:33:04"
+            "time": "2012-12-26T16:33:04+00:00"
         },
         {
             "name": "react/socket",
@@ -1435,7 +1435,7 @@
             "keywords": [
                 "Socket"
             ],
-            "time": "2012-12-14 00:58:14"
+            "time": "2012-12-14T00:58:14+00:00"
         },
         {
             "name": "react/stream",
@@ -1480,7 +1480,7 @@
                 "pipe",
                 "stream"
             ],
-            "time": "2012-12-14 00:58:14"
+            "time": "2012-12-14T00:58:14+00:00"
         },
         {
             "name": "robloach/component-installer",
@@ -1528,7 +1528,7 @@
                 }
             ],
             "description": "Allows installation of Components via Composer.",
-            "time": "2015-08-10 12:35:38"
+            "time": "2015-08-10T12:35:38+00:00"
         },
         {
             "name": "sculpin/sculpin",
@@ -1627,7 +1627,7 @@
                 "site",
                 "static"
             ],
-            "time": "2016-05-23 22:01:12"
+            "time": "2016-05-23T22:01:12+00:00"
         },
         {
             "name": "sculpin/sculpin-theme-composer-plugin",
@@ -1662,7 +1662,7 @@
             "license": [
                 "MIT"
             ],
-            "time": "2016-05-24 19:51:53"
+            "time": "2016-05-24T19:51:53+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -1710,7 +1710,7 @@
                 "input",
                 "prompt"
             ],
-            "time": "2016-04-18 09:31:41"
+            "time": "2016-04-18T09:31:41+00:00"
         },
         {
             "name": "seld/jsonlint",
@@ -1756,7 +1756,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2015-11-21 02:21:41"
+            "time": "2015-11-21T02:21:41+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -1800,7 +1800,7 @@
             "keywords": [
                 "phra"
             ],
-            "time": "2015-10-13 18:44:15"
+            "time": "2015-10-13T18:44:15+00:00"
         },
         {
             "name": "symfony/class-loader",
@@ -1853,7 +1853,7 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-30 10:37:34"
+            "time": "2016-03-30T10:37:34+00:00"
         },
         {
             "name": "symfony/config",
@@ -1906,7 +1906,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-20 18:52:26"
+            "time": "2016-04-20T18:52:26+00:00"
         },
         {
             "name": "symfony/console",
@@ -1966,7 +1966,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-26 12:00:47"
+            "time": "2016-04-26T12:00:47+00:00"
         },
         {
             "name": "symfony/debug",
@@ -2023,20 +2023,20 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-30 10:37:34"
+            "time": "2016-03-30T10:37:34+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.6",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "bd04588c087651ceffdc45d40dc4de05af9c7c52"
+                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/bd04588c087651ceffdc45d40dc4de05af9c7c52",
-                "reference": "bd04588c087651ceffdc45d40dc4de05af9c7c52",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/c306198fee8f872a8f5f031e6e4f6f83086992d8",
+                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8",
                 "shasum": ""
             },
             "require": {
@@ -2048,7 +2048,7 @@
             "require-dev": {
                 "symfony/config": "~2.2|~3.0.0",
                 "symfony/expression-language": "~2.6|~3.0.0",
-                "symfony/yaml": "~2.1|~3.0.0"
+                "symfony/yaml": "~2.3.42|~2.7.14|~2.8.7|~3.0.7"
             },
             "suggest": {
                 "symfony/config": "",
@@ -2086,7 +2086,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-09 18:12:35"
+            "time": "2019-04-16T11:33:46+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -2146,7 +2146,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-03 18:59:18"
+            "time": "2016-05-03T18:59:18+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -2195,7 +2195,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-12 18:01:21"
+            "time": "2016-04-12T18:01:21+00:00"
         },
         {
             "name": "symfony/finder",
@@ -2244,7 +2244,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-10 10:53:53"
+            "time": "2016-03-10T10:53:53+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -2297,7 +2297,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-12 18:09:53"
+            "time": "2016-04-12T18:09:53+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -2379,7 +2379,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-09 21:45:36"
+            "time": "2016-05-09T21:45:36+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -2432,7 +2432,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-05-18T14:26:46+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2491,7 +2491,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-05-18T14:26:46+00:00"
         },
         {
             "name": "symfony/process",
@@ -2540,7 +2540,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-14 15:22:22"
+            "time": "2016-04-14T15:22:22+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -2589,7 +2589,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-29 19:00:15"
+            "time": "2016-03-29T19:00:15+00:00"
         },
         {
             "name": "twig/extensions",
@@ -2641,7 +2641,7 @@
                 "i18n",
                 "text"
             ],
-            "time": "2015-08-22 16:38:35"
+            "time": "2015-08-22T16:38:35+00:00"
         },
         {
             "name": "twig/twig",
@@ -2702,7 +2702,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-01-25 21:22:18"
+            "time": "2016-01-25T21:22:18+00:00"
         },
         {
             "name": "webignition/internet-media-type",
@@ -2752,7 +2752,7 @@
                 "media type",
                 "media-type"
             ],
-            "time": "2015-02-20 16:52:30"
+            "time": "2015-02-20T16:52:30+00:00"
         },
         {
             "name": "webignition/quoted-string",
@@ -2793,7 +2793,7 @@
                 "parser",
                 "quoted-string"
             ],
-            "time": "2012-08-15 16:52:06"
+            "time": "2012-08-15T16:52:06+00:00"
         },
         {
             "name": "webignition/string-parser",
@@ -2834,7 +2834,7 @@
                 "parser",
                 "string"
             ],
-            "time": "2014-04-23 09:31:03"
+            "time": "2014-04-23T09:31:03+00:00"
         }
     ],
     "packages-dev": [],
