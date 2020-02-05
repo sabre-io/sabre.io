@@ -449,7 +449,7 @@ It's better to batch the GET's together with `multiget`.
     <card:addressbook-multiget xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav">
         <d:prop>
             <d:getetag />
-            <c:address-data />
+            <card:address-data />
         </d:prop>
         <d:href>/addressbooks/johndoe/contacts/abc-def-fez-123454657.vcf</d:href>
         <d:href>/addressbooks/johndoe/contacts/acme-12345.vcf</d:href>
