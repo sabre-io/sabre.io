@@ -19,10 +19,10 @@ Installation instructions
 To install Baïkal, download the latest zip file from the [releases page on github][1].
 After downloading the file, unpack it and upload it to your server.
 
-After uploading, you _must_ make sure that the `Specific` directory is writeable by
-your webserver process. This might mean that you need to give 'world-write' access
-via your FTP client, or maybe that you run `chown www-data:www-data Specific` on
-a console.
+After uploading, you _must_ make sure that the `Specific` and the `config` directories
+are writeable by your webserver process. This might mean that you need to give
+'world-write' access via your FTP client, or maybe that you run 
+`chown -R www-data:www-data Specific config` on a console.
 
 After that step has been completed, you can access the installer by browsing to
 
