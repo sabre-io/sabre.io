@@ -103,7 +103,7 @@ server {
   
   charset utf-8;
 
-  location ~ /(\.ht|Core|Specific) {
+  location ~ /(\.ht|Core|Specific|config) {
     deny all;
     return 404;
   }
