@@ -1,6 +1,6 @@
 ---
-product: baikal 
-title: Baïkal 
+product: baikal
+title: Baïkal
 layout: default
 ---
 
@@ -18,12 +18,13 @@ Protect your privacy by hosting calendars and contacts yourself - with Baïkal.
 
 * [Download][1]
 * [Installation instructions][2]
+* [Installation using Docker (unofficial)][10]
 * [Upgrade instructions][3]
 
 <img src='/img/baikal-in-use.png' style="width: 100%; max-width: 640px;" />
 
 Baïkal is free and [open-source][4], developed by [Net Gusto][5] and [fruux][6]
-together with many [contributors][7]. It is released under the GNU GPL v3 license.  
+together with many [contributors][7]. It is released under the GNU GPL v3 license.
 Baïkal is powered by [sabre/dav][8], while offering an administrative interface
 for easy management.
 
@@ -35,3 +36,4 @@ for easy management.
 [6]: https://github.com/sabre-io/Baikal
 [7]: https://github.com/sabre-io/Baikal/graphs/contributors
 [8]: /dav/
+[10]: /baikal/docker-install/
