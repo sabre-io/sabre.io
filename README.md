@@ -16,13 +16,14 @@ useful to be able to run the website on a local machine.
 
 To do so, make sure you have the following tools installed:
 
-* composer
+* php php7.3-curl php-xml (`apt-get install php php-curl php-xml`)
+* composer 1 (`php composer-setup.php --version=1.10.21`)
 * yui-compressor (`apt-get install yui-compressor`)
 * lessc (`sudo npm install -g less`).
 
 Next, from the project directory, run the following:
 
-    composer install
+    composer install   # or php composer.phar install
     vendor/bin/sculpin generate --watch --server
 
 The first step will install required dependencies, the second starts a server
