@@ -24,7 +24,7 @@ Protect your privacy by hosting calendars and contacts yourself - with Baïkal.
 <img src='/img/baikal-in-use.png' style="width: 100%; max-width: 640px;" />
 
 Baïkal is free and [open-source][4], developed by [Net Gusto][5] and [fruux][6]
-together with many [contributors][7]. It is released under the GNU GPL v3 license.
+together with many [contributors][7]. It is released under the GNU GPL v3 license.  
 Baïkal is powered by [sabre/dav][8], while offering an administrative interface
 for easy management.
 
