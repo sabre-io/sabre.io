@@ -93,9 +93,7 @@ Nginx versions 1.3.9 or higher should work.
 Lighttpd
 --------
 
-Using lighttpd is generally not recommended. Development has been incredibly
-slow in recent years, and lighttpd does not have support for many required
-HTTP methods, such as `MKCALENDAR`, `MKCOL`, `ACL`, etc.
+lighttpd versions 1.4.44 or higher should work.
 
 IIS
 ---

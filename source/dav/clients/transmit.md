@@ -26,7 +26,7 @@ Chunked Request Body problem
 
 Transmit suffers from the same issue as the OS/X client, where it sends all
 HTTP PUT requests as 'Chunked' transfer encoding. This is not supported by
-many servers, such as lighttpd and nginx, as well as using apache + fastcgi.
+older versions of lighttpd and nginx, or by apache + fastcgi.
 
 If you plan to support Transmit you are strongly advised to just use
 apache + mod_php.
