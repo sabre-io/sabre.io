@@ -127,7 +127,7 @@ The tick function does just that:
     Loop\tick();
 
 Any events that should trigger at that time, will. If there are no events that
-need to be triggered immediately, the function does not nothing.
+need to be triggered immediately, the function does nothing.
 
 After executing those events, the function returns.
 
