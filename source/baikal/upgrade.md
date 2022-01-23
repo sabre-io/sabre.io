@@ -16,6 +16,7 @@ To upgrade Baïkal, follow the following steps:
 4. Upload the contents of the zip file to the server, but make sure you *do not*
    overwrite the `Specific` or `config` directories. Everything else may be overwritten.
    Keep the whole `Specific` and `config` directories intact. Baïkal needs all files, not just the database.
+   Make sure that invisible files and folders (beginning with a dot ".") are also transferred.
 5. Open the administration panel on the server. Usually this is something like `http://dav.example.org/baikal/html/admin/`.
 6. Follow the steps in the administration panel.
 

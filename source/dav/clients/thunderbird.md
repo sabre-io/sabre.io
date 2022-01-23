@@ -9,8 +9,11 @@ achieved using add-ons.
 [Lightning][2] is a very popular calendar add-on for Thunderbird, and adds
 support for [CalDAV](/dav/caldav).
 
-The [Sogo Connector][3] is a add-on developed for the SOGo groupware platform,
+The [Sogo Connector][3] is an add-on developed for the SOGo groupware platform,
 and also allows people to use this to integrate with any standard
+[CardDAV](/dav/carddav) server.
+
+[CardBook][4] is an add-on that can synchronize contacts with any standard
 [CardDAV](/dav/carddav) server.
 
 Lightning
@@ -64,3 +67,4 @@ More information:
 [1]: http://www.mozilla.org/en-US/thunderbird/
 [2]: https://addons.mozilla.org/en-US/thunderbird/addon/lightning/
 [3]: http://www.sogo.nu/downloads/frontends.html
+[4]: https://addons.thunderbird.net/addon/cardbook/

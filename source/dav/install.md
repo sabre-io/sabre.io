@@ -8,8 +8,6 @@ SabreDAV can be installed using [composer][1]. We no longer provide releases as 
 Requirements
 ------------
 
-You will need a recent version of PHP. SabreDAV currently requires PHP 5.4
-
 SabreDAV runs on any PHP-capable webserver. For maximum compatibility,
 apache 2 with mod_php is recommended. This is especially true if you plan to
 a file server. Card- and CalDAV servers run fine through FastCGI as well.
@@ -17,13 +15,7 @@ a file server. Card- and CalDAV servers run fine through FastCGI as well.
 It's recommended to avoid Lighttpd altogether. See [Webservers](/dav/webservers)
 for more information.
 
-PHP Version requirements:
-
-| SabreDAV version | PHP Version | First stable release | End of support      |
-| ---------------- | ----------- | -------------------- | ------------------- |
-| 3.0              | 5.4         | June 2015            | January 2017        |
-| 3.1              | 5.5         | January 2016         | June 2017           |
-| 3.2              | 5.5         | June 2016            |                     |
+For the PHP Version and module requirements, check out the [composer.json][5] file.
 
 
 Installing with composer
@@ -63,3 +55,4 @@ Head over to [Getting Started](/dav/gettingstarted) to see what's next.
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
 [3]: https://github.com/sabre-io/dav/releases
 [4]: https://github.com/sabre-io/dav
+[5]: https://github.com/sabre-io/dav/blob/master/composer.json
