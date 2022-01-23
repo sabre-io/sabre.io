@@ -14,8 +14,8 @@ related issues:
 * [Authentication][2]
 
 
-Can't connect with OS X Yosemite
---------------------------------
+Can't connect with OS X Yosemite and later
+------------------------------------------
 
 To connect with OS X Yosemite, it's required that you have two redirects in
 place from the _root_ of your webserver.
