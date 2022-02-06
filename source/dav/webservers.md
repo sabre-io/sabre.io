@@ -80,7 +80,7 @@ Nginx
 -----
 
 Older versions of nginx have had issues with so-called "Chunked Transfer
-Encoding", in particular when the _client_ sumbits requests in this transfer
+Encoding", in particular when the _client_ submits requests in this transfer
 encoding.
 
 Known clients that use this include [OS X finder](/dav/clients/finder) and
