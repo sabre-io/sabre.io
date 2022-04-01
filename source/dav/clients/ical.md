@@ -137,6 +137,10 @@ After finding the calendar-home-url, the following is requested for calendars:
 
 More details to follow
 
+### 10.14 "Mojave" with `Calendar.app` v11.0
+
+Under OS X 10.14 "Mojave", configuration with a `Server Path` of `/baikal/html/dav.php/principals/<username>` worked to successfully configure `Calendar.app` (version 11.0) with Baikal 0.9.2.  Note that https:// seems to be required in order for `Calendar.app` to successfully send credentials.
+
 ### Bugs
 
 #### Assuming scheduling support

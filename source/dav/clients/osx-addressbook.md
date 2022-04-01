@@ -80,6 +80,8 @@ CalDAV server, but I've also had cases where:
 Even after trying this, it seems to randomly forget the correct TCP port and
 default back to 8008 (which is the standard port for Darwin Calendar Server).
 
+Under OS X 10.14 "Mojave", configuration with a `Server Path` of `/baikal/html/dav.php/principals/` worked to successfully configure `Contacts.app` (version 12.0) with Baikal 0.9.2.  Note that https:// seems to be required in order for `Contacts.app` to successfully send credentials.
+
 ### Single addressbook
 
 **Affects: OS X 10.6 until OS X 10.10**
