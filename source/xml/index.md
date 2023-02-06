@@ -94,10 +94,10 @@ callback:
 
 [Read all the details here][7].
 
-[1]: http://php.net/manual/en/book.simplexml.php
+[1]: https://php.net/manual/en/book.simplexml.php
 [2]: http://ca2.php.net/manual/en/book.dom.php
-[3]: http://php.net/manual/en/book.xmlreader.php
-[4]: http://php.net/manual/en/book.xmlwriter.php
-[5]: http://php.net/manual/en/class.jsonserializable.php
+[3]: https://php.net/manual/en/book.xmlreader.php
+[4]: https://php.net/manual/en/book.xmlwriter.php
+[5]: https://php.net/manual/en/class.jsonserializable.php
 [6]: /xml/writing/
 [7]: /xml/reading/

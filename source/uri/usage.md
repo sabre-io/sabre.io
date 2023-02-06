@@ -132,6 +132,6 @@ The `split` function takes a path and returns the [`basename()`][2] and
 3. The PHP functions behave a bit oddly if there is only one path component,
    which require special casing.
 
-[1]: http://php.net/manual/en/function.parse-url.php
-[2]: http://php.net/manual/en/function.dirname.php
-[3]: http://php.net/manual/en/function.basename.php
+[1]: https://php.net/manual/en/function.parse-url.php
+[2]: https://php.net/manual/en/function.dirname.php
+[3]: https://php.net/manual/en/function.basename.php

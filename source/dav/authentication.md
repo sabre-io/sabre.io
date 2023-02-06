@@ -133,7 +133,7 @@ following code:
 
     // Set IMAP flags according to your needs.
     // The connection will be opened read-only.
-    // http://php.net/manual/de/function.imap-open.php
+    // https://php.net/manual/de/function.imap-open.php
     $mailbox = '{localhost:993/notls}';
 
     // Creating the backend.
@@ -212,4 +212,4 @@ it add the plugin as follows:
     $server->addPlugin($authPlugin);
 
 [1]: https://github.com/sabre-io/dav/tree/master/examples/sql
-[2]: http://php.net/manual/en/features.http-auth.php
+[2]: https://php.net/manual/en/features.http-auth.php

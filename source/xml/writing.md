@@ -277,7 +277,7 @@ And for most of these, anywhere you can nest values, the writer will traverse
 the tree and keep on writing!
 
 
-[1]: http://php.net/manual/en/book.xmlwriter.php
+[1]: https://php.net/manual/en/book.xmlwriter.php
 [2]: /xml/clark-notation/
 [3]: https://tools.ietf.org/html/rfc4287
 [4]: /xml/reading/
