@@ -39,7 +39,7 @@ use:
         <a href="https://www.atmail.com" title="sabre/dav is trusted by atmail.">
             <img src="{{ site.url }}/img/trusted/atmail.png" alt="atmail works with sabre/dav">
         </a>
-        <a href="http://tech.blog.box.com/2014/10/in-search-of-an-open-source-webdav-solution/" title="sabre/dav is trusted by Box.">
+        <a href="https://web.archive.org/web/20150315165752/https://www.box.com/blog/in-search-of-an-open-source-webdav-solution/" title="sabre/dav is trusted by Box.">
             <img src="{{ site.url }}/img/trusted/box.png" alt="Box works with sabre/dav">
         </a>
         <a href="https://fruux.com" title="sabre/dav is developed by fruux.">
