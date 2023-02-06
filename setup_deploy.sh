@@ -8,6 +8,6 @@ mkdir deploy/
 cd deploy/
 
 git init
-git remote add origin $1
+git remote add origin "$1"
 git pull
-git checkout $2
+git checkout "$2"
