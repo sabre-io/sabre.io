@@ -45,7 +45,7 @@ use:
         <a href="https://fruux.com" title="sabre/dav is developed by fruux.">
             <img src="{{ site.url }}/img/trusted/fruux.png" alt="Our consumer product fruux is powered by sabre/dav">
         </a>
-        <a href="http://owncloud.org" title="sabre/dav is trusted by ownCloud.">
+        <a href="https://owncloud.org" title="sabre/dav is trusted by ownCloud.">
             <img src="{{ site.url }}/img/trusted/owncloud.png" alt="ownCloud works with sabre/dav">
         </a>
     </div>

@@ -127,5 +127,5 @@ add these in the following manner:
     $aclPlugin = new \Sabre\DAVACL\Plugin();
     $aclPlugin->principalSearchPropertySet[] = '{http://example.org/ns}my-prop';
 
-[1]: http://tools.ietf.org/html/rfc3744
+[1]: https://tools.ietf.org/html/rfc3744
 [2]: /dav/principals/

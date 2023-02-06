@@ -288,5 +288,5 @@ error.
       </A:prop>
     </A:propfind>
 
-[rfc4791]: http://tools.ietf.org/html/rfc4791
-[rfc6638]: http://tools.ietf.org/html/rfc6638
+[rfc4791]: https://tools.ietf.org/html/rfc4791
+[rfc6638]: https://tools.ietf.org/html/rfc6638

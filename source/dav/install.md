@@ -51,7 +51,7 @@ Next Steps
 
 Head over to [Getting Started](/dav/gettingstarted) to see what's next.
 
-[1]: http://getcomposer.org/
+[1]: https://getcomposer.org/
 [2]: https://getcomposer.org/doc/00-intro.md#installation-nix
 [3]: https://github.com/sabre-io/dav/releases
 [4]: https://github.com/sabre-io/dav

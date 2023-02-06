@@ -20,7 +20,7 @@ Support
 
     <dl class="list--links">
         <dt>Mailinglist:</dt>
-        <dd><a href="http://groups.google.com/group/sabredav-discuss">http://groups.google.com/group/sabredav-discuss</a></dd>
+        <dd><a href="https://groups.google.com/group/sabredav-discuss">https://groups.google.com/group/sabredav-discuss</a></dd>
         <dt>IRC:</dt>
         <dd><a href="irc://irc.freenode.net/sabredav">#sabredav on Freenode</a></dd>
     </dl>

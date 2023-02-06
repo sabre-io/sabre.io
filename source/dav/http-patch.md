@@ -121,4 +121,4 @@ to the interface.
 
 A sample implementation can be found in `Sabre\DAV\FSExt\File`.
 
-[1]: http://tools.ietf.org/html/rfc5789
+[1]: https://tools.ietf.org/html/rfc5789

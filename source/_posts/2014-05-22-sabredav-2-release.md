@@ -147,12 +147,12 @@ incoming commit, and [Dominik Tobschall][14] for all the moral support.
 Evert.
 
 [1]: http://evertpot.com/sabredav-18-released-with-namespaces/
-[2]: http://tools.ietf.org/html/rfc6578
+[2]: https://tools.ietf.org/html/rfc6578
 [3]: /vobject
 [4]: /event
 [5]: /http
 [6]: http://www.busymac.com/busycal/
-[7]: http://tools.ietf.org/html/draft-ietf-jcardcal-jcal-10
+[7]: https://tools.ietf.org/html/draft-ietf-jcardcal-jcal-10
 [8]: /dav/properties
 [9]: /dav/upgrade/1.8-to-2.0/
 [10]: https://github.com/sabre-io/dav/blob/master/ChangeLog.md
@@ -161,4 +161,4 @@ Evert.
 [13]: https://github.com/staabm
 [14]: https://twitter.com/DominikTo
 [15]: https://github.com/sabre-io/dav/releases/
-[16]: http://groups.google.com/group/sabredav-discuss
+[16]: https://groups.google.com/group/sabredav-discuss

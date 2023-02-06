@@ -111,5 +111,5 @@ remain legible while checking it out with the console, etc.
 
 [More information on this topic][2]
 
-[1]: http://en.wikipedia.org/wiki/Percent-encoding
+[1]: https://en.wikipedia.org/wiki/Percent-encoding
 [2]: http://evertpot.com/filesystem-encoding-and-php/

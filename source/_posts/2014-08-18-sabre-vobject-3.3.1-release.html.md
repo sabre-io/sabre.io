@@ -32,4 +32,4 @@ has a line that looks like this:
 
 [1]: https://github.com/sabre-io/vobject/blob/3.3.1/ChangeLog.md
 [2]: /vobject/itip/
-[3]: http://ca2.php.net/manual/en/class.datetime.php
+[3]: https://php.net/manual/en/class.datetime.php

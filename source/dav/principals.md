@@ -316,7 +316,7 @@ To this:
     $server->exec();
 
 
-[1]: http://tools.ietf.org/html/rfc3744
+[1]: https://tools.ietf.org/html/rfc3744
 [2]: /dav/caldav/
 [3]: /dav/carddav/
 [4]: /dav/acl/

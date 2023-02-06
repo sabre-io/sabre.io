@@ -79,7 +79,7 @@ that have supported me! Keep an eye on [evertpot.com][5] if you're curious
 what I'm up to next!
 
 [1]: https://evertpot.com/sabredav-eol/
-[2]: http://sabre.io/
-[3]: http://sabre.io/baikal
+[2]: https://sabre.io/
+[3]: https://sabre.io/baikal
 [4]: mailto:me@evertpot.com
 [5]: https://evertpot.com/

@@ -120,13 +120,13 @@ on the [upgrade][12] page.
 
 [1]: https://github.com/sabre-io/dav/blob/3.0.0/CHANGELOG.md
 [2]: https://github.com/sabre-io/dav/releases
-[3]: http://sabre.io/dav/upgrade/2.1-to-3.0/
-[4]: http://groups.google.com/group/sabredav-discuss
+[3]: https://sabre.io/dav/upgrade/2.1-to-3.0/
+[4]: https://groups.google.com/group/sabredav-discuss
 [5]: /support/
 [6]: /dav/browser-plugin/
-[7]: http://ca2.php.net/manual/en/book.dom.php
-[8]: http://ca2.php.net/manual/en/book.xmlreader.php
-[9]: http://ca2.php.net/manual/en/book.xmlreader.php
+[7]: https://php.net/manual/en/book.dom.php
+[8]: https://php.net/manual/en/book.xmlreader.php
+[9]: https://php.net/manual/en/book.xmlreader.php
 [10]: /xml/
 [11]: /dav/property-storage/
 [12]: /dav/upgrading/

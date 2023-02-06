@@ -93,7 +93,7 @@ Need attributes? Use the extended syntax:
         [
             'name' => '{http://www.w3.org/1999/xhtml}a',
             'attributes' => [
-                'href' => 'http://sabre.io/',
+                'href' => 'https://sabre.io/',
             ],
             'value' => 'Sabre website',
         ]
@@ -102,7 +102,7 @@ Need attributes? Use the extended syntax:
 This could output:
 
     <p>
-        <a href="http://sabre.io/">Sabre website</a>
+        <a href="https://sabre.io/">Sabre website</a>
     </p>
 
 You can even mix these syntaxes:

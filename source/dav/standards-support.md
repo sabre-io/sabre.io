@@ -61,45 +61,45 @@ Non-standards and drafts
 | [calendar-availability][26] | VAVAILABILITY                    | Supported. See [Scheduling][24].
 | [webdav-prefer][22]         | Prefer header for WebDAV         | Supported by core.
 
-[rfc2425]: http://tools.ietf.org/html/rfc2425
-[rfc2426]: http://tools.ietf.org/html/rfc2426
-[rfc2617]: http://tools.ietf.org/html/rfc2617
-[rfc2518]: http://tools.ietf.org/html/rfc2518
-[rfc2739]: http://tools.ietf.org/html/rfc2738
-[rfc3253]: http://tools.ietf.org/html/rfc3253
-[rfc3648]: http://tools.ietf.org/html/rfc3648
-[rfc3744]: http://tools.ietf.org/html/rfc3744
-[rfc4331]: http://tools.ietf.org/html/rfc4331
-[rfc4437]: http://tools.ietf.org/html/rfc4437
-[rfc4709]: http://tools.ietf.org/html/rfc4709
-[rfc4770]: http://tools.ietf.org/html/rfc4770
-[rfc4790]: http://tools.ietf.org/html/rfc4790
-[rfc4791]: http://tools.ietf.org/html/rfc4791
-[rfc4918]: http://tools.ietf.org/html/rfc4918
-[rfc5323]: http://tools.ietf.org/html/rfc5323
-[rfc5397]: http://tools.ietf.org/html/rfc5397
-[rfc5545]: http://tools.ietf.org/html/rfc5545
-[rfc5546]: http://tools.ietf.org/html/rfc5546
-[rfc5689]: http://tools.ietf.org/html/rfc5689
-[rfc5789]: http://tools.ietf.org/html/rfc5789
-[rfc5842]: http://tools.ietf.org/html/rfc5842
-[rfc5995]: http://tools.ietf.org/html/rfc5995
-[rfc6047]: http://tools.ietf.org/html/rfc6047
-[rfc6321]: http://tools.ietf.org/html/rfc6321
-[rfc6350]: http://tools.ietf.org/html/rfc6350
-[rfc6351]: http://tools.ietf.org/html/rfc6351
-[rfc6352]: http://tools.ietf.org/html/rfc6352
-[rfc6473]: http://tools.ietf.org/html/rfc6473
-[rfc6474]: http://tools.ietf.org/html/rfc6474
-[rfc6578]: http://tools.ietf.org/html/rfc6578
-[rfc6638]: http://tools.ietf.org/html/rfc6638
-[rfc6715]: http://tools.ietf.org/html/rfc6715
-[rfc6764]: http://tools.ietf.org/html/rfc6764
-[rfc6868]: http://tools.ietf.org/html/rfc6868
-[rfc6869]: http://tools.ietf.org/html/rfc6869
-[rfc7095]: http://tools.ietf.org/html/rfc7095
-[rfc7240]: http://tools.ietf.org/html/rfc7240 "Prefer Header for HTTP"
-[rfc7265]: http://tools.ietf.org/html/rfc7265
+[rfc2425]: https://tools.ietf.org/html/rfc2425
+[rfc2426]: https://tools.ietf.org/html/rfc2426
+[rfc2617]: https://tools.ietf.org/html/rfc2617
+[rfc2518]: https://tools.ietf.org/html/rfc2518
+[rfc2739]: https://tools.ietf.org/html/rfc2738
+[rfc3253]: https://tools.ietf.org/html/rfc3253
+[rfc3648]: https://tools.ietf.org/html/rfc3648
+[rfc3744]: https://tools.ietf.org/html/rfc3744
+[rfc4331]: https://tools.ietf.org/html/rfc4331
+[rfc4437]: https://tools.ietf.org/html/rfc4437
+[rfc4709]: https://tools.ietf.org/html/rfc4709
+[rfc4770]: https://tools.ietf.org/html/rfc4770
+[rfc4790]: https://tools.ietf.org/html/rfc4790
+[rfc4791]: https://tools.ietf.org/html/rfc4791
+[rfc4918]: https://tools.ietf.org/html/rfc4918
+[rfc5323]: https://tools.ietf.org/html/rfc5323
+[rfc5397]: https://tools.ietf.org/html/rfc5397
+[rfc5545]: https://tools.ietf.org/html/rfc5545
+[rfc5546]: https://tools.ietf.org/html/rfc5546
+[rfc5689]: https://tools.ietf.org/html/rfc5689
+[rfc5789]: https://tools.ietf.org/html/rfc5789
+[rfc5842]: https://tools.ietf.org/html/rfc5842
+[rfc5995]: https://tools.ietf.org/html/rfc5995
+[rfc6047]: https://tools.ietf.org/html/rfc6047
+[rfc6321]: https://tools.ietf.org/html/rfc6321
+[rfc6350]: https://tools.ietf.org/html/rfc6350
+[rfc6351]: https://tools.ietf.org/html/rfc6351
+[rfc6352]: https://tools.ietf.org/html/rfc6352
+[rfc6473]: https://tools.ietf.org/html/rfc6473
+[rfc6474]: https://tools.ietf.org/html/rfc6474
+[rfc6578]: https://tools.ietf.org/html/rfc6578
+[rfc6638]: https://tools.ietf.org/html/rfc6638
+[rfc6715]: https://tools.ietf.org/html/rfc6715
+[rfc6764]: https://tools.ietf.org/html/rfc6764
+[rfc6868]: https://tools.ietf.org/html/rfc6868
+[rfc6869]: https://tools.ietf.org/html/rfc6869
+[rfc7095]: https://tools.ietf.org/html/rfc7095
+[rfc7240]: https://tools.ietf.org/html/rfc7240 "Prefer Header for HTTP"
+[rfc7265]: https://tools.ietf.org/html/rfc7265
 [rfc7617]: https://tools.ietf.org/html/rfc7617 "The 'Basic' HTTP Authentication Scheme"
 
 [vobject]: /vobject/
@@ -113,7 +113,7 @@ Non-standards and drafts
 [7]: /dav/carddav/
 [8]: /dav/http-patch/
 [9]: /dav/sync/
-[10]: http://tools.ietf.org/html/draft-daboo-carddav-directory-gateway
+[10]: https://tools.ietf.org/html/draft-daboo-carddav-directory-gateway
 [11]: /dav/carddav-directory
 [12]: https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-ctag.txt
 [13]: http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-proxy.txt
@@ -123,7 +123,7 @@ Non-standards and drafts
 [17]: http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt
 [20]: /dav/service-discovery/
 [21]: http://www.imc.org/pdi/vcard-21.txt
-[22]: http://tools.ietf.org/html/draft-murchison-webdav-prefer-08
+[22]: https://tools.ietf.org/html/draft-murchison-webdav-prefer-08
 [24]: /dav/scheduling/
 [25]: /vobject/itip/
 [26]: https://tools.ietf.org/html/draft-daboo-calendar-availability-05

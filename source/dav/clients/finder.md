@@ -187,5 +187,5 @@ normalization can be found in the [PHP Manual][1].
 Currently SabreDAV does not normalize, but it might in the future if there's
 sufficient interest.
 
-[rfc4331]: http://tools.ietf.org/html/rfc4331
+[rfc4331]: https://tools.ietf.org/html/rfc4331
 [1]: http://kr2.php.net/manual/en/class.normalizer.php
