@@ -164,7 +164,7 @@ that the atom feed contained this element:
 
        <link href="http://example.org/2003/12/13/atom03"/>
 
-The parser in fact discarded the `href` atttribute and its value. The only
+The parser in fact discarded the `href` attribute and its value. The only
 way around that is to write a custom deserializer.
 
 The following example demonstrates how you would parse `<link>`. First, we

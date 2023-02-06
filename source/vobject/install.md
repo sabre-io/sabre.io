@@ -4,7 +4,7 @@ layout: default
 title: Installation
 ---
 
-sabre/vobject must be intalled using [Composer][1].
+sabre/vobject must be installed using [Composer][1].
 
 Requirements
 ------------

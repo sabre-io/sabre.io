@@ -14,7 +14,7 @@ and you've included the autoloader in your code.
 A basic parsing example
 -----------------------
 
-Assuming there is an iCalendar file in your lcoal directory, named `party.ics`,
+Assuming there is an iCalendar file in your local directory, named `party.ics`,
 the following complete example will parse it and display the `SUMMARY` property:
 
     use Sabre\VObject;

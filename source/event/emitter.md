@@ -155,7 +155,7 @@ hierarchy you can use the supplied trait.
 
     }
 
-In the preceeding example, `MyNotUneventfulApplication` has all the
+In the preceding example, `MyNotUneventfulApplication` has all the
 capabilities of `Emitter`.
 
 

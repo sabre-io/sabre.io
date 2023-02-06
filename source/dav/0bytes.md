@@ -52,9 +52,9 @@ Furthermore, there are clients that support `LOCK`. Clients may `LOCK` a url
 before creating a new file. The idea is that while the file is locked, some
 other client cannot start creating a file with the same name.
 
-How `LOCK` should behave on a non-existant url is a bit confusing, because the
+How `LOCK` should behave on a non-existent url is a bit confusing, because the
 initial webdav standard ([rfc2518][1]) differs from the updated standard
-([rfc4918][2]). SabreDAV follows the recomendation from the latest
+([rfc4918][2]). SabreDAV follows the recommendation from the latest
 specification.
 
 That is: If a client makes a `LOCK` request on a url that _does not yet_
@@ -85,7 +85,7 @@ After that, we would just suggest to head to the [mailing list][3] so we can
 investigate. 9 times out of 10 this tends to be a configuration mistake or a
 bug somewhere in custom written code.
 
-We will _almost always_ need a charles capture or a publically accessible
+We will _almost always_ need a charles capture or a publicly accessible
 server though. Have this prepared to get to a solution quicker.
 
 [1]: https://tools.ietf.org/html/rfc2518

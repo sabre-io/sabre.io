@@ -16,7 +16,7 @@ All operations are done on Nodes managed by the `Tree` class. In order for the
 ObjectTree to find the nodes, it must traverse the entire tree.
 
 You should optimize `getChildren()` and `getChild()` in your nodes as much as
-possible to accomodate for it.
+possible to accommodate for it.
 
 You can avoid traversing the tree by subclassing `Sabre\DAV\Tree` and
 overriding `getChild`, `getChildren` and `childExists` with your own methods.

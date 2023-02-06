@@ -28,7 +28,7 @@ After that step has been completed, you can access the installer by browsing to
 
     http://yourserver.example.org/baikal/html/
 
-Follow the intructions there to complete the installation.
+Follow the instructions there to complete the installation.
 
 <img src='/img/baikal-admin-wizard.png' style="width: 100%; max-width: 640px;" />
 

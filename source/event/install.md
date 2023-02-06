@@ -4,7 +4,7 @@ layout: default
 title: Installation
 ---
 
-sabre/event must be intalled using [composer][1].
+sabre/event must be installed using [composer][1].
 
 Requirements
 ------------
