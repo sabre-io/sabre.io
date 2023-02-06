@@ -169,7 +169,7 @@ This has completely changed:
 
     ?>
 
-Note that the preceeding examples are all a bit convoluted.
+Note that the preceding examples are all a bit convoluted.
 In most cases you just want to do something like:
 
     <?php

@@ -280,7 +280,7 @@ To show the list of dates, we would do this as such:
         echo $event->DTSTART->getDateTime()->format(\DateTime::ATOM);
     }
 
-In a recurring event, single instances can also be overriden. VObject also takes these
+In a recurring event, single instances can also be overridden. VObject also takes these
 into consideration. The reason we needed to specify a start and end-date, is because
 some recurrence rules can be 'never ending'.
 

@@ -80,7 +80,7 @@ This is on a high level how a Promise works. A function returns a Promise
 instead of a regular value, and you can use `then` to execute a callback
 when the operation is completed.
 
-To catch errors, use the `otherwise` fucntion.
+To catch errors, use the `otherwise` function.
 
 
 The innovation: chaining

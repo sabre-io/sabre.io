@@ -46,7 +46,7 @@ The directory structure of the VObject library changed. Everything that was
 previously in `lib/Sabre/VObject` is now moved to `lib/`.
 
 If you are using composer you don't have to change a thing, but if you
-manually wrote an autoloader, you may have to make a change to accomodate for
+manually wrote an autoloader, you may have to make a change to accommodate for
 this.
 
 We also removed `lib/Sabre/VObject/includes.php`.

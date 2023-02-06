@@ -128,7 +128,7 @@ The `split` function takes a path and returns the [`basename()`][2] and
 
 1. The PHP functions are locale-aware and will start behaving differently
    depending on PHP's locale setting.
-2. The PHP functions will use the backslash as the seperator on Windows.
+2. The PHP functions will use the backslash as the separator on Windows.
 3. The PHP functions behave a bit oddly if there is only one path component,
    which require special casing.
 
