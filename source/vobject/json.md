@@ -56,6 +56,6 @@ already called `json_decode` on the input.
 This feature was added in sabre/vobject 3.1.
 
 
-[1]: http://tools.ietf.org/html/rfc7095
-[2]: http://tools.ietf.org/html/rfc7265
-[3]: http://www.json.org/
+[1]: https://tools.ietf.org/html/rfc7095
+[2]: https://tools.ietf.org/html/rfc7265
+[3]: https://www.json.org/

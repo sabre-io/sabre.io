@@ -99,4 +99,4 @@ easily as well:
 
 
 [1]: /event/promise/
-[2]: http://php.net/manual/en/language.generators.overview.php
+[2]: https://php.net/manual/en/language.generators.overview.php

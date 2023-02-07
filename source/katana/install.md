@@ -59,6 +59,6 @@ command-line:
     ./bin/katana install
 
 [1]: https://github.com/sabre-io/katana/releases/
-[2]: http://getcomposer.org/
+[2]: https://getcomposer.org/
 [3]: http://www.npmjs.com
 [4]: http://bower.io

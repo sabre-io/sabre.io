@@ -27,8 +27,8 @@ Further reading
 * [Installation][3]
 * [Usage][4]
 
-[1]: http://nodejs.org/api/url.html
-[2]: http://php.net/manual/en/function.parse-url.php
+[1]: https://nodejs.org/api/url.html
+[2]: https://php.net/manual/en/function.parse-url.php
 [3]: /uri/install/
 [4]: /uri/usage/
 [5]: https://tools.ietf.org/html/rfc3986/

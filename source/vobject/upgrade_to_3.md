@@ -255,6 +255,6 @@ These properties have now moved to the document classes:
 * `Component\VCard::$componentMap`
 
 [1]: https://github.com/sabre-io/vobject/issues/19
-[2]: http://tools.ietf.org/html/rfc6868
-[3]: http://tools.ietf.org/html/rfc7095
-[4]: http://tools.ietf.org/html/rfc7265
+[2]: https://tools.ietf.org/html/rfc6868
+[3]: https://tools.ietf.org/html/rfc7095
+[4]: https://tools.ietf.org/html/rfc7265

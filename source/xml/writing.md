@@ -93,7 +93,7 @@ Need attributes? Use the extended syntax:
         [
             'name' => '{http://www.w3.org/1999/xhtml}a',
             'attributes' => [
-                'href' => 'http://sabre.io/',
+                'href' => 'https://sabre.io/',
             ],
             'value' => 'Sabre website',
         ]
@@ -102,7 +102,7 @@ Need attributes? Use the extended syntax:
 This could output:
 
     <p>
-        <a href="http://sabre.io/">Sabre website</a>
+        <a href="https://sabre.io/">Sabre website</a>
     </p>
 
 You can even mix these syntaxes:
@@ -277,7 +277,7 @@ And for most of these, anywhere you can nest values, the writer will traverse
 the tree and keep on writing!
 
 
-[1]: http://php.net/manual/en/book.xmlwriter.php
+[1]: https://php.net/manual/en/book.xmlwriter.php
 [2]: /xml/clark-notation/
 [3]: https://tools.ietf.org/html/rfc4287
 [4]: /xml/reading/

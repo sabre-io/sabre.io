@@ -172,13 +172,13 @@ sabre/dav is developed by [fruux][12]. If you're looking for enterprise-level
 support, we'd love to [hear from you](/support)!
 
 
-[1]: http://en.wikipedia.org/wiki/Webdav
+[1]: https://en.wikipedia.org/wiki/Webdav
 [2]: http://webdav.org/
-[3]: http://en.wikipedia.org/wiki/CalDAV
-[4]: http://en.wikipedia.org/wiki/CardDAV
+[3]: https://en.wikipedia.org/wiki/CalDAV
+[4]: https://en.wikipedia.org/wiki/CardDAV
 [5]: http://httpd.apache.org/docs/2.2/mod/mod_dav.html
 [6]: http://www.charlesproxy.com/download/
-[7]: http://groups.google.com/group/sabredav-discuss
+[7]: https://groups.google.com/group/sabredav-discuss
 [8]: https://github.com/sabre-io/dav/issues/new
 [12]: https://fruux.com/
 [13]: /dav/baseurl/

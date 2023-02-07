@@ -21,7 +21,7 @@ If you do have a need for this, please [submit a feature request][3], or tell
 us on the [mailing list][4]. The only way we are aware of people wanting this,
 is if they tell us.
 
-[1]: http://tools.ietf.org/html/rfc3253
+[1]: https://tools.ietf.org/html/rfc3253
 [2]: http://subversion.apache.org/
 [3]: https://github.com/sabre-io/dav/issues/new
-[4]: http://groups.google.com/group/sabredav-discuss
+[4]: https://groups.google.com/group/sabredav-discuss

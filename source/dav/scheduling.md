@@ -103,9 +103,9 @@ If you really need either of those features, let us know through
 we don't know if we need to prioritize it.
 
 
-[rfc6638]: http://tools.ietf.org/html/rfc6638
-[rfc6047]: http://tools.ietf.org/html/rfc6047
+[rfc6638]: https://tools.ietf.org/html/rfc6638
+[rfc6047]: https://tools.ietf.org/html/rfc6047
 [avail]: https://tools.ietf.org/html/draft-daboo-calendar-availability-05
-[mailinglist]: http://groups.google.com/group/sabredav-discuss
+[mailinglist]: https://groups.google.com/group/sabredav-discuss
 [issues]: https://github.com/sabre-io/dav/issues
 [property-storage]: /dav/property-storage/

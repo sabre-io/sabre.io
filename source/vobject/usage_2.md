@@ -341,10 +341,10 @@ The output of this script will look like this:
 Support
 -------
 
-Head over to the [SabreDAV mailing list](http://groups.google.com/group/sabredav-discuss) for any questions.
+Head over to the [SabreDAV mailing list](https://groups.google.com/group/sabredav-discuss) for any questions.
 
 [2]: /vobject/upgrade_to_3/
 [3]: https://tools.ietf.org/html/rfc5545
 [4]: https://tools.ietf.org/html/rfc6350
 [5]: /dav/
-[6]: http://getcomposer.org/doc/00-intro.md
+[6]: https://getcomposer.org/doc/00-intro.md

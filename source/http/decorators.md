@@ -52,4 +52,4 @@ all we need to do is:
 And that's it, we now have an `isLoggedIn` method, without having to mess
 with the core instances.
 
-[6]: http://en.wikipedia.org/wiki/Decorator_pattern
+[6]: https://en.wikipedia.org/wiki/Decorator_pattern

@@ -35,9 +35,9 @@ vobject supports the following formats:
 [1]: https://tools.ietf.org/html/rfc5545
 [2]: https://tools.ietf.org/html/rfc6350
 [3]: http://www.imc.org/pdi/vcard-21.txt
-[4]: http://tools.ietf.org/html/rfc2426
-[5]: http://tools.ietf.org/html/rfc6350
-[6]: http://tools.ietf.org/html/rfc7095
-[7]: http://tools.ietf.org/html/rfc7265
+[4]: https://tools.ietf.org/html/rfc2426
+[5]: https://tools.ietf.org/html/rfc6350
+[6]: https://tools.ietf.org/html/rfc7095
+[7]: https://tools.ietf.org/html/rfc7265
 [8]: https://tools.ietf.org/html/rfc6351 "xCard: vCard XML Representation"
 [9]: https://tools.ietf.org/html/rfc6321 "xCal: The XML Format for iCalendar"

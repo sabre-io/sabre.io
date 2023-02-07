@@ -117,6 +117,6 @@ And for non-SSL:
 The combination of these TXT and SRV records are effectively an alternative to
 the `/.well-known` urls.
 
-[1]: http://tools.ietf.org/html/rfc5785
-[2]: http://en.wikipedia.org/wiki/SRV_record 
-[3]: http://tools.ietf.org/html/rfc6764
+[1]: https://tools.ietf.org/html/rfc5785
+[2]: https://en.wikipedia.org/wiki/SRV_record 
+[3]: https://tools.ietf.org/html/rfc6764

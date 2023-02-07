@@ -56,6 +56,6 @@ Sample page with links
     [1]: https://sculpin.io/
 
 
-[1]: http://sabre.io/
+[1]: https://sabre.io/
 [2]: http://sculpin.io/
 [3]: https://sculpin.io/download/

@@ -35,5 +35,5 @@ To parse a xCard or xCal object, use the following snippet:
 
 You can pass either an XML string or a readable stream.
 
-[1]: http://tools.ietf.org/html/rfc6351 "xCard: vCard XML Representation"
-[2]: http://tools.ietf.org/html/rfc6321 "xCal: The XML Format for iCalendar"
+[1]: https://tools.ietf.org/html/rfc6351 "xCard: vCard XML Representation"
+[2]: https://tools.ietf.org/html/rfc6321 "xCal: The XML Format for iCalendar"

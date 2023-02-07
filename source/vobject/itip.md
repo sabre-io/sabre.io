@@ -119,6 +119,6 @@ Example:
 
 This will update `$oldCalendar` in-place.
 
-[1]: http://tools.ietf.org/html/rfc5546
-[2]: http://tools.ietf.org/html/rfc6047
-[3]: http://tools.ietf.org/html/rfc6638
+[1]: https://tools.ietf.org/html/rfc5546
+[2]: https://tools.ietf.org/html/rfc6047
+[3]: https://tools.ietf.org/html/rfc6638

@@ -313,7 +313,7 @@ so any suggestions are welcome.
 Support
 -------
 
-Head over to the [SabreDAV mailing list](http://groups.google.com/group/sabredav-discuss) for any questions.
+Head over to the [SabreDAV mailing list](https://groups.google.com/group/sabredav-discuss) for any questions.
 
 [1]: /vobject/install
 

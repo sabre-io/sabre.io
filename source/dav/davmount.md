@@ -26,4 +26,4 @@ Add the plugin to your server.
 
 After this, simply open a DAV url in your browser and add ?mount. This will return the davmount document.
 
-[rfc4709]: http://tools.ietf.org/html/rfc4709
+[rfc4709]: https://tools.ietf.org/html/rfc4709

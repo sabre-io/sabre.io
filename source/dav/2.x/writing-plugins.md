@@ -552,7 +552,7 @@ At this point it's no longer possible to influence the HTTP response, but it
 could be used for logging or clean-up operations.
 
 This would also be a good moment to call
-[`fastcgi_finish_request`](http://php.net/manual/en/function.fastcgi-finish-request.php), if
+[`fastcgi_finish_request`](https://php.net/manual/en/function.fastcgi-finish-request.php), if
 you are on a fastcgi PHP sapi.
 
     use Sabre\HTTP\RequestInterface;

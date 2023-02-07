@@ -596,7 +596,7 @@ possible deserializer function looks like this:
 
     }
 
-The [`next()`](http://php.net/manual/en/xmlreader.next.php) function is a
+The [`next()`](https://php.net/manual/en/xmlreader.next.php) function is a
 function that specifically instructs the PHP XMLReader to simply skip
 the element and anything inside of it.
 
@@ -679,6 +679,6 @@ To validate XML content before parsing, use `setSchema()` inherited from `XMLRea
     }
 
 
-[1]: http://php.net/manual/en/book.xmlreader.php
+[1]: https://php.net/manual/en/book.xmlreader.php
 [2]: /xml/valueobjects/
 [3]: /xml/service/

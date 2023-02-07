@@ -48,8 +48,8 @@ Some stats
 * The biggest change was the switch to PHP namespaces from the old prefix-format.
 * There were a total of 12 releases, averaging 0.63 releases per month.
 
-[1]: http://sabre.io/support/
-[2]: http://sabre.io/dav/upgrading/
-[3]: http://sabre.io/dav/upgrade/1.8-to-2.0/
-[4]: http://sabre.io/dav/upgrade/2.0-to-2.1/
-[5]: http://sabre.io/vobject/upgrade/
+[1]: https://sabre.io/support/
+[2]: https://sabre.io/dav/upgrading/
+[3]: https://sabre.io/dav/upgrade/1.8-to-2.0/
+[4]: https://sabre.io/dav/upgrade/2.0-to-2.1/
+[5]: https://sabre.io/vobject/upgrade/

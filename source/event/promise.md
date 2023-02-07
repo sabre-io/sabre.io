@@ -381,6 +381,6 @@ See also
 * [Event Loop][2]
 
 
-[1]: http://php.net/curl-multi-init
+[1]: https://php.net/curl-multi-init
 [2]: /event/loop/
 [3]: /event/coroutines/

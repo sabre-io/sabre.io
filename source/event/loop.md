@@ -175,5 +175,5 @@ There's also an equivalent for writes: `addWriteStream` and
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval
 [3]: https://nodejs.org/api/process.html#process_process_nexttick_callback_arg
-[4]: http://php.net/manual/en/function.popen.php
-[5]: http://php.net/manual/en/function.stream-select.php
+[4]: https://php.net/manual/en/function.popen.php
+[5]: https://php.net/manual/en/function.stream-select.php

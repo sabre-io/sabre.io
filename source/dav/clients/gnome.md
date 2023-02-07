@@ -72,6 +72,6 @@ interface. Gnome will do this with a PUT request with no body. It also doesn't
 send a Content-Length header, which might cause a problem for some webservers,
 which could respond with '411 Length Required'
 
-[rfc4437]: http://tools.ietf.org/html/rfc4437
+[rfc4437]: https://tools.ietf.org/html/rfc4437
 [1]: https://bugzilla.gnome.org/show_bug.cgi?id=551339
 [2]: https://bugzilla.gnome.org/show_bug.cgi?id=603422
