@@ -82,7 +82,7 @@ use:
 <div class="box box--turquoise">
     <div class="box-wrapper">
         <section class="box box--enterprise">
-            <a href="https://fruux.com"><img src="{{ site.url }}/img/fruux_logo.png"></a>
+            <a href="https://fruux.com"><img src="{{ site.url }}/img/fruux_logo.png" alt="fruxx logo"></a>
             <h1>Enterprise support</h1>
             <h2>sabre/dav and the other sabre.io projects are developed by <a href="https://fruux.com/">fruux</a>.</h2>
             <div class="promo">
@@ -114,5 +114,5 @@ use:
     </div>
 </div>
 <figure class="bg--cloudy">
-    <img src="{{ site.url }}/img/home_background.jpg">
+    <img src="{{ site.url }}/img/home_background.jpg" alt="home background">
 </figure>
