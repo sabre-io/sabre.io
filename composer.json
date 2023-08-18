@@ -8,7 +8,11 @@
     },
 
     "config": {
-        "component-dir": "source/components"
+        "component-dir": "source/components",
+        "allow-plugins": {
+            "sculpin/sculpin-theme-composer-plugin": true,
+            "robloach/component-installer": true
+        }
     }
 
 }
