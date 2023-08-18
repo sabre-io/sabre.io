@@ -10,7 +10,7 @@ This is very useful if there is a part in your directory tree that's read-only
 and doesn't often change.
 
 Using the SimpleCollection class is very simple, all it takes is a name
-argument and a set of childnodes.
+argument and a set of child nodes.
 
 Usage
 -----

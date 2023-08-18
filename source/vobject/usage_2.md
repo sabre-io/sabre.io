@@ -19,7 +19,7 @@ a very complete library, with an easy to use API.
 
 This project is a spin-off from [sabre/dav][5], where it has been used for
 several years. The 1.0 version of this library was directly embedded in that
-project, and the 2.0 version was the first independant vobject release.
+project, and the 2.0 version was the first independent vobject release.
 The VObject library has 100% unittest coverage.
 
 Installation
@@ -188,7 +188,7 @@ To set the property with a DateTime object, you can use the following syntax:
 The second argument specifies the type of date you're setting. The following three
 options exist:
 
-1. `LOCAL` This is a floating time, with no timezone information. This basically specifies that the event happens in whatever the timezone's currently in. This would be encoded as `DTSTART;VALUE=DATE-TIME:20120807235300`
+1. `LOCAL` This is a floating time, with no timezone information. This basically specifies that the event happens in whatever the timezone is currently in. This would be encoded as `DTSTART;VALUE=DATE-TIME:20120807235300`
 2. `UTC` This specifies that the time should be encoded as a UTC time. This is encoded as `DTSTART;VALUE=DATE-TIME:20120807205300Z`. Note the extra Z and the fact that it's two hours 'earlier'.
 3. `LOCALTZ` specifies that it's supposed to be encoded in its local timezone. For example `DTSTART;VALUE=DATE-TIME;TZID=Europe/Amsterdam:20120807235300`.
 4. `DATE` This is a date-only, and does not contain the time. In this case this would be encoded as `DTSTART;VALUE=DATE:20120807`.
@@ -212,7 +212,7 @@ VObject supports the following options:
 3. `COUNT` to stop recurring after x items.
 4. `FREQ=DAILY` to recur every day, and `BYDAY` to limit it to certain days.
 5. `FREQ=WEEKLY` to recur every week, `BYDAY` to expand this to multiple weekdays in every week and `WKST` to specify on which day the week starts.
-6. `FREQ=MONTHLY` to recur every month, `BYMONTHDAY` to expand this to certain days in a month, `BYDAY` to expand it to certain weekdays occuring in a month, and `BYSETPOS` to limit the last two expansions.
+6. `FREQ=MONTHLY` to recur every month, `BYMONTHDAY` to expand this to certain days in a month, `BYDAY` to expand it to certain weekdays occurring in a month, and `BYSETPOS` to limit the last two expansions.
 7. `FREQ=YEARLY` to recur every year, `BYMONTH` to expand that to certain months in a year, and `BYDAY` and `BYWEEKDAY` to expand the `BYMONTH` rule even further.
 
 VObject supports the `EXDATE` property for exclusions, but not yet the `RDATE` and `EXRULE` 

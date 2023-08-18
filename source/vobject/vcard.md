@@ -286,7 +286,7 @@ The returned value is an array of messages and might look like this:
 
 Each item constitutes a problem with the document. Every item contains a level
 containing a number between 1 and 3. 3 Means that the document is invalid, 2
-means a warning. A warning means it's valid but it could cause interopability
+means a warning. A warning means it's valid but it could cause interoperability
 issues, and 1 means that there was a problem earlier, but the problem was
 automatically repaired.
 
@@ -299,7 +299,7 @@ You can also pass several options. The options have to be passed as a bitfield:
     $vcalendar->validate(Sabre\VObject\Node::REPAIR);
     $vcalendar->validate(Sabre\VObject\Node::PROFILE_CARDDAV);
 
-The `REPAIR` option automatically repeairs the object, if possible. Without
+The `REPAIR` option automatically repairs the object, if possible. Without
 `REPAIR` the validator does not change the object.
 
 The `PROFILE_CARDDAV` validates the object specifically for within the use of

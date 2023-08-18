@@ -59,7 +59,7 @@ A request for this might look as follows:
     END:VEVENT
     END:VCALENDAR
 
-Since `PRODID` is missing, sabre/dav will do the folowing:
+Since `PRODID` is missing, sabre/dav will do the following:
 
 1. It will automatically add a `PRODID`
 2. It will **no longer** send back an `ETag` header after the request.

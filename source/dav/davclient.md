@@ -65,7 +65,7 @@ Any request will also automatically follow redirects.
 
 ### Doing a PROPFIND request
 
-To make it easier to do 'PROPFIND' requests, a seperate method is available.
+To make it easier to do 'PROPFIND' requests, a separate method is available.
 
 Example:
 

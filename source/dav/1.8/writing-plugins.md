@@ -21,7 +21,7 @@ use the `unknownMethod` to handle any HTTP methods SabreDAV does not already
 support.
 
 The assumption in the following code snippet, is that there's already a
-`$server` object, that's an intance of `Sabre\DAV\Server`.
+`$server` object, that's an instance of `Sabre\DAV\Server`.
 
     function brewHandler($method, $uri) {
 
@@ -152,7 +152,7 @@ An example can be seen higher up int the page.
 
 ### `beforeCreateFile`
 
-This event is trigged before new files are created. Using this event it is
+This event is triggered before new files are created. Using this event, it is
 possible to intercept these actions and store them in a different spot.
 
 Since 1.6 the 'parent' argument will also be sent along.
@@ -190,7 +190,7 @@ Example:
 
 ### `beforeWriteContent`
 
-This event is trigged before files are updated. Using this event it is
+This event is triggered before files are updated. Using this event, it is
 possible to intercept these actions, validate content or block them.
 
 The 'node' and 'data' arguments are only available since version 1.6.

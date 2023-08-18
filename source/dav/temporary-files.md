@@ -5,12 +5,12 @@ plugin_name: temporaryfilefilter
 plugin_since: 0.9.0
 ---
 
-If you run a WebDAV server that exposes something like datbase-record as
+If you run a WebDAV server that exposes something like database-records as
 files, you may have run into the fact that operating systems tend to leave
 around garbage files.
 
 This sucks, because if your webdav server is for instance a list of blog-posts,
-you may quickly accumilate a few blogposts with titles such as `desktop.ini`
+you may quickly accumulate a few blogposts with titles such as `desktop.ini`
 or `.DS_Store`.
 
 The temporary file filter plugin works by intercepting all HTTP requests that
@@ -18,7 +18,7 @@ attempt to create these types of files, and basically set these files aside.
 
 If, after that, a client attempts to read, delete or modify those files it
 created earlier, the temporary file filter will respond by returning the
-actual uploaded file, without poluting your 'real' data.
+actual uploaded file, without polluting your 'real' data.
 
 Supported temporary files
 -------------------------
@@ -49,7 +49,7 @@ A warning
 ---------
 
 It is _not_ recommended to use this for standard file shares, where data
-integrity is the most imporant. Other files may match these patterns, or
+integrity is the most important. Other files may match these patterns, or
 applications may store important data in these files.
 
 The single intended use-case is situations such as the earlier example.
@@ -68,5 +68,5 @@ directory that can automatically:
 
 * Clean up files older than a certain age
 * Automatically keep an eye on the total size of the temporary directory, and
-  clean up files as soon as the size goes over a certain treshold, starting
+  clean up files as soon as the size goes over a certain threshold, starting
   with the oldest.

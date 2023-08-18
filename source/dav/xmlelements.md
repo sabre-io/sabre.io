@@ -57,7 +57,7 @@ the error originated.
 ### s:line
 
 The line element appears in error responses. It contains the line number where
-the error occured.
+the error occurred.
 
 ### s:message
 

@@ -3,7 +3,7 @@ title: Scalability
 layout: default
 ---
 
-While the default library suffices for small-scall WebDAV installations, there
+While the default library suffices for small-scale WebDAV installations, there
 are areas that can be optimized for maximum performance, and operations in a
 load-balanced environment.
 
@@ -31,7 +31,7 @@ Move and Copy operations can be slow, especially when moving/copying bigger obje
 Each of these methods traverses the entire tree, and operates on them one-by-one, as an
 example, a move of a directory follows the following pattern:
 
-* The Tree tranverses the entire source tree, for each item it will
+* The Tree traverses the entire source tree, for each item it will
   * do a get() on the source file, and a createFile on the destination (heavy)
   * make subdirectories if directories are encountered
   * copy all the properties over in a similar fashion (if IProperties is used)

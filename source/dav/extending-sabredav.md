@@ -127,7 +127,7 @@ or the sabre/dav project. The main reason people tend to make changes in the
 `Sabre/` namespace, is because they think it's the only way they can extend
 sabre/dav.
 
-The biggest issue is that you are now effectivelty making 'changes' to the
+The biggest issue is that you are now effectively making 'changes' to the
 sabre/dav project by adding files, or maybe even changing existing ones.
 
 This makes it incredibly hard to figure out what you've changed, and to do

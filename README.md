@@ -27,7 +27,7 @@ Next, from the project directory, run the following:
     vendor/bin/sculpin generate --watch --server
 
 The first step will install required dependencies, the second starts a server
-locally where you can go have a look. To test, simply head to
+locally where you can go and have a look. To test, simply head to
 <http://localhost:8000/>.
 
 Style guide

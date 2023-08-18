@@ -86,7 +86,7 @@ Index:
 | `10`              | priority, for DNS-based failover |
 | `20`              | weight, for DNS-based loadbalancing |
 | `443`             | tcp port, in this case 443 for HTTPS |
-| `dav.example.org` | The actual domainname |
+| `dav.example.org` | The actual domain name |
 
 The spec dictates that the domain always has to point to an A record, and it
 may not point to a CNAME record. Normally I would not recommend going against
@@ -94,7 +94,7 @@ specs, but I feel this is of great annoyance for the way scalable systems are
 built today, so I can't comment on if clients actually require this, or what
 the purpose of this is.
 
-Note that these records can only point to a domainname, and not a full path.
+Note that these records can only point to a domain name, and not a full path.
 
 To enable that, add the following:
 

@@ -11,7 +11,7 @@ be greeted by an error.
 
 SabreDAV ships with a plugin that adds directory indexes, just like many
 webservers do. This makes your server a lot friendlier on the eyes when opening
-it with a webbrowser, and is also extremely handy for debugging.
+it with a web browser, and is also extremely handy for debugging.
 
 Setting up
 ----------

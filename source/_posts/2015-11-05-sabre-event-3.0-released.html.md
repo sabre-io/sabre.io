@@ -62,7 +62,7 @@ Another change is that promise now uses the Event Loop to trigger events. This
 means that events are now predictably asynchronously triggered, whereas before
 events might have triggered synchronously.
 
-What generally means is that you might need to explictly call the `wait()`
+What generally means is that you might need to explicitly call the `wait()`
 function on your promise to wait for it to resolve. Or you can call:
 
     Sabre\Event\Loop\run();

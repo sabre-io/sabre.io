@@ -217,7 +217,7 @@ mapping to both the `$elementMap` and `$classMap`.
 A more complete atom example
 ----------------------------
 
-We've built a full atom parser for demonstrational purposes. You can find it
+We've built a full atom parser for demonstration purposes. You can find it
 on [GitHub][3] and [Packagist][4].
 
 

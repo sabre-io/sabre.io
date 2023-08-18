@@ -159,7 +159,7 @@ it will go away.
 ### `Sabre\CalDAV\Backend\SharingSupport`
 
 This interface still exists and still has the same goal, but it went through
-a number of structual changes. It also no longer _requires_
+a number of structural changes. It also no longer _requires_
 `Sabre\CalDAV\Backend\NotificationSupport` as well.
 
 

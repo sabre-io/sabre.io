@@ -38,7 +38,7 @@ Logging goes to 'Console.app'.
 ### Subscriptions
 
 iCal allows server-side management of calendar subscriptions. This allows a
-user to store their iCal feeds on a server, and have them stay in sync accross
+user to store their iCal feeds on a server, and have them stay in sync across
 different clients.
 
 In OS X 10.7 and 10.8 new subscriptions are created using a `MKCOL` method. The

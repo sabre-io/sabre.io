@@ -4,7 +4,7 @@ product: katana
 layout: default
 ---
 
-While [sabre/dav](/dav) has obtained a decent marketshare for CardDAV, CalDAV, and WebDAV
+While [sabre/dav](/dav) has obtained a decent market share for CardDAV, CalDAV, and WebDAV
 servers, traditionally it's always been intended to be a development library.
 
 Because of this goal, it always had a very high barrier to entry. We want to
@@ -34,7 +34,7 @@ something like an FTP account.
 Admin interface
 ---------------
 
-We will also add an admin interface. This admin interface should be seperable
+We will also add an admin interface. This admin interface should be separable
 from the rest of the package.
 
 * The admin interface should be 100% client side. PHP must not be used.

@@ -138,8 +138,8 @@ injecting the `$authPlugin` into our earlier `HomeCollection` class.
 
     }
 
-Now you can determine right within `getChildren()` and `getChild()` wether or
-a user is allowed to have access to a specific collection.
+Now you can determine right within `getChildren()` and `getChild()` whether or
+not a user is allowed to have access to a specific collection.
 
 Just call `$this->authPlugin->getCurrentUser()` and return the nodes that are
 appropriate for each user.

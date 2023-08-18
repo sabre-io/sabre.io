@@ -22,7 +22,7 @@ to what a principal is, such as:
 3. It can represent a schedulable resource.
 4. A principal resource often holds user-specific information, such as
    settings in the form of WebDAV properties.
-5. It can represent a container for indirectly assiging privileges to other
+5. It can represent a container for indirectly assigning privileges to other
    principals.
 
 When a user is logged in, sabre/dav knows they are a certain principal, and
@@ -40,7 +40,7 @@ Both [CalDAV][2] and [CardDAV][3] _require_ principals to work and exists.
 If you are not building a CalDAV or CardDAV server, you may not need it.
 
 You also _must_ use principals to take advantage of the [ACL][4] system. But for
-some usecases implementing a fully-fledged ACL system _may_ be overkill.
+some use-cases implementing a fully-fledged ACL system _may_ be overkill.
 
 
 What's the quickest way to deal with principals?
@@ -122,7 +122,7 @@ You are required to implement the following methods:
 4. `searchPrincipals`. Implement this if you want to allow CalDAV users to
    use auto-completion when inviting users as attendees, sharees or delegates.
 5. `findbyUri`. Implement this if you want to enable delivery of CalDAV
-   scheduling inivtes.
+   scheduling invites.
 6. `getGroupMemberSet`, `setGroupMemberSet`, `getGroupMemberShip` can be
    ignored if you don't care about grouping yet.
 

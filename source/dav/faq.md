@@ -35,7 +35,7 @@ of the code is covered by unittests. It is currently in use by multiple
 corporations. The largest installations manage addressbooks and calendars for
 millions of users.
 
-No software is bugfree though, but sabre/dav is actively maintained, so if
+No software is bug free though, but sabre/dav is actively maintained, so if
 anything pops up we're usually quick to respond.
 
 
@@ -64,7 +64,7 @@ is no browser that simply shows you useful error messages.
 
 The first step you should make, is to use the
 [browser plugin](/dav/browser-plugin). This plugin creates directory indexes,
-and will allow you to browse around using your standard webbrowser. If you're
+and will allow you to browse around using your standard web browser. If you're
 already seeing errors there, it may give away quickly where your
 problem is.
 
@@ -92,7 +92,7 @@ Which clients are supported?
 Almost every client we've gotten our hands on fully work, but for some there
 may be some caveats, of you may be required to upgrade to a later version.
 
-Check out the [Client list](/dav/clients) to get more infromation about a
+Check out the [Client list](/dav/clients) to get more information about a
 specific client. If you're running into issues with a specific client, we
 would [love to hear it][7] so we can see if we can devise a workaround, or
 at least document the behavior.

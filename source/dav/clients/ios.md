@@ -136,7 +136,7 @@ Base urls in iOS6
 It was reported that iOS switches to extremely buggy behavior if the CardDAV
 server is not running on the root of the server, more specifically.. when the
 user sets up the CardDAV server and the 'server' they fill in is not _just_ a
-domainname, iOS breaks severely.
+domain name, iOS breaks severely.
 
 If you must have a carddav server that's not running off the root, you can
 workaround this by setting up a 'well-known' endpoint for CardDAV, as

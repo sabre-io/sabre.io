@@ -12,7 +12,7 @@ In a reversal of an earlier statement, we're releasing a sabre/vobject 3.x
 version with PHP 7 support.
 
 We just release two new versions of the sabre/vobject package; `3.4.9` and
-`3.5.0`.  `3.4.9` is identical to `3.4.8` but now explictly forbids being
+`3.5.0`.  `3.4.9` is identical to `3.4.8` but now explicitly forbids being
 installed on PHP 7, via composer.json.
 
 `3.5.0` introduces two differences:
@@ -45,7 +45,7 @@ Because the difference is so minor, in the future we'll only maintain the 3.5
 concerns you, drop me a line as maybe we can help.
 
 The `3.4.9` tag therefore mainly exist as an indicator to people who have a
-composer dependency targetting `3.4.*` with composer and are attempting to
+composer dependency targeting `3.4.*` with composer and are attempting to
 use PHP7, or people who have a rather complex dependency tree.
 
 Full changelog of this release can be found on [Github][1].

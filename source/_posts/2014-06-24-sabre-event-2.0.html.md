@@ -16,9 +16,9 @@ also slightly alters the API.
 ### New stuff
 
 1. Support for [promises][2].
-2. The event handler is now faster. This is especially noticable when making a
-   lot of subscriptions to a single event, and is likely unnoticable for most.
-3. Added support for something called the 'continue callback' to to the
+2. The event handler is now faster. This is especially noticeable when making a
+   lot of subscriptions to a single event, and is likely unnoticeable for most.
+3. Added support for something called the 'continue callback' to the
    EventEmitter. This makes it possible to implement something similar to
    javascript's `preventDefault`.
 4. When calling removeAllListeners without an argument, all listeners for all
