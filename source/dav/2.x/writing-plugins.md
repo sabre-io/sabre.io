@@ -34,7 +34,7 @@ following syntax:
 A few things to note in the previous example:
 
 1. This specific event gets two arguments.
-2. The arguments respresent the HTTP request and HTTP response.
+2. The arguments represent the HTTP request and HTTP response.
 3. These two objects are documented [here](/http/api).
 4. We _must_ return `false` because this tells the server 'we handled this method'.
 5. Returning true will allow another plugin to handle the method.
@@ -165,8 +165,8 @@ from processing. Generally this is a bad idea.
 
 ### `beforeCreateFile`
 
-This event is trigged before new files are created. Using this event it is for
-example possible to modify the new file before storage.
+This event is triggered before new files are created. Using this event it is, for
+example, possible to modify the new file before storage.
 
 Example:
 
@@ -217,7 +217,7 @@ Example:
 
 ### `beforeWriteContent`
 
-This event is trigged before files are updated. Using this event it is
+This event is triggered before files are updated. Using this event, it is
 possible to intercept these actions, validate content or block them.
 
 Otherwise this works identical to `beforeCreateFile`, except this is only
@@ -378,7 +378,7 @@ requested, you can put the value in a callback.
 
     }
 
-If a property was set earlier, but you want to block access to this proeprty,
+If a property was set earlier, but you want to block access to this property,
 the easiest is to set its status to 403:
 
     use Sabre\DAV\PropFind;

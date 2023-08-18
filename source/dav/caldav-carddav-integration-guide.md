@@ -109,7 +109,7 @@ For CardDAV, you may also want to extend `Sabre\CardDAV\Backend\AbstractBackend`
 check `Sabre\CardDAV\Backend\PDO` for an example.
 
 
-Datamodel in a nutshell
+Data model in a nutshell
 -----------------------
 
 Users are called 'principals' in WebDAV terminology. Principals are associated
@@ -176,7 +176,7 @@ Generally they only hold one event each, but in the case of a recurring event
 with exceptions, they can hold multiple.
 
 Now, there's a good chance you want to map Calendar objects to an existing
-datamodel. If you do have to do this, you can do this with the
+data model. If you do have to do this, you can do this with the
 [VObject library][1], which is included with SabreDAV.
 
 The VObject library provides a parser and interface to iCalendar objects very

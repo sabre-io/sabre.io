@@ -32,7 +32,7 @@ Note on server design
 ---------------------
 
 Some people design their servers that any user who logs in, gets a different
-'view'. Some fileservers may for instance always only show the files in a
+'view'. Some file servers may, for instance, always only show the files in a
 server that the user owns.
 
 A problem exists for these users, that everybody shares the same namespace.

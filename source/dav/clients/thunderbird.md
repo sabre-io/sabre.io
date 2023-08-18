@@ -47,7 +47,7 @@ the connector.
 After downloading, head to the Add-ons manager in Thunderbird, click the
 cog icon and use 'Install from file'.
 
-After intallation it's possible to add CardDAV addressbooks to the Thunderbird
+After installation it's possible to add CardDAV addressbooks to the Thunderbird
 Address Book. Note that just like Lightning, it is required to enter the
 entire path to the addressbook, as such:
 

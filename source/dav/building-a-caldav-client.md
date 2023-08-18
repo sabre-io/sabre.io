@@ -524,8 +524,8 @@ The response to a query like this is another multistatus xml body. Example:
      </d:multistatus>
 
 The last response reported two changes: `newevent.ics` and `updatedevent.ics`.
-There's no way to tell from the response wether those calendar objects got 
-created or updated, you, as a client can only infer this based on the objects 
+There's no way to tell from the response whether those calendar objects got 
+created or updated, you, as a client, can only infer this based on the objects 
 you are already aware of.
 
 The entry with name `deletedevent.ics` got deleted as indicated by the `404`

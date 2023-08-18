@@ -17,7 +17,7 @@ VObject supports the following options:
 3. `COUNT` to stop recurring after x items,
 4. `FREQ=DAILY` to recur every day, and `BYDAY` to limit it to certain days,
 5. `FREQ=WEEKLY` to recur every week, `BYDAY` to expand this to multiple weekdays in every week and `WKST` to specify on which day the week starts,
-6. `FREQ=MONTHLY` to recur every month, `BYMONTHDAY` to expand this to certain days in a month, `BYDAY` to expand it to certain weekdays occuring in a month, and `BYSETPOS` to limit the last two expansions,
+6. `FREQ=MONTHLY` to recur every month, `BYMONTHDAY` to expand this to certain days in a month, `BYDAY` to expand it to certain weekdays occurring in a month, and `BYSETPOS` to limit the last two expansions,
 7. `FREQ=YEARLY` to recur every year, `BYMONTH` to expand that to certain months in a year, and `BYDAY` and `BYWEEKDAY` to expand the `BYMONTH` rule even further.
 
 VObject supports the `EXDATE` property for exclusions, and `RDATE` as well.

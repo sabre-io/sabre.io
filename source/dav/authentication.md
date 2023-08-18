@@ -151,7 +151,7 @@ following code:
 Creating your own authentication backend
 ----------------------------------------
 
-If you're going to add Digest authenticaton, use
+If you're going to add Digest authentication, use
 `Sabre\DAV\Auth\Backend\AbstractDigest` as your parent class, and the
 `Sabre\DAV\Auth\Backend\File` and `Sabre\DAV\Auth\Backend\PDO`
 classes as examples.

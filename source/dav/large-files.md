@@ -55,7 +55,7 @@ If you're running Apache, and particularly on a shared host, there's a
 reasonable chance [mod_security][4] is deployed, which can limit the total
 size of request bodies and thus restricts large uploads with `PUT`.
 
-The main symptomn for this is a server responding with the HTTP status code
+The main symptom for this is a server responding with the HTTP status code
 `413 Request Entity Too Large.`
 
 The setting to look for is called `SecRequestBodyLimit`.

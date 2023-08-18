@@ -33,7 +33,7 @@ has a line that looks like this:
 
     "sabre/vobject" : "~3.4"
 
-Version 3.4.0 is 100% compatbile with vobject 3.3.*
+Version 3.4.0 is 100% compatible with vobject 3.3.*
 
 Full changelog of this release can be found on [Github][1].
 

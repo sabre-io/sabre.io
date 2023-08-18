@@ -90,7 +90,7 @@ You should only attempt this *after* you already have sabredav up and running
 with an ugly url, as this will reduce the number of potential issues.
 
 Using rewriting for this is different depending on which webserver you use.
-For apache, you may have to create a virtual host, and add ruls such as this:
+For apache, you may have to create a virtual host, and add rules such as this:
 
         RewriteEngine On
         # This makes every request go to server.php

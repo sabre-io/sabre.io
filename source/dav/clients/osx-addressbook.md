@@ -117,6 +117,6 @@ addressbook in a users' collection of addressbooks.
 
 **Affects: at least OSX 10.6 and OSX 10.7**
 
-This client requires impementation of the proprietary
+This client requires implementation of the proprietary
 '{http://calendarserver.org/ns/}getctag' property. Without it, it will simply
 not request any vcards.

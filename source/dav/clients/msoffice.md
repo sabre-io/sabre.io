@@ -38,7 +38,7 @@ attempt to lock a file when opening, using `LOCK`.
 
 ### Writing files
 
-Locks are required for saving, otherless MS Word will open the file as read
+Locks are required for saving, otherwise MS Word will open the file as read
 only.
 
 If a file is locked, Office 2007 and 2010 will ask you if you want to open the

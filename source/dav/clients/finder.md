@@ -32,7 +32,7 @@ It was recently reported that a development release (1.3.8) no longer had this
 issue.
 
 When using this with Apache + FastCGI PHP completely drops the request body,
-so it will seem as if the PUT request was succesful, but the file will end up
+so it will seem as if the PUT request was successful, but the file will end up
 empty.
 
 ### Softlinks
@@ -45,7 +45,7 @@ Two big problems with Finder are that it leaves a lot of files behind (such as
 `.DS_Store` and all the `._.*` files. The second problem is that it makes such
 a massive amount of HTTP requests, that as a result it's quite a slow client.
 
-This is especially noticable in low-latency situations (e.g.: over the
+This is especially noticeable in low-latency situations (e.g.: over the
 internet). A good non-fee alternative that does this much better for OS X is
 [Transmit](/dav/clients/transmit).
 
@@ -63,7 +63,7 @@ webdav share:
 * `PROPFIND [baseurl]` - sigh..
 * `PROPFIND [baseurl]/mach_kernel` - It's looking for the kernel image, not sure why..
 * `PROPFIND [baseurl]/.Spotlight-V100` - Looking for spotlight configuration
-* `PROPFIND [baseurl]/._.` - OS/X stores resource data in a file of the format `._filename` This file is used to store additional meta-data for filesystem that don't support this. It's really annoyhing and OS/X does it on windows shares too
+* `PROPFIND [baseurl]/._.` - OS/X stores resource data in a file of the format `._filename` This file is used to store additional meta-data for filesystem that don't support this. It's really annoying and OS/X does it on windows shares too
 * `PROPFIND [baseurl]/Backups.backupdb` - Backup configuration
 * `PROPFIND [baseurl]/._.` - Exact same thing as before
 * `PROPFIND [baseurl]/.metadata_never_index` - haven't looked up what this means
@@ -111,8 +111,8 @@ So, as a result of all this. Finder is among the slowest of WebDAV clients. A
 lot of these should be easily fixable, as they're just redundant requests.
 It was reported that this has improved much since OS X 10.8.
 
-Resource-fork request seem to most common, and sometimes Finder can even go
-into a loop trying to request the fork every x seconds. This can be migitated
+Resource-fork requests seem to be most common, and sometimes Finder can even go
+into a loop trying to request the fork every x seconds. This can be mitigated
 by always sending back a valid resource fork.
 
 A small optimization you can make on the client side is to disable creation of
@@ -151,7 +151,7 @@ alternative way to request the resource forks, but Finder doesn't follow its
 own standard and still requests for `._filename`-type requests. You can freely
 ignore this.
 
-Initially, Finder will make a seperate request to retrieve the quota
+Initially, Finder will make a separate request to retrieve the quota
 information, using the following properties:
 
 * quota-available-bytes

@@ -79,7 +79,7 @@ There's:
 * Different escaping mechanisms of values, which depends on the _name_ of the
   value.
 * Parameters, with different escaping mechanisms and a new (rfc6868) standard
-  escaping mechanism that noone supports yet.
+  escaping mechanism that no-one supports yet.
 * Line-folding. Sometimes single multi-byte UTF-8 characters are split up with
   a new-line.
 * Two styles of new-lines, sometimes within the same document (`\n` and `\r\n`).
@@ -121,8 +121,8 @@ Retain full vCards!
 
 In most cases, when integrating with foreign API's, you will figure out the
 remote data model, and write code to map that to the data model in your
-application. This tends to be some mapping code that is bi-directional and
-simply converts one datamodel (such as json or xml) to something local (such
+application. This tends to be some mapping code that is bidirectional and
+simply converts one data model (such as json or xml) to something local (such
 as an mvc model, database record or object property).
 
 When integrating with CardDAV, it is not quite as simple.
@@ -136,7 +136,7 @@ and parameters on top of existing properties.
 > information, and application-specific information and you _must_ support all
 > of this.
 
-If your data model is simpler than the vCard data model, this inheritly means
+If your data model is simpler than the vCard data model, this inherently means
 that data can get lost during conversion. E.g.: mapping back and forward, and
 reversing this again tends to be a 'lossy' process.
 
@@ -296,8 +296,8 @@ Example:
 
 So take note from this last response. Here we display that the status, such
 as the `404` and the `200` are _not_ related to the existence of the url
-(`/addressbooks/johndoe/contacts`). The statuscodes are re-used to return
-infromation about the individual properties.
+(`/addressbooks/johndoe/contacts`). The status codes are re-used to return
+information about the individual properties.
 
 ### Downloading objects
 
@@ -488,7 +488,7 @@ A response to this will be something like this:
 The update gave us back the new ETag. SabreDAV returns this ETag on updates
 most of the time, but not always.
 
-There are cases where the CarddAV server must modify the vCard immediatly
+There are cases where the CardDAV server must modify the vCard immediately 
 after receiving it, for various reasons. In those situations an ETag will
 _not_ be returned, and you should ideally issue a GET request immediately
 after to figure out how the server changed the contact.
@@ -664,7 +664,7 @@ The response to a query like this is another multistatus xml body. Example:
      </d:multistatus>
 
 The last response reported two changes: `newcard.vcf` and `updatedcard.vcf`.
-There's no way to tell from the response wether those cards got created or
+There's no way to tell from the response whether those cards got created or
 updated, you, as a client can only infer this based on the vcards you are
 already aware of.
 

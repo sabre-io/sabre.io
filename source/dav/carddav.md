@@ -17,7 +17,7 @@ Database setup
 --------------
 
 Example sql files are supplied for postgres, sqlite and mysql. The latter two
-are officially supported and unittested.
+are officially supported and unit tested.
 
 This example assumes you're using sqlite.
 

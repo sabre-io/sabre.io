@@ -13,7 +13,7 @@ Webserver and chunked transfer encoding
 ---------------------------------------
 
 There are a number of clients, in particular [OS X's Finder](/dav/clients/finder)
-and [Transmit](/dav/clients/transmit) that use the so-called 'chunked tranfer'
+and [Transmit](/dav/clients/transmit) that use the so-called 'chunked transfer'
 encoding to create new files.
 
 There are many webservers that do not support this. We recommend to use Apache
@@ -63,7 +63,7 @@ exist, SabreDAV itself will create an empty file at that location.
 So this is another situation where an empty file may be created before the
 _actual_ file comes in.
 
-Another reason might be, that the lock-file could not be created due to a nonexisting folder or insuficient permissions.
+Another reason might be, that the lock-file could not be created due to a nonexistent folder or insufficient permissions.
 Check your logfiles for errors.
 
 What if there is no follow-up PUT?

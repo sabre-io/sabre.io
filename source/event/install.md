@@ -10,7 +10,7 @@ Requirements
 ------------
 
 You will need a recent version of PHP. sabre/event 5 requires PHP 7, but
-sabr/event 3 is still actively maintained and works on PHP 5.5 and up.
+sabre/event 3 is still actively maintained and works on PHP 5.5 and up.
 
 Installing with composer
 ------------------------

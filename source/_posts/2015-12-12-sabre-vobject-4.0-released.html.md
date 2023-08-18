@@ -42,7 +42,7 @@ Simply run:
 ### Updating
 
 For more details about these changes and a detailed list of all backwards-
-compatbility breaking changes, read the [upgrade][3] document.
+compatibility breaking changes, read the [upgrade][3] document.
 
 
 [1]: https://github.com/sabre-io/vobject/blob/4.0.0/CHANGELOG.md

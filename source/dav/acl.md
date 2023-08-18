@@ -34,7 +34,7 @@ To add ACL support, you can do so by adding the ACL plugin to your server:
 Principals
 ----------
 
-'Principals' are users or groups in WebDAV terminilogy. Privileges
+'Principals' are users or groups in WebDAV terminology. Privileges
 (permissions) are assigned to principals.
 
 A principal must exist in the directory tree. The easiest way to do this, is

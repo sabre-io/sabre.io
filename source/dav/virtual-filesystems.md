@@ -6,7 +6,7 @@ layout: default
 SabreDAV is built to easily adapt existing business logic onto a virtual
 network filesystem. This document explores how this can be setup.
 
-* It is assummed in this tutorial that the reader has already went through the
+* It is assumed in this tutorial that the reader has already gone through the
   [GettingStarted](/dav/gettingstarted) and [FAQ](/dav/faq) manuals.
 * In the code examples it is assumed all mentioned classes are currently
   loaded in through an include.
@@ -202,8 +202,8 @@ I'm explaining the usage of your newly created server through code comments
 
 ### This is not virtual
 
-Thats right! This is where you come in. You can make your MyFile and
-MyDirectory classes completely independent from the actual underlying
+That's right! This is where you come in. You can make your MyFile and
+MyDirectory classes completely independently of the actual underlying
 filesystem. The list of items returned from `getChildren` could be a list of
 blogposts, and the `get` method could return html data.
 

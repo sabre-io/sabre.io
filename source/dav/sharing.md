@@ -36,7 +36,7 @@ supplies information about who has access to a node, and also provides a
 function that will be called when the list of shares is updated.
 
 It is up to *you* as an implementor to make sure that when `updateInvites()` is
-called, something actually happes in your filesystem that causes a second
+called, something actually happens in your filesystem that causes a second
 user to see the share.
 
 I would also highly recommend reading the actual [sharing specification][2] to

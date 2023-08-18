@@ -80,7 +80,7 @@ We're talking about this line:
 
 This path needs to point exactly to the server script. To find out what this
 should be, try to open server.php in your browser, and simply strip off the
-protocol and domainname.
+protocol and domain name.
 
 So if this is how you access sabredav:
 
