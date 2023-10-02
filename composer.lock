@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d5b2a2766dd6185537e6bfb4d5e8bec",
+    "content-hash": "802ac8271737f95c0f4144b3b81fbc30",
     "packages": [
         {
             "name": "components/font-awesome",
@@ -52,26 +52,23 @@
         },
         {
             "name": "components/highlightjs",
-            "version": "8.3.0",
+            "version": "v9.16.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/highlightjs.git",
-                "reference": "b84e9834ed7fccc936ed2bce6fb7454484ec4268"
+                "reference": "1dea393aa70365843cfec34b1f365930d383bdfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/highlightjs/zipball/b84e9834ed7fccc936ed2bce6fb7454484ec4268",
-                "reference": "b84e9834ed7fccc936ed2bce6fb7454484ec4268",
+                "url": "https://api.github.com/repos/components/highlightjs/zipball/1dea393aa70365843cfec34b1f365930d383bdfe",
+                "reference": "1dea393aa70365843cfec34b1f365930d383bdfe",
                 "shasum": ""
-            },
-            "require": {
-                "robloach/component-installer": "*"
             },
             "type": "component",
             "extra": {
                 "component": {
                     "scripts": [
-                        "highlight.pack.js"
+                        "highlight.pack.min.js"
                     ],
                     "files": [
                         "styles/*"
@@ -95,9 +92,9 @@
             "description": "Highlight.js highlights syntax in code examples on blogs, forums and in fact on any web pages.",
             "support": {
                 "issues": "https://github.com/components/highlightjs/issues",
-                "source": "https://github.com/components/highlightjs/tree/master"
+                "source": "https://github.com/components/highlightjs/tree/v9.16.2"
             },
-            "time": "2014-10-16T00:35:39+00:00"
+            "time": "2019-11-05T19:09:33+00:00"
         },
         {
             "name": "components/normalize.css",

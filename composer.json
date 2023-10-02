@@ -1,6 +1,6 @@
 {
     "require" : {
-        "components/highlightjs" : "~8.3.0",
+        "components/highlightjs" : "~9.16.2",
         "components/font-awesome" : "~4.2.0",
         "components/normalize.css" : "~2.1.2",
         "sculpin/sculpin": "^2.1@dev",
