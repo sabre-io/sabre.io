@@ -4,51 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d5b2a2766dd6185537e6bfb4d5e8bec",
+    "content-hash": "2221e83c331de8a3b51795a2ec8ffe8e",
     "packages": [
         {
             "name": "components/font-awesome",
-            "version": "4.2.0",
+            "version": "6.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/font-awesome.git",
-                "reference": "86dd6f76a251d5a5e4987ab4071d5da40837bdd4"
+                "reference": "f70143b8251916dbb207940f06fcb14d5f91e2c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/font-awesome/zipball/86dd6f76a251d5a5e4987ab4071d5da40837bdd4",
-                "reference": "86dd6f76a251d5a5e4987ab4071d5da40837bdd4",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/f70143b8251916dbb207940f06fcb14d5f91e2c6",
+                "reference": "f70143b8251916dbb207940f06fcb14d5f91e2c6",
                 "shasum": ""
-            },
-            "require": {
-                "robloach/component-installer": "*"
             },
             "type": "component",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "4.2.x-dev"
-                },
                 "component": {
                     "styles": [
-                        "css/font-awesome.css"
+                        "css/all.css"
                     ],
                     "files": [
-                        "css/font-awesome.min.css",
-                        "fonts/*"
+                        "css/all.min.css",
+                        "webfonts/*"
                     ]
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
+                "CC-BY-4.0",
                 "MIT",
                 "OFL-1.1"
             ],
-            "description": "The iconic font designed for use with Twitter Bootstrap.",
+            "description": "Font Awesome, the iconic SVG, font, and CSS framework.",
             "support": {
                 "issues": "https://github.com/components/font-awesome/issues",
-                "source": "https://github.com/components/font-awesome/tree/4.2.0"
+                "source": "https://github.com/components/font-awesome/tree/6.4.2"
             },
-            "time": "2014-09-09T13:48:41+00:00"
+            "time": "2023-08-07T13:23:07+00:00"
         },
         {
             "name": "components/highlightjs",
