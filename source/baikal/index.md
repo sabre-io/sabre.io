@@ -31,9 +31,9 @@ for easy management.
 [1]: https://github.com/sabre-io/Baikal/releases/latest
 [2]: /baikal/install/
 [3]: /baikal/upgrade/
-[4]: https://fruux.com/
+[4]: https://github.com/sabre-io/Baikal
 [5]: http://netgusto.com/
-[6]: https://github.com/sabre-io/Baikal
+[6]: https://fruux.com/
 [7]: https://github.com/sabre-io/Baikal/graphs/contributors
 [8]: /dav/
 [10]: /baikal/docker-install/
