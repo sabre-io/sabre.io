@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>ACL - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>ACL</h1>
+                <p>Since version 1.4 SabreDAV comes with some support for ACL (<a href="https://tools.ietf.org/html/rfc3744">rfc3744</a>). At the
+moment it is possible for nodes (files, directories) to define their own ACL,
+so SabreDAV will automatically enforce it.</p>
+
+<h2 id="what-the-sabredav-acl-plugin-provides">What the SabreDAV ACL plugin provides</h2>
+
+<p>What ACL is not:</p>
+
+<ul>
+<li>This will not magically work in WebDAV clients. In fact, none of the standard WebDAV clients I've tested have support for this. So even though ACL is enforced on the server, clients might not properly display ACL information, let alone change it.</li>
+<li>This will not allow you to lock down your filesystem. ACL support purely exists as a developer API if you create your own node classes.</li>
+</ul>
+
+<p>What it does do:</p>
+
+<ul>
+<li>The ACL system is used heavily by the CalDAV and CardDAV systems.</li>
+<li>Most ACL rules are 'hardcoded', but these can be overridden by extending correct node classes.</li>
+</ul>
+
+<h2 id="setting-up">Setting up</h2>
+
+<p>To add ACL support, you can do so by adding the ACL plugin to your server:</p>
+
+<pre><code>$aclPlugin = new \Sabre\DAVACL\Plugin();
+$server-&gt;addPlugin($aclPlugin);
+</code></pre>
+
+<h2 id="principals">Principals</h2>
+
+<p>'Principals' are users or groups in WebDAV terminology. Privileges
+(permissions) are assigned to principals.</p>
+
+<p>A principal must exist in the directory tree. The easiest way to do this, is
+to add a top-level 'principals' collection to your tree.</p>
+
+<pre><code>use
+  Sabre\DAVACL,
+  Sabre\DAV;
+
+// Assuming we have a database connection
+$principalBackend = new DAVACL\PrincipalBackend\PDO($pdo);
+
+$tree = array(
+    new DAVACL\PrincipalCollection($principalBackend),
+    new My_Own_Collection_Class(),
+);
+
+$server = new DAV\Server($tree);
+
+$aclPlugin = new DAVACL\Plugin();
+$server-&gt;addPlugin($aclPlugin);
+
+$server-&gt;exec();
+</code></pre>
+
+<p>For much more information about principals, read the <a href="/dav/principals/">principals</a>
+documentation.</p>
+
+<h2 id="advanced-settings">Advanced settings</h2>
+
+<p>The ACL plugin has a couple of public properties that can alter its behaviour.</p>
+
+<h3 id="administrators">Administrators</h3>
+
+<p>Since version 1.6, SabreDAV now has an 'adminPrincipals' property. When a
+principal url is added to this property, these urls will automatically be
+injected in every single ACL rule with '{DAV:}all' privileges.</p>
+
+<p>This implies that these principals get permission to do anything they want.</p>
+
+<pre><code>$aclPlugin = new \Sabre\DAVACL\Plugin();
+$aclPlugin-&gt;adminPrincipals[] = 'principals/adminuser1';
+</code></pre>
+
+<h3 id="locking-down-nodes-without-acl-information">Locking down nodes without ACL information</h3>
+
+<p>By default the ACL plugin will grant access to any node that does not
+implement <code>Sabre\DAVACL\IACL</code>. If you want to lock down access to any node
+that does not have an explicit ACL list defined you can do this like so:</p>
+
+<pre><code>$aclPlugin = new \Sabre\DAVACL\Plugin();
+$aclPlugin-&gt;allowAccessToNodesWithoutACL = false;
+</code></pre>
+
+<h3 id="hiding-nodes-that-the-user-does-not-have-access-to">Hiding nodes that the user does not have access to</h3>
+
+<p>By default inaccessible nodes will show up in directory listings, but any
+attempts to read data or properties from them will result in a permission
+denied error. Sometimes it's desirable to hide nodes from directory listings
+altogether. You can do this like so:</p>
+
+<pre><code>$aclPlugin = new \Sabre\DAVACL\Plugin();
+$aclPlugin-&gt;hideNodesFromListings = true;
+</code></pre>
+
+<h3 id="determining-the-users-principal-url%2C-based-on-their-username">Determining the users principal url, based on their username</h3>
+
+<p>By default the ACL Plugin will try to find the Authentication plugin to
+determine who's currently logged in. After that it will prepend the username
+with 'principals/' to determine the correct principal path. If your users
+are in for example principals/users you can change this as follows:</p>
+
+<pre><code>$aclPlugin = new \Sabre\DAVACL\Plugin();
+$aclPlugin-&gt;defaultUsernamePath = 'principals/users';
+</code></pre>
+
+<p>Note that this path must not begin or end with a slash.</p>
+
+<p>This property is only used in the <code>getCurrentUserPrincipal</code> method.</p>
+
+<h3 id="searching-on-principal-properties">Searching on principal properties</h3>
+
+<p>By default, the ACL plugin allows for searching for principals based on two
+properties:</p>
+
+<ul>
+<li>{DAV:}displayname</li>
+<li>{http://sabredav.org/ns}email-address</li>
+</ul>
+
+<p>To expand this to allow searching other (custom or not) properties, you can
+add these in the following manner:</p>
+
+<pre><code>$aclPlugin = new \Sabre\DAVACL\Plugin();
+$aclPlugin-&gt;principalSearchPropertySet[] = '{http://example.org/ns}my-prop';
+</code></pre>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>WebDAV client - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>WebDAV client</h1>
+                <p>Since version 1.5, SabreDAV ships with an experimental WebDAV client. 
+The reason it's currently marked as experimental, is not because of stability
+issues, but because it's API is very likely to change in newer versions.</p>
+
+<p>It's really only a simple wrapper around Curl, along with some methods
+specifically for parsing and creating certain XML-based requests.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="creating-the-object">Creating the object</h3>
+
+<p>This is simply done with the following code:</p>
+
+<pre><code>use Sabre\DAV\Client;
+
+include 'vendor/autoload.php';
+
+$settings = array(
+    'baseUri' =&gt; 'http://example.org/dav/',
+    'userName' =&gt; 'user',
+    'password' =&gt; 'password',
+    'proxy' =&gt; 'locahost:8888',
+);
+
+$client = new Client($settings);
+</code></pre>
+
+<p>Only the baseUri is required. This will be used to calculate any relative
+paths. Proxy may be handy for debugging, but most people will likely not use
+it.</p>
+
+<h3 id="simple-requests">Simple requests</h3>
+
+<p>Any request can be done with the 'request' method. This method takes 4
+arguments, but only the first is required.</p>
+
+<p>Examples:</p>
+
+<pre><code>// Will do a GET request on the base uri
+$response = $client-&gt;request('GET'); 
+
+// Will do a HEAD request relative to the base uri
+$response = $client-&gt;request('HEAD', 'stuff');
+
+// Will do a PUT request with a request body
+$response = $client-&gt;request('PUT', 'file.txt', "New contents");
+
+// Will do a DELETE request with a condition
+$response = $client-&gt;request('DELETE', 'file.txt', null, array('If-Match' =&gt; '"12345765"'));
+</code></pre>
+
+<p>The response will always contain an array with the following keys:</p>
+
+<ul>
+<li><em>body</em> - response body</li>
+<li><em>statusCode</em> - HTTP response status code</li>
+<li><em>headers</em> - HTTP response headers</li>
+</ul>
+
+<p>If the HTTP status was higher than 400 (any error) an exception will be thrown.</p>
+
+<p>Any request will also automatically follow redirects.</p>
+
+<h3 id="doing-a-propfind-request">Doing a PROPFIND request</h3>
+
+<p>To make it easier to do 'PROPFIND' requests, a separate method is available.</p>
+
+<p>Example:</p>
+
+<pre><code>$client-&gt;propfind('collection', array(
+    '{DAV:}displayname',
+    '{DAV:}getcontentlength',
+));
+</code></pre>
+
+<p>The response will be an array with keys for properties that have been found.
+Any property the server responded with an error to will simply be excluded.</p>
+
+<p>To do a Depth: 1 request, simply add a '1' to the last argument. For Depth: 1
+requests, the response will be a multi-level array. The first level will have
+keys for urls, and lists of properties for values.</p>
+
+<h3 id="doing-a-proppatch-request">Doing a PROPPATCH request</h3>
+
+<p>Doing a proppatch request is very similar.</p>
+
+<p>Example:</p>
+
+<pre><code>$client-&gt;proppatch('collection', array(
+    '{DAV:}displayname' =&gt; 'New displayname!',
+));
+</code></pre>
+
+<p>The proppatch function will not return anything and it throws an exception
+if there was an error.</p>
+
+<p>If you want to delete any property, simply specify 'null' for the property-
+value.</p>
+
+<h3 id="discovering-webdav-features">Discovering WebDAV features</h3>
+
+<p>There's a simple convenience method to receive all the items from the 'Dav:'
+response header.</p>
+
+<p>Simply call the following:</p>
+
+<pre><code>$features = $client-&gt;options();
+</code></pre>
+
+<p>If you did indeed connect with a valid WebDAV server, the response will
+at least contain '1' and '3', and things like 'calendar-access' for a CalDAV
+server. The return value is an array.</p>
+
+<p>If the server was not a WebDAV server, the response will be empty.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

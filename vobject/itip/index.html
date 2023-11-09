@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>iTip - sabre/vobject</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/vobject">
+                sabre<span>/vobject</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                                <ul>
+                    <li><a href="https://sabre.io/vobject/install/">Installation</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_3/">Upgrading from vObject 2 to 3</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_4/">Upgrading from vObject 3 to 4</a></li>
+                    <li><a href="https://sabre.io/vobject/vcard/">Working with vCards</a></li>
+                    <li><a href="https://sabre.io/vobject/icalendar/">Working with iCalendar</a></li>
+                    <li><a href="https://sabre.io/vobject/json/">jCal and jCard</a></li>
+                    <li><a href="https://sabre.io/vobject/xcal_xcard/">xCal and xCard</a></li>
+                    <li><a href="https://sabre.io/vobject/recurrence/">Recurring events</a></li>
+                    <li><a href="https://sabre.io/vobject/cli/">Command-line tools</a></li>
+                    <li><a href="https://sabre.io/vobject/itip/">iTip</a></li>
+                    <li><a href="https://sabre.io/vobject/usage_2/">Usage (vobject 2.x)</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>iTip</h1>
+                <p>Since version 3.3, vObject has support for parsing and generating <a href="https://tools.ietf.org/html/rfc5546">iTip</a>
+messages. Currently only <code>VEVENT</code> is supported.</p>
+
+<h2 id="what-is-an-itip-message%3F">What is an iTip message?</h2>
+
+<p>iTip is defined in <a href="https://tools.ietf.org/html/rfc5546">rfc5546</a>. iTip messages are a type of iCalendar
+messages, that are typically used for scheduling (invites and replies and
+such).</p>
+
+<p>You can recognize an iTip message from a standard iCalendar message by the
+fact that it will have a <code>METHOD</code> property. Here's a minimal example of an
+invite:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:foobar
+ORGANIZER:organizer@example.org
+ATTENDEE:attendee@example.org
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR
+</code></pre>
+
+<p>Here's an example of a response to that invite:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:REPLY
+BEGIN:VEVENT
+UID:foobar
+ORGANIZER:organizer@example.org
+ATTENDEE;PARTSTAT=ACCEPTED:attendee@example.org
+SEQUENCE:1
+END:VEVENT
+END:VCALENDAR
+</code></pre>
+
+<p>These types of messages are often sent over email. This is called <a href="https://tools.ietf.org/html/rfc6047">iMip</a>.
+CalDAV servers also deal with iTip, this is defined in <a href="https://tools.ietf.org/html/rfc6638">rfc6638</a>.</p>
+
+<p>There are very strictly defined semantics on how Calendar agents are supposed
+to generate and process these. VObject provides some help with this.</p>
+
+<h2 id="generating-itip-messages">Generating iTip messages</h2>
+
+<p>Generating iTip messages works based on the following three scenarios:</p>
+
+<ol>
+<li>A user creates an event,</li>
+<li>A user updates an event,</li>
+<li>A user deletes an event.</li>
+</ol>
+
+<p>For each of those scenarios, we need to figure out:</p>
+
+<ol>
+<li>Is the user an attendee or organizer for that event?</li>
+<li>If the user is an attendee, did the attendee update their participation
+status?</li>
+<li>If the user is an organizer, do the attendees need to know about any
+updates?</li>
+<li>And so on.</li>
+</ol>
+
+<p>There's quite a few possible scenarios, including organizers adding or
+removing attendees, resulting into various requests, cancellations and replies.</p>
+
+<p>Here's an example to generate these messages:</p>
+
+<pre><code>$broker = new Sabre\VObject\ITip\Broker();
+$messages = $broker-&gt;parseEvent(
+    $newCalendar,
+    'organizer@example.org',
+    $oldCalendar
+);
+</code></pre>
+
+<p>Both <code>$newCalendar</code> and <code>$oldCalendar</code> should either be a <code>VCALENDAR</code> object,
+or a <code>null</code>.</p>
+
+<p>If <code>$oldCalendar</code> is <code>null</code>, it will be treated as a new object, if
+<code>$newCalendar</code> is <code>null</code>, it will be treated as if the user deleted the object.</p>
+
+<p>The returned value (<code>$messages</code>) is an array of <code>Sabre\VObject\ITip\Message</code>
+objects. Each object carries <em>all</em> the relevant information to deliver the
+object using email or otherwise.</p>
+
+<h2 id="parsing-itip-messages">Parsing iTip messages</h2>
+
+<p>The broker can also parse incoming iTip messages. This happens for example
+when:</p>
+
+<ol>
+<li>You receive an invite,</li>
+<li>You get an update for an invite,</li>
+<li>You send a reply to an invite,</li>
+<li>You receive a cancellation for an invite.</li>
+</ol>
+
+<p>The broker can parse these incoming messages, and update an existing calendar
+object (or create a new one).</p>
+
+<p>To do this, you will need a fully populated <code>Sabre\VObject\ITip\Message</code>
+object, and some existing calendar object (or not at all if it's an invite
+to a new event).</p>
+
+<p>Example:</p>
+
+<pre><code>$broker = new Sabre\VObject\ITip\Broker();
+$broker-&gt;processMessage(
+    $message,
+    $oldCalendar
+);
+</code></pre>
+
+<p>This will update <code>$oldCalendar</code> in-place.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

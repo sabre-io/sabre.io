@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>The Litmus Test - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>The Litmus Test</h1>
+                <p><a href="http://www.webdav.org/neon/litmus/">Litmus</a> is a WebDAV compliance testing tool. It tries to cover most
+features and problem areas. It currently only tests against the standard, so
+passing the litmus test does mean your server will also work for every client.</p>
+
+<p>The litmus test just tests WebDAV, as a fileserver. Cal- and CardDAV and other
+extensions are not part of this test.</p>
+
+<h2 id="our-stance">Our stance</h2>
+
+<p>Litmus is a strict tester, and passing it will also require the server to be
+strict. Our philosophy is "be liberal in what you accept, be strict in what
+you produce" and these two things don't always match.</p>
+
+<p>Generally if a client would be misbehaving, but an accurate assumption can be
+made on what the intention of the request was it would be our choice to accept
+the requests. This may also depend on how popular the client is. For instance,
+NetDrive sends PROPFIND requests with an empty <d:prop> element. We can
+reasonably assume it meant to do an <d:allprop> request instead, so that's how
+it's interpreted.</p>
+
+<p>That being said, we pass every test.</p>
+
+<h2 id="test-status">Test status</h2>
+
+<p>This is from a stable release (1.8.8), litmus 0.13 and Apache2 were used for
+testing.</p>
+
+<p>The <code>Sabre\DAV\FSExt</code> classes were used for this server, as this
+implementation supports custom properties.</p>
+
+<p>Currently all tests pass.</p>
+
+<pre><code>-&gt; running `basic':
+ 0. init.................. pass
+ 1. begin................. pass
+ 2. options............... pass
+ 3. put_get............... pass
+ 4. put_get_utf8_segment.. pass
+ 5. put_no_parent......... pass
+ 6. mkcol_over_plain...... pass
+ 7. delete................ pass
+ 8. delete_null........... pass
+ 9. delete_fragment....... pass
+10. mkcol................. pass
+11. mkcol_again........... pass
+12. delete_coll........... pass
+13. mkcol_no_parent....... pass
+14. mkcol_with_body....... pass
+15. finish................ pass
+&lt;- summary for `basic': of 16 tests run: 16 passed, 0 failed. 100.0%
+-&gt; running `copymove':
+ 0. init.................. pass
+ 1. begin................. pass
+ 2. copy_init............. pass
+ 3. copy_simple........... pass
+ 4. copy_overwrite........ pass
+ 5. copy_nodestcoll....... pass
+ 6. copy_cleanup.......... pass
+ 7. copy_coll............. pass
+ 8. copy_shallow.......... pass
+ 9. move.................. pass
+10. move_coll............. pass
+11. move_cleanup.......... pass
+12. finish................ pass
+&lt;- summary for `copymove': of 13 tests run: 13 passed, 0 failed. 100.0%
+-&gt; running `props':
+ 0. init.................. pass
+ 1. begin................. pass
+ 2. propfind_invalid...... pass
+ 3. propfind_invalid2..... pass
+ 4. propfind_d0........... pass
+ 5. propinit.............. pass
+ 6. propset............... pass
+ 7. propget............... pass
+ 8. propextended.......... pass
+ 9. propmove.............. pass
+10. propget............... pass
+11. propdeletes........... pass
+12. propget............... pass
+13. propreplace........... pass
+14. propget............... pass
+15. propnullns............ pass
+16. propget............... pass
+17. prophighunicode....... pass
+18. propget............... pass
+19. propremoveset......... pass
+20. propget............... pass
+21. propsetremove......... pass
+22. propget............... pass
+23. propvalnspace......... pass
+24. propwformed........... pass
+25. propinit.............. pass
+26. propmanyns............ pass
+27. propget............... pass
+28. propcleanup........... pass
+29. finish................ pass
+&lt;- summary for `props': of 30 tests run: 30 passed, 0 failed. 100.0%
+-&gt; running `locks':
+ 0. init.................. pass
+ 1. begin................. pass
+ 2. options............... pass
+ 3. precond............... pass
+ 4. init_locks............ pass
+ 5. put................... pass
+ 6. lock_excl............. pass
+ 7. discover.............. pass
+ 8. refresh............... pass
+ 9. notowner_modify....... pass
+10. notowner_lock......... pass
+11. owner_modify.......... pass
+12. notowner_modify....... pass
+13. notowner_lock......... pass
+14. copy.................. pass
+15. cond_put.............. pass
+16. fail_cond_put......... pass
+17. cond_put_with_not..... pass
+18. cond_put_corrupt_token pass
+19. complex_cond_put...... pass
+20. fail_complex_cond_put. pass
+21. unlock................ pass
+22. fail_cond_put_unlocked pass
+23. lock_shared........... pass
+24. notowner_modify....... pass
+25. notowner_lock......... pass
+26. owner_modify.......... pass
+27. double_sharedlock..... pass
+28. notowner_modify....... pass
+29. notowner_lock......... pass
+30. unlock................ pass
+31. prep_collection....... pass
+32. lock_collection....... pass
+33. owner_modify.......... pass
+34. notowner_modify....... pass
+35. refresh............... pass
+36. indirect_refresh...... pass
+37. unlock................ pass
+38. unmapped_lock......... pass
+39. unlock................ pass
+40. finish................ pass
+&lt;- summary for `locks': of 41 tests run: 41 passed, 0 failed. 100.0%
+-&gt; running `http':
+ 0. init.................. pass
+ 1. begin................. pass
+ 2. expect100............. pass
+ 3. finish................ pass
+&lt;- summary for `http': of 4 tests run: 4 passed, 0 failed. 100.0%
+</code></pre>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

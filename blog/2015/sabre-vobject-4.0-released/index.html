@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>sabre/vobject 4 released - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body class="body--nodocs">
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+    
+        <main>
+                <article>
+                <article class="blog-entry">
+        <time>December 12th, 2015</time>
+        <h1>sabre/vobject 4 released</h1>
+        <div>
+            <p>We just released sabre/vobject 4. This is a new major version, and comes with a
+number of new features and also BC breaking changes. The API is largely the
+same, but there are a few subtle differences.</p>
+
+<h3 id="new-feature-highlights">New feature highlights</h3>
+
+<ul>
+<li>Support for PHP 7.</li>
+<li>Requires PHP 5.5.</li>
+<li>Support for <a href="/vobject/xcal_xcard/">xCal and xCard</a>, which are XML representations of iCalendar
+and vCard.</li>
+<li>Added a 'BirthdayCalendarGenerator'. Give it a list of vCards, and it will
+create an iCalendar object with birthdays.</li>
+<li>Lots of speed and memory improvements.</li>
+<li>Support for the new <code>VAVAILABILITY</code> iCalendar component.</li>
+<li>Added a command-line utility to merge duplicate vcards.</li>
+<li>Using <code>DateTimeImmutable</code> everywhere we used <code>DateTime</code>.</li>
+<li>Denial of service-protection in the RecurrenceIterator.</li>
+<li>Better <code>RDATE</code> support.</li>
+</ul>
+
+<p>The full changelog can be found on <a href="https://github.com/sabre-io/vobject/blob/4.0.0/CHANGELOG.md">Github</a></p>
+
+<h3 id="installing">Installing</h3>
+
+<p>Simply run:</p>
+
+<pre><code>composer require sabre/vobject ^4.0
+</code></pre>
+
+<h3 id="updating">Updating</h3>
+
+<p>For more details about these changes and a detailed list of all backwards-
+compatibility breaking changes, read the <a href="/vobject/upgrade_to_4/">upgrade</a> document.</p>
+
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="https://sabre.io/blog/tags/event">event</a>,                         <a href="https://sabre.io/blog/tags/vobject">vobject</a>,                         <a href="https://sabre.io/blog/tags/release">release</a>,                         <a href="https://sabre.io/blog/tags/xcal">xcal</a>,                         <a href="https://sabre.io/blog/tags/xcard">xcard</a>,                         <a href="https://sabre.io/blog/tags/vavailability">vavailability</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                            <li>Next: <a class="next" href="https://sabre.io/blog/2015/sabre-xml-1.3-released/" title="sabre/xml 1.3 released"><span class="title">sabre/xml 1.3 released</span></a></li>
+                                                                <li>Previous: <a class="previous" href="https://sabre.io/blog/2015/sabre-event-3.0-released/" title="sabre/event 3 released"><span class="title">sabre/event 3 released</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
+
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

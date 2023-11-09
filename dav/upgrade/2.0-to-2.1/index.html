@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Upgrading from SabreDAV 2.0 to 2.1 - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Upgrading from SabreDAV 2.0 to 2.1</h1>
+                <p>sabre/dav 2.1 has a number of new features, and as usual, a number of backwards
+compatibility breaks.</p>
+
+<p>This page lists them all.</p>
+
+<h2 id="new-features">New features</h2>
+
+<ul>
+<li>We finally have support for CalDAV scheduling, as defined in
+<a href="https://tools.ietf.org/html/rfc6638">rfc6638</a>. Among other things, this means that you can invite
+people on your sabredav server, and see attendance status automatically
+update. Many CalDAV clients support this, and will also now automatically
+provide "Accept" and "Decline" interfaces when new invites are sent. This
+also enables attendees on iOS for the first time. Read more about this in the
+<a href="/dav/scheduling/">scheduling documentation</a>.</li>
+<li>Support for sending event invitations for every CalDAV client. See
+<a href="/dav/scheduling/">scheduling</a> for more info.</li>
+<li>The ZIP now has a cleaner structure. Putting all the code in <code>vendor/</code> and
+removing <code>lib</code>, for consistency.</li>
+<li>We now support the <a href="/vobject/json/">jCard</a> format everywhere, using HTTP content
+negotiation, and also in CardDAV <code>REPORT</code> requests.</li>
+<li>We also support vCard 4.0 everywhere! If you don't request a specific
+version, we will still return vCard 3.0 objects, but if you ask for vCard 4.0,
+we'll serve you that. Backends can store either vCard 3 or 4, and we will
+convert in between these formats as needed.</li>
+<li>Support for high-speed <code>MOVE</code> request. Originally <code>MOVE</code> request could be
+very sluggish, because sabredav by default will traverse an entire directory
+tree, copy every node 1-by-1 and delete the source tree afterwards. When
+your tree is database or filesystem-backed, it's often possible to do a
+really fast <code>MOVE</code>. By implementing <code>Sabre\DAV\IMoveTarget</code> you can now
+hook into this system and gain tremendous speed.</li>
+</ul>
+
+<p>To read the full list of changes (there's quite a few!) read the changelogs:</p>
+
+<ul>
+<li><a href="https://github.com/sabre-io/dav/blob/master/ChangeLog.md">sabre/dav</a></li>
+<li><a href="https://github.com/sabre-io/vobject/blob/3.3.3/ChangeLog.md">sabre/vobject</a></li>
+<li><a href="https://github.com/sabre-io/http/blob/2.0.0/ChangeLog.md">sabre/event</a></li>
+<li><a href="https://github.com/sabre-io/http/blob/3.0.0/ChangeLog.md">sabre/http</a></li>
+</ul>
+
+<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
+
+<h3 id="database-structure-changes">Database structure changes</h3>
+
+<p>If you use the default <code>PDO</code> backend for CalDAV, you need to migrate to the
+latest database structure.</p>
+
+<p>Before you start the migration process, please make a backup first! No
+warranty is given for lost data.</p>
+
+<p>To run the database upgrade, simply start <code>./bin/migrate21.php</code> from the SabreDAV
+project. This script will give you more information about its arguments.</p>
+
+<h3 id="caldav-backends-have-a-new-method">CalDAV backends have a new method</h3>
+
+<p>Every CalDAV backend must now implement a new method:
+<code>getCalendarObjectByUID</code>. If you are not using the default PDO backend, but
+created a custom backend, you must add support for this new method.</p>
+
+<p>If you extended <code>Sabre\CalDAV\Backend\AbstractBackend</code>, a fallback method has
+been provided. This method works, but it's very slow. For most backends it's
+possible to optimize this quite a bit.</p>
+
+<p>Note that this is mainly used for <a href="/dav/scheduling/">Scheduling</a> support.</p>
+
+<h3 id="renamed-classes">Renamed classes</h3>
+
+<p>We have renamed a few classes:</p>
+
+<ol>
+<li><code>Sabre\CalDAV\CalendarRootNode</code> is renamed to <code>Sabre\CalDAV\CalendarRoot</code>.</li>
+<li><code>Sabre\CalDAV\UserCalendars</code> is renamed to <code>Sabre\CalDAV\CalendarHome</code></li>
+</ol>
+
+<p>The classes behave the same. The old classes still exist, but will be removed
+in sabre/dav 3.0. If you instantiated any of these classes, make sure you
+use the new names.</p>
+
+<h3 id="the-imiphandler-has-been-removed">The iMipHandler has been removed</h3>
+
+<p>The <a href="/dav/imiphandler/">imipHandler</a> has been removed entirely. This class was used
+in the past to work around an iCal bug.</p>
+
+<p>This bug no longer exists when a CalDAV server supports
+<a href="/dav/scheduling/">scheduling</a>, so we've also removed the workaround.</p>
+
+<p>A part of its functionality was to send out email invites. This functionality
+has been replaced by a new <a href="/dav/scheduling/">iMip plugin</a>. The benefit of this plugin, is
+that it works for every caldav client, and not just broken iCal versions.</p>
+
+<h3 id="support-for-free-busy-reports-has-moved-to-a-new-plugin">Support for free-busy reports has moved to a new plugin</h3>
+
+<p>sabre/dav supported a 'freebusy' report for a long time. This report was
+used by several clients, but was actually part of the <a href="/dav/scheduling/">scheduling</a>
+specification.</p>
+
+<p>Now we've fully implemented support for scheduling, and so we've also moved
+the freebusy functionality.</p>
+
+<p>If you need it back, make sure you enable the scheduling plugin in your
+server:</p>
+
+<pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Schedule\Plugin());
+</code></pre>
+
+<h3 id="support-for-notifications-has-moved-to-a-new-plugin">Support for notifications has moved to a new plugin</h3>
+
+<p>If you wrote a CalDAV backend that supports notifications (for share invites
+and replies), you need to now explicitly turn on a plugin for this to work.</p>
+
+<p>Before this was just part of the CalDAV plugin, but this meant that this extra
+functionality was enabled, and not used for most users.</p>
+
+<p>If you need it back, make sure you enable the notifications plugin in your
+server:</p>
+
+<pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\Notifications\Plugin());
+</code></pre>
+
+<h3 id="vcards-now-return-a-different-content-type.">vCards now return a different content-type.</h3>
+
+<p>When doing a <code>GET</code> request on a vCard, we always returned the following header:</p>
+
+<pre><code>Content-Type: text/x-vcard; charset=utf-8
+</code></pre>
+
+<p>This was wrong. We've changed it to:</p>
+
+<pre><code>Content-Type: text/vcard; charset=utf-8
+</code></pre>
+
+<p>If you relied on the old behavior, make sure you update this.</p>
+
+<h3 id="updating-table-names-in-pdo-backends-now-work-differently">Updating table names in PDO backends now work differently</h3>
+
+<p>A few people always found it important to use their own table names for the
+various PDO backends, one major reason is that this would allow people to
+prefix all their table names with for example <code>sabre_</code>.</p>
+
+<p>This was always done by allowing people to set the various database table
+names in the constructors of the various PDO backends.</p>
+
+<p>This is now deprecated!</p>
+
+<p>Instead you must now set the table names as public properties. The old way
+using arguments still works, but will be removed in version 3.0.</p>
+
+<p>Affected PDO backends:</p>
+
+<ul>
+<li><code>Sabre\DAV\Locks\Backend\PDO</code></li>
+<li><code>Sabre\DAV\Auth\Backend\PDO</code></li>
+<li><code>Sabre\DAV\PropertyStorage\Backend\PDO</code></li>
+<li><code>Sabre\DAVACL\PrincipalBackend\PDO</code></li>
+<li><code>Sabre\CalDAV\Backend\PDO</code></li>
+<li><code>Sabre\CardDAV\Backend\PDO</code></li>
+</ul>
+
+<h3 id="propertystorage-classes-now-have-a-%60move%60-method.">PropertyStorage classes now have a <code>move</code> method.</h3>
+
+<p>If you implemented your own <code>Sabre\DAV\PropertyStorage\Backend</code> class, you must
+now implement the new <code>move</code> method.</p>
+
+<p>The <a href="/dav/property-storage/">propertystorage</a> system allows a client to store any
+arbitrary property on any resource.</p>
+
+<p>One problem with this system was that it didn't handle <code>MOVE</code> requests
+correctly. If a <code>MOVE</code> is done on a resource, any dead properties <em>must</em>
+also be moved with it.</p>
+
+<p>The new <code>move</code> method will be called when a HTTP <code>MOVE</code> is done, and allows
+you to re-assign all the properties to the new location.</p>
+
+<h3 id="principal-backends-now-have-a-%60findbyuri%60-method">Principal backends now have a <code>findByUri</code> method</h3>
+
+<p>If you implemented your own <code>PrincipalBackend</code> class, you must now implement
+the <code>findByUri</code> method as well.</p>
+
+<p>This method takes some kind of URI, such as a <code>mailto:</code> address, and returns
+a local principal url.</p>
+
+<p>This is used by CalDAV scheduling to deliver invites and replies to the right
+user inbox.</p>
+
+<p>It's possible to just return <code>null</code> from this method, but this will prevent
+local invite delivery.</p>
+
+<h3 id="objecttree-and-tree%5Cfilesystem-classes-have-been-removed">ObjectTree and Tree\FileSystem classes have been removed</h3>
+
+<p>The <code>Sabre\DAV\ObjectTree</code> and <code>Sabre\DAV\Tree\FileSystem</code> classes both
+extended <code>Sabre\DAV\Tree</code>.</p>
+
+<p>This particular extension point was very rarely used. The main reason to
+extend either of these classes, was to make <code>MOVE</code> operations faster.</p>
+
+<p>Since 2.1, both of these classes are removed. Functionality from <code>ObjectTree</code>
+has been merged into <code>Sabre\DAV\Tree</code>, which is no longer abstract.</p>
+
+<p>Usually there is no need to instantiate this class directly, as it's also
+created by <code>Sabre\DAV\Server</code>, but if you did use this extension point for
+optimizing moves, we now recommend to implement <code>Sabre\DAV\IMoveTarget</code> in
+your Collection classes instead.</p>
+
+<h3 id="sabre%2Fhttp-changes">sabre/http changes</h3>
+
+<p>The <a href="/http/">sabre/http</a> package has been upgraded to version 3.0. Several
+BC breaking changes have been made, specifically in how methods related
+to HTTP headers work.</p>
+
+<p>If you ever used <code>Sabre\HTTP\Request</code> or <code>Sabre\HTTP\Response</code> objects,
+you should make sure that it still works with the new behavior.</p>
+
+<p>For more details, <a href="/blog/2014/sabre-http-3.0.0-release/">read the blogpost</a>.</p>
+
+<h3 id="new-zip-structure">New ZIP structure</h3>
+
+<p>The zip distribution now has a new directory structure. Before a part of the
+source was in the <code>lib/</code> directory, and another part in the <code>vendor/</code>
+directory.</p>
+
+<p>We've now combined everything in the <code>vendor/</code>  directory. If you used the
+composer autoloader (in <code>vendor/autoload.php</code>) you don't have to change a
+thing, but if you rolled your own autoloading mechanism, you may need to
+revise this.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

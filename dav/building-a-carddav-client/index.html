@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Building a CardDAV client - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Building a CardDAV client</h1>
+                <h2 id="what-is-this-document%3F">What is this document?</h2>
+
+<p>As server developers, we get a lot of questions on how to interact with a
+CardDAV server. This document explains how to integrate correctly with a
+CardDAV server.</p>
+
+<p>This document (should) apply for <em>any</em> CardDAV server, not just SabreDAV.</p>
+
+<h2 id="clients">Clients</h2>
+
+<p>Before you build your own client, there's a chance there's already a client
+available for your programming language.</p>
+
+<p>We've developed a PHP client that does <em>some</em> DAV-related stuff and makes it
+a tad easier. More information can be found <a href="/dav/davclient">on this wiki</a>.</p>
+
+<p>CalConnect <a href="https://devguide.calconnect.org">DEVGUIDE</a> maintains an updated list of <a href="https://devguide.calconnect.org/CardDAV/Client-Implementations/">CardDAV clients</a>.</p>
+
+<h2 id="high-level-protocol">High-level protocol</h2>
+
+<p>CardDAV is defined by <a href="https://tools.ietf.org/html/rfc6352">rfc6352</a>. CardDAV is heavily inspired by its
+counterpart CalDAV, and is mostly regarded as simpler.</p>
+
+<p>CardDAV builds on <a href="https://tools.ietf.org/html/rfc4918">WebDAV</a>. WebDAV itself extends HTTP.</p>
+
+<p>Some operations will be very familiar if you already have experience with HTTP
+services (<code>GET</code>, <code>PUT</code> and <code>DELETE</code>), but a number of new methods have been
+added to this list (<code>PROPFIND</code>, <code>PROPPATCH</code>, <code>REPORT</code>, <code>MKCOL</code>, <code>MKCALENDAR</code>,
+<code>ACL</code>).</p>
+
+<p>Most HTTP clients should just support methods they don't know about. So it's
+smart to simply use a stock HTTP client for your platform, if your platform
+does not already have a specialized CardDAV client.</p>
+
+<h2 id="vcards">vCards</h2>
+
+<p>Every contact is submitted as a vCard. Every compliant CardDAV client or
+Server <em>must</em> support vCard 3.0 (<a href="https://tools.ietf.org/html/rfc2425">rfc2425</a> and <a href="https://tools.ietf.org/html/rfc2426">rfc2426</a>).
+vCard 2.1 is way too old and should always be rejected.</p>
+
+<p>vCard 4.0 (<a href="https://tools.ietf.org/html/rfc6350">rfc6350</a>) also exists though, and is in many respects a
+massive improvement over vCard 3.0. vCard 4 must now always be encoded as
+UTF-8, and many inconsistencies and problems have been fixed.</p>
+
+<p>However, compliant servers must specifically advertise that they support
+vCard 4.0, and clients must be willing to send vCard 3.0 if the server does
+not support it.</p>
+
+<p>The current SabreDAV server supports vCard 4 and jCard, and will automatically
+convert in between vCard 3, 4 and jCard on demand.</p>
+
+<p>One thing we specifically want to warn people for, is that even though the
+vCard format seems easy to parse and generate, there are a lot of little rules
+that make it complicated.</p>
+
+<p>A simple vCard may look like this:</p>
+
+<pre><code>BEGIN:VCARD
+VERSION:4.0
+FN:Evert Pot
+N:Pot;Evert;;;
+END:VCARD
+</code></pre>
+
+<p>Don't fall into the trap of thinking every line is simply in the format
+<code>propertyname colon propertyvalue</code>.</p>
+
+<p>There's:</p>
+
+<ul>
+<li>Mixed character encoding, sometimes differing per line</li>
+<li>Different escaping mechanisms of values, which depends on the <em>name</em> of the
+value.</li>
+<li>Parameters, with different escaping mechanisms and a new (rfc6868) standard
+escaping mechanism that no-one supports yet.</li>
+<li>Line-folding. Sometimes single multi-byte UTF-8 characters are split up with
+a new-line.</li>
+<li>Two styles of new-lines, sometimes within the same document (<code>\n</code> and <code>\r\n</code>).</li>
+<li>Quoted-printable encoding and base64 encoding.</li>
+<li>Parameters that have their name omitted, because it's implied from their
+values.</li>
+<li>Properties can be grouped together with a special syntax that alters the
+encoding of a property group.</li>
+</ul>
+
+<p>Why did I write this list? Because if you're going to parse and generate
+vCards, you should either:</p>
+
+<ul>
+<li>Be fully aware of the scope of doing so, or:</li>
+<li>Use a parser that somebody already wrote for your programming language.</li>
+</ul>
+
+<h3 id="vcard-parsers%2C-per-language">vCard parsers, per language</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Language</th>
+  <th>Library</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>PHP</td>
+  <td><a href="https://packagist.org/packages/sabre/vobject">sabre/vobject</a></td>
+</tr>
+<tr>
+  <td>Java</td>
+  <td><a href="https://github.com/mangstadt/ez-vcard">ez-vcard</a></td>
+</tr>
+<tr>
+  <td>Ruby</td>
+  <td><a href="http://rubygems.org/gems/vcard">vcard</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>CalConnect <a href="https://devguide.calconnect.org">DEVGUIDE</a> maintains an updated list of  <a href="https://devguide.calconnect.org/CardDAV/libraries/">CardDAV libraries</a> with additional entries.</p>
+
+<p>Know of any other good vCard parsers? Let me know so I can list them.</p>
+
+<h2 id="xml">XML</h2>
+
+<p>CardDAV servers also use XML for various things:</p>
+
+<ul>
+<li>Getting a list of all vCards</li>
+<li>Getting information about an addressbook</li>
+<li>Finding out if vCards or addressbooks have changed.</li>
+</ul>
+
+<h2 id="retain-full-vcards%21">Retain full vCards!</h2>
+
+<p>In most cases, when integrating with foreign API's, you will figure out the
+remote data model, and write code to map that to the data model in your
+application. This tends to be some mapping code that is bidirectional and
+simply converts one data model (such as json or xml) to something local (such
+as an mvc model, database record or object property).</p>
+
+<p>When integrating with CardDAV, it is not quite as simple.</p>
+
+<p>The problem with simply mapping the vcard to your local data model, is that
+there is an potentially a lot of information to map. vCards can contain all
+sorts of information, and even allow applications to define new properties,
+and parameters on top of existing properties.</p>
+
+<blockquote>
+  <p>vCards can contain <em>lot</em> of different information, information about
+  information, and application-specific information and you <em>must</em> support all
+  of this.</p>
+</blockquote>
+
+<p>If your data model is simpler than the vCard data model, this inherently means
+that data can get lost during conversion. E.g.: mapping back and forward, and
+reversing this again tends to be a 'lossy' process.</p>
+
+<p>To illustrate, lets look at the protocol from a very high level. Simplisticly
+we will be doing a <code>GET</code> request (or equivalent) and later on a <code>PUT</code> request
+to update a vcard.</p>
+
+<p>You <em>must absolutely</em> make sure that none of the information you received in a
+<code>GET</code> is lost when you perform the <code>PUT</code>.</p>
+
+<p>Almost every client on the planet will even embed custom non-standard data
+in vCards. If you discard this data when performing <code>PUT</code>, you are destroying
+your users data.</p>
+
+<p>So a common trick that implementors use <strong>AND WE DON'T RECOMMEND</strong> is</p>
+
+<ol>
+<li>Go through all the properties of a vCard</li>
+<li>Map the properties you support to a local data model</li>
+<li>Store all the properties that are not supported by the local data model in
+a separate place.</li>
+</ol>
+
+<p>Then when the vCard is uploaded again with <code>PUT</code>, the 'unknown' properties
+are stitched back in.</p>
+
+<p>We consider this to be a bad idea, because it ignores several vCard features:</p>
+
+<ul>
+<li>Parameters you may or may not support</li>
+<li>Property groups</li>
+<li>And a little bit less important: the order in which items appear can be
+relevant to the user.</li>
+</ul>
+
+<h3 id="our-recommendation">Our recommendation</h3>
+
+<ol>
+<li>Download the vCard</li>
+<li>Retain the entire vCard and store it locally, or at least in some
+lossless way</li>
+<li>Parse the vCard and populate your models with the information that is
+relevant to you.</li>
+<li>Keep a reference to which vCard property maps to what information in the
+model.</li>
+</ol>
+
+<p>Now when something changes in a model (e.g.: a user changes an email address
+in your UI.)</p>
+
+<ol>
+<li>Model receives change (email address updated)</li>
+<li>Find the property in the vCard that originally mapped to the information in
+the model.</li>
+<li>Update the value in the vCard.</li>
+<li>Upload the vCard.</li>
+</ol>
+
+<p>In an ideal world, your vCard <em>is</em> your model though.</p>
+
+<p>Regardless of how this issue is solved (there may be better suggestions, we
+would love to hear it), <em>not</em> ensuring that original vCard is kept as close
+to the original as possible is guaranteed to trigger bugs and edge-cases for
+all sorts of CardDAV clients.</p>
+
+<h2 id="typical-urls">Typical urls</h2>
+
+<p>Note that the following url structure is typical for SabreDAV, but may be
+different for other servers. All these urls should be discovered by a client,
+but listing these here helps with illustrating the examples that follow:</p>
+
+<table>
+<thead>
+<tr>
+  <th>url</th>
+  <th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>http://dav.example.org/</code></td>
+  <td>Root</td>
+</tr>
+<tr>
+  <td><code>http://dav.example.org/principals/johndoe/</code></td>
+  <td>A principal url</td>
+</tr>
+<tr>
+  <td><code>http://dav.example.org/addressbooks/johndoe/</code></td>
+  <td>The addressbook home</td>
+</tr>
+<tr>
+  <td><code>http://dav.example.org/addressbooks/johndoe/contacts/</code></td>
+  <td>An addressbook</td>
+</tr>
+<tr>
+  <td><code>http://dav.example.org/addressbooks/johndoe/contacts/foobarapp-2357-aeaat34.vcf</code></td>
+  <td>A vcard</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>Servers typically use HTTP Digest or HTTP Basic authentication. Your client
+should already support these. The Google CardDAV API uses OAuth2.</p>
+
+<h2 id="operations">Operations</h2>
+
+<h3 id="retrieving-addressbook-information">Retrieving addressbook information</h3>
+
+<p>To receive information about a URL, we use the <code>PROPFIND</code> method.
+In this case we're going to ask for the addressbooks display name and a
+so-called 'ctag'.</p>
+
+<pre><code>PROPFIND /addressbooks/johndoe/contacts/ HTTP/1.1
+Depth: 0
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+  &lt;d:prop&gt;
+     &lt;d:displayname /&gt;
+     &lt;cs:getctag /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>The <code>PROPFIND</code> request is a HTTP request, defined by <a href="https://tools.ietf.org/html/rfc4918">WebDAV</a>.
+<code>PROPFIND</code> allows the client to fetch properties from an url.</p>
+
+<p>CardDAV uses many properties like this, but in this case we just fetch the
+'displayname', which is the human-readable name the user gave the addressbook, and
+the ctag. The ctag must be stored for subsequent requests.</p>
+
+<p>The request will return something like:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:displayname&gt;My Address Book&lt;/d:displayname&gt;
+                &lt;cs:getctag&gt;3145&lt;/cs:getctag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>This multistatus response is very common for Cal and WebDAV. Many requests
+return an xml document in this exact format, so it is worthwhile writing a
+standard parser.</p>
+
+<p>The response gives us back the user, the values for the 2 properties and the
+status.</p>
+
+<p>It is possible that a server does not support the ctag. In that case it will
+likely return <code>404 Not Found</code> for the ctag, and <code>200 OK</code> for the displayname.</p>
+
+<p>Example:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:displayname&gt;My Address Book&lt;/d:displayname&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;cs:getctag /&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 404 Not Found&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>So take note from this last response. Here we display that the status, such
+as the <code>404</code> and the <code>200</code> are <em>not</em> related to the existence of the url
+(<code>/addressbooks/johndoe/contacts</code>). The status codes are re-used to return
+information about the individual properties.</p>
+
+<h3 id="downloading-objects">Downloading objects</h3>
+
+<p>Now we download every single object in this addressbook. To do this, we use a
+<code>REPORT</code> method.</p>
+
+<pre><code>REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
+Depth: 1
+Content-Type: application/xml; charset=utf-8
+
+&lt;card:addressbook-query xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav"&gt;
+    &lt;d:prop&gt;
+        &lt;d:getetag /&gt;
+        &lt;card:address-data /&gt;
+    &lt;/d:prop&gt;
+&lt;/card:addressbook-query&gt;
+</code></pre>
+
+<p>This request will return a large xml object with <em>all</em> the vCards, and their
+etags.</p>
+
+<p>This report will return a multi-status object again:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/abc-def-fez-123454657.vcf&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"2134-314"&lt;/d:getetag&gt;
+                &lt;card:address-data&gt;BEGIN:VCARD
+                    VERSION:3.0
+                    FN:My Mother
+                    UID:abc-def-fez-1234546578
+                    END:VCARD
+                &lt;/card:address-data&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/someapplication-12345678.vcf&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"5467-323"&lt;/d:getetag&gt;
+                &lt;card:address-data&gt;BEGIN:VCARD
+                    VERSION:3.0
+                    FN:Your Mother
+                    UID:foo-bar-zim-gir-1234567
+                    END:VCARD
+                &lt;/card:address-data&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>This addressbook only contained 2 contacts.</p>
+
+<p>So after you retrieved and processed these, for each object you must retain:</p>
+
+<ul>
+<li>The vCard data itself</li>
+<li>The url</li>
+<li>The etag</li>
+</ul>
+
+<p>In this case all urls ended with <code>.vcf</code>. This is often the case, but you must
+not rely on this. In this case the UID in the vCards was also identical to
+a part of the url. This too is often the case, but again not something you can
+rely on, so don't make any assumptions.</p>
+
+<p>The url and the UID have no meaningful relationship, so treat both those items
+as separate unique identifiers.</p>
+
+<h3 id="finding-out-if-anything-changed">Finding out if anything changed</h3>
+
+<p>To see if anything in an addressbook changed, we simply request the ctag again
+on the addressbook. If the ctag did not change, you still have the latest copy.</p>
+
+<p>This is the purpose of the ctag. Every time <em>anything</em> in the address book
+changes, the ctag must also change.</p>
+
+<p>If it did change, you should request all the etags in the entire addressbook
+again:</p>
+
+<pre><code>REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
+Depth: 1
+Content-Type: application/xml; charset=utf-8
+
+&lt;card:addressbook-query xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav"&gt;
+    &lt;d:prop&gt;
+        &lt;d:getetag /&gt;
+    &lt;/d:prop&gt;
+&lt;/card:addressbook-query&gt;
+</code></pre>
+
+<p>Note that this last request is extremely similar to a previous one, but we are
+only asking for the etag, not the address-data.</p>
+
+<p>The reason for this, is that addressbooks can be rather huge. It will save a TON
+of bandwidth to only check the etag first.</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/abc-def-fez-123454657.vcf&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"2134-888"&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/acme-12345.vcf&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"9999-2344""&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>Judging from this last request, 3 things have changed:</p>
+
+<ul>
+<li>The etag for the first contact has changed, so it must have been updated.</li>
+<li>There's a new url, some other client must have created a new contact.</li>
+<li>The second contact we saw earlier is no longer in the list, so it must have
+been deleted.</li>
+</ul>
+
+<p>So based on those 3 points, we know that we need to remove a contact from the
+local addressbook, and fetch the vCards for both the new item, and the updated
+one.</p>
+
+<p>To fetch the data for these, you can simply issue GET requests:</p>
+
+<pre><code>GET /addressbooks/johndoe/contacts/abc-def-fez-123454657.vcf
+</code></pre>
+
+<p>But that does not scale up well, in case a few hundred contacts have changed.
+It's better to batch the GET's together with <code>multiget</code>.</p>
+
+<pre><code>REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
+Depth: 1
+Content-Type: application/xml; charset=utf-8
+
+&lt;card:addressbook-multiget xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav"&gt;
+    &lt;d:prop&gt;
+        &lt;d:getetag /&gt;
+        &lt;card:address-data /&gt;
+    &lt;/d:prop&gt;
+    &lt;d:href&gt;/addressbooks/johndoe/contacts/abc-def-fez-123454657.vcf&lt;/d:href&gt;
+    &lt;d:href&gt;/addressbooks/johndoe/contacts/acme-12345.vcf&lt;/d:href&gt;
+&lt;/card:addressbook-multiget&gt;
+</code></pre>
+
+<p>This request will simply return a multi-status again with the address-data and
+etag.</p>
+
+<h3 id="a-small-note-about-writing-code-for-this.">A small note about writing code for this.</h3>
+
+<p>If you read this far and understood what's been said, you may have realized that
+it's a bit cumbersome to have a separate step for the initial sync, and
+subsequent updates.</p>
+
+<p>It would totally be possible to skip the 'initial sync', and just use
+addressbook-query and addressbook-multiget REPORTS for the initial sync as well.</p>
+
+<h2 id="updating-a-contact">Updating a contact</h2>
+
+<p>Updating a vCard is rather simple:</p>
+
+<pre><code>PUT /addressbook/johndoe/contacts/some-contact.vcf HTTP/1.1
+Content-Type: text/vcard; charset=utf-8
+If-Match: "2134-314"
+
+BEGIN:VCARD
+....
+END:VCARD
+</code></pre>
+
+<p>A response to this will be something like this:</p>
+
+<pre><code>HTTP/1.1 204 No Content
+ETag: "2134-315"
+</code></pre>
+
+<p>The update gave us back the new ETag. SabreDAV returns this ETag on updates
+most of the time, but not always.</p>
+
+<p>There are cases where the CardDAV server must modify the vCard immediately 
+after receiving it, for various reasons. In those situations an ETag will
+<em>not</em> be returned, and you should ideally issue a GET request immediately
+after to figure out how the server changed the contact.</p>
+
+<p>Many clients skip the <code>GET</code> step though.</p>
+
+<p>A few notes:</p>
+
+<h3 id="don%27t-change-the-uid">Don't change the UID</h3>
+
+<p>The <code>UID</code> and the url of the object are important to not change. Changing
+either will highly confuse other clients and the server <em>should</em> reject those
+changes (although they don't always).</p>
+
+<h2 id="creating-a-contact">Creating a contact</h2>
+
+<p>Creating a contact is almost identical, except that you (as a client) are
+responsible for determining the url of the object, and UID.</p>
+
+<pre><code>PUT /addressbooks/johndoe/contacts/somerandomstring.vcf HTTP/1.1
+Content-Type: text/vcard; charset=utf-8
+
+BEGIN:VCARD
+VERSION:3.0
+UID:some-other-random-string
+....
+END:VCARD
+</code></pre>
+
+<p>A response to this will be something like this:</p>
+
+<pre><code>HTTP/1.1 201 Created
+ETag: "21345-324"
+</code></pre>
+
+<p>Similar to updating, an ETag is often returned, but there are cases where this
+is not true.</p>
+
+<h2 id="deleting-a-contact">Deleting a contact</h2>
+
+<p>Deleting is simple enough:</p>
+
+<pre><code>DELETE /addressbooks/johndoe/contacts/132456762153245.vcf HTTP/1.1
+If-Match: "2134-314"
+</code></pre>
+
+<h2 id="speeding-up-sync-with-webdav-sync">Speeding up Sync with WebDAV-Sync</h2>
+
+<p>WebDAV-Sync is a protocol extension that is defined in <a href="https://tools.ietf.org/html/rfc6578">rfc6578</a>.
+Because this extension was defined later, some servers may not support this
+yet.</p>
+
+<p>SabreDAV supports this since 2.0.</p>
+
+<p>WebDAV-Sync allows a client to ask <em>just</em> for address books that have changed.
+The process on a high-level is as follows:</p>
+
+<ol>
+<li>Client requests sync-token from server.</li>
+<li>Server reports token <code>15</code>.</li>
+<li>Some time passes.</li>
+<li>Client does a Sync REPORT on an addressbook, and supplied token <code>15</code>.</li>
+<li>Server returns vcard urls that have changed or have been deleted and returns token <code>17</code>.</li>
+</ol>
+
+<p>As you can see, after the initial sync, only items that have been created,
+modified or deleted will ever be sent.</p>
+
+<p>This has a lot of advantages. The transmitted xml bodies can generally be a
+lot shorter, and is also easier on both client and server in terms of memory
+and CPU usage, because only a limited set of items will have to be compared.</p>
+
+<p>It's important to note, that a client should only do Sync operations, if the
+server reports that it has support for it. The quickest way to do so, is to
+request <code>{DAV}sync-token</code> on the addressbook you wish to sync.</p>
+
+<p>Technically, a server may support 'sync' on one addressbook, and it may not
+support it on another, although this is probably rare.</p>
+
+<h3 id="getting-the-first-sync-token">Getting the first sync-token</h3>
+
+<p>Initially, we just request a sync token when asking for address book
+information:</p>
+
+<pre><code>PROPFIND /addressbooks/johndoe/contacts/ HTTP/1.1
+Depth: 0
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+  &lt;d:prop&gt;
+     &lt;d:displayname /&gt;
+     &lt;cs:getctag /&gt;
+     &lt;d:sync-token /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>This would return something as follows:</p>
+
+<pre><code>&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:displayname&gt;My Address Book&lt;/d:displayname&gt;
+                &lt;cs:getctag&gt;3145&lt;/cs:getctag&gt;
+                &lt;d:sync-token&gt;http://sabredav.org/ns/sync-token/3145&lt;/d:sync-token&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>As you can see, the sync-token is a url. It always should be a url.
+Even though a number appears in the url, you are not allowed to attach any
+meaning to that url. Some servers may have use an increasing number,
+another server may use a completely random string.</p>
+
+<h3 id="receiving-changes">Receiving changes</h3>
+
+<p>After a sync token has been obtained, and the client already has the initial
+copy of the addressbook, the client is able to request all changes since the
+token was issued.</p>
+
+<p>This is done with a <code>REPORT</code> request that may look like this:</p>
+
+<pre><code>REPORT /addressbooks/johndoe/contacts/ HTTP/1.1
+Host: dav.example.org
+Content-Type: application/xml; charset="utf-8"
+
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;d:sync-collection xmlns:d="DAV:"&gt;
+  &lt;d:sync-token&gt;http://sabredav.org/ns/sync/3145&lt;/d:sync-token&gt;
+  &lt;d:sync-level&gt;1&lt;/d:sync-level&gt;
+  &lt;d:prop&gt;
+    &lt;d:getetag/&gt;
+  &lt;/d:prop&gt;
+&lt;/d:sync-collection&gt;
+</code></pre>
+
+<p>This requests all the changes since sync-token identified by
+<code>http://sabredav.org/ns/sync/3145</code>, and for the contacts that have been added
+or modified, we're requesting the etag.</p>
+
+<p>The response to a query like this is another multistatus xml body. Example:</p>
+
+<pre><code>HTTP/1.1 207 Multi-Status
+Content-Type: application/xml; charset="utf-8"
+
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;d:multistatus xmlns:d="DAV:"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/newcard.vcf&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"33441-34321"&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/updatedcard.vcf&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"33541-34696"&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/addressbooks/johndoe/contacts/deletedcard.vcf&lt;/d:href&gt;
+        &lt;d:status&gt;HTTP/1.1 404 Not Found&lt;/d:status&gt;
+    &lt;/d:response&gt;
+    &lt;d:sync-token&gt;http://sabredav.org/ns/sync/5001&lt;/d:sync-token&gt;
+ &lt;/d:multistatus&gt;
+</code></pre>
+
+<p>The last response reported two changes: <code>newcard.vcf</code> and <code>updatedcard.vcf</code>.
+There's no way to tell from the response whether those cards got created or
+updated, you, as a client can only infer this based on the vcards you are
+already aware of.</p>
+
+<p>The entry with name <code>deletedvcard.vcf</code> got deleted as indicated by the <code>404</code>
+status. Note that the status element is here a child of <code>d:response</code> when in
+all previous examples it has been a child of <code>d:propstat</code>.</p>
+
+<p>The other difference with the other multi-status examples, is that this one
+has a <code>sync-token</code> element with the latest sync-token.</p>
+
+<h3 id="caveats">Caveats</h3>
+
+<p>Note that a server is free to 'forget' any sync-tokens that have been
+previously issued. In this case it may be needed to do a full-sync again.</p>
+
+<p>In case the supplied sync-token is not recognized by the server, a HTTP error
+is emitted. SabreDAV emits a <code>403</code>.</p>
+
+<h2 id="discovery">Discovery</h2>
+
+<p>Ideally you will want to make sure that all the addressbooks in an account are
+automatically discovered. The best user interface would be to just have to
+ask for three items:</p>
+
+<ul>
+<li>Username</li>
+<li>Password</li>
+<li>Server</li>
+</ul>
+
+<p>And the server should be as short as possible. This is possible with most
+servers.</p>
+
+<p>If, for example a user specified 'dav.example.org' for the server, the first
+thing you should do is attempt to send a <code>PROPFIND</code> request to
+<code>https://dav.example.org/</code>. Note that you <em>should</em> try the https url before the
+http url.</p>
+
+<p>This <code>PROPFIND</code> request looks as follows:</p>
+
+<pre><code>PROPFIND / HTTP/1.1
+Depth: 0
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:"&gt;
+  &lt;d:prop&gt;
+     &lt;d:current-user-principal /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>This will return a response such as the following:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:current-user-principal&gt;
+                    &lt;d:href&gt;/principals/users/johndoe/&lt;/d:href&gt;
+                &lt;/d:current-user-principal&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>A 'principal' is a user. The url that's being returned, is a url that refers
+to the current user. On this url you can request additional information about
+the user.</p>
+
+<p>What we need from this url, is their 'addressbook home'. The addressbook home
+is a collection that contains all of the users' addressbooks.</p>
+
+<p>To request that, issue the following request:</p>
+
+<pre><code>PROPFIND /principals/users/johndoe/ HTTP/1.1
+Depth: 0
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav"&gt;
+  &lt;d:prop&gt;
+     &lt;card:addressbook-home-set /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>This will return a response such as the following:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:card="urn:ietf:params:xml:ns:carddav"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;c:addressbook-home-set&gt;
+                    &lt;d:href&gt;/addressbooks/johndoe/&lt;/d:href&gt;
+                &lt;/c:addressbook-home-set&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>Lastly, to list all the addressbooks for the user, issue a PROPFIND request
+with <code>Depth: 1</code>.</p>
+
+<pre><code>PROPFIND /addressbooks/johndoe/ HTTP/1.1
+Depth: 1
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+  &lt;d:prop&gt;
+     &lt;d:resourcetype /&gt;
+     &lt;d:displayname /&gt;
+     &lt;cs:getctag /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>In that last request, we asked for 3 properties.</p>
+
+<p>The <code>resourcetype</code> tells us what type of object we're getting back. You must
+read out the <code>resourcetype</code> and ensure that it contains at least an
+<code>addressbook</code> element in the CardDAV namespace. Other items <em>may</em> be returned,
+including non-addressbooks, which your application should ignore.</p>
+
+<h3 id="advanced-discovery-topics">Advanced discovery topics</h3>
+
+<p>Read the <a href="/dav/service-discovery">Service Discovery documentation</a></p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

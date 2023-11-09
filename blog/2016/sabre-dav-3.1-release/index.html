@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>sabre/dav 3.1 released - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body class="body--nodocs">
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+    
+        <main>
+                <article>
+                <article class="blog-entry">
+        <time>January 6th, 2016</time>
+        <h1>sabre/dav 3.1 released</h1>
+        <div>
+            <p>We're a bit late to the party, but we finally have a PHP 7 compatible release
+for sabre/dav.</p>
+
+<p>The master branch had PHP 7 support for a while. The original plan for 3.1 was
+to include CalDAV sharing support, but this has been taking longer than
+expected.</p>
+
+<p>The result was that we have not had a stable PHP 7-compatible release. So
+instead of waiting until all the 3.1 features were ready, we've figured it's
+better to get 3.1 out as soon as possible and move the new features over to
+a future 3.2 release. So here it is, 6 months after the last major release!</p>
+
+<p>Aside from PHP 7 support, there's a few other changes:</p>
+
+<ul>
+<li>The minimum PHP version is now PHP 5.5.</li>
+<li>We switched to <a href="/blog/2015/sabre-vobject-4.0-released/">vobject 4</a></li>
+<li>We have support for "Calendar availability" in CalDAV. This feature allows
+users to specify what their work hours are (using compatible clients). This
+information will then be taken into consideration when generating freebusy
+responses.</li>
+<li>Lots of memory improvements, stability fixes and better exception messaging.</li>
+</ul>
+
+<p>Contrary to past 'major' releases, this should be fairly easy for people to
+upgrade to. The BC changes will only affect a very small group.</p>
+
+<ul>
+<li>For a full list of changes and BC breaks, read <a href="/dav/upgrade/3.0-to-3.1/">the migration document</a>.</li>
+<li>Check out the <a href="https://github.com/sabre-io/dav/blob/3.1.0/CHANGELOG.md">Changelog</a> if you need even more detail.</li>
+<li>Use composer, or <a href="https://github.com/sabre-io/dav/releases">download the zip</a> to get started with this.</li>
+</ul>
+
+<p>This release also marks the beginning of the 'life support' period for
+sabre/dav 3.0.x. We'll continue to do bugfixes for another 12 months.</p>
+
+<p>Happy new year!</p>
+
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="https://sabre.io/blog/tags/dav">dav</a>,                         <a href="https://sabre.io/blog/tags/release">release</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                            <li>Next: <a class="next" href="https://sabre.io/blog/2016/sabre-vobject-4.0.2-release/" title="sabre/vobject 4.0.2 release"><span class="title">sabre/vobject 4.0.2 release</span></a></li>
+                                                                <li>Previous: <a class="previous" href="https://sabre.io/blog/2016/sabre-http-4.2.1-release/" title="sabre/http 4.2.1 released"><span class="title">sabre/http 4.2.1 released</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
+
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

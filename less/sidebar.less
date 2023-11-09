@@ -1,0 +1,30 @@
+// SIDEBAR
+// =============================================================================
+// Some styles for pages with a sidebar.
+
+// The Sidebar itself
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 41px;
+    left: 0;
+    width: 320px;
+    z-index: @z-sidebar;
+    background: #fff;
+    border-right: 1px dotted @sabre-deco;
+    overflow: hidden;
+
+    // invisible by default
+    display: none;
+
+    // "tablet" screens and up
+    @media (min-width: @screen-sm-min) {
+        top: 40px;
+        bottom: 0;
+    }
+
+    // "medium" screens and up
+    @media (min-width: @screen-md-min) {
+        display: block;
+    }
+}

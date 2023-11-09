@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Parsing iCalendar - sabre/vobject</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/vobject">
+                sabre<span>/vobject</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                                <ul>
+                    <li><a href="https://sabre.io/vobject/install/">Installation</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_3/">Upgrading from vObject 2 to 3</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_4/">Upgrading from vObject 3 to 4</a></li>
+                    <li><a href="https://sabre.io/vobject/vcard/">Working with vCards</a></li>
+                    <li><a href="https://sabre.io/vobject/icalendar/">Working with iCalendar</a></li>
+                    <li><a href="https://sabre.io/vobject/json/">jCal and jCard</a></li>
+                    <li><a href="https://sabre.io/vobject/xcal_xcard/">xCal and xCard</a></li>
+                    <li><a href="https://sabre.io/vobject/recurrence/">Recurring events</a></li>
+                    <li><a href="https://sabre.io/vobject/cli/">Command-line tools</a></li>
+                    <li><a href="https://sabre.io/vobject/itip/">iTip</a></li>
+                    <li><a href="https://sabre.io/vobject/usage_2/">Usage (vobject 2.x)</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Parsing iCalendar</h1>
+                <h2 id="getting-started">Getting started</h2>
+
+<p>Make sure you followed all the steps in the <a href="/vobject/install">installation instructions</a>,
+and you've included the autoloader in your code.</p>
+
+<h2 id="a-basic-parsing-example">A basic parsing example</h2>
+
+<p>Assuming there is an iCalendar file in your local directory, named <code>party.ics</code>,
+the following complete example will parse it and display the <code>SUMMARY</code> property:</p>
+
+<pre><code>use Sabre\VObject;
+
+include 'vendor/autoload.php';
+
+$vcalendar = VObject\Reader::read(
+    fopen('party.ics','r')
+);
+echo $vcalendar-&gt;VEVENT-&gt;SUMMARY;
+</code></pre>
+
+<p>That is all.</p>
+
+<p>For all the following examples, we are assuming that you have already included
+the autoloader, and also that you've called</p>
+
+<pre><code>use Sabre\VObject;
+</code></pre>
+
+<p>at the top of your script. This is just to avoid repetition.</p>
+
+<h2 id="the-actual-manual">The actual manual</h2>
+
+<h3 id="creating-a-new-icalendar-object">Creating a new iCalendar object</h3>
+
+<p>To create a new iCalendar object, you can construct a <code>VCalendar</code> component, and pass it
+the structure you want.</p>
+
+<p>Here's an example:</p>
+
+<pre><code>$vcalendar = new VObject\Component\VCalendar([
+    'VEVENT' =&gt; [
+        'SUMMARY' =&gt; 'Birthday party!',
+        'DTSTART' =&gt; new \DateTime('2016-07-04 21:00:00'),
+        'DTEND'   =&gt; new \DateTime('2016-07-05 03:00:00')
+    ]
+]);
+
+echo $vcalendar-&gt;serialize();
+</code></pre>
+
+<p>This will output:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 4.0.0-beta1//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:sabre-vobject-2930d1fa-ac6d-42c8-92fe-06bb8bc3614e
+DTSTAMP:20151202T171911Z
+SUMMARY:Birthday party!
+DTSTART;TZID=America/New_York:20160704T210000
+DTEND;TZID=America/New_York:20160705T030000
+END:VEVENT
+END:VCALENDAR
+</code></pre>
+
+<h3 id="manipulating-properties">Manipulating properties</h3>
+
+<p>It's very easy to modify properties on objects:</p>
+
+<pre><code>// Overwrites or sets a property:
+$vcalendar-&gt;VEVENT-&gt;SUMMARY = 'Funeral';
+
+// Removes a property
+unset($vcalendar-&gt;VEVENT-&gt;DTSTAMP);
+
+// Checks for existence of a property:
+isset($vcalendar-&gt;PRODID);
+
+// Adds a property without overwriting an existing one.
+$vcalendar-&gt;VEVENT-&gt;add('ATTENDEE', 'mailto:foo@example.com');
+$vcalendar-&gt;VEVENT-&gt;add('ATTENDEE', 'mailto:evert@example.com');
+</code></pre>
+
+<p>If your property name has a special character, such as the property
+<code>LAST-MODIFIED</code>, you can access it as such:</p>
+
+<pre><code>echo (string)$valendar-&gt;VEVENT-&gt;{'LAST-MODIFIED'};
+</code></pre>
+
+<h3 id="working-with-parameters">Working with parameters</h3>
+
+<p>iCalendar also has a concept of parameters on properties. This is a bit like
+an "attribute" in xml or html.</p>
+
+<p>An example of a property with a parameter:</p>
+
+<pre><code>ATTENDEE;CN="Real name":mailto:foo@example.org
+</code></pre>
+
+<p>If you would want to get access to that parameter, you can use array-access to
+do so:</p>
+
+<pre><code>$realName = $vcalendar-&gt;VEVENT-&gt;ATTENDEE['CN'];
+</code></pre>
+
+<p>You can change it in the same manner:</p>
+
+<pre><code>$vcalendar-&gt;VEVENT-&gt;ATTENDEE['RSVP'] = 'TRUE';
+</code></pre>
+
+<p>It is also possible add a list of parameters while creating the property.</p>
+
+<pre><code>$vcalendar-&gt;VEVENT-&gt;add(
+    'ATTENDEE',
+    'foo@example.org',
+    [
+       'RSVP' =&gt; 'TRUE',
+       'CN'   =&gt; 'Real Name',
+    ]
+);
+</code></pre>
+
+<h3 id="parsing-icalendar">Parsing iCalendar</h3>
+
+<p>To parse a vCard or iCalendar object, simply call:</p>
+
+<pre><code>// $data must be either a string, or a stream.
+$vcard = VObject\Reader::read($data);
+</code></pre>
+
+<p>When you're working with data generated by broken software (such as the
+latest Microsoft Outlook), you can pass a 'forgiving' option that will do an
+attempt to mend the broken data.</p>
+
+<pre><code>$vcalendar = VObject\Reader::read($data, VObject\Reader::OPTION_FORGIVING);
+</code></pre>
+
+<p>Many iCalendar objects these days are encoded as UTF-8. If however you are
+running into an object  with a different encoding, you can specify this as the
+third option:</p>
+
+<pre><code>$vcard = VObject\Reader::read($data, 0, 'ISO-8859-1');
+</code></pre>
+
+<p>Currently ISO-8859-1 and Windows-1252 are supported. This feature appeared in
+vObject 4.</p>
+
+<h3 id="looping-through-properties.">Looping through properties.</h3>
+
+<p>Properties such as <code>ATTENDEE</code> may appear more than once in a
+vCard. To loop through them, you can simply throw them in a <code>foreach()</code>
+statement:</p>
+
+<pre><code>foreach($vcalendar-&gt;VEVENT-&gt;ATTENDEE as $attendee) {
+    echo 'Attendee ', (string)$attendee;
+}
+</code></pre>
+
+<h3 id="working-with-components">Working with Components</h3>
+
+<p>In iCalendar, <code>VTODO</code>, <code>VEVENT</code>, <code>VJOURNAL</code>, <code>VALARM</code> and several others
+are all considered 'components'.</p>
+
+<p>A calendar may have any one of these, and often multiple.</p>
+
+<p>This is an example of a new VEVENT being added to a calendar:</p>
+
+<pre><code>$vcalendar = new VObject\Component\VCalendar();
+
+$vcalendar-&gt;add('VEVENT', [
+    'SUMMARY' =&gt; 'Birthday party',
+    'DTSTART' =&gt; new \DateTime('2013-04-07'),
+    'RRULE' =&gt; 'FREQ=YEARLY',
+]);
+
+echo $vcalendar-&gt;serialize();
+</code></pre>
+
+<p>The <code>add()</code> method will always return the instance of the property or
+sub-component it's creating. This makes for easy further manipulation.</p>
+
+<p>Here's another example that adds an attendee and an organizer:</p>
+
+<pre><code>$vcalendar = new VObject\Component\VCalendar();
+
+$vevent = $vcalendar-&gt;add('VEVENT', [
+    'SUMMARY' =&gt; 'Meeting',
+    'DTSTART' =&gt; new \DateTime('2013-04-07'),
+]);
+
+$vevent-&gt;add('ORGANIZER','mailto:organizer@example.org');
+$vevent-&gt;add('ATTENDEE','mailto:attendee1@example.org');
+$vevent-&gt;add('ATTENDEE','mailto:attendee2@example.org');
+</code></pre>
+
+<p>If a <code>VCALENDAR</code> has multiple components, and you'd like to loop through them,
+you can simply use foreach. This example goes through all the <code>VTODO</code>
+components in a calendar.</p>
+
+<pre><code>foreach($vcalendar-&gt;VTODO as $todo) {
+
+    echo (string)$todo-&gt;SUMMARY;
+
+}
+</code></pre>
+
+<h3 id="date-and-time-handling">Date and time handling</h3>
+
+<p>Parsing Dates and Times from iCalendar and vCard can be difficult.
+Most of this is abstracted by the VObject library.</p>
+
+<p>Given an event, in a calendar, you can get a real PHP <code>DateTime</code> object using
+the following syntax:</p>
+
+<pre><code>$start = $vcalendar-&gt;VEVENT-&gt;DTSTART-&gt;getDateTime();
+echo $start-&gt;format(\DateTime::W3C);
+</code></pre>
+
+<p>To update the property with a new <code>DateTime</code> object, just use the following syntax:</p>
+
+<pre><code>$dateTime = new \DateTime('2012-08-07 23:53:00', new \DateTimeZone('Europe/Amsterdam'));
+$event-&gt;DTSTART = $dateTime;
+</code></pre>
+
+<h3 id="free-busy-report-generation">Free-busy report generation</h3>
+
+<p>Some calendaring software can make use of FREEBUSY reports to show when people are
+available.</p>
+
+<p>You can automatically generate these reports from calendars using the <code>FreeBusyGenerator</code>.</p>
+
+<p>Example based on our last event:</p>
+
+<pre><code>// We're giving it the calendar object. It's also possible to specify multiple objects,
+// by setting them as an array.
+//
+// We must also specify a start and end date, because recurring events are expanded.
+$fbGenerator = new VObject\FreeBusyGenerator(
+    new DateTime('2012-01-01'),
+    new DateTime('2012-12-31'),
+    $vcalendar
+);
+
+// Grabbing the report
+$freebusy = $fbGenerator-&gt;getResult();
+
+// The freebusy report is another VCALENDAR object, so we can serialize it as usual:
+echo $freebusy-&gt;serialize();
+</code></pre>
+
+<p>The output of this script will look like this:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 2.0//EN
+CALSCALE:GREGORIAN
+BEGIN:VFREEBUSY
+DTSTART;VALUE=DATE-TIME:20111231T230000Z
+DTEND;VALUE=DATE-TIME:20111231T230000Z
+DTSTAMP;VALUE=DATE-TIME:20120808T131628Z
+FREEBUSY;FBTYPE=BUSY:20120109T140000Z/20120109T140000Z
+FREEBUSY;FBTYPE=BUSY:20120213T140000Z/20120213T140000Z
+FREEBUSY;FBTYPE=BUSY:20120312T140000Z/20120312T140000Z
+FREEBUSY;FBTYPE=BUSY:20120409T140000Z/20120409T140000Z
+FREEBUSY;FBTYPE=BUSY:20120514T140000Z/20120514T140000Z
+FREEBUSY;FBTYPE=BUSY:20120611T140000Z/20120611T140000Z
+FREEBUSY;FBTYPE=BUSY:20120709T140000Z/20120709T140000Z
+FREEBUSY;FBTYPE=BUSY:20120813T140000Z/20120813T140000Z
+FREEBUSY;FBTYPE=BUSY:20120910T140000Z/20120910T140000Z
+FREEBUSY;FBTYPE=BUSY:20121008T140000Z/20121008T140000Z
+FREEBUSY;FBTYPE=BUSY:20121112T140000Z/20121112T140000Z
+FREEBUSY;FBTYPE=BUSY:20121210T140000Z/20121210T140000Z
+END:VFREEBUSY
+END:VCALENDAR
+</code></pre>
+
+<h3 id="validating-icalendar">Validating iCalendar</h3>
+
+<p>When you parse an iCalendar document, the parser grabs all the values and does
+basic syntax checking. It does not however, validate every value.</p>
+
+<p>You can ask the parser to validate the entire document by calling the <code>validate</code>
+function though:</p>
+
+<pre><code>$result = $vcalendar-&gt;validate();
+</code></pre>
+
+<p>The returned value is an array of messages and might look like this:</p>
+
+<pre><code>[
+    [
+        'level' =&gt; 2,
+        'message' =&gt; '...',
+        'node' =&gt; ...A VObject component or property...
+    ]
+]
+</code></pre>
+
+<p>Each item constitutes a problem with the document. Every item contains a level
+containing a number between 1 and 3. 3 Means that the document is invalid, 2
+means a warning. A warning means it's valid but it could cause interoperability
+issues, and 1 means that there was a problem earlier, but the problem was
+automatically repaired.</p>
+
+<p>The message is a human-readable string with more information about the problem,
+and lastly the node refers to the actual VObject Component or Property object
+that had the issue.</p>
+
+<p>You can also pass several options. The options have to be passed as a bitfield:</p>
+
+<pre><code>$vcalendar-&gt;validate(Sabre\VObject\Node::REPAIR);
+$vcalendar-&gt;validate(Sabre\VObject\Node::PROFILE_CALDAV);
+</code></pre>
+
+<p>The <code>REPAIR</code> option automatically repairs the object, if possible. Without
+<code>REPAIR</code> the validator does not change the object.</p>
+
+<p>The <code>PROFILE_CALDAV</code> validates the object specifically for within the use of
+CalDAV. iCalendar objects on CalDAV servers have a few additional special
+restrictions (no <code>METHOD</code> may appear, only one component per document, etc..).</p>
+
+<p>The validator is not perfect, and we improve it when we come across new issues,
+so any suggestions are welcome.</p>
+
+<h2 id="support">Support</h2>
+
+<p>Head over to the <a href="https://groups.google.com/group/sabredav-discuss">SabreDAV mailing list</a> for any questions.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

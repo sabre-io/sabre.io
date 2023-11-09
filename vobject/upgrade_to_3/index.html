@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Upgrading from vobject 2.x to 3.x - sabre/vobject</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/vobject">
+                sabre<span>/vobject</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                                <ul>
+                    <li><a href="https://sabre.io/vobject/install/">Installation</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_3/">Upgrading from vObject 2 to 3</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_4/">Upgrading from vObject 3 to 4</a></li>
+                    <li><a href="https://sabre.io/vobject/vcard/">Working with vCards</a></li>
+                    <li><a href="https://sabre.io/vobject/icalendar/">Working with iCalendar</a></li>
+                    <li><a href="https://sabre.io/vobject/json/">jCal and jCard</a></li>
+                    <li><a href="https://sabre.io/vobject/xcal_xcard/">xCal and xCard</a></li>
+                    <li><a href="https://sabre.io/vobject/recurrence/">Recurring events</a></li>
+                    <li><a href="https://sabre.io/vobject/cli/">Command-line tools</a></li>
+                    <li><a href="https://sabre.io/vobject/itip/">iTip</a></li>
+                    <li><a href="https://sabre.io/vobject/usage_2/">Usage (vobject 2.x)</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Upgrading from vobject 2.x to 3.x</h1>
+                <p>VObject 3.0 got a major overhaul, and much better built-in support for all
+kinds of properties and escaping.</p>
+
+<p>This version fixes the most important bugs, specifically the <a href="https://github.com/sabre-io/vobject/issues/19">issue #19</a>.</p>
+
+<p>To do this, a few backwards compatibility breaks had to be made. This document
+describes each of them, as well as all the new features.</p>
+
+<h2 id="overview-of-new-features">Overview of new features</h2>
+
+<ul>
+<li>Serializer now properly deals with escaped commas and semi-colons.</li>
+<li>Properties and Parameters now have a getParts() method to grab multiple
+values.</li>
+<li>You can now simply set PHP DateTime objects on DATE-TIME properties.</li>
+<li>Properties such as <code>CALSCALE</code>, <code>VERSION</code> and <code>PRODID</code> will automatically be
+added.</li>
+<li><a href="https://tools.ietf.org/html/rfc6868">RFC6868</a> is used to serialize parameters.</li>
+<li>Methods to generate <a href="https://tools.ietf.org/html/rfc7095">jCard</a> and <a href="https://tools.ietf.org/html/rfc7265">jCal</a> objects.</li>
+<li>Parsing of vCard 2.1 is much, much better, including support for the broken
+vCards Microsoft generates if the <code>FORGIVING</code> option is on.</li>
+<li>The <code>add()</code> methods now return the objects that have been created.</li>
+<li>A brand new parser that reads from streams, lowering memory usage.</li>
+<li>Components now have an easy to use <code>remove()</code> method.</li>
+<li>Every property, parameter and component has a reference to the document.</li>
+<li>Binary properties are automatically decoded.</li>
+</ul>
+
+<p>Since sabre/vobject 3.1:</p>
+
+<ul>
+<li>Added a jCard and jCal parser.</li>
+<li>Using the <code>convert()</code> method you can convert between vCard 2.1, 3.0 and 4.0.</li>
+<li>A new CLI tool with <code>validate</code>, <code>repair</code>, <code>color</code> and <code>convert</code> commands.</li>
+</ul>
+
+<h2 id="backwards-compatibility-breaks">Backwards compatibility breaks</h2>
+
+<h3 id="creating-components">Creating components</h3>
+
+<p>Before, it was possible to create components such as <code>VEVENT</code>, <code>VTODO</code>, etc
+with this syntax:</p>
+
+<pre><code>&lt;?php
+
+$event = \Sabre\VObject\Component::create('VEVENT');
+$event-&gt;summary = 'Birthday party!';
+
+// Or:
+
+$event = new \Sabre\VObject\Component('VEVENT');
+$event-&gt;summary = 'Birthday party!';
+
+?&gt;
+</code></pre>
+
+<p>Neither of those are legal any longer. Components now <em>must</em> be created through
+the Document object.</p>
+
+<p>Example:</p>
+
+<pre><code>&lt;?php
+
+$vcalendar = new \Sabre\VObject\Component\VCalendar();
+$event = $vcalendar-&gt;createComponent('VEVENT');
+$event-&gt;summary = 'Birthday party!';
+
+?&gt;
+</code></pre>
+
+<p>Or:</p>
+
+<pre><code>&lt;?php
+
+$vcalendar = new \Sabre\VObject\Component\VCalendar();
+$vcalendar-&gt;add('VEVENT', [
+    'summary' =&gt; 'Birthday party!',
+]);
+
+?&gt;
+</code></pre>
+
+<h3 id="creating-properties">Creating properties</h3>
+
+<p>Creating properties works the <em>exact</em> same way.</p>
+
+<p>Old:</p>
+
+<pre><code>&lt;?php
+
+$location = new \Sabre\VObject\Property('LOCATION', 'Home');
+
+// Or:
+
+$location = \Sabre\VObject\Property::create('LOCATION', 'Home');
+
+?&gt;
+</code></pre>
+
+<p>Now you must also use the document:</p>
+
+<p>Example:</p>
+
+<pre><code>&lt;?php
+
+$card = new \Sabre\VObject\Component\VCard();
+$location = $card-&gt;createProperty('LOCATION','Home');
+
+?&gt;
+
+Note that in most cases, this syntax is highly recommended instead:
+
+&lt;?php
+
+$card = new \Sabre\VObject\Component\VCard();
+$location = $card-&gt;add('LOCATION','Home');
+
+?&gt;
+</code></pre>
+
+<p>In this case it doesn't make much of a difference, but when constructing
+highly complex objects with sub-components, this <em>will</em> make a big difference.</p>
+
+<h3 id="component%3A%3Achildren-and-property%3A%3Aparameters-return-arrays.">Component::children() and Property::parameters() return arrays.</h3>
+
+<p>Before VObject 3 they returned an <code>ElementList</code>.</p>
+
+<h3 id="the-signature-for-datetime%3A%3Asetdatetime-has-changed.">The signature for DateTime::setDateTime has changed.</h3>
+
+<p>Before, you would use the following 4 syntaxes to set the date and time:</p>
+
+<pre><code>&lt;?php
+
+use Sabre\VObject\Property;
+
+$now = new DateTime('now');
+
+$dt = new Property\DateTime('DTSTART');
+$dt-&gt;setDateTime($now, Property\DateTime::DATE); // Date only
+$dt-&gt;setDateTime($now, Property\DateTime::LOCAL); // Floating time
+$dt-&gt;setDateTime($now, Property\DateTime::UTC); // Convert to UTC
+$dt-&gt;setDateTime($now, Property\DateTime::LOCALTZ); // Local to timezone information.
+
+?&gt;
+</code></pre>
+
+<p>This has completely changed:</p>
+
+<pre><code>&lt;?php
+
+// Date only
+$now = new DateTime('now');
+$dt = $calendar-&gt;create('DTSTART');
+$dt-&gt;setValue($now);
+$dt['VALUE'] = 'date';
+
+// Floating time
+$dt = $calendar-&gt;create('DTSTART');
+$dt-&gt;setValue($now, $floating = true);
+
+// Convert to UTC
+$now-&gt;setTimeZone(\DateTimeZone('UTC'));
+$dt = $calendar-&gt;create('DTSTART');
+$dt-&gt;setValue($now);
+
+// Local time + timezone information
+$dt = $calendar-&gt;create('DTSTART');
+$dt-&gt;setValue($now);
+
+?&gt;
+</code></pre>
+
+<p>Note that the preceding examples are all a bit convoluted.
+In most cases you just want to do something like:</p>
+
+<pre><code>&lt;?php
+
+// Assuming this a vevent
+$event-&gt;DTSTART = $now;
+
+?&gt;
+</code></pre>
+
+<p>In addition, the <code>MultiDateTime</code> property is no more, and its methods are
+simply merged into <code>DateTime</code>.</p>
+
+<h3 id="the-%24value-property-is-now-protected-everywhere.">The $value property is now protected everywhere.</h3>
+
+<p>Both the <code>Property</code> and the <code>Parameter</code> classes had a public <code>$value</code> property,
+which allowed you to retrieve the string value for either of those.</p>
+
+<p>This is now protected, so you must access it in this manner:</p>
+
+<pre><code>&lt;?php
+// Assuming $prop is a property object.
+
+$prop-&gt;setValue('Birthday');
+echo $prop-&gt;getValue();
+
+?&gt;
+</code></pre>
+
+<p>// For properties that have more than 1 value, you can use <code>setParts</code> and
+<code>getParts</code>:</p>
+
+<pre><code>&lt;?php
+
+$org-&gt;setParts(['Company', 'Department']);
+print_r($org-&gt;getParts());
+
+?&gt;
+</code></pre>
+
+<h3 id="binary-properties-are-automatically-de--and-encoded.">Binary properties are automatically de- and encoded.</h3>
+
+<p>The <code>ATTACH</code>, <code>LOGO</code> and <code>PHOTO</code> properties now automatically de- and encode
+their binary values. In vObject 2 they were accessed by their raw base64
+values.</p>
+
+<h3 id="components-and-documents-get-injected-with-default-properties.">Components and documents get injected with default properties.</h3>
+
+<p>When creating a new <code>VCalendar</code>, it will automatically get the <code>VERSION</code>,
+<code>CALSCALE</code> and <code>PRODID</code> properties.</p>
+
+<p>If you were adding your own with this syntax:</p>
+
+<pre><code>&lt;?php
+
+$calendar = new Sabre\VObject\Component\VCalendar();
+$calendar-&gt;VERSION = '2.0';
+
+?&gt;
+</code></pre>
+
+<p>Then nothing will go wrong, and the properties will simply be overwritten.
+However, if you used <code>add()</code> before in this manner:</p>
+
+<pre><code>&lt;?php
+
+$calendar = new Sabre\VObject\Component\VCalendar();
+$calendar-&gt;add('version', '2.0');
+
+?&gt;
+</code></pre>
+
+<p>You will end up with 2 VERSION properties, making the document invalid.</p>
+
+<h3 id="componentmap-and-propertymap-properties-have-moved.">componentMap and propertyMap properties have moved.</h3>
+
+<p>When you wanted to automatically map certain components or properties to
+certain PHP classes, you could do so with <code>Component::$componentMap</code> and
+<code>Property::$propertyMap</code>.</p>
+
+<p>These properties have now moved to the document classes:</p>
+
+<ul>
+<li><code>Component\VCalendar::$propertyMap</code></li>
+<li><code>Component\VCalendar::$componentMap</code></li>
+<li><code>Component\VCard::$propertyMap</code></li>
+<li><code>Component\VCard::$componentMap</code></li>
+</ul>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

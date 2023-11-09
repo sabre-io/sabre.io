@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>2.x Usage instructions - sabre/vobject</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/vobject">
+                sabre<span>/vobject</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                                <ul>
+                    <li><a href="https://sabre.io/vobject/install/">Installation</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_3/">Upgrading from vObject 2 to 3</a></li>
+                    <li><a href="https://sabre.io/vobject/upgrade_to_4/">Upgrading from vObject 3 to 4</a></li>
+                    <li><a href="https://sabre.io/vobject/vcard/">Working with vCards</a></li>
+                    <li><a href="https://sabre.io/vobject/icalendar/">Working with iCalendar</a></li>
+                    <li><a href="https://sabre.io/vobject/json/">jCal and jCard</a></li>
+                    <li><a href="https://sabre.io/vobject/xcal_xcard/">xCal and xCard</a></li>
+                    <li><a href="https://sabre.io/vobject/recurrence/">Recurring events</a></li>
+                    <li><a href="https://sabre.io/vobject/cli/">Command-line tools</a></li>
+                    <li><a href="https://sabre.io/vobject/itip/">iTip</a></li>
+                    <li><a href="https://sabre.io/vobject/usage_2/">Usage (vobject 2.x)</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>2.x Usage instructions</h1>
+                <p>These are the usage instructions for the 2.x version of the vobject library.
+This version is now outdated. Check the sidebar for more up-to-date docs if you
+are starting a new project, or read the <a href="/vobject/upgrade_to_3/">migration document</a> if you're
+upgrading from 2.x to 3.x.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The VObject library allows you to easily parse and manipulate <a href="https://tools.ietf.org/html/rfc5545">iCalendar</a>
+and <a href="https://tools.ietf.org/html/rfc6350">vCard</a> objects using PHP. The goal of the VObject library is to create
+a very complete library, with an easy to use API.</p>
+
+<p>This project is a spin-off from <a href="/dav/">sabre/dav</a>, where it has been used for
+several years. The 1.0 version of this library was directly embedded in that
+project, and the 2.0 version was the first independent vobject release.
+The VObject library has 100% unittest coverage.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>VObject requires PHP 5.3, and should be installed using composer.
+The general composer instructions can be found on the <a href="https://getcomposer.org/doc/00-intro.md">composer website</a>.</p>
+
+<p>After that, just declare the vobject dependency as follows:</p>
+
+<pre><code>"require" : {
+    "sabre/vobject" : "2.1.*"
+}
+</code></pre>
+
+<p>Then, run <code>composer.phar update</code> and you should be good.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h3 id="parsing">Parsing</h3>
+
+<p>For our example, we will be using the following vcard:</p>
+
+<pre><code>BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Sabre//Sabre VObject 2.0//EN
+N:Planck;Max;;;
+FN:Max Planck
+EMAIL;TYPE=WORK:mplanck@example.org
+item1.TEL;TYPE=CELL:(+49)3144435678
+item1.X-ABLabel:Private cell
+item2.TEL;TYPE=WORK:(+49)5554564744
+item2.X-ABLabel:Work
+END:VCARD
+</code></pre>
+
+<p>If we want to just print out Max' full name, you can just use property access:</p>
+
+<pre><code>use Sabre\VObject;
+
+$card = VObject\Reader::read($data);
+echo $card-&gt;FN;
+</code></pre>
+
+<h3 id="changing-properties">Changing properties</h3>
+
+<p>Creating properties is pretty similar. If we like to add his birthday, we just
+set the property:</p>
+
+<pre><code>$card-&gt;BDAY = '1858-04-23';
+</code></pre>
+
+<p>Note that in the previous example, we're actually updating any existing BDAY that
+may already exist. If we want to add a new property, without overwriting the previous
+we can do this with the <code>add</code> method.</p>
+
+<pre><code>$card-&gt;add('EMAIL','max@example.org');
+</code></pre>
+
+<h3 id="parameters">Parameters</h3>
+
+<p>If we want to also specify that this is max' home email addresses, we can do this with
+a third parameter:</p>
+
+<pre><code>$card-&gt;add('EMAIL', 'max@example'org', ['type' =&gt; 'HOME']);
+</code></pre>
+
+<p>If we want to read out all the email addresses and their type, this would look something
+like this:</p>
+
+<pre><code>foreach($card-&gt;EMAIL as $email) {
+
+    echo $email['TYPE'], ' - ', $email;
+
+}
+</code></pre>
+
+<h3 id="groups">Groups</h3>
+
+<p>In our example, you can see that the TEL properties are prefixed. These are 'groups' and
+allow you to group multiple related properties together. The group can be any user-defined
+name.</p>
+
+<p>This particular example as generated by the OS X addressbook, which uses the <code>X-ABLabel</code>
+to allow the user to specify custom labels for properties. OS X addressbook uses groups
+to tie the label to the property.</p>
+
+<p>The VObject library simply ignores the group if you don't specify it, so this will work:</p>
+
+<pre><code>foreach($card-&gt;TEL as $tel) {
+    echo $tel, "\n";
+}
+</code></pre>
+
+<p>But if you would like to target a specific group + property, this is possible too:</p>
+
+<pre><code>echo $card-&gt;{'ITEM1.TEL'};
+</code></pre>
+
+<p>So if you would like to show all the phone numbers, along with their custom label, the
+following syntax is used:</p>
+
+<pre><code>foreach($card-&gt;TEL as $tel) {
+
+    echo $card-&gt;{$tel-&gt;group . '.X-ABLABEL'}, ": ";
+    echo $tel, "\n";
+
+}
+</code></pre>
+
+<h3 id="serializing-%2F-saving">Serializing / Saving</h3>
+
+<p>If you want to generate your updated VObject, you can simply call the serialize() method.</p>
+
+<pre><code>echo $card-&gt;serialize();
+</code></pre>
+
+<h3 id="components">Components</h3>
+
+<p>iCalendar, unlike vCards always have sub-components. Where vCards are often just a flat
+list, iCalendar objects tend to have a tree-like structure. For the following paragraphs,
+we will use the following object as the example:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 2.0//EN
+BEGIN:VEVENT
+SUMMARY:Curiosity landing
+DTSTART:20120806T051439Z
+LOCATION:Mars
+END:VEVENT
+END:VCALENDAR
+</code></pre>
+
+<p>Since events, tasks and journals are always in a sub component, this is also how we
+access them.</p>
+
+<pre><code>use Sabre\VObject;
+
+$calendar = VObject\Reader::read($data);
+echo $calendar-&gt;VEVENT-&gt;SUMMARY;
+</code></pre>
+
+<p>Adding components to a calendar is done with a factory method:</p>
+
+<pre><code>$event = VObject\Component::create('VEVENT');
+$calendar-&gt;add($event);
+
+$event-&gt;SUMMARY = 'Curiosity launch';
+$event-&gt;DTSTART = '20111126T150202Z';
+$event-&gt;LOCATION = 'Cape Carnival';
+</code></pre>
+
+<p>By the way.. cloning also works as expected, as the entire structure is cloned along with it:</p>
+
+<pre><code>$clonedEvent = clone $calendar-&gt;VEVENT[0];
+$calendar-&gt;add($clonedEvent);
+</code></pre>
+
+<h3 id="date-and-time-handling">Date and time handling</h3>
+
+<p>If you ever had to deal with iCalendar timezones, you know it can be complicated.
+The way timezones are specified is flawed, which is something I may write an essay about some
+day. VObject does its best to determine the correct timezone. Many standard formats
+have been tested and verified, and special code has been implemented for special-casing
+microsoft generated timezone information, and others.</p>
+
+<p>To get a real php <code>DateTime</code> object, you can request this as follows:</p>
+
+<pre><code>$event = $calendar-&gt;VEVENT;
+$start = $event-&gt;DTSTART-&gt;getDateTime();
+echo $start-&gt;format(\DateTime::W3C);
+</code></pre>
+
+<p>To set the property with a DateTime object, you can use the following syntax:</p>
+
+<pre><code>$dateTime = new \DateTime('2012-08-07 23:53:00', new DateTimeZone('Europe/Amsterdam'));
+$event-&gt;DTSTART-&gt;setDateTime($dateTime, VObject\Property\DateTime::DATE);
+</code></pre>
+
+<p>The second argument specifies the type of date you're setting. The following three
+options exist:</p>
+
+<ol>
+<li><code>LOCAL</code> This is a floating time, with no timezone information. This basically specifies that the event happens in whatever the timezone is currently in. This would be encoded as <code>DTSTART;VALUE=DATE-TIME:20120807235300</code></li>
+<li><code>UTC</code> This specifies that the time should be encoded as a UTC time. This is encoded as <code>DTSTART;VALUE=DATE-TIME:20120807205300Z</code>. Note the extra Z and the fact that it's two hours 'earlier'.</li>
+<li><code>LOCALTZ</code> specifies that it's supposed to be encoded in its local timezone. For example <code>DTSTART;VALUE=DATE-TIME;TZID=Europe/Amsterdam:20120807235300</code>.</li>
+<li><code>DATE</code> This is a date-only, and does not contain the time. In this case this would be encoded as <code>DTSTART;VALUE=DATE:20120807</code>.</li>
+</ol>
+
+<p>A few important notes:</p>
+
+<ul>
+<li>When a <code>TZID</code> is specified, there should also be a matching <code>VTIMEZONE</code> object with all the timezone information. VObject cannot currently automatically embed this. However, in reality other clients seem to do fine without this information. Yet, for completeness, this will be added in the future.</li>
+<li>As mentioned, the timezone-determination process may sometimes fail. Report any issues you find, and I'll be quick to add workarounds!</li>
+</ul>
+
+<h3 id="recurrence-rules">Recurrence rules</h3>
+
+<p>Recurrence rules allow events to recur, for example for a weekly meeting, or an anniversary.
+This is done with the <code>RRULE</code> property. The <code>RRULE</code> property allows for a LOT of different
+rules. VObject only implements the ones that actually appear in calendar software.</p>
+
+<p>To read more about <code>RRULE</code> and all the options, check out <a href="https://tools.ietf.org/html/rfc5545#section-3.8.5">RFC5545</a>.
+VObject supports the following options:</p>
+
+<ol>
+<li><code>UNTIL</code> for an end date.</li>
+<li><code>INTERVAL</code> for for example "every 2 days".</li>
+<li><code>COUNT</code> to stop recurring after x items.</li>
+<li><code>FREQ=DAILY</code> to recur every day, and <code>BYDAY</code> to limit it to certain days.</li>
+<li><code>FREQ=WEEKLY</code> to recur every week, <code>BYDAY</code> to expand this to multiple weekdays in every week and <code>WKST</code> to specify on which day the week starts.</li>
+<li><code>FREQ=MONTHLY</code> to recur every month, <code>BYMONTHDAY</code> to expand this to certain days in a month, <code>BYDAY</code> to expand it to certain weekdays occurring in a month, and <code>BYSETPOS</code> to limit the last two expansions.</li>
+<li><code>FREQ=YEARLY</code> to recur every year, <code>BYMONTH</code> to expand that to certain months in a year, and <code>BYDAY</code> and <code>BYWEEKDAY</code> to expand the <code>BYMONTH</code> rule even further.</li>
+</ol>
+
+<p>VObject supports the <code>EXDATE</code> property for exclusions, but not yet the <code>RDATE</code> and <code>EXRULE</code> 
+properties. If you're interested in this, please file a github issue, as this will put it
+on my radar.</p>
+
+<p>This is a bit of a complex subject to go in excruciating detail. The
+<a href="https://tools.ietf.org/html/rfc5545#section-3.8.5">RFC</a> has a lot of examples though.</p>
+
+<p>The hard part is not to write the RRULE, it is to expand them. The most complex and
+hard-to-read code is hidden in this component. Dragons be here.</p>
+
+<p>So, if we have a meeting every 2nd monday of the month, this would be specified as such:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 2.0//EN
+BEGIN:VEVENT
+UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+DTSTART:20120109T140000Z
+RRULE:FREQ=MONTHLY;BYDAY=MO;BYSETPOS=2
+END:VEVENT
+END:VCALENDAR
+</code></pre>
+
+<p>Note that normally it's not allowed to indent the object like this, but it does make
+it easier to read. This is also the first time I added in a UID, which is required
+for all VEVENT, VTODO and VJOURNAL objects!</p>
+
+<p>To figure out all the meetings for this year, we can use the following syntax:</p>
+
+<pre><code>use Sabre\VObject;
+
+$calendar = VObject\Reader::read($data);
+$calendar-&gt;expand(new DateTime('2012-01-01'), new DateTime('2012-12-31'));
+</code></pre>
+
+<p>What the expand method does, is look at its inner events, and expand the recurring
+rule. Our calendar now contains 12 events. The first will have its RRULE stripped,
+and every subsequent VEVENT has the correct meeting date and a <code>RECURRENCE-ID</code> set.</p>
+
+<p>This results in something like this:</p>
+
+<pre><code>BEGIN:VCALENDAR
+  VERSION:2.0
+  PRODID:-//Sabre//Sabre VObject 2.0//EN
+  BEGIN:VEVENT
+    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+    DTSTART:20120109T140000Z
+  END:VEVENT
+  BEGIN:VEVENT
+    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+    RECURRENCE-ID:20120213T140000Z
+    DTSTART:20120213T140000Z
+  END:VEVENT
+  BEGIN:VEVENT
+    UID:1102c450-e0d7-11e1-9b23-0800200c9a66
+    RECURRENCE-ID:20120312T140000Z
+    DTSTART:20120312T140000Z
+  END:VEVENT
+  ..etc..
+END:VCALENDAR
+</code></pre>
+
+<p>To show the list of dates, we would do this as such:</p>
+
+<pre><code>foreach($calendar-&gt;VEVENT as $event) {
+    echo $event-&gt;DTSTART-&gt;getDateTime()-&gt;format(\DateTime::ATOM);
+}
+</code></pre>
+
+<p>In a recurring event, single instances can also be overridden. VObject also takes these
+into consideration. The reason we needed to specify a start and end-date, is because
+some recurrence rules can be 'never ending'.</p>
+
+<p>You should make sure you pick a sane date-range. Because if you pick a 50 year
+time-range, for a daily recurring event; this would result in over 18K objects.</p>
+
+<h2 id="free-busy-report-generation">Free-busy report generation</h2>
+
+<p>Some calendaring software can make use of FREEBUSY reports to show when people are
+available.</p>
+
+<p>You can automatically generate these reports from calendars using the <code>FreeBusyGenerator</code>.</p>
+
+<p>Example based on our last event:</p>
+
+<pre><code>// We're giving it the calendar object. It's also possible to specify multiple objects,
+// by setting them as an array.
+//
+// We must also specify a start and end date, because recurring events are expanded.
+$fbGenerator = new VObject\FreeBusyGenerator(
+    new DateTime('2012-01-01'),
+    new DateTime('2012-12-31'),
+    $calendar
+);
+
+// Grabbing the report
+$freebusy = $fbGenerator-&gt;result();
+
+// The freebusy report is another VCALENDAR object, so we can serialize it as usual:
+echo $freebusy-&gt;serialize();
+</code></pre>
+
+<p>The output of this script will look like this:</p>
+
+<pre><code>BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sabre//Sabre VObject 2.0//EN
+CALSCALE:GREGORIAN
+BEGIN:VFREEBUSY
+DTSTART;VALUE=DATE-TIME:20111231T230000Z
+DTEND;VALUE=DATE-TIME:20111231T230000Z
+DTSTAMP;VALUE=DATE-TIME:20120808T131628Z
+FREEBUSY;FBTYPE=BUSY:20120109T140000Z/20120109T140000Z
+FREEBUSY;FBTYPE=BUSY:20120213T140000Z/20120213T140000Z
+FREEBUSY;FBTYPE=BUSY:20120312T140000Z/20120312T140000Z
+FREEBUSY;FBTYPE=BUSY:20120409T140000Z/20120409T140000Z
+FREEBUSY;FBTYPE=BUSY:20120514T140000Z/20120514T140000Z
+FREEBUSY;FBTYPE=BUSY:20120611T140000Z/20120611T140000Z
+FREEBUSY;FBTYPE=BUSY:20120709T140000Z/20120709T140000Z
+FREEBUSY;FBTYPE=BUSY:20120813T140000Z/20120813T140000Z
+FREEBUSY;FBTYPE=BUSY:20120910T140000Z/20120910T140000Z
+FREEBUSY;FBTYPE=BUSY:20121008T140000Z/20121008T140000Z
+FREEBUSY;FBTYPE=BUSY:20121112T140000Z/20121112T140000Z
+FREEBUSY;FBTYPE=BUSY:20121210T140000Z/20121210T140000Z
+END:VFREEBUSY
+END:VCALENDAR
+</code></pre>
+
+<h2 id="support">Support</h2>
+
+<p>Head over to the <a href="https://groups.google.com/group/sabredav-discuss">SabreDAV mailing list</a> for any questions.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

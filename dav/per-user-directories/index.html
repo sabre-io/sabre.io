@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Per-user directories - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Per-user directories</h1>
+                <p>A question that comes up often on the mailing list, is how to create a WebDAV
+server that has a personal space for files for each user.</p>
+
+<p>sabre/dav does not have a standard facility to do this yet, so it's up to you
+to write the logic. This tutorial assumes that you've followed and understood
+the <a href="/dav/gettingstarted/">Getting Started</a> and <a href="/dav/virtual-filesystems/">Virtual Filesystems</a> documentation.</p>
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>It's not very hard to create a collection that has a directory for each user.</p>
+
+<p>For instance, you may have a <code>home</code> collection as such:</p>
+
+<pre><code>&lt;?php
+
+namespace MyServer;
+
+use Sabre\DAV\Collection;
+use Sabre\DAV\FS;
+
+class HomeCollection extends Collection {
+
+    protected $users = ['alice','bob','charly'];
+
+    protected $path = '/opt/sabredav/userdir/';
+
+    function getChildren() {
+
+       $result = [];
+       foreach($this-&gt;users as $user) {
+
+            $result[] = new FS\Directory($path . '/' . $user);
+
+       }
+       return $result;
+
+    }
+
+    function getName() {
+
+        return 'home';
+
+    }
+
+}
+</code></pre>
+
+<p>This collection loops through an array of users, and automatically shows a
+node for each user.</p>
+
+<p>This is a bit simplistic. You would normally want the users array to come
+from a database, and you really should also implement a <code>getChild()</code> method.</p>
+
+<p>In addition, you could automatically call <code>mkdir()</code> to create new home
+directories for users that don't have a home directory yet.</p>
+
+<p>We assume that this is easy, and you figured all of this out. The problem
+people immediately come across is that they don't want to allow users to get
+access to other users' home directories.</p>
+
+<p>This all comes down to the question, who is currently logged in?</p>
+
+<p>Given this <code>server.php</code> file:</p>
+
+<pre><code>&lt;?php
+
+$tree = [
+    new MyServer\HomeCollection();
+];
+
+$server = new Sabre\DAV\Server($tree);
+
+$authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
+$authPlugin = new Sabre\DAV\Auth\Plugin($authBackend);
+
+$server-&gt;addPlugin($authPlugin);
+
+$server-&gt;exec();
+</code></pre>
+
+<p>It's not easy to figure out who is currently logged in. This code can be
+re-organized as such:</p>
+
+<pre><code>&lt;?php
+
+$authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
+$authPlugin = new Sabre\DAV\Auth\Plugin($authBackend);
+
+$userName = $authPlugin-&gt;getUserName();
+
+$tree = [
+    new MyServer\HomeCollection();
+];
+
+$server = new Sabre\DAV\Server($tree);
+
+$server-&gt;addPlugin($authPlugin);
+$server-&gt;exec();
+</code></pre>
+
+<p>As you can see, the <code>$authPlugin</code> has a <code>getUserName()</code> function that gives
+you the info, but there's a problem: <code>getUserName()</code> always returns <code>null</code>
+at that point in time.</p>
+
+<h2 id="the-simple-solution">The simple solution</h2>
+
+<p>The authentication plugin only starts doing work <em>after</em> the server has been
+started with <code>$server-&gt;exec()</code>. The easiest way to work around this, is by
+injecting the <code>$authPlugin</code> into our earlier <code>HomeCollection</code> class.</p>
+
+<pre><code>&lt;?php
+
+namespace MyServer;
+
+use Sabre\DAV\Collection;
+use Sabre\DAV\FS;
+use Sabre\DAV\Auth\Plugin as AuthPlugin;
+
+class HomeCollection extends Collection {
+
+    protected $users = ['alice','bob','charly'];
+    protected $path = '/opt/sabredav/userdir/';
+    protected $authPlugin;
+
+    function __construct(AuthPlugin $authPlugin) {
+
+        $this-&gt;authPlugin = $authPlugin
+
+    }
+
+    /** ---snip--- **/
+
+}
+</code></pre>
+
+<p>Now you can determine right within <code>getChildren()</code> and <code>getChild()</code> whether or
+not a user is allowed to have access to a specific collection.</p>
+
+<p>Just call <code>$this-&gt;authPlugin-&gt;getCurrentUser()</code> and return the nodes that are
+appropriate for each user.</p>
+
+<h2 id="the-better-solution">The better solution</h2>
+
+<p>While the previous solution may be good enough for many, it's not our
+preferred solution.</p>
+
+<p>sabre/dav ships with a very advanced access-control system using the <a href="/dav/acl/">ACL</a>
+plugin and <a href="/dav/principals/">principals</a> system.</p>
+
+<p>This system allows you to determine per-node what any user may do. You could
+for example:</p>
+
+<ol>
+<li>Create admin users that have access to everything.</li>
+<li>Put users in groups, and also create per-group collections.</li>
+<li>Give users read-only access on a per-node basis.</li>
+</ol>
+
+<p>This all sounds great, but it's also definitely a bit harder to implement. If
+you are interested in this solution, you need a few things:</p>
+
+<ol>
+<li>A working <code>principals/</code> directory structure.</li>
+<li>You need to add the <code>Sabre\DAVACL\Plugin</code> plugin to the server.</li>
+<li>Any nodes that you want to add Access control to, must implement
+<code>Sabre\DAVACL\IACL</code>.</li>
+</ol>
+
+<p>We'll start with item number 3, and show you how to add the <code>IACL</code> interface
+to these two classes:</p>
+
+<ul>
+<li>Sabre\DAV\FS\Directory</li>
+<li>Sabre\DAV\FS\File</li>
+</ul>
+
+<p>Since we want to simply base our nodes on <code>Sabre\DAV\FS\Directory</code> and
+<code>Sabre\DAV\FS\File</code>, but we need to add 5 identical methods from
+<code>Sabre\DAVACL\IACL</code> to both of them, the fastest way to do this, is a trait:</p>
+
+<pre><code>&lt;?php
+
+namespace MyServer;
+
+trait ACLTrait {
+
+    /**
+     * This is a principal URL such as principals/alice
+     */
+    public $owner;
+
+    /**
+     * Returns the owner principal
+     *
+     * This must be a url to a principal, or null if there's no owner
+     *
+     * @return string|null
+     */
+    function getOwner() {
+
+        return $this-&gt;owner;
+
+    }
+
+    /**
+     * Returns a group principal
+     *
+     * This must be a url to a principal, or null if there's no owner
+     *
+     * @return string|null
+     */
+    function getGroup() {
+
+        return null;
+
+    }
+
+    /**
+     * Returns a list of ACE's for this node.
+     *
+     * Each ACE has the following properties:
+     *   * 'privilege', a string such as {DAV:}read or {DAV:}write. These are
+     *     currently the only supported privileges
+     *   * 'principal', a url to the principal who owns the node
+     *   * 'protected' (optional), indicating that this ACE is not allowed to
+     *      be updated.
+     *
+     * @return array
+     */
+    function getACL() {
+
+        return [
+            [
+                'privilege' =&gt; '{DAV:}all',
+                'principal' =&gt; '{DAV:}owner',
+                'protected' =&gt; true,
+            ]
+        ];
+
+    }
+
+    /**
+     * Updates the ACL
+     *
+     * This method will receive a list of new ACE's as an array argument.
+     *
+     * @param array $acl
+     * @return void
+     */
+    function setACL(array $acl) {
+
+        throw new \Sabre\DAV\Exception\Forbidden('Not allowed to change ACL's');
+
+    }
+
+    /**
+     * Returns the list of supported privileges for this node.
+     *
+     * The returned data structure is a list of nested privileges.
+     * See Sabre\DAVACL\Plugin::getDefaultSupportedPrivilegeSet for a simple
+     * standard structure.
+     *
+     * If null is returned from this method, the default privilege set is used,
+     * which is fine for most common usecases.
+     *
+     * @return array|null
+     */
+    function getSupportedPrivilegeSet() {
+
+        return null;
+
+    }
+
+}
+</code></pre>
+
+<p>Now to implement this trait in our new classes:</p>
+
+<pre><code>&lt;?php
+
+namespace MyServer;
+
+use Sabre\DAV\Exception\NotFound;
+
+class ACLDirectory extends Sabre\DAV\FS\Directory implements Sabre\DAVACL\IACL {
+
+    use AclTrait;
+
+    function __construct($path, $owner) {
+
+        parent::__construct($path);
+        $this-&gt;owner = $owner;
+
+    }
+
+    function getChild($name) {
+
+        $path = $this-&gt;path . '/' . $name;
+
+        if (!file_exists($path)) throw new NotFound('File with name ' . $path . ' could not be located');
+
+        if (is_dir($path)) {
+
+            return new ACLDirectory($path);
+
+        } else {
+
+            return new ACLFile($path);
+
+        }
+    }
+
+    function getChildren() {
+
+        $result = [];
+        foreach(scandir($this-&gt;path) as $file) {
+
+            if ($file==='.' || $file==='..') {
+                continue;
+            }
+            $result[] = $this-&gt;getChild($file);
+
+        }
+
+        return $result;
+
+    }
+
+}
+
+class ACLFile extends Sabre\DAV\FS\File implements Sabre\DAVACL\IACL {
+
+    use AclTrait;
+
+    function __construct($path, $owner) {
+
+        parent::__construct($path);
+        $this-&gt;owner = $owner;
+
+    }
+
+}
+</code></pre>
+
+<p>And lastly, instantiate our new classes correctly from the <code>HomeCollection</code> class:</p>
+
+<pre><code>&lt;?php
+
+namespace MyServer;
+
+use Sabre\DAV\Collection;
+
+class HomeCollection extends Collection {
+
+    protected $users = ['alice','bob','charly'];
+
+    protected $path = '/opt/sabredav/userdir/';
+
+    function getChildren() {
+
+       $result = [];
+       foreach($this-&gt;users as $user) {
+
+            $result[] = new ACLDirectory($path . '/' . $user, 'principals/' . $user);
+
+       }
+       return $result;
+
+    }
+
+    function getName() {
+
+        return 'home';
+
+    }
+
+}
+</code></pre>
+
+<p>But, since we already have a fully-working principals system, we can simplify
+<code>HomeCollection</code> quite a bit, by making use of the existing classes for
+this.</p>
+
+<p>The <code>Sabre\DAVACL\AbstractPrincipalCollection</code> class only does one thing:
+it loops through all the principals in a principal backend, and creates one
+node per user.</p>
+
+<p>This is how you could refactor your <code>HomeCollection</code> to use it:</p>
+
+<pre><code>&lt;?php
+
+namespace MyServer;
+
+use Sabre\DAVACL\AbstractPrincipalCollection;
+
+class HomeCollection extends AbstractPrincipalsCollection {
+
+    protected $path = '/opt/sabredav/userdir/';
+
+    function getName() {
+
+        return 'home';
+
+    }
+
+    /**
+     * This method returns a node for a principal.
+     *
+     * The passed array contains principal information, and is guaranteed to
+     * at least contain a uri item. Other properties may or may not be
+     * supplied by the authentication backend.
+     *
+     * @param array $principalInfo
+     * @return IPrincipal
+     */
+    function getChildForPrincipal(array $principalInfo) {
+
+        $principalUri = $principalInfo['uri'];
+        $principalBaseName = basename($principalInfo['uri']); // will contain something like 'alice'.
+
+        $principalDataPath = $this-&gt;path . $principalBaseName;
+        if (!is_dir($principalDataPath)) {
+            mkdir($principalDataPath);
+        }
+
+        return new AclDirectory($this-&gt;path. $principalBaseName, $principalUri);
+
+    }
+
+}
+</code></pre>
+
+<p>And then lastly, to instantiate everything <code>server.php</code>:</p>
+
+<pre><code>&lt;?php
+
+$authBackend = new Sabre\DAV\Auth\Backend\PDO($pdo);
+$principalBackend = new Sabre\DAVACL\PrincipalBackend\PDO($pdo);
+
+$tree = [
+    new MyServer\HomeCollection($principalBackend),
+    new Sabre\DAVACL\PrincipalsCollection($principalBackend),
+];
+
+$server = new Sabre\DAV\Server($tree);
+
+$authPlugin = new Sabre\DAV\Auth\Plugin($authBackend);
+$server-&gt;addPlugin($authPlugin);
+
+$aclPlugin = new Sabre\DAV\ACL\Plugin();
+$server-&gt;addPlugin($aclPlugin);
+
+$server-&gt;exec();
+</code></pre>
+
+<h2 id="the-sabre%2Fdav-3.0-solution">The sabre/dav 3.0 solution</h2>
+
+<p>Since sabre/dav 3.0 the last few classes are now actually built in. Simply add
+<code>Sabre\DAVACL\FS\HomeCollection</code> to your tree.</p>
+
+<p>You still need a working principals backend though.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

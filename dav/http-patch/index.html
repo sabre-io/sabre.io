@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>HTTP PATCH support - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>HTTP PATCH support</h1>
+                <p>The <code>Sabre\DAV\PartialUpdate\Plugin</code> provides support for the HTTP PATCH method
+(<a href="https://tools.ietf.org/html/rfc5789">RFC5789</a>). This allows you to update just a portion of a file, or append
+to a file.</p>
+
+<p>This document can be used as a spec for other implementors. There is some
+DAV-specific stuff in this document, but only in relation to the OPTIONS
+request.</p>
+
+<p><em>Note:</em> This feature was added in SabreDAV 1.7.0 and 1.8.0, but has been
+broken until 1.7.12 and 1.8.10.</p>
+
+<h2 id="a-sample-request">A sample request</h2>
+
+<pre><code>PATCH /file.txt
+Content-Length: 4
+Content-Type: application/x-sabredav-partialupdate
+X-Update-Range: bytes=3-6
+
+ABCD
+</code></pre>
+
+<p>This request updates 'file.txt', specifically the bytes 3-6 (inclusive) to
+<code>ABCD</code>.</p>
+
+<p>If you just want to append to an existing file, use the following syntax:</p>
+
+<pre><code>PATCH /file.txt
+Content-Length: 4
+Content-Type: application/x-sabredav-partialupdate
+X-Update-Range: append
+
+1234
+</code></pre>
+
+<p>The last request adds 4 bytes to the bottom of the file.</p>
+
+<h2 id="the-rules">The rules</h2>
+
+<ul>
+<li>The <code>Content-Length</code> header is required.</li>
+<li><code>X-Update-Range</code> is also required.</li>
+<li>The <code>bytes</code> value is the exact same as the HTTP Range header. The two numbers
+are inclusive (so <code>3-6</code> means that bytes 3,4,5 and 6 will be updated).</li>
+<li>Just like the HTTP Range header, the specified bytes is a 0-based index.</li>
+<li>The <code>application/x-sabredav-partialupdate</code> must also be specified.</li>
+<li>The end-byte is optional.</li>
+<li>The start-byte cannot be omitted.</li>
+<li>If the start byte is negative, it's calculated from the end of the file. So
+<code>-1</code> will update the last byte in the file.</li>
+<li>Use <code>X-Update-Range: append</code> to add to the end of the file.</li>
+<li>Neither the start, nor the end-byte have to be within the file's current
+size.</li>
+<li>If the start-byte is beyond the file's current length, the space in between
+will be filled with NULL bytes (<code>0x00</code>).</li>
+<li>The specification currently does not support multiple ranges.</li>
+<li>If both start and end offsets are given, than both must be non-negative, and
+the end offset must be greater or equal to the start offset.</li>
+</ul>
+
+<h2 id="more-examples">More examples</h2>
+
+<p>The following table illustrates most types of requests and what the end-result
+of them will be.</p>
+
+<p>It is assumed that the input file contains <code>1234567890</code>, and the request body
+always contains 4 dashes (<code>----</code>).</p>
+
+<table>
+<thead>
+<tr>
+  <th>X-Update-Range header</th>
+  <th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>bytes=0-3</code></td>
+  <td><code>----567890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=1-4</code></td>
+  <td><code>1----67890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=0-</code></td>
+  <td><code>----567890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=-4</code></td>
+  <td><code>123456----</code></td>
+</tr>
+<tr>
+  <td><code>bytes=-2</code></td>
+  <td><code>12345678----</code></td>
+</tr>
+<tr>
+  <td><code>bytes=2-</code></td>
+  <td><code>12----7890</code></td>
+</tr>
+<tr>
+  <td><code>bytes=12-</code></td>
+  <td><code>1234567890..----</code></td>
+</tr>
+<tr>
+  <td><code>append</code></td>
+  <td><code>1234567890----</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Please note that in the <code>bytes=12-</code> example, we used dots (<code>.</code>) to represent
+what are actually <code>NULL</code> bytes (so <code>0x00</code>). The null byte is not printable.</p>
+
+<h2 id="status-codes">Status codes</h2>
+
+<p>The following status codes should be used:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Status code</th>
+  <th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>200 or 204</td>
+  <td>When the operation was successful</td>
+</tr>
+<tr>
+  <td>400</td>
+  <td>Invalid <code>X-Update-Range</code> header</td>
+</tr>
+<tr>
+  <td>411</td>
+  <td><code>Content-Length</code> header was not provided</td>
+</tr>
+<tr>
+  <td>415</td>
+  <td>Unrecognized content-type, should be <code>application/x-sabredav-partialupdate</code></td>
+</tr>
+<tr>
+  <td>416</td>
+  <td>If there was something wrong with the bytes, such as a <code>Content-Length</code> not matching with what was sent as the start and end bytes, or an end byte being lower than the start byte.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="options">OPTIONS</h2>
+
+<p>If you want to be compliant with SabreDAV's implementation of PATCH, you must
+also return 'sabredav-partialupdate' in the 'DAV:' header:</p>
+
+<pre><code>HTTP/1.1 204 No Content
+DAV: 1, 2, 3, sabredav-partialupdate, extended-mkcol
+</code></pre>
+
+<p>This is only required if you are adding this feature to a DAV server. For
+non-webdav implementations such as REST services this is optional.</p>
+
+<h2 id="using-this-feature-in-sabre%2Fdav">Using this feature in sabre/dav</h2>
+
+<p>To use partial updates, your file-nodes must implement the
+<code>Sabre\DAV\PartialUpdate\IFile</code> interface. This adds a new <code>putRange()</code> method
+to the interface.</p>
+
+<p>A sample implementation can be found in <code>Sabre\DAV\FSExt\File</code>.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

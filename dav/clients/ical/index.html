@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>iCal - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>iCal</h1>
+                <p>iCal (now known as just 'Calendar'), is one of the most feature-rich CalDAV
+clients out there. A lot of testing with SabreDAV first happens with iCal,
+as it tends to be the forerunner in supporting new standards, and also tends
+to be the most correct implementation.</p>
+
+<p>At the very least it has support for:</p>
+
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc4791">CalDAV</a></li>
+<li><a href="https://tools.ietf.org/html/rfc6638">Scheduling</a></li>
+<li><a href="/dav/caldav-proxy">Calendar delegation</a></li>
+<li><a href="/dav/caldav-sharing">Calendar sharing</a></li>
+<li><a href="/dav/subscriptions">Subscriptions</a></li>
+</ul>
+
+<h2 id="technical-information">Technical information</h2>
+
+<h3 id="debugging">Debugging</h3>
+
+<p>To enable the debug menu within ical, run the following on the command line:</p>
+
+<pre><code>defaults write com.apple.iCal IncludeDebugMenu 1
+</code></pre>
+
+<p>Since OS X 10.9 (mavericks), this has changed to</p>
+
+<pre><code>defaults write com.apple.iCal CDB 1
+</code></pre>
+
+<p>To enable logging:</p>
+
+<pre><code>defaults write com.apple.iCal LogHTTPActivity -boolean TRUE
+</code></pre>
+
+<p>Logging goes to 'Console.app'.</p>
+
+<h3 id="subscriptions">Subscriptions</h3>
+
+<p>iCal allows server-side management of calendar subscriptions. This allows a
+user to store their iCal feeds on a server, and have them stay in sync across
+different clients.</p>
+
+<p>In OS X 10.7 and 10.8 new subscriptions are created using a <code>MKCOL</code> method. The
+body contains a <code>{DAV:}resourcetype</code> with values <code>{DAV:}collection</code> and
+<code>{http://calendarserver.org/ns/}subscribed</code>.</p>
+
+<p>In OS X 10.9.2 they changed to using <code>MKCALENDAR</code> instead. We suspect that this
+is a bug, but we're adding support for it in sabre/dav nonetheless.</p>
+
+<h3 id="user-agent">User agent</h3>
+
+<p>Some user agents we've seen:</p>
+
+<pre><code>DAVKit/3.0.6 (661); CalendarStore/3.0.8 (860); iCal/3.0.8 (1287); Mac OS X/10.5.8 (9L31a)
+DAVKit/4.0.1 (730); CalendarStore/4.0.1 (973); iCal/4.0.1 (1374); Mac OS X/10.6.2 (10C540)
+Mac_OS_X/10.9.2 (13C64) CalendarAgent/176
+</code></pre>
+
+<h3 id="10.5-ical">10.5 iCal</h3>
+
+<p>To setup 10.5 iCal a full principal url must be provided. On this principal url, iCal will request the following:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;x0:propfind xmlns:x2="http://calendarserver.org/ns/" xmlns:x1="urn:ietf:params:xml:ns:caldav" xmlns:x0="DAV:"&gt;
+ &lt;x0:prop&gt;
+  &lt;x1:calendar-home-set/&gt;
+  &lt;x1:calendar-user-address-set/&gt;
+  &lt;x1:schedule-inbox-URL/&gt;
+  &lt;x1:schedule-outbox-URL/&gt;
+  &lt;x2:dropbox-home-URL/&gt;
+  &lt;x2:notifications-URL/&gt;
+  &lt;x0:displayname/&gt;
+ &lt;/x0:prop&gt;
+&lt;/x0:propfind&gt;
+</code></pre>
+
+<p>What's mainly important here is the calendar-home-set, which contains a url with a reference to all the calendars.</p>
+
+<p>On this calendar url, the following PROPFIND request is made:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;x0:propfind xmlns:x1="http://calendarserver.org/ns/" xmlns:x0="DAV:" xmlns:x3="http://apple.com/ns/ical/" xmlns:x2="urn:ietf:params:xml:ns:caldav"&gt;
+ &lt;x0:prop&gt;
+  &lt;x1:getctag/&gt;
+  &lt;x0:displayname/&gt;
+  &lt;x2:calendar-description/&gt;
+  &lt;x3:calendar-color/&gt;
+  &lt;x3:calendar-order/&gt;
+  &lt;x0:resourcetype/&gt;
+  &lt;x2:calendar-free-busy-set/&gt;
+ &lt;/x0:prop&gt;
+&lt;/x0:propfind&gt;
+</code></pre>
+
+<h3 id="10.6-ical">10.6 iCal</h3>
+
+<p>10.6 iCal does not require a full principal url, as it can automatically
+discover these. See <a href="/dav/service-discovery">Service Discovery</a> for a bit
+more detail.</p>
+
+<p>It will request the following properties on the principal url.</p>
+
+<ul>
+<li>DAV: principal-collection-set</li>
+<li>CalDAV: calendar-home-set</li>
+<li>CalDAV: calendar-user-address-set</li>
+<li>CalDAV: schedule-inbox-URL</li>
+<li>CalDAV: schedule-outbox-URL</li>
+<li>CalendarServer: dropbox-home-URL</li>
+<li>CalendarServer: xmpp-uri</li>
+<li>DAV: displayname</li>
+<li>DAV: principal-URL</li>
+<li>DAV: supported-report-set</li>
+</ul>
+
+<p>After finding the calendar-home-url, the following is requested for calendars:</p>
+
+<pre><code>&lt;x0:propfind xmlns:x0="DAV:" xmlns:x3="http://apple.com/ns/ical/"
+  xmlns:x1="http://calendarserver.org/ns/" xmlns:x2="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;x0:prop&gt;
+        &lt;x1:xmpp-server /&gt;
+        &lt;x1:xmpp-uri /&gt;
+        &lt;x1:getctag /&gt;
+        &lt;x0:displayname /&gt;
+        &lt;x2:calendar-description /&gt;
+        &lt;x3:calendar-color /&gt;
+        &lt;x3:calendar-order /&gt;
+        &lt;x2:supported-calendar-component-set /&gt;
+        &lt;x0:resourcetype /&gt;
+        &lt;x2:calendar-free-busy-set /&gt;
+        &lt;x2:schedule-calendar-transp /&gt;
+        &lt;x2:schedule-default-calendar-URL /&gt;
+        &lt;x0:quota-available-bytes /&gt;
+        &lt;x0:quota-used-bytes /&gt;
+        &lt;x2:calendar-timezone /&gt;
+        &lt;x0:current-user-privilege-set /&gt;
+    &lt;/x0:prop&gt;
+&lt;/x0:propfind&gt;
+</code></pre>
+
+<h3 id="10.7-and-up">10.7 and up</h3>
+
+<p>More details to follow</p>
+
+<h3 id="10.14-%22mojave%22-with-%60calendar.app%60-v11.0">10.14 "Mojave" with <code>Calendar.app</code> v11.0</h3>
+
+<p>Under OS X 10.14 "Mojave", configuration with a <code>Server Path</code> of <code>/baikal/html/dav.php/principals/&lt;username&gt;</code> worked to successfully configure <code>Calendar.app</code> (version 11.0) with Baikal 0.9.2.  Note that https:// seems to be required in order for <code>Calendar.app</code> to successfully send credentials.</p>
+
+<h3 id="bugs">Bugs</h3>
+
+<h4 id="assuming-scheduling-support">Assuming scheduling support</h4>
+
+<p>iCal versions before Mavericks (10.9) appear to assume that any CalDAV server
+also supports some CalDAV-scheduling features out of the box. iCal will use
+this to let the server send emails, for things like an event invitation.</p>
+
+<p>If this is not supported, no emails for these types of actions will be sent.
+This can be rather unexpected for users, as these expected emails just won't
+arrive.</p>
+
+<p>Since version 2.1 SabreDAV has support for <a href="/dav/scheduling/">scheduling</a>,
+which can be enabled to fix this issue.</p>
+
+<p>Before version 2.1 SabreDAV had a workaround for this. Read
+<a href="/dav/imiphandler">IMipHandler</a> for more details.</p>
+
+<p>This issue has been discovered on at least 10.7 and 10.8 iCal, not yet sure about older versions.</p>
+
+<h4 id="trailing-slash-ical-10.5-and-ical-10.6">Trailing slash (iCal 10.5 and iCal 10.6)</h4>
+
+<p>It was reported on several wiki's iCal needs a trailing slash for the url to
+connect to (the principal url). This is not enough however, the <code>{DAV:}href</code>
+element in the {DAV:}response element MUST also have this trailing url.</p>
+
+<p>Without it errors such as the following can come up:</p>
+
+<ul>
+<li>"the server has not specified a calendar home ... "</li>
+<li>"here was an unexpected error with the request (domain CalDAVErrorDomain /
+error 5 / description 'The server has not specified a calendar home for the
+account at .."</li>
+</ul>
+
+<p>A workaround is in place in SabreDAV.</p>
+
+<h4 id="ical-depends-on-a-dav%3A-header-to-be-set-in-all-propfind-responses">iCal depends on a DAV: header to be set in all PROPFIND responses</h4>
+
+<p>Traditionally the DAV: header is only needed in the OPTIONS request. If
+calendar-proxy support is required, this header must also be set in other
+responses. In particular, iCal seems to pick up on it if it's set in a
+PROPFIND response.</p>
+
+<p>Since SabreDAV 1.5 we always send along the DAV: header for every PROPFIND
+responses.</p>
+
+<h4 id="no-percentage-sign-in-usernames-allowed">No percentage sign in usernames allowed</h4>
+
+<p>At least in OS X 10.11, iCal does not allow a <code>%</code> in usernames. Attempting this
+will cause iCal to simply not send any username or password and fail with an
+error.</p>
+
+<h3 id="random-samples-of-http-requests-ical-generates.">Random samples of HTTP requests iCal generates.</h3>
+
+<h4 id="creating-a-subscription-in-10.7">Creating a subscription in 10.7</h4>
+
+<pre><code>&lt;A:mkcol xmlns:A="DAV:"&gt;
+    &lt;A:set&gt;
+        &lt;A:prop&gt;
+            &lt;B:subscribed-strip-attachments xmlns:B="http://calendarserver.org/ns/" /&gt;
+            &lt;B:subscribed-strip-todos xmlns:B="http://calendarserver.org/ns/" /&gt;
+            &lt;A:resourcetype&gt;
+                &lt;A:collection /&gt;
+                &lt;B:subscribed xmlns:B="http://calendarserver.org/ns/" /&gt;
+            &lt;/A:resourcetype&gt;
+            &lt;E:calendar-color xmlns:E="http://apple.com/ns/ical/"&gt;#1C4587FF&lt;/E:calendar-color&gt;
+            &lt;A:displayname&gt;Jewish holidays&lt;/A:displayname&gt;
+            &lt;C:calendar-description xmlns:C="urn:ietf:params:xml:ns:caldav"&gt;Sixteen annual Jewish holidays. Update every 2 weeks.&lt;/C:calendar-description&gt;
+            &lt;E:calendar-order xmlns:E="http://apple.com/ns/ical/"&gt;19&lt;/E:calendar-order&gt;
+            &lt;B:source xmlns:B="http://calendarserver.org/ns/"&gt;
+                &lt;A:href&gt;webcal://www.webcal.fi/cal.php?id=49&amp;amp;rid=ics&amp;amp;wrn=0&amp;amp;wp=12&amp;amp;wf=55&lt;/A:href&gt;
+            &lt;/B:source&gt;
+            &lt;E:refreshrate xmlns:E="http://apple.com/ns/ical/"&gt;P1W&lt;/E:refreshrate&gt;
+            &lt;B:subscribed-strip-alarms xmlns:B="http://calendarserver.org/ns/" /&gt;
+        &lt;/A:prop&gt;
+    &lt;/A:set&gt;
+&lt;/A:mkcol&gt;
+</code></pre>
+
+<h4 id="creating-a-new-subscription-in-10.9.2">Creating a new subscription in 10.9.2</h4>
+
+<pre><code>&lt;B:mkcalendar xmlns:B="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;A:set xmlns:A="DAV:"&gt;
+        &lt;A:prop&gt;
+            &lt;B:supported-calendar-component-set&gt;
+                &lt;B:comp name="VEVENT" /&gt;
+            &lt;/B:supported-calendar-component-set&gt;
+            &lt;C:subscribed-strip-alarms xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;C:subscribed-strip-attachments xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;A:resourcetype&gt;
+                &lt;A:collection /&gt;
+                &lt;C:subscribed xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;/A:resourcetype&gt;
+            &lt;D:refreshrate xmlns:D="http://apple.com/ns/ical/"&gt;P1W&lt;/D:refreshrate&gt;
+            &lt;C:source xmlns:C="http://calendarserver.org/ns/"&gt;
+                &lt;A:href&gt;webcal://www.webcal.fi/cal.php?id=49&amp;amp;amp;rid=ics&amp;amp;amp;wrn=0&amp;amp;amp;wp=12&amp;amp;amp;wf=55&lt;/A:href&gt;
+            &lt;/C:source&gt;
+            &lt;D:calendar-color xmlns:D="http://apple.com/ns/ical/"&gt;#1C4587FF&lt;/D:calendar-color&gt;
+            &lt;D:calendar-order xmlns:D="http://apple.com/ns/ical/"&gt;19&lt;/D:calendar-order&gt;
+            &lt;B:calendar-description&gt;Sixteen annual Jewish holidays. Update every 2 weeks.&lt;/B:calendar-description&gt;
+            &lt;C:subscribed-strip-todos xmlns:C="http://calendarserver.org/ns/" /&gt;
+            &lt;A:displayname&gt;Jewish holidays&lt;/A:displayname&gt;
+        &lt;/A:prop&gt;
+    &lt;/A:set&gt;
+&lt;/B:mkcalendar&gt;
+</code></pre>
+
+<h4 id="requesting-a-list-of-calendars-in-10.9.2">Requesting a list of calendars in 10.9.2</h4>
+
+<pre><code>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;A:propfind xmlns:A="DAV:"&gt;
+  &lt;A:prop&gt;
+    &lt;A:add-member/&gt;
+    &lt;C:allowed-sharing-modes xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;D:autoprovisioned xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;E:bulk-requests xmlns:E="http://me.com/_namespace/"/&gt;
+    &lt;D:calendar-color xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;B:calendar-description xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:calendar-free-busy-set xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;D:calendar-order xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;B:calendar-timezone xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;A:current-user-privilege-set/&gt;
+    &lt;B:default-alarm-vevent-date xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:default-alarm-vevent-datetime xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;A:displayname/&gt;
+    &lt;C:getctag xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;D:language-code xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;D:location-code xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;A:owner/&gt;
+    &lt;C:pre-publish-url xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:publish-url xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:push-transports xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:pushkey xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;A:quota-available-bytes/&gt;
+    &lt;A:quota-used-bytes/&gt;
+    &lt;D:refreshrate xmlns:D="http://apple.com/ns/ical/"/&gt;
+    &lt;A:resource-id/&gt;
+    &lt;A:resourcetype/&gt;
+    &lt;B:schedule-calendar-transp xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:schedule-default-calendar-URL xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;C:source xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:subscribed-strip-alarms xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:subscribed-strip-attachments xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;C:subscribed-strip-todos xmlns:C="http://calendarserver.org/ns/"/&gt;
+    &lt;B:supported-calendar-component-set xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;B:supported-calendar-component-sets xmlns:B="urn:ietf:params:xml:ns:caldav"/&gt;
+    &lt;A:supported-report-set/&gt;
+    &lt;A:sync-token/&gt;
+  &lt;/A:prop&gt;
+&lt;/A:propfind&gt;
+</code></pre>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

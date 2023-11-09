@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Request and Response decorators - sabre/http</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre.io/">
+                            <img src="https://sabre.io/img/logo.png" alt="sabre/sabre/http">
+                sabre<span>/http</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre.io/http">sabre/http</a>
+                                <ul>
+                    <li><a href="https://sabre.io/http/install">Installation</a></li>
+                    <li><a href="https://sabre.io/http/sapi">The PHP Sapi wrapper</a></li>
+                    <li><a href="https://sabre.io/http/decorators">Decorators</a></li>
+                    <li><a href="https://sabre.io/http/client">The HTTP client</a></li>
+                    <li><a href="https://sabre.io/http/reverseproxy">Writing a reverse proxy</a></li>
+                    <li><a href="https://sabre.io/http/api">Request and Response APIs</a></li>
+                    <li><a href="https://sabre.io/http/upgrade/">Upgrading</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Request and Response decorators</h1>
+                <p>It may be useful to extend the Request and Response objects in your
+application, if you for example would like them to carry a bit more
+information about the current request.</p>
+
+<p>For instance, you may want to add an <code>isLoggedIn</code> method to the Request object.</p>
+
+<p>Simply extending Request and Response may pose some problems:</p>
+
+<ol>
+<li>You may want to extend the objects with new behaviors differently, in
+different subsystems of your application,</li>
+<li>The <code>Sapi::getRequest</code> factory always returns an instance of
+<code>Request</code> so you would have to override the factory method as well,</li>
+<li>By controlling the instantiation and depend on specific <code>Request</code> and
+<code>Response</code> instances in your library or application, you make it harder to
+work with other applications which also use <code>sabre/http</code>.</li>
+</ol>
+
+<p>In short: it would be bad design. Instead, it's recommended to use the
+<a href="https://en.wikipedia.org/wiki/Decorator_pattern">decorator pattern</a> to add new behavior where you need it. <code>sabre/http</code>
+provides helper classes to quickly do this.</p>
+
+<p>Example:</p>
+
+<pre><code>use Sabre\HTTP;
+
+class MyRequest extends HTTP\RequestDecorator {
+
+    function isLoggedIn() {
+
+        return true;
+
+    }
+
+}
+</code></pre>
+
+<p>Our application assumes that the true <code>Request</code> object was instantiated
+somewhere else, by some other subsystem. This could simply be a call like
+<code>$request = Sapi::getRequest()</code> at the top of your application,
+but could also be somewhere in a unit test.</p>
+
+<p>All we know in the current subsystem is that we received a <code>$request</code> and
+that it implements <code>Sabre\HTTP\RequestInterface</code>. To decorate this object,
+all we need to do is:</p>
+
+<pre><code>$request = new MyRequest($request);
+</code></pre>
+
+<p>And that's it, we now have an <code>isLoggedIn</code> method, without having to mess
+with the core instances.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>
