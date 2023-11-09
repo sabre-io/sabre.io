@@ -1,6 +1,7 @@
 # sculpin
 /output_dev/
 /output_prod/
+/output_gh/
 /.sculpin/
 /source/components/*
 /deploy/

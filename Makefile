@@ -9,11 +9,12 @@ URL = https://${DOMAIN}
 
 SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md" -or -name "*.html")
 
-.PHONY: all, generate, do-deploy, server, output_dev, output_prod
+.PHONY: all, generate, do-deploy, server, output_dev, output_prod, output_gh
 
 all: do-deploy
 
 generate: composer.lock output_prod
+gh-pages: composer.lock output_gh
 
 do-deploy: generate
 	cd deploy && \
@@ -44,6 +45,8 @@ output_dev: output_dev/atom.xml
 
 output_prod: output_prod/atom.xml
 
+output_gh: output_gh/atom.xml
+
 output_dev/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 	# atom.xml always changes to the latest date and time, so we can use this
 	# as the main target to figure out if the source changed at all.
@@ -53,6 +56,11 @@ output_prod/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 	# atom.xml always changes to the latest date and time, so we can use this
 	# as the main target to figure out if the source changed at all.
 	vendor/bin/sculpin generate --env=prod --url=$(URL)
+
+output_gh/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
+	# atom.xml always changes to the latest date and time, so we can use this
+	# as the main target to figure out if the source changed at all.
+	vendor/bin/sculpin generate --env=gh --url=https://sabre-io.github.io/sabre.io
 
 
 YUI = $(shell which yuicompressor || which yui-compressor)
