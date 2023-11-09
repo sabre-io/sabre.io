@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - feat/doc-to-github-pages
 
 jobs:
   deploy:
@@ -29,10 +28,10 @@ jobs:
           tools: composer
 
       - name: Generate
-        run: make generate
+        run: make gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: output_prod
+          publish_dir: output_gh
