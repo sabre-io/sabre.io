@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>sabre/dav 1.7 end of support - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body class="body--nodocs">
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+    
+        <main>
+                <article>
+                <article class="blog-entry">
+        <time>July 28th, 2014</time>
+        <h1>sabre/dav 1.7 end of support</h1>
+        <div>
+            <p>As of right now, sabre/dav 1.7 has reached end of life status.</p>
+
+<p>Version 1.8 has been released in November 2012, so people had 20 months to
+upgrade their systems.</p>
+
+<p>We've done one final release (1.7.13), containing a few minor fixes and a newer
+version of the sabre/vobject library (if you're using the zip installation).</p>
+
+<p>Upgrade sabre/dav by running:</p>
+
+<pre><code>composer update sabre/dav
+</code></pre>
+
+<p>Or download the zip from the <a href="https://github.com/sabre-io/dav/releases">releases</a> page.</p>
+
+<p>Full changelog can be found on <a href="https://github.com/sabre-io/dav/blob/1.7.13/ChangeLog">Github</a></p>
+
+<h3 id="what-does-this-mean%3F">What does this mean?</h3>
+
+<p>From this point forward, we will no longer accept bug reports for version 1.7.</p>
+
+<p>Also, no future releases will be made.</p>
+
+<p>We <em>may</em> consider certain security bugs, but there are no guarantees.</p>
+
+<h3 id="upgrading-to-1.8">Upgrading to 1.8</h3>
+
+<p>Upgrading to version 1.8 is not difficult. The main change that has been made
+between these versions, is that 1.8 makes use of PHP namespaces, where 1.7
+uses the classic 'pear-style' prefix notation.</p>
+
+<p>Make sure to check out the <a href="https://sabre.io/dav/upgrade/1.7-to-1.8/">migration instructions</a> for a detailed overview
+of the changes.</p>
+
+<p>Keep in mind though that version 2.0 of sabre/dav is also already released. If
+you are upgrading, you're highly encouraged to take that additional upgrade
+step. Version 2.0 has its own <a href="https://sabre.io/dav/upgrade/1.8-to-2.0/">migration instructions</a>.</p>
+
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="https://sabre-io.github.io/sabre.io/blog/tags/dav">dav</a>,                         <a href="https://sabre-io.github.io/sabre.io/blog/tags/release">release</a>,                         <a href="https://sabre-io.github.io/sabre.io/blog/tags/eol">eol</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                            <li>Next: <a class="next" href="https://sabre-io.github.io/sabre.io/blog/2014/sabre-vobject-3.3.0-release/" title="sabre/vobject 3.3.0 release"><span class="title">sabre/vobject 3.3.0 release</span></a></li>
+                                                                <li>Previous: <a class="previous" href="https://sabre-io.github.io/sabre.io/blog/2014/sabre-dav-2.0.3-release/" title="sabre/dav 2.0.3 release"><span class="title">sabre/dav 2.0.3 release</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
+
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

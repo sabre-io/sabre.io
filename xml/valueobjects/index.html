@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Value Objects - sabre/xml</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/xml">
+                sabre<span>/xml</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/">Introduction</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/install/">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/reading/">Reading XML</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/writing/">Writing XML</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/valueobjects/">Value Object mapping</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/service/">XML service</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/clark-notation/">Clark-notation</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Value Objects</h1>
+                <p>Since version 1.3, sabre/xml comes with a new facility to map XML elements to
+PHP classes, in two directions: Value Objects.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>To demonstrate, lets take the following (partial) atom feed:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
+ &lt;title&gt;Example Feed&lt;/title&gt;
+ &lt;link href="http://example.org/"/&gt;
+ &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
+ &lt;author&gt;
+   &lt;name&gt;John Doe&lt;/name&gt;
+ &lt;/author&gt;
+ &lt;id&gt;urn:uuid:60a76c80-d399-11d9-b93C-0003939e0af6&lt;/id&gt;
+
+ &lt;entry&gt;
+   &lt;title&gt;Atom-Powered Robots Run Amok&lt;/title&gt;
+   &lt;link href="http://example.org/2003/12/13/atom03"/&gt;
+   &lt;id&gt;urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a&lt;/id&gt;
+   &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
+   &lt;summary&gt;Some text.&lt;/summary&gt;
+ &lt;/entry&gt;
+
+&lt;/feed&gt;
+</code></pre>
+
+<p>A PHP classes implementation might look something like this:</p>
+
+<pre><code>namespace My\Atom;
+
+class Feed {
+
+    public $title;
+    public $link = [];
+    public $updated;
+    public $author;
+    public $id;
+    public $entry = [];
+
+}
+
+class Author {
+
+    public $name;
+    public $email;
+
+}
+
+class Entry {
+
+    public $title;
+    public $link = [];
+    public $id;
+    public $updated;
+    public $summary;
+
+}
+</code></pre>
+
+<p>To let sabre/xml automatically map between these two, simply use the Service
+class:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;namespaceMap['http//www.w3.org/2005/Atom'] = 'atom';
+
+$service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}feed', 'My\Atom\Feed');
+$service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}author', 'My\Atom\Author');
+$service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}entry', 'My\Atom\Entry');
+</code></pre>
+
+<p>In case you are curious about the weird notation with the <code>{</code> and <code>}</code>, read
+<a href="/xml/clark-notation/">clark-notation</a>.</p>
+
+<p>If you are running PHP 5.5 and up, you can also use <code>::class</code>. Example:</p>
+
+<pre><code>$service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}feed', Feed::class);
+$service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}author', Author::class);
+$service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}entry', Entry::class);
+</code></pre>
+
+<p>The <code>::class</code> construct basically returns a full class name. Because it's no
+longer specified as a string, you can import classes into the current scope.</p>
+
+<h2 id="parsing">Parsing</h2>
+
+<p>After that, all it takes to parse the atom feed is:</p>
+
+<pre><code>$feed = $service-&gt;parse($xml);
+// Feed is an instance of My\Atom\Feed;
+</code></pre>
+
+<p>To automatically throw an error if the root xml element is an atom feed,
+you can also use the <code>expect</code> method instead of <code>parse</code>.</p>
+
+<pre><code>$feed = $service-&gt;expect('{http://www.w3.org/2005/Atom}feed', $xml);
+// Feed is an instance of My\Atom\Feed;
+</code></pre>
+
+<h2 id="writing">Writing</h2>
+
+<p>Writing is similarly easy. Given that you have a <code>$feed</code> variable which refers
+to a fully setup <code>My\Atom\Feed</code> object, all you have to do is call the following:</p>
+
+<pre><code>$xml = $service-&gt;writeValueObject($feed);
+</code></pre>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>When you pass a classname to <code>mapValueObject</code>, sabre/xml automatically creates
+an instance of that class when it comes across the element name you specified.</p>
+
+<p>Take for instance this portion of the XML document:</p>
+
+<pre><code> &lt;entry xmlns="http://www.w3.org/2005/Atom"&gt;
+   &lt;title&gt;Atom-Powered Robots Run Amok&lt;/title&gt;
+   &lt;link href="http://example.org/2003/12/13/atom03"/&gt;
+   &lt;id&gt;urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a&lt;/id&gt;
+   &lt;updated&gt;2003-12-13T18:30:02Z&lt;/updated&gt;
+   &lt;summary&gt;Some text.&lt;/summary&gt;
+ &lt;/entry&gt;
+</code></pre>
+
+<p>When we call the following function:</p>
+
+<pre><code>$service-&gt;mapValueObject('{http://www.w3.org/2005/Atom}entry', 'My\Atom\Entry');
+</code></pre>
+
+<p>We are basically saying:</p>
+
+<ul>
+<li>Map the element <code>entry</code>.</li>
+<li>In the XML namespace <code>http://www.w3.org/2005/Atom</code></li>
+<li>To the PHP class <code>My\Atom\Entry</code>.</li>
+</ul>
+
+<p>In this example all the child elements (<code>title</code>, <code>link</code>, <code>id</code>) are also all in
+the same XML namespace. If this is the case, we will see if the class
+<code>My\Atom\Entry</code> has a <code>public</code> property with the same name, and set its value.</p>
+
+<p>If entry had sub-elements in a different XML namespace, they would be discarded.</p>
+
+<p>One special trick is that if you define your class with a property and give it
+a default value that's an array, <code>sabre/xml</code> will immediately assume that more
+than one element may appear. In the above example, both <code>$authors</code> and <code>$entry</code>
+was defaulted to an empty array. This signals <code>sabre/xml</code> that multiple
+<code>&lt;author&gt;</code> and <code>&lt;entry&gt;</code> elements may appear as children and it will append
+those to the array.</p>
+
+<h2 id="under-the-hood">Under the hood</h2>
+
+<p>Ultimately this only works for simple mappings. As soon as your objects have
+multiple namespaces, or if you need to parse out attributes, ValueObjects are
+immediately too simplistic for you.</p>
+
+<p>In those cases you need to write custom serializers/deserializers for your
+objects. If you paid attention to the examples so far, you will have noted
+that the atom feed contained this element:</p>
+
+<pre><code>   &lt;link href="http://example.org/2003/12/13/atom03"/&gt;
+</code></pre>
+
+<p>The parser in fact discarded the <code>href</code> attribute and its value. The only
+way around that is to write a custom deserializer.</p>
+
+<p>The following example demonstrates how you would parse <code>&lt;link&gt;</code>. First, we
+need a class representing atom links:</p>
+
+<pre><code>namespace My\Atom;
+class Link {
+
+    public $href;
+    public $rel;
+    public $type;
+    public $hrefLang;
+    public $title;
+    public $length;
+
+}
+</code></pre>
+
+<p>And now, a custom deserializer, defined on the Service:</p>
+
+<pre><code>$service-&gt;elementMap['{http://www.w3.org/2005/Atom}link'] = function($reader) {
+
+    $link = new My\Atom\Link();
+    foreach($reader-&gt;parseAttributes() as $key=&gt;$value) {
+
+        if (isset($link-&gt;{$key})) {
+            $link-&gt;$key = $value;
+        }
+
+    }
+    // Tell the reader we are done with this element
+    $reader-&gt;next();
+    return $link;
+
+};
+</code></pre>
+
+<p>The serializer is even simpler:</p>
+
+<pre><code>$server-&gt;classMap['My\Atom\Link'] = function($writer, $link) {
+
+    $writer-&gt;writeAttributes(
+        get_object_vars($link)
+    );
+
+}
+</code></pre>
+
+<p>Under the hood, that's also how the <code>mapValueObject</code> operates. It adds a
+mapping to both the <code>$elementMap</code> and <code>$classMap</code>.</p>
+
+<h2 id="a-more-complete-atom-example">A more complete atom example</h2>
+
+<p>We've built a full atom parser for demonstration purposes. You can find it
+on <a href="https://github.com/sabre-io/xml-atom" title="Atom XML parser for PHP">GitHub</a> and <a href="https://packagist.org/packages/sabre/xml-atom" title="Atom XML parser for PHP">Packagist</a>.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

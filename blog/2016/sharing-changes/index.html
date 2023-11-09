@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Changes to sharing in sabre/dav 3.2 - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body class="body--nodocs">
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+    
+        <main>
+                <article>
+                <article class="blog-entry">
+        <time>May 29th, 2016</time>
+        <h1>Changes to sharing in sabre/dav 3.2</h1>
+        <div>
+            <p>We are currently working on sabre/dav 3.2. <a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">A first beta has been released</a>.
+This release includes major changes to the sharing system.</p>
+
+<p>If you are a user of sabre/dav and have never done any deep modifications to
+the sharing system, this simply means that from that version onward, there's
+a new calendar sharing feature.</p>
+
+<p>To take advantage of that feature, you can just upgrade and then turn on the
+sharing plugin:</p>
+
+<pre><code>$server-&gt;addPlugin(new Sabre\DAV\Sharing\Plugin());
+</code></pre>
+
+<p>And to allow Apple clients and BusyCal to modify the list of who can access
+your calendar, add the following second plugin:</p>
+
+<pre><code>$server-&gt;addPlugin(new Sabre\CalDAV\SharingPlugin());
+</code></pre>
+
+<p>Now if you're completely new to this, you can stop reading this article right
+here. However, if you did stuff with sharing before, read on.</p>
+
+<h2 id="the-old-situation">The old situation</h2>
+
+<p>Preliminary support for sharing was added to sabre/dav in version 1.7, which
+was released back in 2012. However, this release only ever shipped with the
+interfaces to allow an implementor to write a custom backend for this.</p>
+
+<p>There were only a few people that have actually done that. This guide is for
+those people.</p>
+
+<p>The specification we used back then were 2 apple proprietary specifications:</p>
+
+<ol>
+<li><a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">caldav-sharing</a>.</li>
+<li><a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt">caldav-notifications</a>.</li>
+</ol>
+
+<p>The internal sabre/dav API's match the terminology from those specifications.
+The API's allowed someone to write an implementation that allows a user to
+invite another user to their calendar. The others get the invitation and can
+accept or decline the invite.</p>
+
+<h2 id="new-standardization-effort">New standardization effort</h2>
+
+<p>In 2014 the sabre/dav project and a couple of other vendors started on a new
+effort, with the following primary goals:</p>
+
+<ol>
+<li>Standardize the proprietary spec.</li>
+<li>Extend the specification to also allow CardDAV (addressbook) sharing to be
+implemented.</li>
+</ol>
+
+<p>To do this, we've split the standard into 4 separate specifications:</p>
+
+<ol>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-notifications">draft-pot-webdav-notifications</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-webdav-resource-sharing">draft-pot-webdav-resource-sharing</a>.</li>
+<li><a href="https://tools.ietf.org/html/draft-pot-caldav-sharing-00">draft-pot-caldav-sharing</a>.</li>
+<li>And a future carddav sharing spec.</li>
+</ol>
+
+<p>So in this process we're not only creating a separate CardDAV and CalDAV spec,
+but also adding a generic 'WebDAV sharing' spec that can be used by
+WebDAV file sharing systems, such as ownCloud.</p>
+
+<p>On a high level the data-model is similar, but almost everywhere new XML
+documents have been defined that are more descriptive, more generic or just
+better for aesthetic reasons.</p>
+
+<h2 id="the-state-of-sharing-in-sabre%2Fdav-3.2">The state of sharing in sabre/dav 3.2</h2>
+
+<p>The first place where the new specifications will be integrated, is CalDAV.
+So 3.2 is also the first place where we actually ship a working implementation.</p>
+
+<p>However, to do this properly, some big changes were made:</p>
+
+<ol>
+<li>The internal API is 100% rewritten. All the properties and classes use
+terminology matching the <em>new</em> specs and not the old specs.</li>
+<li>A lot of the code has been moved from the <code>Sabre\CalDAV</code> to the
+<code>Sabre\DAV\Sharing</code> namespace.</li>
+</ol>
+
+<p>But, another thing is really important. The new sharing specification allows
+two workflows for sharing:</p>
+
+<ol>
+<li>Sharing with a notification system. In this approach you can invite someone
+to a share, and that person then gets an opportunity to accept, decline or
+ignore the invite.</li>
+<li>Instant sharing. In this workflow you invite someone, and then that person
+immediately has access to the share.</li>
+</ol>
+
+<p>The old spec only has support for the first model, and this is true as well
+for the sabre/dav implementation.</p>
+
+<p>However, in sabre/dav 3.2 we initially only support model #2. So if you
+require the notification system, you can't yet do an upgrade.</p>
+
+<p>We think model #1 is probably more appropriate for public consumer systems,
+and #2 works better for systems supporting small teams.</p>
+
+<h2 id="getting-support-for-the-old-specifications">Getting support for the old specifications</h2>
+
+<p>One drawback of using the new specs, is that old clients don't yet understand
+them. So we've added a plugin to handle this.</p>
+
+<p>If you add the <code>Sabre\CalDAV\SharingPlugin</code> plugin, this plugin supports the
+old apple spec and automatically maps all incoming request to the new model.</p>
+
+<p>This plugin can therefore only work if <code>Sabre\DAV\Sharing\Plugin</code> is <em>also</em>
+up and running.</p>
+
+<h2 id="the-old-and-the-new-classes">The old and the new classes</h2>
+
+<p>This table gives you an idea of the old classes and interfaces, and which
+classes and interfaces you now need to look at for similar functionality.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Csharingplugin%60"><code>Sabre\CalDAV\SharingPlugin</code></h3>
+
+<p>This class split in two:</p>
+
+<ul>
+<li><code>Sabre\DAV\Sharing\Plugin</code></li>
+<li><code>Sabre\CalDAV\SharingPlugin</code></li>
+</ul>
+
+<h3 id="%60sabre%5Ccaldav%5Cisharablecalendar%60-and-%60sabre%5Ccaldav%5Cisharedcalendar"><code>Sabre\CalDAV\ISharableCalendar</code> and `Sabre\CalDAV\ISharedCalendar</h3>
+
+<p>The old sabre/dav had two node types for shared calendars, one for the
+original and one for the shared instances.</p>
+
+<p>The new sabre/dav combines this into a single <code>Sabre\DAV\Sharing\ISharedNode</code>.
+Which is used for 'all instances'.</p>
+
+<p>However, there is still <code>Sabre\CalDAV\ISharedCalendar</code> which extends both
+<code>Sabre\DAV\Sharing\ISharedNode</code> and <code>Sabre\CalDAV\ICalendar</code>.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Csharedcalendar%60-and-%60sabre%5Ccaldav%5Cshareablecalendar%60"><code>Sabre\CalDAV\SharedCalendar</code> and <code>Sabre\CalDAV\ShareableCalendar</code></h3>
+
+<p>Like the interfaces, the concrete classes also had two distinct nodes. In
+the new system, there is just <code>Sabre\CalDAV\SharedCalendar</code>.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Cnotifications%60"><code>Sabre\CalDAV\Notifications</code></h3>
+
+<p>This entire namespace must not be used in sabre/dav 3.2. It doesn't work and
+it will go away.</p>
+
+<h3 id="%60sabre%5Ccaldav%5Cbackend%5Csharingsupport%60"><code>Sabre\CalDAV\Backend\SharingSupport</code></h3>
+
+<p>This interface still exists and still has the same goal, but it went through
+a number of structural changes. It also no longer <em>requires</em>
+<code>Sabre\CalDAV\Backend\NotificationSupport</code> as well.</p>
+
+<h2 id="the-future">The future</h2>
+
+<p>The plan is to implement the notifications engine again, but take a different
+approach than we originally did in old sabre/dav versions. The new system
+should be better separated from CalDAV and support notifications for different
+subsystems (CardDAV, CalDAV, etc).</p>
+
+<p>We will also add support for CardDAV (addressbook) sharing soon.</p>
+
+<p>Hopefully these releases will all be rolled out in 3.3 and 3.4 releases.</p>
+
+<p>My advice for people that <em>require</em> the notification subsystem for now is to
+stick to 3.1 until we have a complete replacement. Some shifts will likely
+happen until we land on a design we're actually happy with.</p>
+
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="https://sabre-io.github.io/sabre.io/blog/tags/dav">dav</a>,                         <a href="https://sabre-io.github.io/sabre.io/blog/tags/carddav">carddav</a>,                         <a href="https://sabre-io.github.io/sabre.io/blog/tags/caldav">caldav</a>,                         <a href="https://sabre-io.github.io/sabre.io/blog/tags/sharing">sharing</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                            <li>Next: <a class="next" href="https://sabre-io.github.io/sabre.io/blog/2016/sabre-dav-3.2.0-release/" title="sabre/dav 3.2.0 released"><span class="title">sabre/dav 3.2.0 released</span></a></li>
+                                                                <li>Previous: <a class="previous" href="https://sabre-io.github.io/sabre.io/blog/2016/sabre-dav-3.1.4-release/" title="sabre/dav 3.1.4 released"><span class="title">sabre/dav 3.1.4 released</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
+
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

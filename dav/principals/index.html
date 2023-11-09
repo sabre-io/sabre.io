@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Principals - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Principals</h1>
+                <h2 id="what-are-they%3F">What are they?</h2>
+
+<p>Principals are, in the most general sense:</p>
+
+<ol>
+<li>Something which you can assign privileges to.</li>
+<li>Principals can be group-members of other principals.</li>
+<li>Principals are represented by a resource in your 'WebDAV filesystem'.</li>
+</ol>
+
+<p>The full definition for principals can be found in <a href="https://tools.ietf.org/html/rfc3744">rfc3744</a>.</p>
+
+<p>CalDAV, CardDAV and other specifications add more specific terminology
+to what a principal is, such as:</p>
+
+<ol>
+<li>It can represent a user.</li>
+<li>It can represent a group of people.</li>
+<li>It can represent a schedulable resource.</li>
+<li>A principal resource often holds user-specific information, such as
+settings in the form of WebDAV properties.</li>
+<li>It can represent a container for indirectly assigning privileges to other
+principals.</li>
+</ol>
+
+<p>When a user is logged in, sabre/dav knows they are a certain principal, and
+assigns this information to the <code>{DAV:}current-user-principal</code> property.</p>
+
+<p>The principal can also belong to one or more group, and sabre/dav tracks
+and caches this information as well, as the groups the current user belongs
+to influences what a user is allowed to see and do on the server.</p>
+
+<h2 id="do-i-need-principals%3F">Do I need principals?</h2>
+
+<p>Both <a href="/dav/caldav/">CalDAV</a> and <a href="/dav/carddav/">CardDAV</a> <em>require</em> principals to work and exists.
+If you are not building a CalDAV or CardDAV server, you may not need it.</p>
+
+<p>You also <em>must</em> use principals to take advantage of the <a href="/dav/acl/">ACL</a> system. But for
+some use-cases implementing a fully-fledged ACL system <em>may</em> be overkill.</p>
+
+<h2 id="what%27s-the-quickest-way-to-deal-with-principals%3F">What's the quickest way to deal with principals?</h2>
+
+<p>sabre/dav ships with a 'backend class' that adds principals to your tree.
+Principal information is stored in sqlite or mysql.</p>
+
+<p>To instantiate this, add it to your 'root node'.</p>
+
+<pre><code>$pdo = new PDO('sqlite:...');
+$principalBackend = new Sabre\DAVACL\PrincipalBackend\PDO($pdo);
+$nodes = [
+    new Sabre\DAVACL\PrincipalCollection($principalBackend)
+];
+</code></pre>
+
+<p>Note that in the sabre/dav <code>examples/</code> directory, the following three example
+servers already have this:</p>
+
+<ol>
+<li><code>calendarserver.php</code>.</li>
+<li><code>addressbookserver.php</code>.</li>
+<li><code>groupwareserver.php</code>. (combines #1 and #2)</li>
+</ol>
+
+<p>The database structure you need for principals can be found in one of:</p>
+
+<ol>
+<li><code>examples/sql/sqlite.principals.sql</code>.</li>
+<li><code>examples/sql/mysql.principals.sql</code>.</li>
+<li><code>examples/sql/psql.principals.sql</code> (untested).</li>
+</ol>
+
+<p>The standard database structure has the following fields for the principals
+table:</p>
+
+<ol>
+<li>id</li>
+<li>uri</li>
+<li>displayname</li>
+<li>email</li>
+<li>vcardurl</li>
+</ol>
+
+<p><code>id</code> is just the primary key and sabredav doesn't really use this. <code>uri</code>
+<em>must</em> be a full path to the principal. If you didn't change any defaults
+this means that this <em>must</em> be in the format:</p>
+
+<pre><code>principals/username
+</code></pre>
+
+<p>So if your username is "evert", the uri <em>must</em> be:</p>
+
+<pre><code>principals/evert
+</code></pre>
+
+<p><code>displayname</code> is primarily used by the CalDAV plugin to search for users
+with certain names. It's recommended to just fill in a full name here.</p>
+
+<p><code>email</code> <em>must</em> be set if you do anything with CalDAV and invitations.</p>
+
+<p><code>vcardurl</code> is used and managed by the CardDAV plugin to implement the
+so-called "me card" functionality.</p>
+
+<h2 id="custom-principal-backends">Custom principal backends</h2>
+
+<p>Many users have a custom authentication system, and also want to integrate
+their principals system with this.</p>
+
+<p>If you'd like to do this, you can simply subclass</p>
+
+<pre><code>Sabre\DAVACL\PrincipalBackend\AbstractBackend
+</code></pre>
+
+<p>We don't recommend subclassing:</p>
+
+<pre><code>Sabre\DAVACL\PrincipalBackend\PDO
+</code></pre>
+
+<p>You are required to implement the following methods:</p>
+
+<ol>
+<li><code>getPrincipalsByPrefix</code> is primarily used to get a list of principals for
+a path. For instance, you may receive the string <code>principals</code> which means
+that you have to return every principal that starts with <code>principals/</code>.</li>
+<li><code>getPrincipalByPath</code> returns information for a single prefix.</li>
+<li><code>updatePrincipal</code>. You can just leave this method empty in most cases.</li>
+<li><code>searchPrincipals</code>. Implement this if you want to allow CalDAV users to
+use auto-completion when inviting users as attendees, sharees or delegates.</li>
+<li><code>findbyUri</code>. Implement this if you want to enable delivery of CalDAV
+scheduling invites.</li>
+<li><code>getGroupMemberSet</code>, <code>setGroupMemberSet</code>, <code>getGroupMemberShip</code> can be
+ignored if you don't care about grouping yet.</li>
+</ol>
+
+<p>For more details about these methods, be sure to simply open</p>
+
+<pre><code>Sabre\DAVACL\PrincipalBackend\BackendInterface
+</code></pre>
+
+<p>As there's much more detail in the actual source files.</p>
+
+<h3 id="provisioning">Provisioning</h3>
+
+<p>Lots of people add automatic provisioning of principals to their servers.
+If you are interested in this, make sure that you add the 'hook' for
+provisioning to your authentication backend, not the principals backend.</p>
+
+<p>You only really want to provision urls if you are certain a user can
+authenticate. The principals system, and in particular getPrincipalsByPath()
+<em>may</em> return false positives.</p>
+
+<h2 id="custom-principal-url-schemes">Custom principal URL schemes</h2>
+
+<p>By default sabre/dav assumes the following url structure:</p>
+
+<pre><code>principals/username
+</code></pre>
+
+<p>However, it may be desirable to have a structure such as:</p>
+
+<pre><code>principals/users/username
+principals/groups/groupname
+</code></pre>
+
+<p>sabre/dav supports custom structures very poorly, and this is something we
+would like to solve in the future.</p>
+
+<p>At the moment we strongly discourage this, but if you insist, the following
+chapters explain what needs to be done. The chapters assume that you use 
+both CalDAV and CardDAV. If you don't use either of them, just ignore the
+related bits from those steps.</p>
+
+<p>We also assume in all examples that your company is named <code>Acme</code> and you
+created all your custom classes in the <code>Acme</code> namespace.</p>
+
+<h3 id="principalbackend">PrincipalBackend</h3>
+
+<p>This is the most obvious: you need to alter your principals backend to
+support multiple prefixes.</p>
+
+<p>In particular, your <code>getPrincipalsByPrefix</code> method needs to assume it may
+receive strings such as:</p>
+
+<pre><code>principals/users
+principals/groups
+</code></pre>
+
+<p>And the same thing applies to <code>getPrincipalsByPath</code>.</p>
+
+<h3 id="root-nodes">Root nodes</h3>
+
+<p>Your <code>$nodes</code>, or root nodes that you pass to the server, first had an
+entry like this:</p>
+
+<pre><code>$principalBackend = new Acme\PrincipalBackend();
+$nodes = [
+    new Sabre\DAVACL\PrincipalCollection($principalBackend)
+];
+</code></pre>
+
+<p>This needs to be changed to something like this:</p>
+
+<pre><code>$principalBackend = new Acme\PrincipalBackend();
+$nodes = [
+    new Sabre\DAV\SimpleCollection('principals', [
+        new Sabre\DAVACL\PrincipalCollection($principalBackend, 'principals/users')
+        new Sabre\DAVACL\PrincipalCollection($principalBackend, 'principals/groups')
+    ]
+];
+</code></pre>
+
+<h3 id="doing-the-same-for-cal--and-carddav.">Doing the same for Cal- and CardDAV.</h3>
+
+<p>This is unfortunately a bit worse. It's not possible to correctly override the
+paths for Cal- and CardDAV.</p>
+
+<p>You need to subclass a total of 4 classes. <em>Note that this code is 100%
+untested</em>.</p>
+
+<pre><code>namespace Acme;
+
+use Sabre;
+
+class CalendarRoot extends Sabre\CalDAV\CalendarRoot {
+
+    function getName() {
+
+        // Grabbing all the components of the principal path.
+        $parts = explode('/', $this-&gt;principalPrefix);
+
+        // We are only interested in the second part.
+        return $parts[1];
+
+    }
+
+}
+
+class AddressBookRoot extends Sabre\CalDAV\AddressBookRoot {
+
+    function getName() {
+
+        // Grabbing all the components of the principal path.
+        $parts = explode('/', $this-&gt;principalPrefix);
+
+        // We are only interested in the second part.
+        return $parts[1];
+
+    }
+
+}
+
+class CalDAVPlugin extends Sabre\CalDAV\Plugin {
+
+    function getCalendarHomeForPrincipal($principal) {
+
+        if (!substr($principal, 0, strlen('principal/') !== 'principal/')) {
+            throw new \LogicException('This is not supposed to happen');
+        }
+        return 'calendars/' . substr($principal,strlen('principal/')+1);
+
+    }
+
+}
+
+class CardDAVPlugin extends Sabre\CardDAV\Plugin {
+
+    function getAddressBookHomeForPrincipal($principal) {
+
+        if (!substr($principal, 0, strlen('principal/') !== 'principal/')) {
+            throw new \LogicException('This is not supposed to happen');
+        }
+        return 'addressbooks/' . substr($principal,strlen('principal/')+1);
+
+    }
+
+}
+</code></pre>
+
+<p>Now lastly, you need make sure you're using your own new caldav and carddav
+plugin, and your newly created node.</p>
+
+<p>All these steps combined changes your server from this example:</p>
+
+<pre><code>$principalBackend = new Acme\PrincipalBackend();
+$caldavBackend = new Sabre\CalDAV\Backend\PDO($pdo);
+$carddavBackend = new Sabre\CardDAV\Backend\PDO($pdo);
+
+$nodes = [
+    new Sabre\DAVACL\PrincipalCollection($principalBackend)
+    new Sabre\CalDAV\CalendarRoot($principalBackend, $caldavBackend),
+    new Sabre\CalDAV\AddressBookRoot($principalBackend, $carddavBackend),
+];
+
+$server = new Sabre\DAV\Server($nodes);
+
+$server-&gt;addPlugin(Sabre\CalDAV\Plugin());
+$server-&gt;addPlugin(Sabre\CardDAV\Plugin());
+
+$server-&gt;exec();
+</code></pre>
+
+<p>To this:</p>
+
+<pre><code>$principalBackend = new Acme\PrincipalBackend();
+$caldavBackend = new Sabre\CalDAV\Backend\PDO($pdo);
+$carddavBackend = new Sabre\CardDAV\Backend\PDO($pdo);
+
+$nodes = [
+    new Sabre\DAV\SimpleCollection('principals', [
+        new Sabre\DAVACL\PrincipalCollection($principalBackend, 'principals/users')
+        new Sabre\DAVACL\PrincipalCollection($principalBackend, 'principals/groups')
+    ]
+    new Sabre\DAV\SimpleCollection('calendars', [
+        new Acme\CalendarRoot($principalBackend, $caldavBackend, 'principals/users'),
+        new Acme\CalendarRoot($principalBackend, $caldavBackend, 'principals/groups'),
+    ]
+    new Sabre\DAV\SimpleCollection('addressbooks', [
+        new Acme\AddressBookRoot($principalBackend, $carddavBackend, 'principals/users'),
+        new Acme\AddressBookRoot($principalBackend, $carddavBackend, 'principals/groups'),
+    ]
+];
+
+$server = new Sabre\DAV\Server($nodes);
+
+$server-&gt;addPlugin(Acme\CalDAVPlugin());
+$server-&gt;addPlugin(Acme\CardDAVPlugin());
+
+$server-&gt;exec();
+</code></pre>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

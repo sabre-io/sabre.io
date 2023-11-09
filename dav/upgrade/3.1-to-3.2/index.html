@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Upgrading from SabreDAV 3.1 to 3.2 - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Upgrading from SabreDAV 3.1 to 3.2</h1>
+                <p>sabre/dav 3.2 has been released. sabre/dav 3.2 is a new major version,
+and has several new features. To accommodate those features, a number of
+backwards-compatibility breaks were needed.</p>
+
+<p>This document is split in three segments. First the new features, then a list
+of changes as they relate to CalDAV and CardDAV clients, and lastly a list of
+changes for users who deployed sabre/dav themselves (so server admins or
+developers using sabre/dav as a dependency).</p>
+
+<h2 id="new-features">New features</h2>
+
+<ul>
+<li>Calendar sharing. You can now share a calendar read-only or read-write to
+a different user on the system with the default PDO backends.</li>
+<li>We now have full support for the <a href="http://www.postgresql.org/" title="PostgreSQL">PostgreSQL database</a> and we will
+continue to support it for bug fixes and future migrations.</li>
+<li>Support for <a href="https://www.php-fig.org/psr/psr-3/" title="PSR-3">PSR-3</a> for logging. We're now emitting a few logging
+messages, but we'll increase this in the future. Support for this standard
+means that you can use PSR-3-compatible tools such as <a href="https://github.com/Seldaek/monolog" title="Monolog">Monolog</a> to get
+debugging information and errors out of sabre/dav.</li>
+<li>We're now supporting <a href="https://tools.ietf.org/html/draft-pot-webdav-resource-sharing-03" title="Resource sharing draft 3">draft-pot-webdav-resource-sharing-03</a>, which is an
+upcoming standard for sharing calendars, addressbooks and collections.
+Currently this is only implemented for calendars.</li>
+<li>We added <code>Sabre\CalDAV\Backend\SimplePDO</code>. This is a super simple absolutely
+minimalist CalDAV backend that uses PDO as storage. The reason this was
+added is because it can serve as a better demonstration now that the
+'standard' PDO backend gets more and more features that are technically
+optional, such as scheduling, subscriptions, sharing, webdav sync and
+others.</li>
+<li>Added <code>Sabre\DAVACL\ACLTrait</code>. If you write your own node classes that need
+to support ACL, this trait might reduce the boilerplate you need.</li>
+<li>ICSExportPlugin now emits a <code>Content-Disposition</code> HTTP header so users get
+a more useful default filename when they save the result of the export.</li>
+<li>Added support for Unauthenticated access to the server, if the ACL plugin is
+enabled. This allows you to assign a privilege to the 'public'. If you for
+example assign a "read" privilege to <code>{DAV:}all</code> or <code>{DAV:}unauthenticated</code>
+this will allow a user to read the contents of a node without being
+authenticated. This is turned on by default.</li>
+<li>Support for the <code>principal-match</code> and <code>acl-principal-prop-set</code> REPORT
+requests from RFC3744.</li>
+</ul>
+
+<p>For a full list of changes, consult the <a href="https://github.com/sabre-io/dav/blob/3.2.0/CHANGELOG.md" title="The change log">changelog</a>.</p>
+
+<h2 id="changes-for-caldav-and-carddav-clients">Changes for CalDAV and CardDAV clients</h2>
+
+<p>We've made some pretty big changes to the iCalendar and vCard validation
+systems. We've detailed these changes in a separate blogpost. Read the
+whole thing here:</p>
+
+<p><a href="https://sabre.io/blog/2016/validation-changes/">https://sabre.io/blog/2016/validation-changes/</a></p>
+
+<h2 id="api-changes-and-other-bc-breaks">API Changes and other BC breaks</h2>
+
+<h3 id="database-changes">Database changes</h3>
+
+<p>The database model changes to accommodate calendar sharing. If you use the
+standard <code>Sabre\CalDAV\Backend\PDO</code> you must run the database migration script.</p>
+
+<p>The migration script is a command-line script that's in the <code>bin/</code> directory
+of sabredav. The migration script supports both Sqlite and MySQL. To get more
+information on how to run it, just run:</p>
+
+<pre><code>php migrationto32.php
+</code></pre>
+
+<p>This will give you a help message with more information on how to invoke the
+script.</p>
+
+<h3 id="the-%60href%60-class-has-changed">The <code>Href</code> class has changed</h3>
+
+<p>If you were using custom properties, and in particular if you made use of the
+<code>Sabre\DAV\Xml\Property\Href</code> class, this class has now changed a bit.</p>
+
+<p>In the past this class was used for two purposes:</p>
+
+<ol>
+<li>To generate relative URIs to paths that are on the server. For instance,
+you might have specified <code>principals/userA</code>.</li>
+<li>To generate absolute URIs, such as <code>http://example.org/</code> or
+<code>mailto:foo@example.org</code>.</li>
+</ol>
+
+<p>To differentiate between the two, you had to specify a second boolean argument
+to the property to specify that it was to be treated as a absolute path, so:</p>
+
+<pre><code>new Href('principals/userA');
+new Href('http://example.org/', true);
+new Href('mailto:foo@example.org', true);
+</code></pre>
+
+<p>This was quite confusing in a number of ways. The biggest one was that the
+first example actually has different encoding rules than the second and
+third.</p>
+
+<p>In the case of the first we automatically prepend a base url, but we also
+assumed that it was a raw local path and we still need to percent-encode
+everything.</p>
+
+<p>So to bring some sanity into all this, there are now two classes. To specify
+the same three hrefs, you now use:</p>
+
+<pre><code>new LocalHref('principals/userA');
+new Href('http://example.org/');
+new Href('mailto:foo@example.org');
+</code></pre>
+
+<p>Each of these will still result in a <code>&lt;d:href&gt;..&lt;/d:href&gt;</code> xml property, but
+only the first is treated as a 'local sabredav path' that we will urlencode
+and add the base url to. The <code>Href</code> class is now strictly for URIs that target
+something outside of the sabre/dav system and we will not touch the string at
+all.</p>
+
+<h3 id="corrected-several-acl-privileges-related-to-calendaring-scheduling">Corrected several ACL privileges related to calendaring scheduling</h3>
+
+<p>We were not using all the correct ACL privileges when doing scheduling. This
+has been corrected in 3.2. If you had custom ACL rules that affected CalDAV
+scheduling, be aware that the exact privilege definitions may have changed a bit.</p>
+
+<p>We now use all the following CalDAV ACL privileges:</p>
+
+<ul>
+<li>schedule-deliver
+
+<ul>
+<li>schedule-deliver-invite</li>
+<li>schedule-deliver-reply</li>
+<li>schedule-query-freebusy</li>
+</ul></li>
+<li>schedule-send
+
+<ul>
+<li>schedule-send-invite</li>
+<li>schedule-send-reply</li>
+<li>schedule-send-freebusy</li>
+</ul></li>
+</ul>
+
+<h3 id="many-other-acl-rules-have-been-simplified">Many other ACL rules have been simplified</h3>
+
+<p>Many places now have the <code>{DAV:}all</code> privilege instead of separate
+<code>{DAV:}read</code> and <code>{DAV:}write</code> privileges.</p>
+
+<p>If you request <code>{DAV:}current-user-privilege-set</code> you should still see a
+similar list of privileges though.</p>
+
+<h3 id="support-for-unauthenticated-access">Support for unauthenticated access</h3>
+
+<p>By default it's now possible to specify ACL rules that allow someone who is
+not authenticated to perform actions on the server.</p>
+
+<p>To do this, simply return a rule from <code>getACL</code> from your node and instead of
+a principal url, you return the string <code>{DAV:}unauthenticated</code> or <code>{DAV:}all</code>.</p>
+
+<p>To support this new feature the server's behavior had to be changed pretty
+radically. In particular, before 3.1 it would work as follows:</p>
+
+<ol>
+<li>If the authentication plugin is enabled, check authentication headers.</li>
+<li>If auth headers were incorrect or not specified, immediately deny access
+and return a <code>401</code> status.</li>
+<li>Later in the request, do an access control check and return a <code>403</code> header
+if access was denied.</li>
+</ol>
+
+<p>From 3.2 the behavior is as follows:</p>
+
+<ol>
+<li>At the start of the request, see if authentication headers were set. If
+they were, attempt to authenticate the user but don't deny the user if
+they aren't set or incorrect.</li>
+<li>Proceed with the request as normal. Continue until the ACL plugin needs
+to validate a privilege.</li>
+<li>If the current (authenticated or not authenticated) user did <em>not</em> have
+access to the a specific required privilege, stop the request and:
+
+<ol>
+<li>Return a <code>401</code> header if the user was <em>not</em> authenticated.</li>
+<li>Return a <code>403</code> header if the user <em>was</em> authenticated.</li>
+</ol></li>
+</ol>
+
+<p>This radically changes the security model, as we actually let requests
+through, even if users are not authenticated correctly. This will behave
+correctly for sabre/dav internals because access control is checked
+everywhere.</p>
+
+<p>However, if you wrote a custom plugin, and this plugin allows the user to do
+a dangerous operation and you're not integrating with the ACL plugin, you are
+creating a serious security hole.</p>
+
+<p>Ideally you fix your plugin to leverage ACL, but there are two other
+workarounds:</p>
+
+<ol>
+<li>If you disable the ACL plugin, authentication will behave as before. We
+immediately deny the user if they did not authenticate. Disabling ACL
+could create other security and privilege escalation problems, so be aware.</li>
+<li>You can set the <code>$allowUnauthenticatedAccess</code> property to false. Setting
+it to false means you go back to the 3.1 ACL / Auth behavior, but you lose
+the public access ability.</li>
+</ol>
+
+<h3 id="removed-%60%24allowaccesstonodeswithoutacl%60">Removed <code>$allowAccessToNodesWithoutACL</code></h3>
+
+<p>This setting allowed you to control in the ACL plugin how it should behave
+for nodes in the tree that did not support ACL. By default it was set to
+true, but if it were set to false then the default would be to not allow
+access to system-wide nodes that did not implement <code>Sabre\DAVACL\IACL</code>.</p>
+
+<p>This feature has now been replaced by a 'Default ACL' rule. By default,
+similar to the old behavior, we assign the <code>{DAV:}all</code> privilege to
+<code>{DAV:}authenticated</code>.</p>
+
+<p>To mimic setting <code>$allowAccessToNodesWithoutACL</code> to false, as it was possible
+in the 3.1, you can now just call:</p>
+
+<pre><code>$aclPlugin-&gt;setDefaultACL([]);
+</code></pre>
+
+<p>But because of the nature of this new feature, it's now also possible to
+specify much more fine-grained permissions for these situations. You might
+for example choose to only give read access to these nodes, which makes
+a lot of sense for a lot of standard caldav/carddav servers.</p>
+
+<h3 id="no-longer-a-direct-database-upgrade-path-from-version-1.6">No longer a direct database upgrade path from version 1.6</h3>
+
+<p>We're no longer maintaining the migration script from sabre/dav version 1.6
+and older. People running that sabre/dav version had 3.5 years to upgrade, so
+this seems like enough time.</p>
+
+<h3 id="calendar-sharing-has-gone-under-heavy-modifications">Calendar sharing has gone under heavy modifications</h3>
+
+<p>The internal API for calendar sharing has changed. This is important if you
+wrote your own CalDAV backend and added sharing support for it.</p>
+
+<p>The changes for this have been detailed in a <a href="/blog/2016/sharing-changes/" title="Changes to CalDAV Sharing in sabre/dav 3.2">separate blog post</a>, as they
+were a bit too big to be included in this document.</p>
+
+<h3 id="pdo-caldav-backend-has-changed-the-structure-of-calendar-ids.">PDO CalDAV backend has changed the structure of calendar ids.</h3>
+
+<p>Note that if this affects you, your code was already broken to begin with.
+From this point onwards the PDO backend will now return multiple numbers as
+an array for calendar ids. This is to uniquely identify specific instances
+of shared calendars.</p>
+
+<p>So if you integrated directly with the PDO backends and somewhere you assumed
+that the 'id' returned from <code>getCalendarsForUser</code> was always a number, it is
+now an array. But ideally you should just treat this field as an opaque
+identifier and don't assign any meaning to it.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

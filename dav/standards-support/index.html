@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Standards Support - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Standards Support</h1>
+                <table>
+<thead>
+<tr>
+  <th>identifier</th>
+  <th>description</th>
+  <th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc2425">rfc2425</a></td>
+  <td>MimeDir (for vCard 3.0)</td>
+  <td>Parsed by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc2426">rfc2426</a></td>
+  <td>vCard 3.0</td>
+  <td>Parsed by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc2518">rfc2518</a></td>
+  <td>WebDAV specification (obsolete)</td>
+  <td>Implemented.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc2617">rfc2617</a></td>
+  <td>HTTP Basic/Digest auth (obsolete)</td>
+  <td><a href="/dav/authentication/">Authentication plugin</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc2738">rfc2739</a></td>
+  <td>vCard extensions for calendaring</td>
+  <td>Properties picked up by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc3253">rfc3253</a></td>
+  <td>Delta-V extension</td>
+  <td>Not planned. See <a href="/dav/versioning/">versioning</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc3648">rfc3648</a></td>
+  <td>Ordered collections</td>
+  <td>Not planned.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc3744">rfc3744</a></td>
+  <td>ACL</td>
+  <td>Supported. See <a href="/dav/acl/">ACL</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc4331">rfc4331</a></td>
+  <td>Quota and Size Properties</td>
+  <td>Supported by <code>Sabre\DAV\IQuota</code>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc4437">rfc4437</a></td>
+  <td>Redirects Reference Resources</td>
+  <td>Not planned</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc4709">rfc4709</a></td>
+  <td>Mounting WebDAV servers</td>
+  <td>Supported. See <a href="/dav/davmount/">DavMount</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc4770">rfc4770</a></td>
+  <td>vCard extensions for IM</td>
+  <td>Properties picked up by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc4790">rfc4790</a></td>
+  <td>Collation registry</td>
+  <td><a href="/dav/caldav/">CalDAV</a> and <a href="/dav/carddav/">CardDAV</a> support a various number of collations.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc4791">rfc4791</a></td>
+  <td>CalDAV</td>
+  <td>Supported. See <a href="/dav/caldav/">CalDAV</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc4918">rfc4918</a></td>
+  <td>Current WebDAV rfc</td>
+  <td>Supported. Duh.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5323">rfc5323</a></td>
+  <td>WebDAV SEARCH</td>
+  <td>Not planned.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5397">rfc5397</a></td>
+  <td>Current-Principal</td>
+  <td>Supported. Needs <a href="/dav/acl/">ACL</a> plugin.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5545">rfc5545</a></td>
+  <td>iCalendar 2.0</td>
+  <td>Parsed by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5546">rfc5546</a></td>
+  <td>iTIP</td>
+  <td>Implemented in <a href="/vobject/itip/">sabre/vobject</a> and used by <a href="/dav/scheduling/">scheduling</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5689">rfc5689</a></td>
+  <td>Extended MKCOL</td>
+  <td>Implemented in core server.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5789">rfc5789</a></td>
+  <td>PATCH method for HTTP</td>
+  <td>See <a href="/dav/http-patch/">Patch support</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5842">rfc5842</a></td>
+  <td>WebDAV BIND</td>
+  <td>Future. Maybe.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc5995">rfc5995</a></td>
+  <td>Using POST to Add Members</td>
+  <td>Future. Maybe.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6047">rfc6047</a></td>
+  <td>IMip</td>
+  <td>See <a href="/dav/scheduling/">scheduling</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6321">rfc6321</a></td>
+  <td>xCal</td>
+  <td>Supported by <a href="/vobject/">sabre/vobject</a> since version 4.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6350">rfc6350</a></td>
+  <td>vCard 4.0</td>
+  <td>Parsed by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6351">rfc6351</a></td>
+  <td>xCard</td>
+  <td>Supported by <a href="/vobject/">sabre/vobject</a> since version 4.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6352">rfc6352</a></td>
+  <td>CardDAV</td>
+  <td>Supported. See <a href="/dav/carddav/">CardDAV</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6473">rfc6473</a></td>
+  <td>VCard KIND:application</td>
+  <td>Properties picked up by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6474">rfc6474</a></td>
+  <td>VCard Place of birth/death</td>
+  <td>Properties picked up by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6578">rfc6578</a></td>
+  <td>WebDAV-sync</td>
+  <td>Supported. See <a href="/dav/sync/">WebDAV sync</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6638">rfc6638</a></td>
+  <td>Scheduling Extensions to CalDAV</td>
+  <td>Supported. See <a href="/dav/scheduling/">Scheduling</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6715">rfc6715</a></td>
+  <td>VCard extensions</td>
+  <td>Properties picked up by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6764">rfc6764</a></td>
+  <td>SRV and well-known</td>
+  <td>See <a href="/dav/service-discovery/">service discovery</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6868">rfc6868</a></td>
+  <td>Parameter encoding for vcard/ical</td>
+  <td>Integrated into <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc6869">rfc6869</a></td>
+  <td>vCard KIND:device</td>
+  <td>Properties picked up by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc7095">rfc7095</a></td>
+  <td>jCard</td>
+  <td>Parsed and generated by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc7265">rfc7265</a></td>
+  <td>jCal</td>
+  <td>Parsed and generated by <a href="/vobject/">sabre/vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc7240" title="Prefer Header for HTTP">rfc7240</a></td>
+  <td>Prefer Header for HTTP</td>
+  <td>Parsed by <a href="/http/">sabre/http</a>, supported in core.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/rfc7617" title="The 'Basic' HTTP Authentication Scheme">rfc7617</a></td>
+  <td>'Basic' HTTP Authentication</td>
+  <td><a href="/dav/authentication/">Authentication plugin</a>.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="non-standards-and-drafts">Non-standards and drafts</h2>
+
+<table>
+<thead>
+<tr>
+  <th>identifier</th>
+  <th>description</th>
+  <th>status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="http://www.imc.org/pdi/vcard-21.txt">vcard21</a></td>
+  <td>vCard 2.1</td>
+  <td>Parsed by <a href="/vobject/">sabre-vobject</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/draft-daboo-carddav-directory-gateway">carddav-directory</a></td>
+  <td>CardDAV Directory</td>
+  <td>Implemented. See <a href="/dav/carddav-directory">carddav-directory</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://trac.calendarserver.org/browser/CalendarServer/trunk/doc/Extensions/caldav-ctag.txt">ctag</a></td>
+  <td>CTag property</td>
+  <td>Implemented in <a href="/dav/caldav/">CalDAV</a> and <a href="/dav/carddav/">CardDAV</a>.</td>
+</tr>
+<tr>
+  <td><a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-proxy.txt">caldav-proxy</a></td>
+  <td>Calendar delegation</td>
+  <td>Implemented. See <a href="/dav/caldav-proxy">caldav-proxy</a>.</td>
+</tr>
+<tr>
+  <td><a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-sharing.txt">caldav-sharing</a></td>
+  <td>Calendar sharing</td>
+  <td>Implemented. See <a href="/dav/caldav-sharing">caldav-sharing</a>.</td>
+</tr>
+<tr>
+  <td><a href="http://svn.calendarserver.org/repository/calendarserver/CalendarServer/trunk/doc/Extensions/caldav-notifications.txt">caldav-notifications</a></td>
+  <td>Calendar notifications</td>
+  <td>Part of <a href="/dav/caldav-sharing">caldav-sharing</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/draft-daboo-calendar-availability-05">calendar-availability</a></td>
+  <td>VAVAILABILITY</td>
+  <td>Supported. See <a href="/dav/scheduling/">Scheduling</a>.</td>
+</tr>
+<tr>
+  <td><a href="https://tools.ietf.org/html/draft-murchison-webdav-prefer-08">webdav-prefer</a></td>
+  <td>Prefer header for WebDAV</td>
+  <td>Supported by core.</td>
+</tr>
+</tbody>
+</table>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

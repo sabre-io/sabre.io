@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Writing Plugins - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Writing Plugins</h1>
+                <p>sabre/dav uses an event system for plugin development. There's a big list of
+supported events. Every single <a href="/dav/plugins">plugin</a> uses these events to
+add their new features and functionality.</p>
+
+<h2 id="an-example%3A-adding-support-for-a-new-http-method">An example: adding support for a new HTTP method</h2>
+
+<p>Say if we wanted to implement a new HTTP method, named <code>BREW</code>, we'd use the
+following syntax:</p>
+
+<pre><code>use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+
+$server-&gt;on('method:BREW', function(RequestInterface $request, ResponseInterface $response) {
+
+    $response-&gt;setStatus(200);
+    $response-&gt;setBody('Coffee is under way!');
+
+    return false;
+
+});
+</code></pre>
+
+<p>A few things to note in the previous example:</p>
+
+<ol>
+<li>This specific event gets two arguments.</li>
+<li>The arguments represent the HTTP request and HTTP response.</li>
+<li>These two objects are documented <a href="/http/api">here</a>.</li>
+<li>We <em>must</em> return <code>false</code> because this tells the server 'we handled this method'.</li>
+<li>Returning true will allow another plugin to handle the method.</li>
+</ol>
+
+<h2 id="wrapping-this-in-a-plugin">Wrapping this in a plugin</h2>
+
+<p>If you have a few event handlers, and you would like to combine them into a
+single class, you can turn this into a plugin class.</p>
+
+<p>What follows, is an example that wraps the previous event handler into a
+coffeepot plugin:</p>
+
+<pre><code>use Sabre\DAV\Server;
+use Sabre\DAV\ServerPlugin;
+use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+
+class CoffeePlugin extends ServerPlugin {
+
+    protected $server;
+
+    function getName() {
+
+        return 'coffee';
+
+    }
+
+    function initialize(Server $server){
+
+        $this-&gt;server = $server;
+        $server-&gt;on('method:BREW', [$this, 'brewHandler']);
+
+    }
+
+    function getHTTPMethods($uri) {
+
+        return ['BREW'];
+
+    }
+
+    function brewHandler(RequestInterface $request, ResponseInterface $response) {
+
+        $response-&gt;setStatus(200);
+        $response-&gt;setBody('Coffee is under way!');
+        return false;
+
+    }
+
+}
+</code></pre>
+
+<p>Then if we want to use this plugin:</p>
+
+<pre><code>$coffeePlugin = new CoffeePlugin();
+$server-&gt;addPlugin($coffeePlugin);
+</code></pre>
+
+<h2 id="events">Events</h2>
+
+<p>The following events are supported in the server</p>
+
+<h3 id="%60method%60"><code>method</code></h3>
+
+<p>The <code>method</code> event is typically used to implement new methods.
+An example can be seen above.</p>
+
+<p>This event can also be used to override behavior of other methods. If you want
+to for example <em>always</em> want to override <code>GET</code> for certain urls, the following
+works:</p>
+
+<pre><code>use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+
+$server-&gt;on('method:GET', function(RequestInterface $request, ResponseInterface $response) {
+
+    if ($request-&gt;getPath() !== 'contact.html') {
+        return;
+    }
+
+    // Handles the 'contact.html' file.
+    return false;
+
+}, 90);
+</code></pre>
+
+<p>Note that we specified <code>90</code> as the last argument. This is a priority number
+which ensures that this event handler is called before the default. The
+default priority is <code>100</code>.</p>
+
+<p>You are not required to specify a method name in the event, it's also possible
+to intercept this event for <em>any</em> http method:</p>
+
+<pre><code>use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+
+$server-&gt;on('method', function(RequestInterface $request, ResponseInterface $response) {
+
+    // Always triggered for any method.
+
+});
+</code></pre>
+
+<h3 id="%60beforemethod%60"><code>beforeMethod</code></h3>
+
+<p>The <code>beforeMethod</code> handler is identical to the <code>method</code> handler. Using the
+<code>beforeMethod</code> handler you could do some pre-processing to the request.</p>
+
+<p>The authentication plugin uses <code>beforeMethod</code> to force users to be
+authenticated.</p>
+
+<p>The <code>beforeMethod</code> event can also be used with a method, e.g.:
+<code>beforeMethod:POST</code>.</p>
+
+<p>If you return false from your event handler the process is completely cancelled.</p>
+
+<h3 id="%60aftermethod%60"><code>afterMethod</code></h3>
+
+<p>After a method is completely handled, it's possible to do post-processing with
+<code>afterMethod</code>.</p>
+
+<p>The CalDAV plugin uses this event to transform iCalendar into jCal objects, if
+this was requested by the client.</p>
+
+<p>The <code>afterMethod</code> event can also be used with a method, e.g.:
+<code>afterMethod:GET</code>.</p>
+
+<p>If you return false from <code>afterMethod</code>, you prevent other <code>afterMethod</code> events
+from processing. Generally this is a bad idea.</p>
+
+<h3 id="%60beforecreatefile%60"><code>beforeCreateFile</code></h3>
+
+<p>This event is triggered before new files are created. Using this event it is, for
+example, possible to modify the new file before storage.</p>
+
+<p>Example:</p>
+
+<pre><code>function myHandler($path, &amp;$data, \Sabre\DAV\ICollection $parent, &amp;$modified) {
+
+    // if the filename contains the word 'upper' we uppercase the entire
+    // file. Normally this is a pretty bad idea.
+    if (strpos($path, 'upper')) {
+        if (is_resource($data)) {
+            $data = stream_get_contents($data);
+        }
+        $data = strtoupper($data);
+        $modified = true;
+    }
+
+}
+
+$server-&gt;on('beforeCreateFile', 'myHandler');
+</code></pre>
+
+<p>A few notes:</p>
+
+<ul>
+<li><code>$data</code> is passed by reference.</li>
+<li><code>$data</code> may either be a string or a stream resource. Make sure you handle
+both scenarios.</li>
+<li>If you did modify <code>$data</code>, make sure you set <code>$modified</code> to true. sabre/dav
+needs to do different things depending on if you stored the data as-is, or
+if you made modifications.</li>
+<li>If you return <code>false</code> from your event handler, the file will not be stored
+and the process is effectively cancelled.</li>
+</ul>
+
+<p>This is used by the CalDAV plugin to transform jCal to iCalendar.
+This is also used by the TemporaryFileFilter plugin to intercept creation of
+garbage files.</p>
+
+<h3 id="%60aftercreatefile%60"><code>afterCreateFile</code></h3>
+
+<p>This event is triggered, only if the creation of the file succeeded.</p>
+
+<p>Example:</p>
+
+<pre><code>function afterCreateFile($path, \Sabre\DAV\ICollection $parent) {
+
+    // Do some logging here
+
+}
+
+$server-&gt;on('afterCreateFile','afterCreateFile');
+</code></pre>
+
+<h3 id="%60beforewritecontent%60"><code>beforeWriteContent</code></h3>
+
+<p>This event is triggered before files are updated. Using this event, it is
+possible to intercept these actions, validate content or block them.</p>
+
+<p>Otherwise this works identical to <code>beforeCreateFile</code>, except this is only
+called when updating existing files, and never when creating new files.</p>
+
+<p>Example:</p>
+
+<pre><code>function beforeWriteContent($path, \Sabre\DAV\IFile $node, &amp;$data, &amp;$modified) {
+
+    file_put_contents('/tmp/davlog', $path . " just got updated!\n",FILE_APPEND);
+
+}
+
+$server-&gt;on('beforeWriteContent','beforeWriteContent');
+</code></pre>
+
+<p>All the caveats from <code>beforeCreateFile</code> apply here too. Note that the arguments
+are slightly different for historical reasons.</p>
+
+<h3 id="%60afterwritecontent%60"><code>afterWriteContent</code></h3>
+
+<p>This event is triggered, only if updating of an existing file succeeded.</p>
+
+<p>Example:</p>
+
+<pre><code>function afterWriteContent($path, \Sabre\DAV\IFile $node) {
+
+    // Do some logging here
+
+}
+
+$server-&gt;on('afterWriteContent','afterWriteContent');
+</code></pre>
+
+<h3 id="%60beforebind%60"><code>beforeBind</code></h3>
+
+<p>This event is triggered whenever a new node is about to be created in the tree.
+This is for example triggered by <code>PUT</code>, <code>MKCOL</code>, <code>COPY</code> and <code>MOVE</code>.</p>
+
+<p>Example:</p>
+
+<pre><code>function beforeBind($path) {
+
+    if (permitted()) return true;
+    else return false;
+
+}
+
+$server-&gt;on('beforeBind','beforeBind');
+</code></pre>
+
+<h3 id="%60beforeunbind%60"><code>beforeUnbind</code></h3>
+
+<p>This event is triggered whenever a node is about to be deleted. If an entire
+tree of nodes is deleted, the event will only trigger once, for the top-level
+node. The event is triggered by for example <code>DELETE</code>, and <code>COPY</code> and <code>MOVE</code> in
+case the target resource was being overwritten.</p>
+
+<p>Example:</p>
+
+<pre><code>function beforeUnbind($path) {
+
+    if (permitted()) return true;
+    else return false;
+
+}
+
+$server-&gt;on('beforeUnbind','beforeUnbind');
+</code></pre>
+
+<h3 id="%60afterunbind%60"><code>afterUnbind</code></h3>
+
+<p>This event is triggered after a node is deleted. If an entire tree of nodes is
+deleted, the event will only trigger once, for the top-level node. The event is
+triggered by for example <code>DELETE</code>, and <code>COPY</code> and <code>MOVE</code> in case the target
+resource was being overwritten.</p>
+
+<p>Example:</p>
+
+<pre><code>function afterUnbind($path) {
+
+    // Some logging could go here   
+
+}
+
+$server-&gt;on('afterUnbind','afterUnbind');
+</code></pre>
+
+<h3 id="%60beforelock%60"><code>beforeLock</code></h3>
+
+<p>The beforeLock event is triggered right before a resource is locked.
+Intercepting this event allows you to block a users' lock, or change information
+regarding the lock, such as the lock owner or lock timeout.</p>
+
+<p>Example:</p>
+
+<pre><code>function beforeLock($path, \Sabre\DAV\Locks\LockInfo $lock) {
+
+    if (!permitted()) return false;
+
+}
+
+$server-&gt;on('beforeLock','beforeLock');
+</code></pre>
+
+<h3 id="%60beforeunlock%60"><code>beforeUnlock</code></h3>
+
+<p>The beforeUnlock event is triggered right before a resource is unlocked.
+Intercepting this event allows you to block the unlock.</p>
+
+<p>Example:</p>
+
+<pre><code>function beforeUnlock($path, \Sabre\DAV\Locks\LockInfo $lock) {
+
+    if (!permitted()) return false;
+
+}
+
+$server-&gt;on('beforeUnlock','beforeUnlock');
+</code></pre>
+
+<h3 id="%60propfind%60"><code>propFind</code></h3>
+
+<p>The <code>propFind</code> event is called during updating of properties. The event is
+very versatile and used for a <em>lot</em> of property-related operations.</p>
+
+<p>Super basic example:</p>
+
+<pre><code>use Sabre\DAV\PropFind;
+use Sabre\DAV\INode;
+
+function addProperty(PropFind $propfind, INode $node) {
+
+    // This gives _every_ node a `{DAV:}displayname` of 'foo'.
+    $propFind-&gt;set('{DAV:}displayname', 'foo');
+
+}
+
+$server-&gt;on('propFind', 'addProperty');
+</code></pre>
+
+<p>Lets zoom in a bit on our <code>addProperty</code> event handler. The <code>set</code> method
+basically sets the <code>{DAV:}displayname</code> property to 'foo'.</p>
+
+<p>We can change this method to only do this, if there wasn't already a
+<code>{DAV:}displayname</code>. For that we use the <code>handle</code> method:</p>
+
+<pre><code>function addProperty(PropFind $propfind, INode $node) {
+
+    // This gives nodes without a displayname the value 'foo'.
+    $propFind-&gt;handle('{DAV:}displayname', 'foo');
+
+}
+</code></pre>
+
+<p>The string <code>foo</code> is pretty simple... but there are also cases where the value
+is some calculated value from the database. The simplest way to make sure that
+you're only doing the heavy calculation when the property is actually
+requested, you can put the value in a callback.</p>
+
+<pre><code>function addProperty(PropFind $propfind, INode $node) {
+
+    // This gives nodes without a displayname the value 'foo'.
+    $propFind-&gt;handle('{DAV:}displayname', function() {
+        return 'foo';
+    });
+
+}
+</code></pre>
+
+<p>If a property was set earlier, but you want to block access to this property,
+the easiest is to set its status to 403:</p>
+
+<pre><code>use Sabre\DAV\PropFind;
+use Sabre\DAV\INode;
+
+function blockProperty(PropFind $propfind, INode $node) {
+
+    // This blocks access to the displayname property.
+    $propFind-&gt;set('{DAV:}displayname', null, 403);
+
+}
+
+$server-&gt;on('propFind', 'blockProperty');
+</code></pre>
+
+<p>Note that the PropFind object will automatically ignore any <code>handle</code> or set
+that modifies properties that were never requested.</p>
+
+<h3 id="%60proppatch%60"><code>propPatch</code></h3>
+
+<p>The <code>propPatch</code> event is called when updating properties on a node.</p>
+
+<p>This event works similarly to <code>propFind</code>. Usually you should always use the
+<code>handle</code> method for updating:</p>
+
+<pre><code>use Sabre\DAV\PropPatch;
+use Sabre\DAV\INode;
+
+function saveDisplayName($path, PropPatch $propfind) {
+
+    // This tells sabredav that we are responsible for handling storing
+    // the `{DAV:}displayname` property.
+    $propPatch-&gt;handle('{DAV:}displayname', function($value) {
+
+        // Make sure you save $value somewhere.
+        return true;
+
+    });
+
+}
+
+$server-&gt;on('propPatch', 'saveDisplayName');
+</code></pre>
+
+<p>The callback you send to <code>handle</code> <em>must</em> return <code>true</code> or <code>false</code>.</p>
+
+<p>Take a look at the source for <code>Sabre\DAV\PropPatch</code> to learn more about its
+features.</p>
+
+<h3 id="%60exception%60"><code>exception</code></h3>
+
+<p>The server will trigger an 'exception' event whenever it's about to return an XML error document.</p>
+
+<p>The actual exception is passed as the first argument.</p>
+
+<h3 id="%60validatetokens%60"><code>validateTokens</code></h3>
+
+<p>The <code>validateTokens</code> event is used internally by both the
+<a href="/dav/sync">WebDAV Sync</a> and the <a href="/dav/locks">Locking</a> systems to work with
+'tokens' that appear in the HTTP <code>If</code> header.</p>
+
+<p>This header is quite advanced and allows you to do very complex conditional
+requests.</p>
+
+<p>By implementing this event you could potentially add new types of conditions
+to any http request.</p>
+
+<h3 id="%60report%60"><code>report</code></h3>
+
+<p>If an HTTP <code>REPORT</code> method is invoked, all subscribers to this event get the
+opportunity to handle a <code>REPORT</code> request.</p>
+
+<p>Example:</p>
+
+<pre><code>function myReport($reportName, $report, $uri) {
+
+  // $reportName contains the report name in clark-notation.
+  // For example:
+  //
+  // {DAV:}expand-properties
+
+  return true;
+
+}
+
+$server-&gt;on('report','myReport');
+</code></pre>
+
+<p>The <code>$report</code> parameter contains a fully parsed XML report. Processed by
+<code>sabre/xml</code>. Generally you will want to create a custom parser for these.
+You can do so by adding it to the elementMap:</p>
+
+<pre><code>$server-&gt;xml-&gt;elementMap['{http://example.org/ns}my-report'] = 'MyReportParserClass';
+</code></pre>
+
+<p>If you are reading this and are actually interested in this, drop us a line.
+The documentation is extremely sparse here and we'd be happy to expand on
+this.</p>
+
+<h3 id="%60calendarobjectchange%60"><code>calendarObjectChange</code></h3>
+
+<p>This event is triggered by the CalDAV plugin, whenever a calendar object got
+changed or created.</p>
+
+<p>Example:</p>
+
+<pre><code>use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+use Sabre\VObject\Document;
+
+function calendarObjectChange(RequestInterface $request, ResponseInterface $response, Document $calendar, $parentPath, &amp;$modified, $isNew) {
+
+}
+
+$server-&gt;on('calendarObjectChange', 'calendarObjectChange');
+</code></pre>
+
+<p>It has quite a bit of arguments:</p>
+
+<ul>
+<li><code>$request</code> - The HTTP request object.</li>
+<li><code>$response</code> - The HTTP response object.</li>
+<li><code>$calendar</code> - The fully parsed VCALENDAR object.</li>
+<li><code>$parentPath</code> - The path to the object's parent calendar.</li>
+<li><code>&amp;$isModified</code> - Passed by reference. Set this to <code>true</code> to tell the system
+that you've modified <code>$calendar</code> so the modified version will end up
+getting stored, instead of the original. This also ensures that an <code>ETag</code>
+will not be sent back.</li>
+<li><code>$isNew</code> - Whether the object was a newly created calendar object, or an
+update.</li>
+</ul>
+
+<h3 id="%60schedule%60"><code>schedule</code></h3>
+
+<p>This event is triggered for scheduling operations. A scheduling operation is
+for example a invite to an event, a cancellation of an event or an
+accept/decline response to an event.</p>
+
+<p>This event is used by the <a href="/dav/scheduling/">CalDAV scheduling plugin</a> to deliver these
+messages to local calendar users, and it is used by the <a href="/dav/scheduling/">iMip plugin</a>,
+to send invites via email.</p>
+
+<p>Example:</p>
+
+<pre><code>use Sabre\VObject\ITip\Message;
+
+function schedule(Message $iTipMessage) {
+
+    // Send message via email
+    $iTipMessage-&gt;scheduleStatus = '1.0;Delivered!';
+
+}
+
+$server-&gt;on('schedule', 'schedule');
+</code></pre>
+
+<p>Consult the source for <code>Sabre\VObject\ITip\Message</code> for more information.</p>
+
+<h3 id="%60aftermove%60"><code>afterMove</code></h3>
+
+<p>This event is triggered after a successful <code>MOVE</code> request. This is used by
+the system to copy WebDAV properties from the old to the new path, but could
+be used for other purposes as well.</p>
+
+<p>Example:</p>
+
+<pre><code>function afterMove($sourcePath, $destinationPath) {
+
+}
+
+$server-&gt;on('afterMove', 'afterMove');
+</code></pre>
+
+<h3 id="%60afterresponse%60"><code>afterResponse</code></h3>
+
+<p>This event is triggered after a HTTP response is sent back to the DAV client.
+At this point it's no longer possible to influence the HTTP response, but it
+could be used for logging or clean-up operations.</p>
+
+<p>This would also be a good moment to call
+<a href="https://php.net/manual/en/function.fastcgi-finish-request.php"><code>fastcgi_finish_request</code></a>, if
+you are on a fastcgi PHP sapi.</p>
+
+<pre><code>use Sabre\HTTP\RequestInterface;
+use Sabre\HTTP\ResponseInterface;
+
+function afterResponse(RequestInterface $request, ResponseInterface $response) {
+
+    fastcgi_finish_request();
+
+}
+
+$server-&gt;on('afterResponse', 'afterResponse');
+</code></pre>
+
+<h2 id="other-examples">Other examples</h2>
+
+<p>Check out <code>Sabre\DAV\CorePlugin</code>. This plugin is actually responsible for
+<em>all</em> core HTTP methods and most default features.</p>
+
+<h2 id="priorities">Priorities</h2>
+
+<p>It may be needed to ensure that your event gets triggered early or late in the
+process. This can be achieved by specifying the priority argument to the <code>on</code>
+method.</p>
+
+<p>This should be used with care. The Authentication plugin uses this for example
+to make sure authentication happens before any other process. The default
+priority number is 100. Lower numbers for priorities will be fired off earlier.</p>
+
+<p>This is a comprehensive list of event handlers within sabredav that override
+the default priority of 100. This can be useful to figure out the desired
+timing of an event.</p>
+
+<p>You may for instance want to make sure that your <code>beforeMethod</code> handler
+happens after authentication, but before the acl system kicks in. In that case
+<code>15</code> would be an appropriate priority.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Event</th>
+  <th>Implemented by</th>
+  <th>Priority</th>
+  <th>Why ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>beforeBind</code></td>
+  <td><a href="/dav/acl/">ACL plugin</a></td>
+  <td>20</td>
+  <td>Block creation of new files</td>
+</tr>
+<tr>
+  <td><code>beforeMethod</code></td>
+  <td><a href="/dav/authentication/">Auth plugin</a></td>
+  <td>10</td>
+  <td>To authenticate before anything else happens.</td>
+</tr>
+<tr>
+  <td><code>beforeMethod</code></td>
+  <td><a href="/dav/acl/">ACL plugin</a></td>
+  <td>20</td>
+  <td>Block certain requests if the user did not have permission.</td>
+</tr>
+<tr>
+  <td><code>beforeUnbind</code></td>
+  <td><a href="/dav/acl/">ACL plugin</a></td>
+  <td>20</td>
+  <td>Block deletion of files.</td>
+</tr>
+<tr>
+  <td><code>beforeUnlock</code></td>
+  <td><a href="/dav/acl/">ACL plugin</a></td>
+  <td>20</td>
+  <td>Block unlocking of files if the user is not the owner of the lock.</td>
+</tr>
+<tr>
+  <td><code>method:GET</code></td>
+  <td><a href="/dav/ics-export-plugin/">ICSExport Plugin</a></td>
+  <td>90</td>
+  <td>To be before the <code>GET</code> handler of the browser plugin.</td>
+</tr>
+<tr>
+  <td><code>method:GET</code></td>
+  <td><a href="/dav/vcf-export-plugin/">VCFExport Plugin</a></td>
+  <td>90</td>
+  <td>To be before the <code>GET</code> handler of the browser plugin.</td>
+</tr>
+<tr>
+  <td><code>method:GET</code></td>
+  <td><a href="/dav/davmount/">Mount Plugin</a></td>
+  <td>90</td>
+  <td>To be before the <code>GET</code> handler of the browser plugin.</td>
+</tr>
+<tr>
+  <td><code>method:GET</code></td>
+  <td><a href="/dav/notifications/">Notifications plugin</a></td>
+  <td>90</td>
+  <td>To correctly emit the notifications xml responses</td>
+</tr>
+<tr>
+  <td><code>method:GET</code></td>
+  <td><a href="/dav/browser-plugin/">Browser plugin</a></td>
+  <td>200</td>
+  <td>Only generated directory indexes if nothing else can handle a <code>GET</code> request.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td><a href="/dav/acl/">ACL plugin</a></td>
+  <td>20</td>
+  <td>Block fetching properties if user did not have permission.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td>Core server</td>
+  <td>120</td>
+  <td>Ask properties implementing <code>IProperties</code> to return properties.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td>Core server</td>
+  <td>200</td>
+  <td>Map the <code>getctag</code> property to <code>{DAV:}sync-token</code>.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td><a href="/dav/property-storage/">PropertyStorage plugin</a></td>
+  <td>130</td>
+  <td>Only fetch from propertystorage after everything else has had a chance.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td><a href="/dav/caldav-subscriptions/">Subscriptions Plugin</a></td>
+  <td>150</td>
+  <td>Transform properties after fetching.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td><a href="/dav/carddav/">CardDAV plugin</a></td>
+  <td>150</td>
+  <td>Transform properties after fetching.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td><a href="/dav/caldav-sharing/">CalDAV Sharing Plugin</a></td>
+  <td>150</td>
+  <td>Transform properties after fetching.</td>
+</tr>
+<tr>
+  <td><code>propFind</code></td>
+  <td><a href="/dav/guesscontenttype/">GuessContentType Plugin</a></td>
+  <td>200</td>
+  <td>Only set a property as the ultimate fallback.</td>
+</tr>
+<tr>
+  <td><code>propPatch</code></td>
+  <td><a href="/dav/caldav-sharing/">CalDAV Sharing Plugin</a></td>
+  <td>40</td>
+  <td>To handle a non-standard update of <code>{DAV:}resourcetype</code> that would otherwise be rejected.</td>
+</tr>
+<tr>
+  <td><code>propPatch</code></td>
+  <td>Core Server</td>
+  <td>90</td>
+  <td>Block updating protected properties.</td>
+</tr>
+<tr>
+  <td><code>propPatch</code></td>
+  <td>Core Server</td>
+  <td>200</td>
+  <td>Allow nodes implementing <code>IProperties</code> to update properties last.</td>
+</tr>
+<tr>
+  <td><code>propPatch</code></td>
+  <td><a href="/dav/property-storage/">PropertyStorage plugin</a></td>
+  <td>300</td>
+  <td>Only handle storing properties that no other subsystem understood.</td>
+</tr>
+<tr>
+  <td><code>schedule</code></td>
+  <td><a href="/dav/scheduling/">iMip plugin</a></td>
+  <td>120</td>
+  <td>Attempt to send an email invite <em>after</em> the internal delivery system.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="other-event-system-features">Other event-system features</h2>
+
+<p>sabre/dav's event system is based on <a href="/event/">sabre/event</a>. Read the
+documentation on that page for additional event-related features. You can
+emit custom events and remove subscribers as well as a few other things.</p>
+            
+                        <div class="version-note">
+                <p>
+                <i class="fa fa-warning"></i>
+                Please note: you are reading the <strong>3.x version</strong>
+                of this page. The following versions are also available:
+                </p>
+
+            <ul>
+                                    <li><a href="/dav/1.8/writing-plugins/">Version 1.8</a></li>
+                                    <li><a href="/dav/2.x/writing-plugins/">Version 2.x</a></li>
+                                    <li><a href="/dav/writing-plugins/">Version 3.x</a></li>
+                            </ul>
+
+            </div>
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

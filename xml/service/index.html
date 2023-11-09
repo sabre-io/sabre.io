@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>The XML service - sabre/xml</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/xml">
+                sabre<span>/xml</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/">Introduction</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/install/">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/reading/">Reading XML</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/writing/">Writing XML</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/valueobjects/">Value Object mapping</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/service/">XML service</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/clark-notation/">Clark-notation</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>The XML service</h1>
+                <p>While sabre/xml has a separate reader and writer class, it also offers a
+central service class. This class may be used as a design pattern to globally
+configure your xml readers and writers.</p>
+
+<p>This service can be injected in your dependency injection container or service
+locator.</p>
+
+<p>We fully intend developers to take this class and subclass it to configure and
+add to the object to make it as useful as possible.</p>
+
+<h2 id="the-service-class">The service class</h2>
+
+<p>This is the service class in birds eye view:</p>
+
+<pre><code>namespace Sabre\Xml;
+
+class Service {
+
+    /**
+     * List of parsers for specifix XML objects.
+     */
+    public $elementMap = [];
+
+    /**
+     * List of prefixes for XML namespaces
+     */
+    public $namespaceMap = [];
+
+    /**
+     * List of PHP classes and custom serializers for them.
+     */
+    public $classMap = [];
+
+    /**
+     * Parses a document.
+     */
+    function parse($input, $contextUri = null, &amp;$rootElementName = null);
+
+    /**
+     * Parses a document, throw an exception if it was a different
+     * document than what you expected.
+     */
+    function expect($rootElementName, $input, $contextUri = null);
+
+    /**
+     * Generates an XML document
+     */
+    function write($rootElementName, $value, $contextUri = null);
+
+    /**
+     * Returns a fresh XML Reader
+     */
+    function getReader();
+
+    /**
+     * Returns a fresh XML writer
+     */
+    function getWriter();
+
+    /**
+     * Maps an XML element to a PHP class.
+     */
+    function mapValueObject($elementName, $className);
+
+    /**
+     * Turn a mapped PHP object into an XML document
+     */
+    function writeValueObject($object, $contextUri = null);
+
+}
+</code></pre>
+
+<p>For more information about <code>$elementMap</code>, <code>parse()</code>, <code>expect()</code> and
+<code>getReader()</code>, head to the <a href="/xml/reading/">Reading XML</a> section.</p>
+
+<p>For more information about <code>$namespaceMap</code>, <code>$classMap</code>, <code>write()</code> and
+<code>getWriter()</code>, head to the <a href="/xml/writing/">Writing XML</a> section.</p>
+
+<p>For more information about <code>mapValueObject()</code> and <code>writeValueObject</code>,
+head to the <a href="/xml/valueobjects/">Value Objects</a> section.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

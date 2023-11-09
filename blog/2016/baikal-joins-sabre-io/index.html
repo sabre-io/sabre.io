@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+
+            <title>Baïkal joins sabre.io - baikal</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body class="body--nodocs">
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="baikal">
+                <span>baikal</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+    
+        <main>
+                <article>
+                <article class="blog-entry">
+        <time>February 15th, 2016</time>
+        <h1>Baïkal joins sabre.io</h1>
+        <div>
+            <p><img src="/img/baikal.png" style="width: 100%; max-width: 300px; float: right; padding: 10px" /></p>
+
+<p>For a long time Baïkal has been one of the most popular implementations of
+sabre/dav. Baïkal fills one of the biggest gaps that out-of-the-box sabre/dav
+has: an easy to use installer and admin interface. It's the best choice if
+you're looking for a light-weight caldav/carddav server.</p>
+
+<p>However, since a while development for this project has stagnated a little bit.
+The last release (0.2.7) was from January 2014. The result of this was that
+many users of Baïkal were on an older version of sabre/dav and there were quite
+a bit of open support tickets on Github.</p>
+
+<p>A lot of this had to do with the development of Baïkal 2. This version was
+going to be a complete rewrite based on Symfony components and React. While
+much of the development focus had been on that new version, users of the
+existing system did not get all the attention they needed.</p>
+
+<p>So we've had a talk with the lead maintainer for Baïkal (Jérôme Schneider from
+<a href="http://netgusto.com/">Netgusto</a>), and proposed to bring Baïkal under the 'sabre.io' umbrella of
+projects. What this means in practice is that:</p>
+
+<ul>
+<li>We're moving the existing website and documentation over from
+baikal-server.com to sabre.io.</li>
+<li>We're now helping with support, and closed over a hundred tickets already.</li>
+<li>We're taking over maintenance of Baikal 0.x, and today we're releasing 0.3.1.</li>
+<li>Eventually we will release a 1.0 version of Baikal, unless Baikal 2 is ready
+first.</li>
+</ul>
+
+<h2 id="ba%C3%AFkal-0.3.1">Baïkal 0.3.1</h2>
+
+<p>Baïkal 0.3.1 is now the recommended version of Baïkal. This release fixes the
+most reported issues with Baikal, and also:</p>
+
+<ul>
+<li>Upgrades sabre/dav from version 1.8 to 3.1.</li>
+<li>Supports PHP 7.</li>
+<li>Makes the minimum PHP version 5.5.</li>
+<li>Adds support for calendar/addressbook export.</li>
+<li>Adds support for WebDAV-Sync.</li>
+</ul>
+
+<p>Effective immediately, this is the only supported Baïkal version.</p>
+
+<p>We will also continue to make fixes and improvements in this branch of
+development, as they come up.</p>
+
+<p>Downloads are now distributed via <a href="https://github.com/sabre-io/Baikal/releases">Github</a>. If you are upgrading from
+version 0.2.7, you can find the upgrade instructions <a href="/baikal/upgrade/">here</a>.</p>
+
+<h2 id="relationship-between-ba%C3%AFkal%2C-ba%C3%AFkal-2-%26-sabre%2Fkatana">Relationship between Baïkal, Baïkal 2 &amp; sabre/katana</h2>
+
+<p>For those following this project, you might also be aware that we've already
+had a project with very similar goals on sabre.io called <a href="/katana/">katana</a>.
+So with Baïkal, Baïkal 2 and sabre/katana combined, there are effectively
+three active projects that all overlap in the use-case they address.</p>
+
+<p>We haven't fully decided yet what route to take with these. Eventually we would
+like to end up with a single active project that addresses this main use-case.
+So down the road we'll try to find some way to merge these projects and combine
+the best parts of all of them. Baïkal 2 in particular has a beautiful
+interface, and sabre/katana had strong benefits because its goal was to make it
+fully run as a javascript fat client, allowing it to be used for other
+sabre/dav implementations such as Owncloud, and even non-sabre/dav
+installations.</p>
+
+<p>The biggest factor in development of the katana project is simply lack of
+funding, which means that we can't afford to spend time on it to bring it to a
+1.0. This is not unlike Baïkal and Baïkal 2, which has for a large part been a
+"labor of love" by its author Jérôme Schneider.</p>
+
+<p>So what we at sabre.io and fruux commit to is:</p>
+
+<ul>
+<li>Continuous maintenance and support for Baikal 0.x.</li>
+<li>Eventually release this as Baikal 1.0.</li>
+</ul>
+
+<p>As for sabre/katana and Baïkal 2... It's hard to make promises. They are done
+when they are done, and we'll keep a look at for companies interested in
+funding or sponsoring development of these. Also, we're looking for more
+maintainers / developers for these. If you're interested, drop us a line! Any
+level of experience welcome.</p>
+
+        </div>
+                    <p class="tags">
+            Tags:
+                        <a href="https://sabre-io.github.io/sabre.io/blog/tags/baikal">baikal</a>                        </p>
+        
+                    <nav class="article">
+                <ul>
+                                            <li>Next: <a class="next" href="https://sabre-io.github.io/sabre.io/blog/2016/sabre-dav-2.1.10-release/" title="sabre/dav 2.1.10 released"><span class="title">sabre/dav 2.1.10 released</span></a></li>
+                                                                <li>Previous: <a class="previous" href="https://sabre-io.github.io/sabre.io/blog/2016/sabre-xml-1.4.0-release/" title="sabre/xml 1.4.0 released"><span class="title">sabre/xml 1.4.0 released</span></a></li>
+                                    </ul>
+            </nav>
+            </article>
+
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

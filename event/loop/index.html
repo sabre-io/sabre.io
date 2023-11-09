@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>The Event Loop - sabre/event</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/event">
+                sabre<span>/event</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/event/">Introduction</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/event/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/event/emitter">Emitter</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/event/promise">Promises</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/event/loop">Event Loop</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/event/coroutines">Coroutines</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>The Event Loop</h1>
+                <p>Since version 3.0, the sabre/event library ships with an event loop. In
+cooperative multi-tasking, there always an event loop that waits for things
+to happen and trigger events when they do.</p>
+
+<p>In pseudo-code, the event loop roughly does the following:</p>
+
+<pre><code>do {
+
+    runTimedEventsIfNeeded();
+    $nextTimedEvent = getNextTimedEvent();
+
+    if (openStreams()) {
+        waitForStreamsToHaveDataUntil($nextTimedEvent);
+    } else {
+        sleep($nextTimedEvent);
+    }
+} until (noMorePendingEvents())
+</code></pre>
+
+<p>This mechanism is pretty much identical to how Javascript (and NodeJs) works.</p>
+
+<p>This system also ensures that no CPU is used when there's nothing happening
+for a while, while triggering events as soon as possible.</p>
+
+<h2 id="user-api">User API</h2>
+
+<p>The way the User API is designed, is that there's generally only one instance
+of an event loop.</p>
+
+<p>The event loop is accessed with a set of functions.</p>
+
+<h3 id="running-the-loop">Running the loop</h3>
+
+<p>To start running the loop, simply call:</p>
+
+<pre><code>Sabre\Event\Loop\run();
+</code></pre>
+
+<p>This function will block as long as there are pending events. When there are
+no more pending events, this function will return.</p>
+
+<p>If <code>run()</code> is the first thing you call, the function will exit immediately, as
+there is nothing to do.</p>
+
+<h3 id="stopping-the-loop">Stopping the loop</h3>
+
+<p>To prevent the loop from continuing, just run:</p>
+
+<pre><code>Sabre\Event\Loop\stop();
+</code></pre>
+
+<p>Note that generally it's a better idea to clean up any pending events. Calling
+<code>stop()</code> on the event loop is a bit similar to calling <code>die()</code> in a whole PHP
+script.</p>
+
+<h3 id="timed-events">Timed events</h3>
+
+<p>This event loop has a mechanism similar to javascript's
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setTimeout">window.setTimeout()</a>. The following example executes a function after
+1 second.</p>
+
+<pre><code>use Sabre\Event\Loop;
+
+Loop\setTimeout(function() {
+    echo "Hello\n";
+}, 1);
+
+Loop\run();
+</code></pre>
+
+<p>Note that a big difference is that the timeout is specified in seconds. To get
+sub-second precision, use a <code>float</code>.</p>
+
+<p>The only guarantee that the loop gives is that the callback function is executed
+after 1 second. It's possible that the event gets triggered later, if there was
+different code currently running.</p>
+
+<h3 id="repeated-timed-events">Repeated timed events</h3>
+
+<p>Like <code>setTimeout</code>, sabre/event also has a <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval"><code>setInterval</code></a> function.
+<code>setInterval</code> triggers an event repeatedly every x seconds.</p>
+
+<p>To stop the event from triggering, call clearInterval.</p>
+
+<pre><code>use Sabre\Event\Loop;
+
+$intervalId = Loop\setInterval(function() {
+
+    echo "Hello\n";
+
+}, 1);
+
+
+Loop\run();
+
+// Later on you can stop the event from triggering:
+Loop\clearInterval($intervalId);
+</code></pre>
+
+<p>Note that the previous example would never stop running, as <code>clearInterval</code> is
+never reached there.</p>
+
+<h3 id="execute-a-function-as-soon-as-possible">Execute a function as soon as possible</h3>
+
+<p>sabre/event also implements an equivalent to Node's <a href="https://nodejs.org/api/process.html#process_process_nexttick_callback_arg">process.nextTick</a>.
+nextTick makes the event loop execute a function as soon as possible.</p>
+
+<pre><code>use Sabre\Event\Loop;
+
+Loop\nextTick(function() {
+    echo "Hello\n";
+});
+
+Loop\run();
+</code></pre>
+
+<h3 id="process-any-pending-events">Process any pending events</h3>
+
+<p>Sometimes you might want to tell the loop to just execute any events that have
+not been handled yet.</p>
+
+<p>The tick function does just that:</p>
+
+<pre><code>use Sabre\Event\Loop;
+Loop\tick();
+</code></pre>
+
+<p>Any events that should trigger at that time, will. If there are no events that
+need to be triggered immediately, the function does nothing.</p>
+
+<p>After executing those events, the function returns.</p>
+
+<p>It's also possible to make this call blocking, by setting its first argument
+to true:</p>
+
+<pre><code>use Sabre\Event\Loop;
+Loop\tick(true);
+</code></pre>
+
+<p>In the last call, the tick function will block right up until there's an event
+that needs to be triggered.</p>
+
+<h3 id="add-io-streams-to-the-loop">Add IO streams to the loop</h3>
+
+<p>If you are dealing with streams, you can get the event loop to give you a
+callback as soon as the stream has data in its buffer (for reading) or when
+you can write to the buffer.</p>
+
+<p>Two examples of this are:</p>
+
+<p><li>You are making a HTTP call and you're waiting for the server to respond.</li>
+<li>You have an open process stream (with <a href="https://php.net/manual/en/function.popen.php">popen</a>) and you want to get notified when the process added new output.</li></p>
+
+<pre><code>use Sabre\Event\Loop;
+
+$tail = popen('tail -fn0 /var/log/apache/access_log', 'r');
+Loop\addReadStream($tail, function() use $tail) {
+
+    echo fread($tail, 4096);
+
+});
+</code></pre>
+
+<p>In the background the eventloop uses <a href="https://php.net/manual/en/function.stream-select.php"><code>stream_select()</code></a>.</p>
+
+<p>To stop the event loop from waiting for things to happen on the stream, you
+can call <code>removeReadStream</code>.</p>
+
+<pre><code>Loop\removeReadStream($tail);
+</code></pre>
+
+<p>There's also an equivalent for writes: <code>addWriteStream</code> and
+<code>removeWriteStream</code>. The use-case for this is less common.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

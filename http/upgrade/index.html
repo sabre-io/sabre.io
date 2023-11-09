@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Upgrading from sabre/http 3.x to 4.x - sabre/http</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/http">
+                sabre<span>/http</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/http/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/http/sapi">The PHP Sapi wrapper</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/http/decorators">Decorators</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/http/client">The HTTP client</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/http/reverseproxy">Writing a reverse proxy</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/http/api">Request and Response APIs</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/http/upgrade/">Upgrading</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Upgrading from sabre/http 3.x to 4.x</h1>
+                <p>sabre/http 4.0 got several cleanups and changes. This guide explains exactly
+what has changed and what you need to do to update.</p>
+
+<h2 id="sabre%2Furi">sabre/uri</h2>
+
+<p>The http package now has a dependency on the new <a href="/uri/">sabre/uri</a> package. It
+delegates many uri-handling functionality to that package.</p>
+
+<p>This also deprecates the following functions:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Old function</th>
+  <th>New function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::splitPath()</code></td>
+  <td><code>Sabre\Uri\split()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::resolve()</code></td>
+  <td><code>Sabre\Uri\resolve()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::encodePath()</code></td>
+  <td><code>Sabre\HTTP\encodePath()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::encodePathSegment()</code></td>
+  <td><code>Sabre\HTTP\encodePathSegment()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::decodePath()</code></td>
+  <td><code>Sabre\HTTP\decodePath()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\URLUtil::decodePathSegment()</code></td>
+  <td><code>Sabre\HTTP\decodePathSegment()</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>The old functions will continue to work, but will be removed in version 5.0.</p>
+
+<h2 id="header-utilities">Header utilities</h2>
+
+<p>Two more functions got moved to <code>functions.php</code> and have been cleaned up a
+bit:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Old function</th>
+  <th>New function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Sabre\HTTP\Util::parseHTTPDate()</code></td>
+  <td><code>Sabre\HTTP\parseDate()</code></td>
+</tr>
+<tr>
+  <td><code>Sabre\HTTP\Util::toHTTPDate()</code></td>
+  <td><code>Sabre\HTTP\toDate()</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>The old functions will continue to work, but will be removed in version 5.0.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Building a CalDAV client - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Building a CalDAV client</h1>
+                <p>This document is a general howto on how to build a CalDAV client.
+The document is language-agnostic, and considering the massive scope of CalDAV,
+not complete.</p>
+
+<h2 id="general-synchronization-concerns">General synchronization concerns</h2>
+
+<p>The primary formats for transferring information is <a href="https://tools.ietf.org/html/rfc5545">iCalendar</a> for
+calendar objects (events and tasks) and xml for most other data.</p>
+
+<p><a href="https://tools.ietf.org/html/rfc4791">CalDAV</a> is based on <a href="https://tools.ietf.org/html/rfc4918">WebDAV</a>, which itself is an extension
+to HTTP.</p>
+
+<p>Some operations will be very familiar if you already have experience with HTTP
+services (<code>GET</code>, <code>PUT</code> and <code>DELETE</code>), but many are added too (<code>PROPFIND</code>,
+<code>PROPPATCH</code>, <code>REPORT</code>, <code>MKCOL</code>, <code>MKCALENDAR</code>, <code>ACL</code>).</p>
+
+<p>Most HTTP clients should just support methods they don't know about, so it's
+wise to simply use a stock HTTP client (or better yet, a DAV or CalDAV client).</p>
+
+<p>One thing in which CalDAV differs from some other synchronization models, is
+that the 'truth' is always on the server. There should in general never really
+be a situation where there are conflicts, as the server is always correct.</p>
+
+<p>One implication is that ideally the user should not be bothered by a
+'Synchronize Now!' interface element. In an ideal world changes are submitted
+to the server the very instant that the user has made them.</p>
+
+<p>Every single event and task is encoded as an iCalendar object. I strongly
+recommend <em>always</em> retaining the iCalendar the server sent to you.</p>
+
+<p>Clients may add non-standard properties to iCalendar objects. It is important
+that when you GET and later on PUT an updated iCalendar object, any non-standard
+properties you may not have built-in support for gets retained.</p>
+
+<h2 id="syncing-a-calendar">Syncing a calendar</h2>
+
+<p>Simple clients tend to just access CalDAV servers based on the follow 3 setting:</p>
+
+<ul>
+<li>username</li>
+<li>password</li>
+<li>calendar url</li>
+</ul>
+
+<p>An example of this is <a href="/dav/clients/thunderbird">Thunderbird Lightning</a>. So
+this is where we start.</p>
+
+<h3 id="retrieving-calendar-information">Retrieving calendar information</h3>
+
+<p>This is the recommended way to do an initial sync with SabreDAV. Every calendar
+has a so-called <code>ctag</code>. This ctag works like a change id. Every time the ctag
+has changed, you know something in the calendar has changed too.</p>
+
+<p>An example request to get the ctag:</p>
+
+<pre><code>PROPFIND /calendars/johndoe/home/ HTTP/1.1
+Depth: 0
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+  &lt;d:prop&gt;
+     &lt;d:displayname /&gt;
+     &lt;cs:getctag /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>The <code>PROPFIND</code> request is a HTTP request, defined by <a href="https://tools.ietf.org/html/rfc4918">WebDAV</a>.
+<code>PROPFIND</code> allows the client to fetch properties from a url.</p>
+
+<p>CalDAV uses many properties like this, but in this case we just fetch the
+'displayname', which is the human-readable name the user gave the calendar, and
+the ctag. The ctag must be stored for subsequent requests.</p>
+
+<p>The request will return something like:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:displayname&gt;Home calendar&lt;/d:displayname&gt;
+                &lt;cs:getctag&gt;3145&lt;/cs:getctag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>This multistatus response is very common for Cal and WebDAV. Many requests
+return an xml document in this exact format, so it is worthwhile writing a
+standard parser.</p>
+
+<p>The response gives us back the user, the values for the 2 properties and the
+status.</p>
+
+<p>If the user did not have access to these properties, it's also possible that you
+get a response like this back:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:displayname /&gt;
+                &lt;cs:getctag /&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 403 Forbidden&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>So it is important that when you parse the response, you make sure that the
+status for the properties was actually 200 OK.</p>
+
+<h3 id="downloading-objects">Downloading objects</h3>
+
+<p>Now we download every single object in this calendar. To do this, we use a
+<code>REPORT</code> method.</p>
+
+<pre><code>REPORT /calendars/johndoe/home/ HTTP/1.1
+Depth: 1
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;c:calendar-query xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;d:prop&gt;
+        &lt;d:getetag /&gt;
+        &lt;c:calendar-data /&gt;
+    &lt;/d:prop&gt;
+    &lt;c:filter&gt;
+        &lt;c:comp-filter name="VCALENDAR" /&gt;
+    &lt;/c:filter&gt;
+&lt;/c:calendar-query&gt;
+</code></pre>
+
+<p>This request will give us every object that's a VCALENDAR object, and its etag.</p>
+
+<p>If you're only interested in VTODO (because you're writing a todo app) you can
+also filter for just those:</p>
+
+<pre><code>REPORT /calendars/johndoe/home/ HTTP/1.1
+Depth: 1
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;c:calendar-query xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;d:prop&gt;
+        &lt;d:getetag /&gt;
+        &lt;c:calendar-data /&gt;
+    &lt;/d:prop&gt;
+    &lt;c:filter&gt;
+        &lt;c:comp-filter name="VCALENDAR"&gt;
+            &lt;c:comp-filter name="VTODO" /&gt;
+        &lt;/c:comp-filter&gt;
+    &lt;/c:filter&gt;
+&lt;/c:calendar-query&gt;
+</code></pre>
+
+<p>Similarly it's also possible to filter to just events, or only get events within
+a specific time-range.</p>
+
+<p>This report will return a multi-status object again:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/132456762153245.ics&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"2134-314"&lt;/d:getetag&gt;
+                &lt;c:calendar-data&gt;BEGIN:VCALENDAR
+                    VERSION:2.0
+                    CALSCALE:GREGORIAN
+                    BEGIN:VTODO
+                    UID:132456762153245
+                    SUMMARY:Do the dishes
+                    DUE:20121028T115600Z
+                    END:VTODO
+                    END:VCALENDAR
+                &lt;/c:calendar-data&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/132456-34365.ics&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"5467-323"&lt;/d:getetag&gt;
+                &lt;c:calendar-data&gt;BEGIN:VCALENDAR
+                    VERSION:2.0
+                    CALSCALE:GREGORIAN
+                    BEGIN:VEVENT
+                    UID:132456-34365
+                    SUMMARY:Weekly meeting
+                    DTSTART:20120101T120000
+                    DURATION:PT1H
+                    RRULE:FREQ=WEEKLY
+                    END:VEVENT
+                    END:VCALENDAR
+                &lt;/c:calendar-data&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>This calendar only contained 2 objects. A todo and a weekly event.</p>
+
+<p>So after you retrieved and processed these, for each object you must retain:</p>
+
+<ul>
+<li>The calendar data itself</li>
+<li>The url</li>
+<li>The etag</li>
+</ul>
+
+<p>In this case all urls ended with .ics. This is often the case, but you must not
+rely on this. In this case the UID in the calendar object was also identical to
+a part of the url. This too is often the case, but again not something you can
+rely on, so don't make any assumptions.</p>
+
+<p>The url and the UID have no meaningful relationship, so treat both those items
+as separate unique identifiers.</p>
+
+<h3 id="finding-out-if-anything-changed">Finding out if anything changed</h3>
+
+<p>To see if anything in a calendar changed, we simply request the ctag again on
+the calendar. If the ctag did not change, you still have the latest copy.</p>
+
+<p>If it did change, you must request all the etags in the entire calendar again:</p>
+
+<pre><code>REPORT /calendars/johndoe/home/ HTTP/1.1
+Depth: 1
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;c:calendar-query xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;d:prop&gt;
+        &lt;d:getetag /&gt;
+    &lt;/d:prop&gt;
+    &lt;c:filter&gt;
+        &lt;c:comp-filter name="VCALENDAR"&gt;
+            &lt;c:comp-filter name="VTODO" /&gt;
+        &lt;/c:comp-filter&gt;
+    &lt;/c:filter&gt;
+&lt;/c:calendar-query&gt;
+</code></pre>
+
+<p>Note that this last request is extremely similar to a previous one, but we are
+only asking for the etag, not the calendar-data.</p>
+
+<p>The reason for this, is that calendars can be rather huge. It will save a TON of
+bandwidth to only check the etag first.</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/132456762153245.ics&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"xxxx-xxx"&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/fancy-caldav-client-1234253678.ics&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"5-12"&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>Judging from this last request, 3 things have changed:</p>
+
+<ul>
+<li>The etag for the task has changed, so the contents must be different</li>
+<li>There's a new url, some other client must have added an object</li>
+<li>One object is missing, something must have deleted it.</li>
+</ul>
+
+<p>So based on those 3 items we know that we need to delete an object from our
+local list, and fetch the contents for the new item, and the updated one.</p>
+
+<p>To fetch the data for these, you can simply issue GET requests:</p>
+
+<pre><code>GET /calendars/johndoe/home/132456762153245.ics HTTP/1.1
+</code></pre>
+
+<p>But, because in a worst-case scenario this could result in a LOT of GET requests
+we can do a 'multiget'.</p>
+
+<pre><code>REPORT /calendars/johndoe/home/ HTTP/1.1
+Depth: 1
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;c:calendar-multiget xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;d:prop&gt;
+        &lt;d:getetag /&gt;
+        &lt;c:calendar-data /&gt;
+    &lt;/d:prop&gt;
+    &lt;d:href&gt;/calendars/johndoe/home/132456762153245.ics&lt;/d:href&gt;
+    &lt;d:href&gt;/calendars/johndoe/home/fancy-caldav-client-1234253678.ics&lt;/d:href&gt;
+&lt;/c:calendar-multiget&gt;
+</code></pre>
+
+<p>This request will simply return a multi-status again with the calendar-data and
+etag.</p>
+
+<h3 id="a-small-note-about-application-design">A small note about application design</h3>
+
+<p>If you read this far and understood what's been said, you may have realized that
+it's a bit cumbersome to have a separate step for the initial sync, and
+subsequent updates.</p>
+
+<p>It would totally be possible to skip the 'initial sync', and just use
+calendar-query and calendar-multiget REPORTS for the initial sync as well.</p>
+
+<h2 id="updating-a-calendar-object">Updating a calendar object</h2>
+
+<p>Updating a calendar object is rather simple:</p>
+
+<pre><code>PUT /calendars/johndoe/home/132456762153245.ics HTTP/1.1
+Content-Type: text/calendar; charset=utf-8
+If-Match: "2134-314"
+
+BEGIN:VCALENDAR
+....
+END:VCALENDAR
+</code></pre>
+
+<p>A response to this will be something like this:</p>
+
+<pre><code>HTTP/1.1 204 No Content
+ETag: "2134-315"
+</code></pre>
+
+<p>The update gave us back the new ETag. SabreDAV gives this ETag on updates back
+most of the time, but not always.</p>
+
+<p>There are cases where the caldav server must modify the iCalendar object right
+after storage. In those cases an ETag will not be returned, and you should issue
+a GET request immediately to get the correct object.</p>
+
+<p>A few notes:</p>
+
+<ul>
+<li>You must not change the UID of the original object</li>
+<li>Every object should hold only 1 event or task.</li>
+<li>You cannot change an VEVENT into a VTODO.</li>
+</ul>
+
+<h2 id="creating-a-calendar-object">Creating a calendar object</h2>
+
+<p>Creating a calendar object is almost identical, except that you don't have a
+url yet to a calendar object.</p>
+
+<p>Instead, it is up to you to determine the new url.</p>
+
+<pre><code>PUT /calendars/johndoe/home/somerandomstring.ics HTTP/1.1
+Content-Type: text/calendar; charset=utf-8
+
+BEGIN:VCALENDAR
+....
+END:VCALENDAR
+</code></pre>
+
+<p>A response to this will be something like this:</p>
+
+<pre><code>HTTP/1.1 201 Created
+ETag: "21345-324"
+</code></pre>
+
+<p>Similar to updating, an ETag is often returned, but there are cases where this
+is not true.</p>
+
+<h2 id="deleting-a-calendar-object">Deleting a calendar object</h2>
+
+<p>Deleting is simple enough:</p>
+
+<pre><code>DELETE /calendars/johndoe/home/132456762153245.ics HTTP/1.1
+If-Match: "2134-314"
+</code></pre>
+
+<h2 id="speeding-up-sync-with-webdav-sync">Speeding up Sync with WebDAV-Sync</h2>
+
+<p>WebDAV-Sync is a protocol extension that is defined in <a href="https://tools.ietf.org/html/rfc6578">rfc6578</a>.
+Because this extension was defined later, some servers may not support this
+yet.</p>
+
+<p>SabreDAV supports this since 2.0.</p>
+
+<p>WebDAV-Sync allows a client to ask <em>just</em> for calendars that have changed.
+The process on a high-level is as follows:</p>
+
+<ol>
+<li>Client requests sync-token from server.</li>
+<li>Server reports token <code>15</code>.</li>
+<li>Some time passes.</li>
+<li>Client does a Sync REPORT on an calendar, and supplied token <code>15</code>.</li>
+<li>Server returns calendar object urls that have changed or have been deleted
+and returns token <code>17</code>.</li>
+</ol>
+
+<p>As you can see, after the initial sync, only items that have been created,
+modified or deleted will ever be sent.</p>
+
+<p>This has a lot of advantages. The transmitted xml bodies can generally be a
+lot shorter, and is also easier on both client and server in terms of memory
+and CPU usage, because only a limited set of items will have to be compared.</p>
+
+<p>It's important to note, that a client should only do Sync operations, if the
+server reports that it has support for it. The quickest way to do so, is to
+request <code>{DAV}sync-token</code> on the calendar you wish to sync.</p>
+
+<p>Technically, a server may support 'sync' on one calendar, and it may not
+support it on another, although this is probably rare.</p>
+
+<h3 id="getting-the-first-sync-token">Getting the first sync-token</h3>
+
+<p>Initially, we just request a sync token when asking for calendar information:</p>
+
+<pre><code>PROPFIND /calendars/johndoe/home/ HTTP/1.1
+Depth: 0
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+  &lt;d:prop&gt;
+     &lt;d:displayname /&gt;
+     &lt;cs:getctag /&gt;
+     &lt;d:sync-token /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>This would return something as follows:</p>
+
+<pre><code>&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:displayname&gt;My calendar&lt;/d:displayname&gt;
+                &lt;cs:getctag&gt;3145&lt;/cs:getctag&gt;
+                &lt;d:sync-token&gt;http://sabredav.org/ns/sync-token/3145&lt;/d:sync-token&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>As you can see, the sync-token is a url. It always should be a url.
+Even though a number appears in the url, you are not allowed to attach any
+meaning to that url. Some servers may have use an increasing number,
+another server may use a completely random string.</p>
+
+<h3 id="receiving-changes">Receiving changes</h3>
+
+<p>After a sync token has been obtained, and the client already has the initial
+copy of the calendar, the client is able to request all changes since the
+token was issued.</p>
+
+<p>This is done with a <code>REPORT</code> request that may look like this:</p>
+
+<pre><code>REPORT /calendars/johndoe/home/ HTTP/1.1
+Host: dav.example.org
+Content-Type: application/xml; charset="utf-8"
+
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;d:sync-collection xmlns:d="DAV:"&gt;
+  &lt;d:sync-token&gt;http://sabredav.org/ns/sync/3145&lt;/d:sync-token&gt;
+  &lt;d:sync-level&gt;1&lt;/d:sync-level&gt;
+  &lt;d:prop&gt;
+    &lt;d:getetag/&gt;
+  &lt;/d:prop&gt;
+&lt;/d:sync-collection&gt;
+</code></pre>
+
+<p>This requests all the changes since sync-token identified by
+<code>http://sabredav.org/ns/sync/3145</code>, and for the calendar objects that have been
+added or modified, we're requesting the etag.</p>
+
+<p>The response to a query like this is another multistatus xml body. Example:</p>
+
+<pre><code>HTTP/1.1 207 Multi-Status
+Content-Type: application/xml; charset="utf-8"
+
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;d:multistatus xmlns:d="DAV:"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/newevent.ics&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"33441-34321"&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/updatedevent.ics&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:getetag&gt;"33541-34696"&lt;/d:getetag&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/deletedevent.ics&lt;/d:href&gt;
+        &lt;d:status&gt;HTTP/1.1 404 Not Found&lt;/d:status&gt;
+    &lt;/d:response&gt;
+    &lt;d:sync-token&gt;http://sabredav.org/ns/sync/5001&lt;/d:sync-token&gt;
+ &lt;/d:multistatus&gt;
+</code></pre>
+
+<p>The last response reported two changes: <code>newevent.ics</code> and <code>updatedevent.ics</code>.
+There's no way to tell from the response whether those calendar objects got 
+created or updated, you, as a client, can only infer this based on the objects 
+you are already aware of.</p>
+
+<p>The entry with name <code>deletedevent.ics</code> got deleted as indicated by the <code>404</code>
+status. Note that the status element is here a child of <code>d:response</code> when in
+all previous examples it has been a child of <code>d:propstat</code>.</p>
+
+<p>The other difference with the other multi-status examples, is that this one
+has a <code>sync-token</code> element with the latest sync-token.</p>
+
+<h3 id="caveats">Caveats</h3>
+
+<p>Note that a server is free to 'forget' any sync-tokens that have been
+previously issued. In this case it may be needed to do a full-sync again.</p>
+
+<p>In case the supplied sync-token is not recognized by the server, a HTTP error
+is emitted. SabreDAV emits a <code>403</code>.</p>
+
+<h2 id="discovery">Discovery</h2>
+
+<p>Ideally you will want to make sure that all the calendars in an account are
+automatically discovered. The best user interface would be to just have to
+ask for three items:</p>
+
+<ul>
+<li>Username</li>
+<li>Password</li>
+<li>Server</li>
+</ul>
+
+<p>And the server should be as short as possible. This is possible with most
+servers.</p>
+
+<p>If, for example a user specified 'dav.example.org' for the server, the first
+thing you should do is attempt to send a PROPFIND request to
+<code>https://dav.example.org/</code>. Note that you SHOULD try the https url before the
+http url.</p>
+
+<p>This PROPFIND request looks as follows:</p>
+
+<pre><code>PROPFIND / HTTP/1.1
+Depth: 0
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:"&gt;
+  &lt;d:prop&gt;
+     &lt;d:current-user-principal /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>This will return a response such as the following:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:current-user-principal&gt;
+                    &lt;d:href&gt;/principals/users/johndoe/&lt;/d:href&gt;
+                &lt;/d:current-user-principal&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>A 'principal' is a user. The url that's being returned, is a url that refers
+to the current user. On this url you can request additional information about
+the user.</p>
+
+<p>What we need from this url, is their 'calendar home'. The calendar home is a
+collection that contains all of the users' calendars.</p>
+
+<p>To request that, issue the following request:</p>
+
+<pre><code>PROPFIND /principals/users/johndoe/ HTTP/1.1
+Depth: 0
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+  &lt;d:prop&gt;
+     &lt;c:calendar-home-set /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>This will return a response such as the following:</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/principals/users/johndoe/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;c:calendar-home-set&gt;
+                    &lt;d:href&gt;/calendars/johndoe/&lt;/d:href&gt;
+                &lt;/c:calendar-home-set&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<p>Lastly, to list all the calendars for the user, issue a PROPFIND request with
+<code>Depth: 1</code>.</p>
+
+<pre><code>PROPFIND /calendars/johndoe/ HTTP/1.1
+Depth: 1
+Prefer: return-minimal
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:propfind xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+  &lt;d:prop&gt;
+     &lt;d:resourcetype /&gt;
+     &lt;d:displayname /&gt;
+     &lt;cs:getctag /&gt;
+     &lt;c:supported-calendar-component-set /&gt;
+  &lt;/d:prop&gt;
+&lt;/d:propfind&gt;
+</code></pre>
+
+<p>In that last request, we asked for 4 properties.</p>
+
+<p>The <code>resourcetype</code> tells us what type of object we're getting back. You must
+read out the <code>resourcetype</code> and ensure that it contains at least a <code>calendar</code>
+element in the CalDAV namespace. Other items <em>may</em> be returned, including non-
+calendar, which your application should ignore.</p>
+
+<p>The displayname is a human-readable string for the calendarname, the ctag was
+already covered in an earlier section.</p>
+
+<p>Lastly, <code>supported-calendar-component-set</code>. This gives us a list of components
+that the calendar accepts. This could be just <code>VTODO</code>, <code>VEVENT</code>, <code>VJOURNAL</code> or a
+combination of these three.</p>
+
+<p>If you are just creating a todo-list application, this means you should only
+list the calendars that support the <code>VTODO</code> component.</p>
+
+<pre><code>HTTP/1.1 207 Multi-status
+Content-Type: application/xml; charset=utf-8
+
+&lt;d:multistatus xmlns:d="DAV:" xmlns:cs="http://calendarserver.org/ns/" xmlns:c="urn:ietf:params:xml:ns:caldav"&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:resourcetype&gt;
+                    &lt;d:collection/&gt;
+                &lt;/d:resourcetype&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/home/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:resourcetype&gt;
+                    &lt;d:collection/&gt;
+                    &lt;c:calendar/&gt;
+                &lt;/d:resourcetype&gt;
+                &lt;d:displayname&gt;Home calendar&lt;/d:displayname&gt;
+                &lt;cs:getctag&gt;3145&lt;/cs:getctag&gt;
+                &lt;c:supported-calendar-component-set&gt;
+                    &lt;c:comp name="VEVENT" /&gt;
+                &lt;/c:supported-calendar-component-set&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+    &lt;d:response&gt;
+        &lt;d:href&gt;/calendars/johndoe/tasks/&lt;/d:href&gt;
+        &lt;d:propstat&gt;
+            &lt;d:prop&gt;
+                &lt;d:resourcetype&gt;
+                    &lt;d:collection/&gt;
+                    &lt;c:calendar/&gt;
+                &lt;/d:resourcetype&gt;
+                &lt;d:displayname&gt;My TODO list&lt;/d:displayname&gt;
+                &lt;cs:getctag&gt;3345&lt;/cs:getctag&gt;
+                &lt;c:supported-calendar-component-set&gt;
+                    &lt;c:comp name="VTODO" /&gt;
+                &lt;/c:supported-calendar-component-set&gt;
+            &lt;/d:prop&gt;
+            &lt;d:status&gt;HTTP/1.1 200 OK&lt;/d:status&gt;
+        &lt;/d:propstat&gt;
+    &lt;/d:response&gt;
+&lt;/d:multistatus&gt;
+</code></pre>
+
+<h3 id="advanced-discovery-topics">Advanced discovery topics</h3>
+
+<p>Read the <a href="/dav/service-discovery">Service Discovery documentation</a></p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

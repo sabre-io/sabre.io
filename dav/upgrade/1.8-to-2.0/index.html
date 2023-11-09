@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Upgrading from SabreDAV 1.8 to 2.0 - sabre/dav</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/dav">
+                sabre<span>/dav</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/install">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/upgrading">Upgrading</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/gettingstarted">Getting Started</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/dav/extending-sabredav">Extending sabre/dav</a></li>
+                    <li>Troubleshooting
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/faq">FAQ</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/clients">Clients</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/webservers">Webservers</a></li>
+                        </ul>
+                    </li>
+                    <li>CalDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-caldav-client">Building a CalDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-proxy">Delegation</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-sharing">Calendar sharing</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/ics-export-plugin">iCalendar export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scheduling">Scheduling</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>CardDAV
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav/">Getting started</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/building-a-carddav-client/">Building a CardDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/caldav-carddav-integration-guide/">Integration guide</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-directory/">CardDAV Directory</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/vcf-export-plugin/">vCard export</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/carddav-me-card/">Me-card</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/service-discovery/">Service Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li>Other topics
+                        <ul>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/acl">Acl</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/authentication">Authentication</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/character-encoding">Character encoding</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/browser-plugin">Directory indexes</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davmount">DavMount</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/guesscontenttype">Content Types</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/http-patch">PATCH support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/large-files">Large files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/litmus">Litmus</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/locks">Locks</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/plugins">Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/per-user-directories/">Per-user directories</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/properties">Properties</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/property-storage">Property storage</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/scalability">Scalability</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/simplecollection">SimpleCollection</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/standards-support">Standards Support</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/temporary-files">Temporary Files</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/versioning">Versioning</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/virtual-filesystems">Virtual filesystems</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/davclient">WebDAV client</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/sync">WebDAV sync</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/writing-plugins">Writing Plugins</a></li>
+                            <li><a href="https://sabre-io.github.io/sabre.io/dav/xmlelements">XML Elements</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Upgrading from SabreDAV 1.8 to 2.0</h1>
+                <p>SabreDAV 2.0 has <a href="/blog/2014/sabredav-2-release/">finally been released</a> after almost 2 years of work.</p>
+
+<h2 id="new-stuff">New stuff</h2>
+
+<ul>
+<li>Support for <a href="https://tools.ietf.org/html/rfc6578">WebDAV-Sync (rfc6578)</a>.</li>
+<li>Support for managing calendar subscriptions. This is a proprietary extension
+that's supported by at least iCal, iOS and BusyCal.</li>
+<li>Support for <a href="/vobject/json">jCal</a>. A CalDAV client can now request to receive
+jCal, which is a json-based serialization for iCalendar.</li>
+<li>Added: A BasicCallback authentication backend. This authentication backend
+uses a callback to verify a username + password, making it extremely easy to
+set this up.</li>
+<li>Now ships with <a href="/vobject/">sabre/vobject 3</a>.</li>
+<li>Gave the 'HTTP' package an overhaul, and moved this into a separate project.
+See the <a href="/http/">project page</a> for more info.</li>
+<li>The event/plugin system also spliced off into a separate package.
+<a href="/event/">more info</a>.</li>
+<li>The <a href="/dav/ics-export-plugin">ICSExportPlugin</a> got a <em>lot</em> of changes that
+made it easier for browser-based javascript applications to integrate.</li>
+<li>The property system got a massive overhaul, allowing for a new
+'PropertyStorage' plugin. This plugin allows storage of arbitrary properties
+anywhere on your DAV server.</li>
+<li>Overall both Card- and CalDAV should be much, much faster, and consume less
+resources due to the addition of caldav-sync, internally optimizing multiget
+and database denormalization.</li>
+<li>Better documented and better having <a href="/dav/http-patch">PATCH support</a>.</li>
+<li>A brand new browser plugin that shows a lot more debugging information and
+looks much better.</li>
+</ul>
+
+<p>To read the full list of changes (there's quite a few!) read the changelogs:</p>
+
+<ul>
+<li><a href="https://github.com/sabre-io/dav/blob/master/ChangeLog.md">sabre/dav</a></li>
+<li><a href="https://github.com/sabre-io/vobject/blob/3.2.2/ChangeLog">sabre/vobject</a></li>
+<li><a href="https://github.com/sabre-io/event/blob/1.0.0/ChangeLog">sabre/event</a></li>
+<li><a href="https://github.com/sabre-io/http/blob/2.0.3/ChangeLog">sabre/http</a></li>
+</ul>
+
+<h2 id="api-changes-and-bc-breaks">API Changes and BC breaks</h2>
+
+<h3 id="now-requires-php-5.4">Now requires PHP 5.4</h3>
+
+<p>If you are still running PHP 5.3, you must not upgrade SabreDAV. SabreDAV 1.8
+will be maintained for bugfixes for some time, but you should consider upgrading
+your PHP version to PHP 5.4, to take advantage of the latest and greatest, and
+get a big speed-up in the process.</p>
+
+<h3 id="database-changes-for-pdo-backends">Database changes for PDO backends</h3>
+
+<p>The PDO backends got a number of changes, mainly to speed things up, but also
+to provide support for new features.</p>
+
+<p>This affects you if you were running either a CalDAV or a CardDAV server, with
+the default PDO backend.</p>
+
+<p>Before you start the migration process, please make a backup first! No
+warranty is given for lost data.</p>
+
+<p>To run the database upgrade, simply start <code>./bin/migrate20.php</code> from the SabreDAV
+project. This script will give you more information about its arguments.</p>
+
+<h3 id="taking-advantage-of-webdav-sync">Taking advantage of WebDAV-sync</h3>
+
+<p>This affects you if you were running a Cal or CardDAV server with the default
+PDO backend.</p>
+
+<p>This is an optional step, but after upgrading the database schema, you can
+add the following line to your server file to turn on WebDAV-sync:</p>
+
+<pre><code>$server-&gt;addPlugin(new \Sabre\DAV\Sync\Plugin());
+</code></pre>
+
+<p>The result is much faster synchronization with modern Cal and CardDAV clients.
+For high-load systems, you should see significant improvements in CPU, Memory
+and bandwidth usage.</p>
+
+<h3 id="upgraded-to-sabre%2Fvobject-3">Upgraded to sabre/vobject 3</h3>
+
+<p>If you've done any work with sabre/vobject, and you should also read the
+<a href="https://github.com/sabre-io/vobject/blob/master/doc/MigratingFrom2to3.md">migration instructions</a> from the vobject project page.</p>
+
+<p>Since this SabreDAV version we are now shipping sabre/vobject 3, which has a
+large amount of improvements over sabre/vobject 2, but also breaks a few
+things.</p>
+
+<h3 id="event-%2F-plugin-system-got-a-massive-overhaul">Event / Plugin system got a massive overhaul</h3>
+
+<p>This affects you if you wrote your own plugins, or if you used
+<code>subscribeEvent</code>  or <code>broadcastEvent</code> manually.</p>
+
+<p>SabreDAV now externalized the event system into a separate project, namely
+<a href="/event/">sabre/event</a>.</p>
+
+<p>In simple terms this means that:</p>
+
+<ul>
+<li><code>Sabre\DAV\Server::broadcastEvent</code> got renamed to <code>::emit</code>.</li>
+<li><code>Sabre\DAV\Server::subscribeEvent</code> got renamed to <code>::on</code>.</li>
+</ul>
+
+<p>The arguments to these two functions have stayed the same, a bunch more
+event-related methods have been added, as documented on the sabre/event project
+page.</p>
+
+<p>However, because we had to change this, we also took the chance to change the
+arguments of a lot of SabreDAV events, to make them much more effective.</p>
+
+<p>A lot of events had a <code>$method</code> and a <code>$uri</code> argument. I was unhappy with this
+design, as for any other information related to the HTTP request, aside from the
+method or uri had to be grabbed from <code>$server-&gt;httpRequest</code>.</p>
+
+<p>Similarly, any information sent back to the client always had to be done
+through <code>$server-&gt;httpResponse</code>.</p>
+
+<p>Both these properties still exists, but it is not longer the recommended way
+to read information about http requests and change the http response. Instead,
+event handlers get a full <code>$request</code> and <code>$response</code> objects as their direct
+arguments.</p>
+
+<p>This allows for much easier unit testing, as well as event handlers to do
+live-rewriting or sub-requests without affecting the global state.</p>
+
+<p>The main events that have changed their behavior are 'beforeMethod' and
+'unknownMethod'. 'unknownMethod' has been completely removed, and 'beforeMethod'
+has altered.</p>
+
+<p>The implication is that <em>every single plugin</em> that implemented those events
+has now also changed. Besides using <code>on</code> instead of <code>subscribeEvent</code>, the
+bodies for the event handlers have been changed to use new arguments.</p>
+
+<p>More on the method-handling process in the next chapter.</p>
+
+<h3 id="switched-to-psr-4">Switched to PSR-4</h3>
+
+<p>We changed out autoloading mechanism to switch from <a href="https://www.php-fig.org/psr/psr-0/">psr-0</a> to <a href="https://www.php-fig.org/psr/psr-4/">psr-4</a>.
+If you used <code>vendor/autoload.php</code> this makes absolutely no difference, but if
+you manually set-up autoloading, be aware that the directory structure is now:</p>
+
+<pre><code>lib/
+lib/DAV
+lib/DAVACL
+lib/CalDAV
+lib/CardDAV
+</code></pre>
+
+<p>And no longer:</p>
+
+<pre><code>lib/
+lib/Sabre
+lib/Sabre/DAV
+lib/Sabre/DAVACL
+lib/Sabre/CalDAV
+lib/Sabre/CardDAV
+</code></pre>
+
+<h3 id="removed-deprecated-autoloader-script">Removed deprecated autoloader script</h3>
+
+<p><code>lib/Sabre/autoload.php</code> was already deprecated in version 1.7.0, but now it
+got removed. If you were still using this, switch to <code>vendor/autoload.php</code>.</p>
+
+<h3 id="events-related-to-http-method-handling">Events related to HTTP method handling</h3>
+
+<p>The beforeMethod event has changed quite a bit, and the unknownMethod event
+had been completely removed.</p>
+
+<p>When a HTTP method is executed on a SabreDAV server, for example the 'GET'
+method, the following events are triggered in order:</p>
+
+<ol>
+<li>beforeMethod:GET</li>
+<li>beforeMethod</li>
+<li>method:GET</li>
+<li>method</li>
+<li>afterMethod:GET</li>
+<li>afterMethod</li>
+</ol>
+
+<p>By default the <code>CorePlugin</code> will register an event handler for <code>method:GET</code>.
+If you'd like to handle GET in certain cases, you can be first by registering
+your own GET method handler, with a lower priority.</p>
+
+<p>The default priority for every method is 100, so by specifying 90 we guarantee
+that our event is always triggered first.</p>
+
+<pre><code>use
+    Sabre\HTTP\RequestInterface,
+    Sabre\HTTP\ResponseInterface;
+
+
+$myGetHandler = function(RequestInterface $request, ResponseInterface $response) {
+
+    // If the filename contains the word cat, we will return miaow instead of
+    // the real response body.
+    $path = $request-&gt;getPath();
+    if (false === strpos($path, 'cat')) {
+        // No cat = do nothing
+        return;
+    }
+
+    // There was a cat in the url. Lets do weird stuff.
+    $response-&gt;setBody('Miaow!');
+    $response-&gt;setStatus(200); // 200 OK
+    $response-&gt;setHeader('Content-Type', 'text/plain');
+
+    // This ensures that the standard GET handler does not kick in.
+    return false;
+
+};
+
+$server-&gt;on('beforeMethod:GET', $myGetHandler, 90);
+</code></pre>
+
+<p>Every method-related handlers get 2 arguments, the http request and the
+http response.</p>
+
+<p>beforeMethod allows you to prevent a method from being executed. The ACL
+method uses this to ensure that methods are not handled if the user did not
+have permission to do so.</p>
+
+<p>beforeMethod also allows you to rewrite the response body before its being
+handled, for whatever reason. You may want to convert the format of the
+response body to something else.</p>
+
+<p>The <code>method</code> and <code>method:GET</code> events (for the PUT method, it would be
+<code>method:PUT</code>) are strictly reserved for actually handling the event. If you did
+handle the event, you <em>must</em> return <code>false</code> from your event handler to indicate
+that the method is handled, and no other system has to do any handling.</p>
+
+<p>The afterMethod event is to do any post-processing. You could use this to log
+that the method has been executed, or re-write the response body after it has
+been generated.</p>
+
+<h3 id="caldav-backendinterface-adds-a-new-method">CalDAV BackendInterface adds a new method</h3>
+
+<p>This affects you, if you wrote your own CalDAV backend.</p>
+
+<p>The CalDAV BackendInterface now adds the <code>getMultipleCalendarObjects</code> method.
+Implementing this can result in significant speed-ups.</p>
+
+<p>If you extended <code>AbstractBackend</code>, there already is a default implementation,
+that lazily falls back on calling <code>getCalendarObject</code>.</p>
+
+<h3 id="carddav-backendinterface-adds-a-new-method">CardDAV BackendInterface adds a new method</h3>
+
+<p>This affects you, if you wrote your own CardDAV backend.</p>
+
+<p>The CardDAV BackendInterface now adds the <code>getMultipleCards</code> method.
+Implementing this can result in significant speed-ups.</p>
+
+<p>If you extended <code>AbstractBackend</code>, there already is a default implementation,
+that lazily falls back on calling <code>getCard</code>.</p>
+
+<h3 id="caldav-and-carddav-pdo-backends-now-have-support-for-webdav-sync">CalDAV and CardDAV PDO backends now have support for WebDAV-Sync</h3>
+
+<p>Support for WebDAV-Sync means that every change that's happening in any
+calendar or addressbook is now recorded.</p>
+
+<p>This allows a client to simply ask for all modifications since the last sync,
+and greatly improves performance on a number of fronts.</p>
+
+<p>If you made custom modifications to the PDO backends, keep in mind that
+because of this new functionality, some stuff may not work exactly liked it
+used to. If for example the methods that create or modify calendar objects
+don't register a change in the database, a client may never see this change.</p>
+
+<p>Similarly, if you made modifications manually in the database, these may also
+be 'lost changes'. The best recommendation I can give is to have a good look
+at the new PDO backends and see what's going on there.</p>
+
+<h3 id="property-updating-has-changed.">Property updating has changed.</h3>
+
+<p>This is relevant to you if you:</p>
+
+<ul>
+<li>Created a custom node that implements <code>Sabre\DAV\IProperties</code></li>
+<li>Created a plugin that uses the <code>updateProperties</code> event.</li>
+<li>Created a custom backend for CalDAV, CardDAV or ACL that supports updating
+of properties.</li>
+</ul>
+
+<p>The way property updating was implemented, did not allow for certain types of
+operations. In particular, it was impossible to write a 'generic dead property'
+storage.</p>
+
+<p>Before, any method that dealt with updating properties would simply receive an
+argument called <code>$properties</code> or sometimes <code>$mutations</code> that was a simple
+structure such as this:</p>
+
+<pre><code>array(
+    '{DAV:}displayname' =&gt; 'new name!',
+    '{DAV:}foo' =&gt; null,
+);
+</code></pre>
+
+<p>This had to be changed, as different components may be responsible for
+handling storage of different properties, but each must successful and work
+together for the entire operation to be successful.</p>
+
+<p>To do this, a new object is introduced, <code>Sabre\DAV\PropPatch</code>. This object
+holds the mutation list for properties, and provides a whole bunch of
+convenience methods for the statuses.</p>
+
+<p>The full documentation can be read on <a href="https://www.php-fig.org/psr/psr-0/">Properties</a>, but here's the gist
+of what has changed:</p>
+
+<ol>
+<li><code>Sabre\DAV\IProperties::updateProperties</code> (now <code>::propPatch</code>).</li>
+<li>Any principal backend implementing <code>updatePrincipal</code>.</li>
+<li>Any CalDAV backend implementing <code>updateCalendar</code>.</li>
+<li>Any CardDAV backend implementing <code>updateAddressBook</code>.</li>
+</ol>
+
+<p>All of the previous methods received the <code>$mutations</code> or <code>$properties</code> array.</p>
+
+<p>This is now the PropPatch object.</p>
+
+<p>Here's a new example of a node storing <code>{DAV:}displayname</code>:</p>
+
+<pre><code>function propPatch(\Sabre\DAV\PropPatch $propPatch) {
+
+    $propPatch-&gt;handle('{DAV:}displayname', function($value) {
+
+        // Store the $value in the database here.
+
+        // Return true if you were successful.
+        return true;
+
+    });
+
+}
+</code></pre>
+
+<p>As you can see updating properties now happens in two steps:</p>
+
+<ol>
+<li>You tell the system you <em>promise</em> to handle storage of <code>{DAV:}displayname</code>.</li>
+<li>You do the actual storing (in the enclosed function).</li>
+</ol>
+
+<p>The new <code>PROPPATCH</code> system now checks if every incoming property can be stored
+by some subsystem, and only then calls all callbacks.</p>
+
+<p>If you want to store more than one property in one go, this can also be done
+using the handle method.</p>
+
+<p>This is an example for a CalDAV backend that stores both the displayname, and
+the calendar description:</p>
+
+<pre><code>function updateCalendar($calendarId, \Sabre\DAV\PropPatch $propPatch) {
+
+    $properties = [
+        '{DAV:}displayname',
+        '{urn:ietf:params:xml:ns:caldav}calendar-description',
+    ];
+
+    $propPatch-&gt;handle($properties, function($mutations) {
+
+        // $mutations contains the list of properties we need to update.
+
+        // Return true if you were successful.
+        return true;
+
+    });
+
+}
+</code></pre>
+
+<p>As you can see in the previous example, the <code>handle()</code> method can be used to
+do multiple properties at once by supplying the list of properties as an array.</p>
+
+<h3 id="the-%60updateproperties%60-event-is-no-more">The <code>updateProperties</code> event is no more</h3>
+
+<p>The <code>updateProperties</code> event on the server is now called <code>propPatch</code>, and
+looks like this:</p>
+
+<pre><code>$server-&gt;on('propPatch', function($path, \Sabre\DAV\PropPatch $propPatch) {
+
+
+});
+</code></pre>
+
+<h3 id="%60beforegetproperties%60-and-%60aftergetproperties%60-and-%60updateproperties%60-events-have-been-removed."><code>beforeGetProperties</code> and <code>afterGetProperties</code> and <code>updateProperties</code> events have been removed.</h3>
+
+<p>These three events are now replaced by two new events:</p>
+
+<ul>
+<li>propFind</li>
+<li>propPatch</li>
+</ul>
+
+<p>Usage instructions can be found on the <a href="/dav/writing-plugins">writing plugins</a>
+documentation.</p>
+
+<h3 id="%60sabre%5Cdav%5Ciproperties%60-has-a-new-api"><code>Sabre\DAV\IProperties</code> has a new API</h3>
+
+<p>If you implement <code>Sabre\DAV\IProperties</code> or ever created a tree node that
+implemented an <code>updateProperties()</code> method, pay attention.</p>
+
+<p>The <code>updateProperties()</code> method has been removed in favor of a new
+<code>propPatch()</code> method.</p>
+
+<p>This was needed to allow the creation of a generic property storage module.</p>
+
+<p>The old method signature:</p>
+
+<pre><code>function updateProperties(array $mutations) {
+
+    // ...
+
+}
+</code></pre>
+
+<p>The new method signature:</p>
+
+<pre><code>function propPatch(\Sabre\DAV\PropPatch $propPatch) {
+
+    // ...
+
+}
+</code></pre>
+
+<p>Instead of a simple array with to-be-updated properties, the method now
+receives an instance of <code>Sabre\DAV\PropPatch</code>.</p>
+
+<p>Instead of having to loop through the old array and figure out what properties
+you support and store, there's a bunch of convenience methods that will help
+with this.</p>
+
+<p>In particular, the <code>handle()</code> method allows you to tell PropFind "I can handle
+this property and I promise to store it somewhere".</p>
+
+<p>For example, if your node supports storing the <code>{DAV:}displayname</code> property,
+this is how that method may look like:</p>
+
+<pre><code>function propPatch(\Sabre\DAV\PropPatch $propPatch) {
+
+    $propPatch-&gt;handle('{DAV:}displayname', function($value) {
+
+        // Store $value somewhere. Note that if value is null, you should
+        // delete the property.
+        //
+        // You must return true or false depending on if the operation was
+        // successful.
+
+    });
+
+}
+</code></pre>
+
+<h3 id="updated-%60updatecalendar%60-and-%60updateaddressbook%60-in-caldav-and-carddav-backends.">Updated <code>updateCalendar</code> and <code>updateAddressBook</code> in CalDAV and CardDAV backends.</h3>
+
+<p>Due to the upgraded property system, both updateCalendar and updateAddressBook
+got similar changes. Each now receive a <code>propPatch</code> object instead of an array
+with mutations.</p>
+
+<h3 id="updates-in-the-sabre%2Fhttp-api">Updates in the sabre/http API</h3>
+
+<p>The lib/Sabre/HTTP portion of the library moved to its own package, and got an
+almost 100% rewrite.</p>
+
+<p>If you did anything directly with <code>Sabre\HTTP</code>, it's likely that things have
+changed. This is most likely true if you ever created an instance of a class in
+the <code>Sabre\HTTP</code> namespace, you did something with Authentication or something
+with the <code>Request</code> and <code>Response</code> objects.</p>
+
+<h4 id="the-request-object">The Request object</h4>
+
+<p>Old syntax:</p>
+
+<pre><code>$request = new \Sabre\HTTP\Request();
+</code></pre>
+
+<p>new syntax:</p>
+
+<pre><code>$request = \Sabre\HTTP\Sapi::getRequest();
+</code></pre>
+
+<p>If you ever created a 'fake' or 'mock' http request, you probably used a syntax
+such as the following:</p>
+
+<pre><code>$request = new \Sabre\HTTP\Request([
+    'REQUEST_URI' =&gt; '/foo',
+    'REQUEST_METHOD' =&gt; 'POST',
+    'HTTP_CONTENT_TYPE' =&gt; 'application/xml',
+]);
+</code></pre>
+
+<p>The new syntax looks like this:</p>
+
+<pre><code>$request = \Sabre\HTTP\Sapi::createFromServerArray([
+    'REQUEST_URI' =&gt; '/foo',
+    'REQUEST_METHOD' =&gt; 'POST',
+    'HTTP_CONTENT_TYPE' =&gt; 'application/xml',
+]);
+</code></pre>
+
+<p>But.. this is still a bit ugly, as it requires you to manually re-construct
+the cgi variables from <code>$_SERVER</code>. The new, improved syntax looks like this:</p>
+
+<pre><code>$request = new Request(
+  'POST',
+  '/foo',
+  ['Content-Type' =&gt; 'application/xml']
+);
+</code></pre>
+
+<h4 id="the-response-object">The Response object</h4>
+
+<p>Before, the response object would automatically call <code>header()</code> and send the
+response body as soon as possible.</p>
+
+<p>This is no longer true, and some methods also have changed.</p>
+
+<p>Before you would do something like this:</p>
+
+<pre><code>$response = new \Sabre\HTTP\Response();
+$response-&gt;setHeader('Content-Type', 'application/xml'); // This would already call php's header() !
+$response-&gt;sendStatus(201); // This also calls php's header()
+$response-&gt;sendBody('&lt;?xml version="1.0"?&gt;...etc'); // This calls fpassthru/echo
+</code></pre>
+
+<p>The new response object doesn't send anything right away. Everything is
+buffered, until sendResponse() is called. In addition, sendStatus is now setStatus,
+and sendBody is setBody.</p>
+
+<pre><code>$response = new \Sabre\HTTP\Response();
+$response-&gt;setHeader('Content-Type', 'application/xml');
+$response-&gt;setStatus(201);
+$response-&gt;setBody('&lt;?xml version="1.0"?&gt;...etc');
+
+\Sabre\HTTP\Sapi::sendResponse($response);
+</code></pre>
+
+<h4 id="authentication">Authentication</h4>
+
+<p>The authentication-related classes have moved into their own namespace.
+The new class names are:</p>
+
+<ul>
+<li><code>Sabre\HTTP\AbstractAuth</code> is now <code>Sabre\HTTP\Auth\AbstractAuth</code>.</li>
+<li><code>Sabre\HTTP\BasicAuth</code> is now <code>Sabre\HTTP\Auth\Basic</code>.</li>
+<li><code>Sabre\HTTP\DigestAuth</code> is now <code>Sabre\HTTP\Auth\Digest</code>.</li>
+<li><code>Sabre\HTTP\AWSAuth</code> is now <code>Sabre\HTTP\Auth\AWS</code>.</li>
+</ul>
+
+<p>Furthermore, the constructor arguments have changed for all of these. The
+following 3 arguments are now required:</p>
+
+<ul>
+<li><code>$realm</code></li>
+<li><code>$request</code></li>
+<li><code>$response</code></li>
+</ul>
+
+<p><code>$realm</code> is just a single string. <code>$request</code> must be a Request object, and
+<code>$response</code> and instance of Response.</p>
+
+<h3 id="custom-webdav-serialization-slightly-changed">Custom WebDAV serialization slightly changed</h3>
+
+<p>If you implemented your own custom, complex WebDAV properties, using
+<code>Sabre\DAV\Property</code> as a base-class, this affects you.</p>
+
+<p>The <code>unserialize</code> method now got an extra argument. The full signature changed
+from <code>static function unserialize(\DOMElement)</code> to
+<code>static function unserialize(\DOMElement, array $propertyMap)</code>. The new
+<code>$propertyMap</code> argument contains the list of WebDAV properties and which classes
+they should be mapped to.</p>
+
+<p>All you likely have to do, is to just add that new argument to the method
+declaration, to ensure PHP doesn't emit any warnings.</p>
+
+<h3 id="functionality-moved-from-the-server-class-to-coreplugin">Functionality moved from the Server class to CorePlugin</h3>
+
+<p>This version of SabreDAV adds a 'CorePlugin', which uses the plugin system to
+provide basic functionality. The plugin is automatically added.</p>
+
+<p>It does mean that a number of functions have moved from Sabre\DAV\Server to
+this plugin.</p>
+
+<p>If you sub-classed Sabre\DAV\Server, or called any of these methods manually
+for some reason, your code will break.</p>
+
+<p>The relevant methods are :</p>
+
+<ul>
+<li><code>httpGet</code></li>
+<li><code>httpOptions</code></li>
+<li><code>httpHead</code></li>
+<li><code>httpDelete</code></li>
+<li><code>httpPropfind</code></li>
+<li><code>httpPropPatch</code></li>
+<li><code>httpPut</code></li>
+<li><code>httpMkcol</code></li>
+<li><code>httpMove</code></li>
+<li><code>httpCopy</code></li>
+<li><code>httpReport</code></li>
+</ul>
+
+<h3 id="removed-version-related-constants">Removed Version-related constants</h3>
+
+<p><code>Sabre\DAV\Version::STABILITY</code> no longer exists. The stability is now
+incorporated in the VERSION constant.</p>
+
+<p>Furthermore, the following classes have been removed, as they mostly
+contained redundant information:</p>
+
+<ul>
+<li><code>Sabre\CalDAV\Version</code></li>
+<li><code>Sabre\CardDAV\Version</code></li>
+<li><code>Sabre\DAVACL\Version</code></li>
+</ul>
+
+<h3 id="changed-sabre%5Cdav%5Cserver%3A%3Agetcopymoveinfo">Changed Sabre\DAV\Server::getCopyMoveInfo</h3>
+
+<p>This method now requires a <code>RequestInterface</code> object as its first argument.
+This object will be used to figure out all the relevant information, rather
+than the global SabreDAV state.</p>
+
+<h3 id="sabre%5Cdav%5Curlutil-has-moved">Sabre\DAV\URLUtil has moved</h3>
+
+<p>The new classname for this utility is Sabre\HTTP\URLUtil.</p>
+
+<p>The old class still exists, but will be removed in a future version.</p>
+
+<h3 id="sabre%5Cdav%5Cserver%3A%3Anode-constants-are-removed.">Sabre\DAV\Server::NODE constants are removed.</h3>
+
+<p>The <code>Sabre\DAV\Server::NODE_FILE</code> and <code>Sabre\DAV\Server::NODE_COLLECTION</code> no
+longer exist.</p>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>

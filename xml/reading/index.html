@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<head lang="en">
+
+    
+  
+            <title>Reading XML - sabre/xml</title>
+    
+    <meta charset="utf-8">
+
+    <link rel="alternate" type="application/atom+xml" href="https://sabre-io.github.io/sabre.io/atom.xml" title="sabre.io blog">
+    <link rel="icon" href="https://sabre-io.github.io/sabre.io/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,700,300,400" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="https://sabre-io.github.io/sabre.io/css/sabre.css">
+    
+</head>
+<body >
+    <header class="pagehead">
+
+    <div class="pagehead-inner">
+        <a class="logo" href="https://sabre-io.github.io/sabre.io/">
+                            <img src="https://sabre-io.github.io/sabre.io/img/logo.png" alt="sabre/sabre/xml">
+                sabre<span>/xml</span>
+                    </a>
+
+        <nav class="nav nav--page">
+            <ul>
+                <li class="size-auto"></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/dav">Docs</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/blog">Blog</a></li>
+                <li><a href="https://sabre-io.github.io/sabre.io/support">Support</a></li>
+                <li class="size-auto text--right"><a href="https://github.com/sabre-io"><i class="fa fa-github"></i></a></li>
+                <!-- <li><a href="https://sabre-io.github.io/sabre.io/atom.xml"><i class="fa fa-rss"></i></a> <a href="https://twitter.com/sabredav"><i class="fa fa-twitter"></i></a></li> -->
+            </ul>
+        </nav>
+
+    </div>
+
+</header>
+
+            <input class="hamburger-input" type="checkbox" id="nav-check" name="nav-check">
+        <label class="hamburger-label" for="nav-check"><i class="fa fa-bars"></i></label>
+    
+        <main class="incl-sidebar">
+                    <aside class="sidebar">
+    <nav class="nav nav--sidebar">
+        <ul class="list list--nav">
+            <li><a href="https://sabre-io.github.io/sabre.io/dav">sabre/dav</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/event">sabre/event</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/http">sabre/http</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/katana">sabre/katana</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/vobject">sabre/vobject</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/xml">sabre/xml</a>
+                                <ul>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/">Introduction</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/install/">Installation</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/reading/">Reading XML</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/writing/">Writing XML</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/valueobjects/">Value Object mapping</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/service/">XML service</a></li>
+                    <li><a href="https://sabre-io.github.io/sabre.io/xml/clark-notation/">Clark-notation</a></li>
+                </ul>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/uri">sabre/uri</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/baikal/">Baïkal</a>
+                            </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/license">License</a></li>
+        </ul>
+    </nav>
+</aside>
+                <article>
+                            <h1>Reading XML</h1>
+                <p>sabre/xml has a reader class called <code>Sabre\Xml\Reader</code>. This class extends
+PHP's built-in <a href="https://php.net/manual/en/book.xmlreader.php"><code>XMLReader</code></a> class.</p>
+
+<p>The reader is extended quite a bit. So while you can find the exact same API
+methods as in PHP's class, the way you interact with the reader will likely
+look different.</p>
+
+<p>Often you can just parse your XML documents by using the reader like this:</p>
+
+<pre><code>$reader = new Sabre\Xml\Reader();
+$reader-&gt;xml($xml);
+$result = $reader-&gt;parse();
+</code></pre>
+
+<p>However, we recommend using the <a href="/xml/service/">Service</a> object instead. It's optional,
+but it adds a few nice features. All of the following examples will be using
+this boilerplate instead to parse XML:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$result = $service-&gt;parse($xml);
+</code></pre>
+
+<h2 id="converting-xml-to-a-php-array">Converting XML to a PHP array</h2>
+
+<p>Let's take the following XML as our primary example.</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;books xmlns="http://example.org/books"&gt;
+    &lt;book&gt;
+        &lt;title&gt;Snow Crash&lt;/title&gt;
+        &lt;author&gt;Neil Stephenson&lt;/author&gt;
+    &lt;/book&gt;
+    &lt;book&gt;
+        &lt;title&gt;Dune&lt;/title&gt;
+        &lt;author&gt;Frank Herbert&lt;/author&gt;
+    &lt;/book&gt;
+&lt;/books&gt;
+</code></pre>
+
+<p>To convert this XML to a PHP array, we can just run this:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+
+print_r($service-&gt;parse($xml));
+</code></pre>
+
+<p>The output for this, is quite big:</p>
+
+<pre><code>Array
+    (
+        [0] =&gt; Array
+            (
+                [name] =&gt; {http://example.org/books}book
+                [value] =&gt; Array
+                    (
+                        [0] =&gt; Array
+                            (
+                                [name] =&gt; {http://example.org/books}title
+                                [value] =&gt; Snow Crash
+                                [attributes] =&gt; Array
+                                    (
+                                    )
+
+                            )
+
+                        [1] =&gt; Array
+                            (
+                                [name] =&gt; {http://example.org/books}author
+                                [value] =&gt; Neil Stephenson
+                                [attributes] =&gt; Array
+                                    (
+                                    )
+
+                            )
+
+                    )
+
+                [attributes] =&gt; Array
+                    (
+                    )
+
+            )
+
+        [1] =&gt; Array
+            (
+                [name] =&gt; {http://example.org/books}book
+                [value] =&gt; Array
+                    (
+                        [0] =&gt; Array
+                            (
+                                [name] =&gt; {http://example.org/books}title
+                                [value] =&gt; Dune
+                                [attributes] =&gt; Array
+                                    (
+                                    )
+
+                            )
+
+                        [1] =&gt; Array
+                            (
+                                [name] =&gt; {http://example.org/books}author
+                                [value] =&gt; Frank Herbert
+                                [attributes] =&gt; Array
+                                    (
+                                    )
+
+                            )
+
+                    )
+
+                [attributes] =&gt; Array
+                    (
+                    )
+
+            )
+    )
+</code></pre>
+
+<h2 id="key-value-xml-structures">Key-Value XML structures</h2>
+
+<p>However, we can simplify this quite a bit. Our <code>book</code> element pretty much
+looks like a key-value structure, so we can tell the parser to treat it as
+such:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap = [
+    '{http://example.org/books}book' =&gt; 'Sabre\Xml\Deserializer\keyValue',
+];
+
+print_r($service-&gt;parse($xml));
+</code></pre>
+
+<p>This creates the new output:</p>
+
+<pre><code>Array
+(
+    [0] =&gt; Array
+        (
+            [name] =&gt; {http://example.org/books}book
+            [value] =&gt; Array
+                (
+                    [{http://example.org/books}title] =&gt; Snow Crash
+                    [{http://example.org/books}author] =&gt; Neil Stephenson
+                )
+
+            [attributes] =&gt; Array
+                (
+                )
+
+        )
+
+    [1] =&gt; Array
+        (
+            [name] =&gt; {http://example.org/books}book
+            [value] =&gt; Array
+                (
+                    [{http://example.org/books}title] =&gt; Dune
+                    [{http://example.org/books}author] =&gt; Frank Herbert
+                )
+
+            [attributes] =&gt; Array
+                (
+                )
+
+        )
+
+)
+</code></pre>
+
+<h3 id="stripping-the-xml-namespaces">Stripping the XML namespaces</h3>
+
+<p>We added <code>keyValue</code> in our last example. <code>keyValue</code> really is simply a
+function that gets automatically called. We can give that function a default
+namespace, which will cause it to strip all namespace declarations if it
+matches that specific namespace.</p>
+
+<p>Our new code looks like this:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap = [
+    '{http://example.org/books}book' =&gt; function(Sabre\Xml\Reader $reader) {
+        return Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
+    }
+];
+
+print_r($service-&gt;parse($xml));
+</code></pre>
+
+<p>The new output:</p>
+
+<pre><code>Array
+(
+    [0] =&gt; Array
+        (
+            [name] =&gt; {http://example.org/books}book
+            [value] =&gt; Array
+                (
+                    [title] =&gt; Snow Crash
+                    [author] =&gt; Neil Stephenson
+                )
+
+            [attributes] =&gt; Array
+                (
+                )
+
+        )
+
+    [1] =&gt; Array
+        (
+            [name] =&gt; {http://example.org/books}book
+            [value] =&gt; Array
+                (
+                    [title] =&gt; Dune
+                    [author] =&gt; Frank Herbert
+                )
+
+            [attributes] =&gt; Array
+                (
+                )
+
+        )
+
+
+)
+</code></pre>
+
+<h3 id="parsing-the-%60books%60-element-as-a-collection-of-%60book%60-items.">Parsing the <code>books</code> element as a collection of <code>book</code> items.</h3>
+
+<p>Lastly, in our XML object we have a root element <code>books</code> and a repeating child
+element <code>book</code>. This too is a very common pattern in XML structures. We can
+also instruct the parser to treat <code>books</code> as a collection of <code>book</code> and return
+an even simpler array:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap = [
+    '{http://example.org/books}book' =&gt; function(Sabre\Xml\Reader $reader) {
+        return Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
+    },
+    '{http://example.org/books}books' =&gt; function(Sabre\Xml\Reader $reader) {
+        return Sabre\Xml\Deserializer\repeatingElements($reader, '{http://example.org/books}book');
+    },
+];
+
+print_r($service-&gt;parse($xml));
+</code></pre>
+
+<p>This last example will output:</p>
+
+<pre><code>Array
+(
+    [0] =&gt; Array
+        (
+            [title] =&gt; Snow Crash
+            [author] =&gt; Neil Stephenson
+        )
+
+    [1] =&gt; Array
+        (
+            [title] =&gt; Dune
+            [author] =&gt; Frank Herbert
+        )
+)
+</code></pre>
+
+<h2 id="other-standard-xml-parsers">Other standard XML parsers</h2>
+
+<p>There's a number of standard XML parsers included. Here's the list:</p>
+
+<h3 id="keyvalue">keyValue</h3>
+
+<pre><code>Sabre\Xml\Deserializer\keyValue(Reader $reader, $namespace = null);
+</code></pre>
+
+<p>Example further up in this document.</p>
+
+<h3 id="enum">enum</h3>
+
+<pre><code>Sabre\Xml\Deserializer\enum(Reader $reader, $namespace = null);
+</code></pre>
+
+<p>This deserializer turns a bunch of xml elements into a flat PHP array.
+Specifically it's intended for structures such as this:</p>
+
+<pre><code>&lt;fruit xmlns="urn:fruit"&gt;
+    &lt;apple&gt;
+    &lt;banana&gt;
+    &lt;orange&gt;
+&lt;/fruit&gt;
+</code></pre>
+
+<p>Parsing this:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap['{urn:fruit}fruit'] = 'Sabre\Xml\Deserializer\enum';
+$result = $service-&gt;parse($xml);
+
+print_r($result);
+</code></pre>
+
+<p>This would yield:</p>
+
+<pre><code>Array
+(
+    [0] =&gt; {urn:fruit}apple
+    [1] =&gt; {urn:fruit}banana
+    [2] =&gt; {urn:fruit}orange
+)
+</code></pre>
+
+<p>You can also specify a default namespace, which will cause that namespace to be
+stripped out. Example:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap['{urn:fruit}fruit'] = function(Sabre\Xml\Reader $reader) {
+    return Sabre\Xml\Deserializer\enum($reader, 'urn:fruit');
+};
+$result = $service-&gt;parse($xml);
+
+print_r($result);
+</code></pre>
+
+<p>This would yield:</p>
+
+<pre><code>Array
+(
+    [0] =&gt; apple
+    [1] =&gt; banana
+    [2] =&gt; orange
+)
+</code></pre>
+
+<h3 id="repeatingelements">repeatingElements</h3>
+
+<pre><code>Sabre\Xml\Deserializer\repeatingElements(Sabre\Xml\Reader $reader, $childElementName);
+</code></pre>
+
+<p>repeatingElements is specifically tailored for XML structures that look like this:</p>
+
+<pre><code>&lt;collection xmlns="urn:fruit"&gt;
+    &lt;item&gt;...&lt;/item&gt;
+    &lt;item&gt;...&lt;/item&gt;
+    &lt;item&gt;...&lt;/item&gt;
+    &lt;item&gt;...&lt;/item&gt;
+&lt;/collection&gt;
+</code></pre>
+
+<p>It allows to specifically say, <code>collection</code> always has a list of <code>item</code> elements
+and please return those <code>item</code> element's values as an array.</p>
+
+<h3 id="valueobject">valueObject</h3>
+
+<pre><code>Sabre\Xml\Deserializer\valueObject(Reader $reader, $className, $namespace);
+</code></pre>
+
+<p>The valueObject deserializer function allows you to turn an XML element into
+a PHP object of a specific class, mapping sub-elements to properties in the
+class.</p>
+
+<p>It's used internally by <code>Sabre\Xml\Service::mapValueObject</code>. Read more <a href="/xml/valueobjects/">here</a>.</p>
+
+<h3 id="xmlfragment">XmlFragment</h3>
+
+<p>In some cases you might want to allow 'free form XML' to be specified in for
+example an API. Atom for instance allows XHTML to be embedded, and WebDAV
+allows users to store custom properties consisting of complex xml structures
+with their own namespaces.</p>
+
+<p>XmlFragment extracts an entire XML subtree and creates a object that can be
+stored in a database, and later on embedded in an xml document again:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap = [
+    '{http://example.org/}root' =&gt; 'Sabre\Xml\Element\XmlFragment',
+];
+
+print_r($reader-&gt;parse($xml));
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>Sabre\Xml\Element\XmlFragment Object
+(
+            [xml:protected] =&gt;
+&lt;elem1 xmlns="http://example.org/"&gt;value1&lt;/elem1&gt;
+&lt;elem2 xmlns="http://example.org/" att="attvalue"&gt;value2&lt;/elem2&gt;
+
+
+)
+</code></pre>
+
+<h2 id="custom-element-parsers">Custom element parsers</h2>
+
+<p>Lets take this one step further… We have a simple class that represents the
+books document:</p>
+
+<pre><code>class Books {
+
+    // A list of books.
+    public $books = [];
+
+}
+</code></pre>
+
+<p>And we have a class for every book:</p>
+
+<pre><code>class Book {
+
+    public $title;
+    public $author;
+
+}
+</code></pre>
+
+<p>By refactoring our parser a bit, we can automatically map these classes to
+their respective XML elements:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap = [
+    // handle a collection of books
+    '{http://example.org/books}books' =&gt; function(Sabre\Xml\Reader $reader) {
+        $books = new Books();
+        $children = $reader-&gt;parseInnerTree();
+        foreach($children as $child) {
+            if ($child['value'] instanceof Book) {
+                $books-&gt;books[] = $child['value'];
+            }
+        }
+        return $books;
+    },
+    // handle a single book
+    '{http://example.org/books}book' =&gt; function(Sabre\Xml\Reader $reader) {
+        $book = new Book();
+        // Borrowing a parser from the KeyValue class.
+        $keyValue = Sabre\Xml\Deserializer\keyValue($reader, 'http://example.org/books');
+
+        if (isset($keyValue['title'])) {
+            $book-&gt;title = $keyValue['title'];
+        }
+        if (isset($keyValue['author'])) {
+            $book-&gt;author = $keyValue['author'];
+        }
+
+        return $book;
+
+    },
+];
+
+print_r($service-&gt;parse($xml));
+</code></pre>
+
+<p>This gives us the following output:</p>
+
+<pre><code>Books Object
+(
+    [books] =&gt; Array
+        (
+            [0] =&gt; Book Object
+                (
+                    [title] =&gt; Snow Crash
+                    [author] =&gt; Neil Stephenson
+                )
+
+            [1] =&gt; Book Object
+                (
+                    [title] =&gt; Dune
+                    [author] =&gt; Frank Herbert
+                )
+
+        )
+
+)
+</code></pre>
+
+<h2 id="using-the-xmldeserializable-interface">Using the XmlDeserializable interface</h2>
+
+<p>The last example had 2 custom deserializers. We can also integrate straight
+into the classes they are supposed to deserialize.</p>
+
+<p>The following two classes rebuild the <code>Book</code> and <code>Books</code> classes so they can
+parse themself from an XML document, and also write them in a new document:</p>
+
+<pre><code>class Books implements Sabre\Xml\XmlDeserializable {
+
+    // A list of books.
+    public $books = [];
+
+    static function xmlDeserialize(Sabre\Xml\Reader $reader) {
+
+        $books = new self();
+        $children = $reader-&gt;parseInnerTree();
+        foreach($children as $child) {
+            if ($child['value'] instanceof Book) {
+                $books-&gt;books[] = $child['value'];
+            }
+        }
+        return $books;
+
+    }
+
+}
+
+class Book implements Sabre\Xml\XmlDeserializable {
+
+    public $title;
+    public $author;
+
+    static function xmlDeserialize(Sabre\Xml\Reader $reader) {
+
+        $book = new self();
+
+        // Borrowing a parser from the KeyValue class.
+        $keyValue = Sabre\Xml\Element\KeyValue::xmlDeserialize($reader);
+
+        if (isset($keyValue['{http://example.org/books}title'])) {
+            $book-&gt;title = $keyValue['{http://example.org/books}title'];
+        }
+        if (isset($keyValue['{http://example.org/books}author'])) {
+            $book-&gt;author = $keyValue['{http://example.org/books}author'];
+        }
+
+        return $book;
+
+    }
+
+}
+</code></pre>
+
+<p>To use this:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;elementMap = [
+    '{http://example.org/books}books' =&gt; 'Books',
+    '{http://example.org/books}book' =&gt; 'Book',
+];
+
+print_r($service-&gt;parse($xml));
+</code></pre>
+
+<h2 id="using-valueobjects-for-this-instead">Using ValueObjects for this instead</h2>
+
+<p>While the former classmapping example is a good way to learn how to write custom
+deserializers, using the 'value objects' feature this could have been simplified
+even further.</p>
+
+<p>The exact same result could have been achieved by registering the PHP classes as
+value objects:</p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$service-&gt;mapValueObject('{http://example.org/books}books', 'Books');
+$service-&gt;mapValueObject('{http://example.org/books}book', 'Book');
+
+print_r($service-&gt;parse($xml));
+</code></pre>
+
+<p>For more information about this feature, read <a href="/xml/valueobjects/">Value Objects</a>. Value Objects
+are a great way to map very simple XML structures to simple PHP classes. As soon
+as either the XML or PHP classes are no longer 'simple', you will likely still
+need to write your own (de-)serializers.</p>
+
+<h2 id="summary-of-parsing-xml-objects">Summary of parsing XML objects</h2>
+
+<ol>
+<li>By default sabre/xml will always parse an XML document into an array.</li>
+<li>It is possible to map certain XML using <code>elementMap</code>.</li>
+<li>In the elementMap you can specify a custom deserializer strategy for
+a specific element.</li>
+<li>Often this is simply a PHP callback. The PHP callback receives the
+<code>Xml\Reader</code> object as its only argument.</li>
+<li>Default readers are provided to aid with parsing common xml structures.
+Examples are <code>keyValue</code> and <code>elements</code>.</li>
+<li>Instead of a callback, you can also specify a class. If this class
+implements <code>Sabre\Xml\XmlDeserializable</code>, then that function will be
+called to deserialize the element.</li>
+</ol>
+
+<h2 id="tips-for-custom-deserializing-functions">Tips for custom deserializing functions</h2>
+
+<p>If you either specify custom callbacks in <code>$elementMap</code>, or you are using
+<code>Sabre\Xml\XmlDeserializable</code>, you will end up with a function that receives
+an instance of <code>Sabre\Xml\Reader</code> such as this:</p>
+
+<pre><code>function myDeserializer(Sabre\Xml\Reader $reader) {
+
+}
+</code></pre>
+
+<p>The reader extends PHP's <a href="https://php.net/manual/en/book.xmlreader.php">XMLReader</a> object. You <em>must</em> absolutely make
+sure that you read the <em>entire</em> XML element, and not half way. The simplest
+possible deserializer function looks like this:</p>
+
+<pre><code>function myDeserializer(Sabre\Xml\Reader $reader) {
+
+    $reader-&gt;next();
+    return 'foo';
+
+}
+</code></pre>
+
+<p>The <a href="https://php.net/manual/en/xmlreader.next.php"><code>next()</code></a> function is a
+function that specifically instructs the PHP XMLReader to simply skip
+the element and anything inside of it.</p>
+
+<p>From within your deserializer function you can also easily call upon other
+deserializer functions to do the parsing for you:</p>
+
+<pre><code>function myDeserializer(Sabre\Xml\Reader $reader) {
+
+    $keyValue = Sabre\Xml\Deserializer\keyValue($reader);
+    return 'foo';
+
+}
+</code></pre>
+
+<p>Because any deserializer function (such as <code>keyValue</code>) is responsible for
+reading the entire node, we no longer need to call <code>next()</code> here.</p>
+
+<p>sabre/xml also adds a <code>parseAttributes()</code> method to the Reader to easily
+get a list of attributes. Here's a deserializer function that just returns
+the attributes and ignores sub-elements:</p>
+
+<pre><code>function myDeserializer(Sabre\Xml\Reader $reader) {
+
+    $attributes = $reader-&gt;parseAttributes();
+    $reader-&gt;next();
+    return $attributes;
+
+}
+</code></pre>
+
+<p>Note that you must read attributes before anything else.</p>
+
+<p>You can also ask the reader to parse the entire sub-tree for you:</p>
+
+<pre><code>function myDeserializer(Sabre\Xml\Reader $reader) {
+
+    $subTree = $reader-&gt;parseInnerTree();
+    return 'foo';
+
+}
+</code></pre>
+
+<p>Right now we are not doing anything with <code>$subTree</code>, but for every child
+element <code>$subTree</code> has the following:</p>
+
+<pre><code>* name
+* value
+* attributes
+</code></pre>
+
+<p><code>parseInnerTree</code> keeps your <code>$classMap</code> into consideration for this. So any
+child elements that are class-mapped will also correctly be parsed into this
+new structure.</p>
+
+<p>However, it is also possible to temporarily override the entire <code>$classMap</code> for
+the subtree. This allows to disable all custom deserializers or specify your
+own, but <em>only</em> during parsing of the subtree.</p>
+
+<pre><code>function myDeserializer(Sabre\Xml\Reader $reader) {
+
+    $classMap = $reader-&gt;classMap;
+    $classMap['{urn:foo]some-child-element'] = 'NewDeserializer';
+
+    $subTree = $reader-&gt;parseInnerTree($classMap);
+    return 'foo';
+
+}
+</code></pre>
+
+<h2 id="validate-xml-against-a-xsd">Validate XML against a XSD</h2>
+
+<p>To validate XML content before parsing, use <code>setSchema()</code> inherited from <code>XMLReader</code></p>
+
+<pre><code>$service = new Sabre\Xml\Service();
+$reader = $service-&gt;getReader();
+$validXml = $reader-&gt;setSchema('myschema.xsd')
+if ($validXml) {
+    $reader-&gt;xml($xml);
+    print_r($reader-&gt;parse());
+}
+</code></pre>
+            
+            
+                    </article>
+    </main>
+    
+    <!-- this is where the ugly bit starts. Stupid javascript :( -->
+
+    <script src="https://sabre-io.github.io/sabre.io/components/highlightjs/highlight.pack.js"></script>
+    <script>
+        hljs.configure({languages: ['php']});
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2848664-5', 'sabre.io');
+ga('send', 'pageview');
+</script>
+
+    
+    <footer>
+
+    <nav>
+        <ul>
+            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/support">Contact</a> · </li>
+            <li><a href="https://sabre-io.github.io/sabre.io/legal">Legal Info</a></li>
+        </ul>
+        <ul>
+            <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/sabredav">@sabredav</a> · </li>
+            <li><a href="https://twitter.com/fruux">@fruux</a></li>
+                    </ul>
+    </nav>
+
+</footer>
+
+</body>
