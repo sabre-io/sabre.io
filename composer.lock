@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d5b2a2766dd6185537e6bfb4d5e8bec",
+    "content-hash": "0ca05a7d42b90e3fc4a69acd4f9bff54",
     "packages": [
         {
             "name": "components/font-awesome",
@@ -3381,12 +3381,14 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sculpin/sculpin": 20,
-        "dflydev/embedded-composer": 20
+        "dflydev/embedded-composer": 20,
+        "sculpin/sculpin": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "*"
+    },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
