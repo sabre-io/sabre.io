@@ -1,0 +1,29 @@
+name: Deploy GitHub Pages
+
+on:
+  pull_request: null
+
+jobs:
+  build-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+
+      - name: Install less
+        run: sudo npm install -g less
+
+      - name: Install yui-compressor
+        run: sudo apt-get install -y yui-compressor
+
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring, dom, fileinfo, mysql, redis, opcache
+          tools: composer
+
+      - name: Generate
+        run: make gh-pages
