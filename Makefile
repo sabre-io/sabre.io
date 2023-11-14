@@ -9,28 +9,11 @@ URL = https://${DOMAIN}
 
 SOURCE_MD_FILES = $(shell find source/ -type f -name "*.md" -or -name "*.html")
 
-.PHONY: all, generate, do-deploy, server, output_dev, output_prod, output_gh
+.PHONY: all, server, output_dev, output_gh
 
-all: do-deploy
+all: output_dev, output_gh
 
-generate: composer.lock output_prod
 gh-pages: composer.lock output_gh
-
-do-deploy: generate
-	cd deploy && \
-	echo "Fetching latest changes" && \
-	git checkout master && \
-	git pull && \
-	echo "Copying over the latest website version" && \
-	rm -r * && \
-	cp -r ../output_prod/* . && \
-	touch .nojekkyl && \
-	echo $(DOMAIN) > CNAME && \
-	git add -A && \
-	git commit -m "Automatic deployment `date -u`" && \
-	echo "Pushing changes" && \
-	git push origin master && \
-	echo "Deploy complete"
 
 server:
 	vendor/bin/sculpin generate --watch --server
@@ -43,8 +26,6 @@ vendor/autoload.php:
 
 output_dev: output_dev/atom.xml
 
-output_prod: output_prod/atom.xml
-
 output_gh: output_gh/atom.xml
 
 output_dev/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
@@ -52,15 +33,10 @@ output_dev/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 	# as the main target to figure out if the source changed at all.
 	vendor/bin/sculpin generate --env=dev --url=$(URL)
 
-output_prod/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
-	# atom.xml always changes to the latest date and time, so we can use this
-	# as the main target to figure out if the source changed at all.
-	vendor/bin/sculpin generate --env=prod --url=$(URL)
-
 output_gh/atom.xml: source/css/sabre.css $(SOURCE_MD_FILES)
 	# atom.xml always changes to the latest date and time, so we can use this
 	# as the main target to figure out if the source changed at all.
-	vendor/bin/sculpin generate --env=gh --url=https://sabre-io.github.io/sabre.io
+	vendor/bin/sculpin generate --env=gh --url=$(URL)
 
 
 YUI = $(shell which yuicompressor || which yui-compressor)
