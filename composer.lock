@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ca05a7d42b90e3fc4a69acd4f9bff54",
+    "content-hash": "086eeec0e7fb9ceb5ee30bf8e4963abb",
     "packages": [
         {
             "name": "components/font-awesome",
@@ -101,20 +101,17 @@
         },
         {
             "name": "components/normalize.css",
-            "version": "2.1.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/normalize.css.git",
-                "reference": "444055467d693c67923643a0f593eff8a7afc588"
+                "reference": "45dc73f97034936e7ab1838be4887a3be315824b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/normalize.css/zipball/444055467d693c67923643a0f593eff8a7afc588",
-                "reference": "444055467d693c67923643a0f593eff8a7afc588",
+                "url": "https://api.github.com/repos/components/normalize.css/zipball/45dc73f97034936e7ab1838be4887a3be315824b",
+                "reference": "45dc73f97034936e7ab1838be4887a3be315824b",
                 "shasum": ""
-            },
-            "require": {
-                "robloach/component-installer": "*"
             },
             "type": "component",
             "extra": {
@@ -133,9 +130,9 @@
             "homepage": "http://necolas.github.com/normalize.css/",
             "support": {
                 "issues": "https://github.com/components/normalize.css/issues",
-                "source": "https://github.com/components/normalize.css/tree/master"
+                "source": "https://github.com/components/normalize.css/tree/3.0.3"
             },
-            "time": "2013-10-24T03:39:15+00:00"
+            "time": "2015-05-21T16:25:32+00:00"
         },
         {
             "name": "composer/ca-bundle",
