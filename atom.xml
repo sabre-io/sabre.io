@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title><![CDATA[sabre.io]]></title>
-    <link href="https://sabre-io.github.io/sabre.io/atom.xml" rel="self"/>
-    <link href="https://sabre-io.github.io/sabre.io/"/>
-    <updated>2023-11-14T15:43:50+00:00</updated>
+    <link href="https://sabre.io/atom.xml" rel="self"/>
+    <link href="https://sabre.io/"/>
+    <updated>2023-11-14T15:46:55+00:00</updated>
     <id>http://sabre.io/</id>
         <generator uri="https://sculpin.io/">Sculpin</generator>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4.2.0 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2019/sabre-vobject-4.2.0-release/"/>
+            <link href="https://sabre.io/blog/2019/sabre-vobject-4.2.0-release/"/>
             <updated>2019-02-19T07:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2019/sabre-vobject-4.2.0-release/</id>
+            <id>https://sabre.io/blog/2019/sabre-vobject-4.2.0-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/vobject 4.2.0.</p>
 
 <p>This release adds a few new features, and fixes several issues:</p>
@@ -31,9 +31,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 2.1.2 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2019/sabre-xml-2.1.2-release/"/>
+            <link href="https://sabre.io/blog/2019/sabre-xml-2.1.2-release/"/>
             <updated>2019-01-09T08:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2019/sabre-xml-2.1.2-release/</id>
+            <id>https://sabre.io/blog/2019/sabre-xml-2.1.2-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/xml 2.1.2.</p>
 
 <p>This release now prevents infinite loops on empty xml elements.</p>
@@ -48,9 +48,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 2.0.2 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2019/sabre-xml-2.0.2-release/"/>
+            <link href="https://sabre.io/blog/2019/sabre-xml-2.0.2-release/"/>
             <updated>2019-01-09T07:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2019/sabre-xml-2.0.2-release/</id>
+            <id>https://sabre.io/blog/2019/sabre-xml-2.0.2-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/xml 2.0.2.</p>
 
 <p>This release now prevents infinite loops on empty xml elements.</p>
@@ -65,9 +65,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 1.5.1 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2019/sabre-xml-1.5.1-release/"/>
+            <link href="https://sabre.io/blog/2019/sabre-xml-1.5.1-release/"/>
             <updated>2019-01-09T06:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2019/sabre-xml-1.5.1-release/</id>
+            <id>https://sabre.io/blog/2019/sabre-xml-1.5.1-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/xml 1.5.1.</p>
 
 <p>This release now prevents infinite loops on empty xml elements.</p>
@@ -82,9 +82,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.2.3 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2018/sabre-dav-3.2.3-release/"/>
+            <link href="https://sabre.io/blog/2018/sabre-dav-3.2.3-release/"/>
             <updated>2018-10-19T07:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2018/sabre-dav-3.2.3-release/</id>
+            <id>https://sabre.io/blog/2018/sabre-dav-3.2.3-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.2.3.</p>
 
 <p>This release now makes sure that files that are siblings of directories, are reported as files.</p>
@@ -99,9 +99,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/dav 3.1.5 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2018/sabre-dav-3.1.5-release/"/>
+            <link href="https://sabre.io/blog/2018/sabre-dav-3.1.5-release/"/>
             <updated>2018-10-19T06:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2018/sabre-dav-3.1.5-release/</id>
+            <id>https://sabre.io/blog/2018/sabre-dav-3.1.5-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/dav 3.1.5.</p>
 
 <p>Changes:</p>
@@ -121,9 +121,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 2.1.1 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2018/sabre-xml-2.1.1-release/"/>
+            <link href="https://sabre.io/blog/2018/sabre-xml-2.1.1-release/"/>
             <updated>2018-10-09T06:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2018/sabre-xml-2.1.1-release/</id>
+            <id>https://sabre.io/blog/2018/sabre-xml-2.1.1-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/xml 2.1.1.</p>
 
 <p>This release now properly detects xml parse errors in <code>parseCurrentElement()</code> edge-cases.</p>
@@ -138,9 +138,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/xml 2.0.1 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2018/sabre-xml-2.0.1-release/"/>
+            <link href="https://sabre.io/blog/2018/sabre-xml-2.0.1-release/"/>
             <updated>2018-10-09T06:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2018/sabre-xml-2.0.1-release/</id>
+            <id>https://sabre.io/blog/2018/sabre-xml-2.0.1-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/xml 2.0.1.</p>
 
 <p>This release now properly detects xml parse errors in <code>parseCurrentElement()</code> edge-cases.</p>
@@ -155,9 +155,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/http 5.0.0 release]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2018/sabre-http-5.0.0-release/"/>
+            <link href="https://sabre.io/blog/2018/sabre-http-5.0.0-release/"/>
             <updated>2018-06-04T07:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2018/sabre-http-5.0.0-release/</id>
+            <id>https://sabre.io/blog/2018/sabre-http-5.0.0-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/http 5.0.0</p>
 
 <ul>
@@ -186,9 +186,9 @@ requirement, and then just run <code>composer update</code>.</p>
         </entry>
             <entry>
             <title type="html"><![CDATA[sabre/vobject 4.1.6 released]]></title>
-            <link href="https://sabre-io.github.io/sabre.io/blog/2018/sabre-vobject-4.1.6-release/"/>
+            <link href="https://sabre.io/blog/2018/sabre-vobject-4.1.6-release/"/>
             <updated>2018-04-20T07:00:00+00:00</updated>
-            <id>https://sabre-io.github.io/sabre.io/blog/2018/sabre-vobject-4.1.6-release/</id>
+            <id>https://sabre.io/blog/2018/sabre-vobject-4.1.6-release/</id>
             <content type="html"><![CDATA[<p>We just released sabre/vobject 4.1.6.</p>
 
 <p>This release adds a few new features, and fixes several issues:</p>
