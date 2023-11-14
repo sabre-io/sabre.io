@@ -49,7 +49,7 @@
     {% endif %}
 
     {% block mainwrapper %}
-    <main{% if page.sidebar != "none" %} class="incl-sidebar"{% endif %}>
+    <main {% if page.sidebar != "none" %} class="incl-sidebar"{% endif %}>
         {% if page.sidebar != "none" %}
             {% include "sidebar.html" %}
         {% endif %}
