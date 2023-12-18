@@ -1,7 +1,7 @@
 {
     "require" : {
         "php": "*",
-        "components/font-awesome": "~4.2.0",
+        "components/font-awesome": "~6.5.1",
         "components/highlightjs": "~8.3.0",
         "components/normalize.css": "~2.1.2",
         "dflydev/embedded-composer": "^1.0@dev",
