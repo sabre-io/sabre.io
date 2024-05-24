@@ -1,9 +1,9 @@
 ---
-title: 0 byte files
+title: Zero byte files
 layout: default
 ---
 
-There are a number problems that can cause empty files to appear on the server.
+There are a number of problems that can cause empty files to appear on the server.
 Because there are a number of different scenarios that can result in 0 byte
 files, it's good to try to figure out which specific issue is the one you're
 dealing with.
@@ -16,7 +16,7 @@ There are a number of clients, in particular [OS X's Finder](/dav/clients/finder
 and [Transmit](/dav/clients/transmit) that use the so-called 'chunked transfer'
 encoding to create new files.
 
-There are many webservers that do not support this. We recommend to use Apache
+There are many webservers that do not support this. We recommend using Apache
 with mod_php (not fastcgi) or **a recent version** of nginx. Avoid Lighttpd.
 
 When servers don't properly support chunked transfer encoding, the end result
@@ -48,7 +48,7 @@ WebDAV clients, receiving an empty 0-byte file first is expected.
 Locking
 -------
 
-Furthermore, there are clients that support `LOCK`. Clients may `LOCK` a url
+Furthermore, there are clients that support `LOCK`. Clients may `LOCK` a URL
 before creating a new file. The idea is that while the file is locked, some
 other client cannot start creating a file with the same name.
 
@@ -57,13 +57,13 @@ initial webdav standard ([rfc2518][1]) differs from the updated standard
 ([rfc4918][2]). SabreDAV follows the recommendation from the latest
 specification.
 
-That is: If a client makes a `LOCK` request on a url that _does not yet_
+That is: If a client makes a `LOCK` request on a URL that _does not yet_
 exist, SabreDAV itself will create an empty file at that location.
 
 So this is another situation where an empty file may be created before the
 _actual_ file comes in.
 
-Another reason might be, that the lock-file could not be created due to a nonexistent folder or insufficient permissions.
+Another reason might be that the lock-file could not be created due to a nonexistent folder or insufficient permissions.
 Check your logfiles for errors.
 
 What if there is no follow-up PUT?
