@@ -3,7 +3,7 @@
 
     
   
-            <title>0 byte files - sabre/dav</title>
+            <title>Zero byte files - sabre/dav</title>
     
     <meta charset="utf-8">
 
@@ -107,6 +107,7 @@
                             <li><a href="https://sabre.io/dav/sync">WebDAV sync</a></li>
                             <li><a href="https://sabre.io/dav/writing-plugins">Writing Plugins</a></li>
                             <li><a href="https://sabre.io/dav/xmlelements">XML Elements</a></li>
+                            <li><a href="https://sabre.io/dav/0bytes">Zero byte files</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -130,8 +131,8 @@
     </nav>
 </aside>
                 <article>
-                            <h1>0 byte files</h1>
-                <p>There are a number problems that can cause empty files to appear on the server.
+                            <h1>Zero byte files</h1>
+                <p>There are a number of problems that can cause empty files to appear on the server.
 Because there are a number of different scenarios that can result in 0 byte
 files, it's good to try to figure out which specific issue is the one you're
 dealing with.</p>
@@ -142,7 +143,7 @@ dealing with.</p>
 and <a href="/dav/clients/transmit">Transmit</a> that use the so-called 'chunked transfer'
 encoding to create new files.</p>
 
-<p>There are many webservers that do not support this. We recommend to use Apache
+<p>There are many webservers that do not support this. We recommend using Apache
 with mod_php (not fastcgi) or <strong>a recent version</strong> of nginx. Avoid Lighttpd.</p>
 
 <p>When servers don't properly support chunked transfer encoding, the end result
@@ -175,7 +176,7 @@ WebDAV clients, receiving an empty 0-byte file first is expected.</p>
 
 <h2 id="locking">Locking</h2>
 
-<p>Furthermore, there are clients that support <code>LOCK</code>. Clients may <code>LOCK</code> a url
+<p>Furthermore, there are clients that support <code>LOCK</code>. Clients may <code>LOCK</code> a URL
 before creating a new file. The idea is that while the file is locked, some
 other client cannot start creating a file with the same name.</p>
 
@@ -184,13 +185,13 @@ initial webdav standard (<a href="https://tools.ietf.org/html/rfc2518">rfc2518</
 (<a href="https://tools.ietf.org/html/rfc4918">rfc4918</a>). SabreDAV follows the recommendation from the latest
 specification.</p>
 
-<p>That is: If a client makes a <code>LOCK</code> request on a url that <em>does not yet</em>
+<p>That is: If a client makes a <code>LOCK</code> request on a URL that <em>does not yet</em>
 exist, SabreDAV itself will create an empty file at that location.</p>
 
 <p>So this is another situation where an empty file may be created before the
 <em>actual</em> file comes in.</p>
 
-<p>Another reason might be, that the lock-file could not be created due to a nonexistent folder or insufficient permissions.
+<p>Another reason might be that the lock-file could not be created due to a nonexistent folder or insufficient permissions.
 Check your logfiles for errors.</p>
 
 <h2 id="what-if-there-is-no-follow-up-put%3F">What if there is no follow-up PUT?</h2>
@@ -231,7 +232,7 @@ server though. Have this prepared to get to a solution quicker.</p>
 
     <nav>
         <ul>
-            <li>© 2023 <a href="https://fruux.com">fruux GmbH</a> · </li>
+            <li>© 2024 <a href="https://fruux.com">fruux GmbH</a> · </li>
             <li><a href="https://sabre.io/support">Contact</a> · </li>
             <li><a href="https://sabre.io/legal">Legal Info</a></li>
         </ul>
