@@ -6,8 +6,8 @@ layout: default
 product: dav
 
 latest_versions:
-  vobject: 4.1
-  dav: 3.2.0
-  event: 5.0
-  http: 4.2
-  uri: 2.0
+  vobject: 4.5
+  dav: 4.6.0
+  event: 6.0
+  http: 7.0
+  uri: 2.3
