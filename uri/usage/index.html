@@ -82,10 +82,10 @@ in a similar way a browser would.</p>
 
 <h3 id="example">Example</h3>
 
-<pre><code>namespace Sabre\Uri;
+<pre><code>use Sabre\Uri;
 
 $base = 'http://example.org/foo/bar/';
-$new = '../hello'
+$new = '../hello';
 
 echo Uri\resolve($base, $new);
 // Output: http://example.org/foo/hello
@@ -149,11 +149,11 @@ in turn allows you to make better comparisons.</p>
 
 <h3 id="example">Example</h3>
 
-<pre><code>namespace Sabre\Uri;
+<pre><code>use Sabre\Uri;
 
 $input = 'HTTP://example.org:80/%7efoo/./bar/';
 
-echo Uri\normalize($output);
+echo Uri\normalize($input);
 // Output: http://example.org/~foo/bar/
 </code></pre>
 
@@ -166,7 +166,7 @@ even if those parts are not set.</p>
 
 <h3 id="example">Example</h3>
 
-<pre><code>namespace Sabre\Uri;
+<pre><code>use Sabre\Uri;
 
 $input = '/foo/bar';
 print_r(
@@ -205,7 +205,7 @@ creates a new url.</p>
 
 <h3 id="example">Example</h3>
 
-<pre><code>namespace Sabre\Uri;
+<pre><code>use Sabre\Uri;
 
 $input = "/path/to/file/";
 
@@ -214,7 +214,7 @@ list(
     $basename
 ) = Uri\split($input);
 
-echo $parent; // output : /path/to/
+echo $parent; // output : /path/to
 echo $basename; // output : file
 </code></pre>
 
