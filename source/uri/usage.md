@@ -16,10 +16,10 @@ in a similar way a browser would.
 
 ### Example
 
-    namespace Sabre\Uri;
+    use Sabre\Uri;
 
     $base = 'http://example.org/foo/bar/';
-    $new = '../hello'
+    $new = '../hello';
 
     echo Uri\resolve($base, $new);
     // Output: http://example.org/foo/hello
@@ -53,11 +53,11 @@ For example, these urls all point to the same resource:
 
 ### Example
 
-    namespace Sabre\Uri;
+    use Sabre\Uri;
 
     $input = 'HTTP://example.org:80/%7efoo/./bar/';
 
-    echo Uri\normalize($output);
+    echo Uri\normalize($input);
     // Output: http://example.org/~foo/bar/
 
 
@@ -71,7 +71,7 @@ even if those parts are not set.
 
 ### Example
 
-    namespace Sabre\Uri;
+    use Sabre\Uri;
 
     $input = '/foo/bar';
     print_r(
@@ -112,7 +112,7 @@ The `split` function takes a path and returns the [`basename()`][2] and
 
 ### Example
 
-    namespace Sabre\Uri;
+    use Sabre\Uri;
 
     $input = "/path/to/file/";
 
@@ -121,7 +121,7 @@ The `split` function takes a path and returns the [`basename()`][2] and
         $basename
     ) = Uri\split($input);
 
-    echo $parent; // output : /path/to/
+    echo $parent; // output : /path/to
     echo $basename; // output : file
 
 ### Why not basename() and dirname()?
