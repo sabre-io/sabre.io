@@ -28,6 +28,26 @@ seems to consistently be that either:
 
 See [Webservers](/dav/webservers) for more information.
 
+**Update/possible fix:**
+	A user reported that Apache mitigated this problem. Apache2+FPM/fcgi is said to be working using the flag `SetEnv proxy-sendcl 1`.
+	According to the bug filed [here](https://bz.apache.org/bugzilla/show_bug.cgi?id=57087) this was introduced in Apache 2.4.46.
+	
+Example entry:
+	
+```
+	<VirtualHost *:80>
+		...
+		SetEnv proxy-sendcl 1
+		...
+		<FilesMatch "\.php$">
+			SetHandler "proxy:fcgi://127.0.0.1:9000"
+		</FilesMatch>
+		...
+	</VirtualHost>
+```
+
+We have not yet tested this fix.
+
 
 Clients submitting files in two phases
 --------------------------------------
