@@ -9,7 +9,7 @@ Requirements
 
 Baikal requires:
 
-* PHP 7
+* PHP (refer to the [source code][2] to view the supported version)
 * MySQL or SQLite
 * Apache or Nginx
 
@@ -121,3 +121,4 @@ server {
 
 
 [1]: https://github.com/sabre-io/Baikal/releases
+[2]: https://github.com/sabre-io/Baikal/blob/master/composer.json
