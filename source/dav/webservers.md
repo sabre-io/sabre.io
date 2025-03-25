@@ -109,8 +109,6 @@ IIS might not set HTTP_AUTHORIZATION automatically. According to the
 > configuration "Directory Security". Click on "Edit" and only check "Anonymous
 > Access", all other fields should be left unchecked.
 
-There's a [tutorial on myroundcube.com][3] to get sabredav running on IIS.
 
 [1]: http://www.php.net/manual/en/features.http-auth.php
 [2]: http://httpd.apache.org/docs/2.2/mod/mod_reqtimeout.html
-[3]: https://myroundcube.com/how-to/installing-sabredav-on-iis
