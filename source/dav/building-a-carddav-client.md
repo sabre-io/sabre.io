@@ -417,7 +417,7 @@ of bandwidth to only check the etag first.
             <d:href>/addressbooks/johndoe/contacts/acme-12345.vcf</d:href>
             <d:propstat>
                 <d:prop>
-                    <d:getetag>"9999-2344""</d:getetag>
+                    <d:getetag>"9999-2344"</d:getetag>
                 </d:prop>
                 <d:status>HTTP/1.1 200 OK</d:status>
             </d:propstat>
