@@ -20,6 +20,7 @@ Protect your privacy by hosting calendars and contacts yourself - with Baïkal.
 * [Installation instructions][2]
 * [Installation using Docker (unofficial)][10]
 * [Upgrade instructions][3]
+* [![Deploy with Zenith][11]][12] one-click managed hosting, no server required
 
 <img src='/img/baikal-in-use.png' style="width: 100%; max-width: 640px;" />
 
@@ -37,3 +38,5 @@ for easy management.
 [7]: https://github.com/sabre-io/Baikal/graphs/contributors
 [8]: /dav/
 [10]: /baikal/docker-install/
+[11]: https://cdn.zenith.hosting/buttons/deploy-with-zenith.svg
+[12]: https://zenith.hosting/host/ba-kal
