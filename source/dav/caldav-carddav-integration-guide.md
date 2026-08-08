@@ -77,7 +77,7 @@ also how you'd want to build up your own server.
     $server->exec();
 
 
-To setup the sqlite database (or mysql, if you prefer), follow the
+To setup the SQLite database (or MySQL/PostgreSQL, if you prefer), follow the
 instructions on the [CalDAV](/dav/caldav) page.
 
 Setting up a CardDAV server is extremely similar. For examples you can also

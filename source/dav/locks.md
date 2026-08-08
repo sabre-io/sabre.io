@@ -20,11 +20,12 @@ Enabling locking
 ----------------
 
 To enable locks, the easiest thing to do, is to use use the PDO backend.
-To do this, you must first create a sqlite or mysql database, and create
-the table as specified in one of these files:
+To do this, you must first create an SQLite, MySQL or PostgreSQL
+database, and create the table as specified in one of these files:
 
 * examples/sql/sqlite.locks.sql
 * examples/sql/mysql.locks.sql
+* examples/sql/pgsql.locks.sql
 
 After the database has been created, connect to it using PDO and add the
 locking plugin to your server.
@@ -51,7 +52,7 @@ just instantiate it with a filename that the server has write-access to:
 
     $locksBackend = new Sabre\DAV\Locks\Backend\File('/tmp/davlocks');
 
-We don't recommend this. SQlite is effectively a 'single file' storage format,
+We don't recommend this. SQLite is effectively a 'single file' storage format,
 and will work much better for these purposes.
 
 It's also possible to create your own, by extending

@@ -19,7 +19,7 @@ This document is a quick guide to help you set-up a simple caldav server.
 Database setup
 --------------
 
-By default, the sabre/dav system requires either MySQL or SQLite.
+By default, the sabre/dav system requires either MySQL, PostgreSQL or SQLite.
 
 ### Sqlite
 
@@ -47,6 +47,14 @@ After that, you can just create the tables by running:
 Adjust the hostname and username to your setup. If you are used to using a
 GUI tool to manage MySQL, you can just use all the files from the
 `examples/sql/` directory to get up and running.
+
+
+### PostgreSQL
+
+PostgreSQL is very similar to MySQL. Use the pgsql examples and the psql command
+line:
+
+    cat examples/sql/pgsql.* | psql -U postgres -h 127.0.0.1 sabredav
 
 
 Creating the server endpoint
