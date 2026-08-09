@@ -139,7 +139,7 @@ sabre/dav into a modern CalDAV server.</p>
 
 <h2 id="database-setup">Database setup</h2>
 
-<p>By default, the sabre/dav system requires either MySQL or SQLite.</p>
+<p>By default, the sabre/dav system requires either MySQL, PostgreSQL or SQLite.</p>
 
 <h3 id="sqlite">Sqlite</h3>
 
@@ -169,6 +169,14 @@ server. A quick and dirty way to do this, is to simply run:</p>
 <p>Adjust the hostname and username to your setup. If you are used to using a
 GUI tool to manage MySQL, you can just use all the files from the
 <code>examples/sql/</code> directory to get up and running.</p>
+
+<h3 id="postgresql">PostgreSQL</h3>
+
+<p>PostgreSQL is very similar to MySQL. Use the pgsql examples and the psql command
+line:</p>
+
+<pre><code>cat examples/sql/pgsql.* | psql -U postgres -h 127.0.0.1 sabredav
+</code></pre>
 
 <h2 id="creating-the-server-endpoint">Creating the server endpoint</h2>
 

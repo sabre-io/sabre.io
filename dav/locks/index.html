@@ -145,12 +145,13 @@ read-write support. Without it, they fall back to a read-only state.</p>
 <h2 id="enabling-locking">Enabling locking</h2>
 
 <p>To enable locks, the easiest thing to do, is to use use the PDO backend.
-To do this, you must first create a sqlite or mysql database, and create
-the table as specified in one of these files:</p>
+To do this, you must first create an SQLite, MySQL or PostgreSQL
+database, and create the table as specified in one of these files:</p>
 
 <ul>
 <li>examples/sql/sqlite.locks.sql</li>
 <li>examples/sql/mysql.locks.sql</li>
+<li>examples/sql/pgsql.locks.sql</li>
 </ul>
 
 <p>After the database has been created, connect to it using PDO and add the
@@ -177,7 +178,7 @@ just instantiate it with a filename that the server has write-access to:</p>
 <pre><code>$locksBackend = new Sabre\DAV\Locks\Backend\File('/tmp/davlocks');
 </code></pre>
 
-<p>We don't recommend this. SQlite is effectively a 'single file' storage format,
+<p>We don't recommend this. SQLite is effectively a 'single file' storage format,
 and will work much better for these purposes.</p>
 
 <p>It's also possible to create your own, by extending
