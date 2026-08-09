@@ -16,12 +16,12 @@ addressbook-syncing functionality in SabreDAV.
 Database setup
 --------------
 
-Example sql files are supplied for postgres, sqlite and mysql. The latter two
+Example SQL files are supplied for PostgreSQL, SQLite and MySQL. The latter two
 are officially supported and unit tested.
 
-This example assumes you're using sqlite.
+This example assumes you're using SQLite.
 
-Create a 'data' directory where you're going to store the sqlite database.
+Create a 'data' directory where you're going to store the SQLite database.
 
     mkdir data/
     cat examples/sql/sqlite.* | sqlite3 data/db.sqlite

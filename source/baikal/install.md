@@ -10,7 +10,7 @@ Requirements
 Baikal requires:
 
 * PHP (refer to the [source code][2] to view the supported version)
-* MySQL or SQLite
+* MySQL, PostgreSQL or SQLite
 * Apache or Nginx
 
 Installation instructions

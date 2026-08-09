@@ -9,7 +9,7 @@ Upgrading Baïkal
 
 To upgrade Baïkal, follow the following steps:
 
-1. Make a backup of your MySQL or SQLite database. This step is really important!
+1. Make a backup of your database. This step is really important!
 2. Make a backup of the `baikal` directory on your server, by creating a copy.
 3. Grab the latest Baïkal zip file from [GitHub][1].
    Make sure to use the release file with bundled dependencies, not the plain source code.

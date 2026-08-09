@@ -47,7 +47,7 @@ What's the quickest way to deal with principals?
 ------------------------------------------------
 
 sabre/dav ships with a 'backend class' that adds principals to your tree.
-Principal information is stored in sqlite or mysql.
+Principal information is stored in SQLite, MySQL or PostgreSQL.
 
 To instantiate this, add it to your 'root node'.
 

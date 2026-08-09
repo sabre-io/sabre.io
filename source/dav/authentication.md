@@ -33,8 +33,9 @@ SabreDAV comes with the following backends:
 Using the PDO backend
 ---------------------
 
-The PDO backend can either use MySQL or SQLite databases. An example for the
-table creation can be found in the [source][1] in the `examples/sql` directory.
+The PDO backend can either use MySQL, PostgreSQL or SQLite databases. An example
+for the table creation can be found in the [source][1] in the `examples/sql`
+directory.
 
 Assuming you already have a server up and running, add the plugin using the
 following code:

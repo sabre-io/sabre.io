@@ -12,8 +12,8 @@ plugin allows you to store any arbitrary property on any resource.
 It is possible to create different backends for this plugin, but sabre/dav
 ships with a PDO plugin.
 
-The database schema can be found in `examples/sqlite.propertystorage.sql` and
-`examples/mysql.propertystorage.sql`.
+The database schema can be found in `examples/sqlite.propertystorage.sql`,
+`examples/mysql.propertystorage.sql` and `examples/pgsql/propertystorage.sql`.
 
 To set this up, just run:
 
